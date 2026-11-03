@@ -2583,10 +2583,156 @@ html {
     font-size: 6px;
   }
 }
+
+/* Mr Mido Motors — Language Switch */
+
+.mido-lang-switch {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  flex-shrink: 0;
+
+  min-width: 46px;
+  min-height: 32px;
+  padding: 5px 7px;
+
+  color: #243437;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+
+  cursor: pointer;
+  transition:
+    color .2s ease,
+    background .2s ease,
+    border-color .2s ease;
+}
+
+.mido-lang-switch .icon-svg {
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+}
+
+.mido-lang-switch:hover {
+  color: #111b1d;
+  background: #f2f5f5;
+  border-color: #e4e9e9;
+}
+
+.mido-lang-switch:focus-visible {
+  outline: 2px solid #415e62;
+  outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+  .mido-lang-switch {
+    min-width: 36px;
+    min-height: 30px;
+    padding: 3px;
+    gap: 3px;
+    font-size: 10px;
+  }
+
+  .mido-lang-switch .icon-svg {
+    width: 17px;
+    height: 17px;
+  }
+}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.8/dist/umd/supabase.min.js" defer></script>
 </head>
+
 <body>
+
+<style>
+  /* Hide the old language switch inside the header */
+  .quick-icons > .mido-lang-switch {
+    display: none !important;
+  }
+
+  /* Permanent language switch */
+  #mido-permanent-language {
+    position: fixed !important;
+    top: 7px;
+    left: 12px;
+    z-index: 999999 !important;
+
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 7px 10px;
+    min-height: 32px;
+
+    background: #ffffff;
+    color: #172326;
+    border: 1px solid #e5e9ea;
+    border-radius: 8px;
+
+    font-family: Inter, Arial, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    cursor: pointer;
+  }
+
+  #mido-permanent-language:hover {
+    background: #f3f5f5;
+    border-color: #c9d2d3;
+  }
+
+  #mido-permanent-language:focus-visible {
+    outline: 2px solid #385c60;
+    outline-offset: 2px;
+  }
+
+  #mido-permanent-language svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  @media (max-width: 480px) {
+    #mido-permanent-language {
+      top: 5px;
+      left: 5px;
+      padding: 5px 7px;
+      gap: 4px;
+      font-size: 10px;
+    }
+  }
+</style>
+
+<button
+  id="mido-permanent-language"
+  type="button"
+  onclick="toggleLang()"
+  aria-label="Switch language between Arabic and English"
+  title="Change language"
+>
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <circle cx="12" cy="12" r="9"></circle>
+    <path d="M3 12h18"></path>
+    <path d="M12 3a15 15 0 0 1 0 18"></path>
+    <path d="M12 3a15 15 0 0 0 0 18"></path>
+  </svg>
+  <span>AR / EN</span>
+</button>
+
 <div id="header"></div>
 <main id="app" style="min-height:60vh"></main>
 <div id="footer"></div>
@@ -3000,7 +3146,19 @@ function header() {
   const extra = get('navigation_items').filter(x => x.is_visible).sort((a, b) => a.sort_order - b.sort_order);
   $('header').innerHTML = `<header><div class="topbar"><div class="container inside">
  <form class="searchbar" onsubmit="event.preventDefault();searchFromHeader(this)"><input name="q" placeholder="${txt('بتدور على قطعة معينة؟ ابحث هنا...', 'Search motorcycle parts...')}" aria-label="Search"><button aria-label="Search">${icon('search')}</button></form>
- <div class="quick-icons"><a class="quick-icon" href="#/cart"><span class="icon-badge">${icon('cart')}</span><span>${txt('سلة التسوق', 'Cart')}</span> ${c ? `<span class="counter">${c}</span>` : ''}</a>
+ 
+<div class="quick-icons">
+  <button
+    type="button"
+    class="mido-lang-switch"
+    onclick="toggleLang()"
+    title="${lang === 'ar' ? 'Switch to English' : 'التبديل للعربية'}"
+    aria-label="${lang === 'ar' ? 'Switch to English' : 'التبديل للعربية'}"
+  >
+    ${icon('lang')}
+    <span>${lang === 'ar' ? 'EN' : 'AR'}</span>
+  </button>
+  <a class="quick-icon" href="#/cart"><span class="icon-badge">${icon('cart')}</span><span>${txt('سلة التسوق', 'Cart')}</span> ${c ? `<span class="counter">${c}</span>` : ''}</a>
  <a class="quick-icon" href="#/favorites"><span class="icon-badge">${icon('heart')}</span><span>${txt('المفضلة', 'Wishlist')}</span></a>
  <a class="quick-icon" href="#/account"><span class="icon-badge">${icon('user')}</span><span>${txt('حسابي', 'Account')}</span></a>
  </div></div></div>
@@ -3938,12 +4096,13 @@ async function loginWithGoogle(button) {
       'Connecting to Google...'
     );
 
-  const { error } = await state.db.auth.signInWithOAuth({
-   provider: 'google',
-   options: {
-     redirectTo: 'https://mrmidomotors.vercel.app/'
+const { error } = await state.db.auth.signInWithOAuth({
+  provider: 'google',
+  options: {
+    redirectTo: window.location.origin + window.location.pathname
   }
 });
+
 if (error) throw error;
 
   } catch (error) {
@@ -6066,7 +6225,63 @@ function hydrateBike(prefix, b) {
 }
 function render() {
 
+  
   header();
+
+  // تثبيت علامة اللغة في الهيدر بعد كل إعادة رسم
+  const languageContainer = document.querySelector(
+    '#header .quick-icons'
+  );
+
+  if (languageContainer) {
+    let languageSwitch = languageContainer.querySelector(
+      '.mido-lang-switch'
+    );
+
+    if (!languageSwitch) {
+      languageSwitch = document.createElement('button');
+      languageSwitch.className = 'mido-lang-switch';
+      languageSwitch.type = 'button';
+      languageContainer.prepend(languageSwitch);
+    }
+
+    languageSwitch.innerHTML = `
+      ${icon('lang')}
+      <span>${lang === 'ar' ? 'EN' : 'AR'}</span>
+    `;
+
+    languageSwitch.title =
+      lang === 'ar' ? 'Switch to English' : 'التبديل للعربية';
+
+    languageSwitch.setAttribute(
+      'aria-label',
+      languageSwitch.title
+    );
+
+    languageSwitch.onclick = toggleLang;
+
+    Object.assign(languageSwitch.style, {
+      display: 'inline-flex',
+      visibility: 'visible',
+      opacity: '1',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexShrink: '0',
+      gap: '5px',
+      minWidth: '45px',
+      minHeight: '34px',
+      padding: '5px 8px',
+      background: 'transparent',
+      color: '#243437',
+      border: '1px solid transparent',
+      borderRadius: '8px',
+      fontFamily: 'Inter, Arial, sans-serif',
+      fontSize: '11px',
+      fontWeight: '700',
+      cursor: 'pointer'
+    });
+  }
+
   footer();
   applyTheme();
   const path = route();
