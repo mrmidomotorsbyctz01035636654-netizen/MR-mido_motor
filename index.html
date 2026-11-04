@@ -2646,6 +2646,149 @@ html {
   }
 }
 
+/* Mr Mido Motors — Admin Hamburger Menu */
+
+.admin-layout {
+  display: block;
+}
+
+.mido-admin-menu {
+  position: relative;
+  width: 100%;
+  margin-bottom: 18px;
+  z-index: 50;
+}
+
+.mido-admin-details {
+  position: relative;
+}
+
+.mido-admin-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+
+  width: 100%;
+  padding: 12px 17px;
+
+  color: #fff;
+  background: #142426;
+  border: 1px solid #2e4245;
+  border-radius: 12px;
+
+  cursor: pointer;
+  list-style: none;
+  user-select: none;
+}
+
+.mido-admin-trigger::-webkit-details-marker {
+  display: none;
+}
+
+.mido-admin-trigger-left {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.mido-admin-hamburger {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid #ffffff25;
+  background: #ffffff10;
+  border-radius: 9px;
+}
+
+.mido-admin-hamburger .icon-svg {
+  width: 21px;
+  height: 21px;
+}
+
+.mido-admin-trigger strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.mido-admin-trigger small {
+  display: block;
+  color: #b6c9ca;
+  font-size: 11px;
+}
+
+.mido-admin-chevron {
+  font-size: 24px;
+  transition: transform .2s;
+}
+
+.mido-admin-details[open] .mido-admin-chevron {
+  transform: rotate(180deg);
+}
+
+.mido-admin-dropdown {
+  position: absolute;
+  top: calc(100% + 7px);
+  inset-inline-start: 0;
+
+  width: min(360px, 100%);
+  max-height: min(65vh, 580px);
+  overflow-y: auto;
+
+  padding: 8px;
+  background: #142426;
+  border: 1px solid #32494b;
+  border-radius: 12px;
+
+  box-shadow: 0 16px 40px #0004;
+  z-index: 100;
+}
+
+.mido-admin-dropdown a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+
+  padding: 12px 13px;
+  margin: 2px 0;
+  border-radius: 8px;
+
+  color: #e5eeee;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.mido-admin-dropdown a:hover {
+  background: #ffffff12;
+}
+
+.mido-admin-dropdown a.active {
+  background: #ffcc38;
+  color: #142426;
+  font-weight: 900;
+}
+
+.mido-admin-trigger:focus-visible,
+.mido-admin-dropdown a:focus-visible {
+  outline: 2px solid #ffcc38;
+  outline-offset: 2px;
+}
+
+@media (max-width: 760px) {
+  .mido-admin-trigger {
+    padding: 10px 12px;
+  }
+
+  .mido-admin-dropdown {
+    width: 100%;
+  }
+}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.8/dist/umd/supabase.min.js" defer></script>
 </head>
@@ -3413,7 +3556,7 @@ function home() {
   ];
   return `<div id="hero-wrap">${heroMarkup()}</div><div class="finder reveal"><div><h3>◈ ${txt('اختار موتوسيكلَك', 'Find your motorcycle')}</h3><p>${txt('هنعرضلك قطع الغيار المتوافقة معاه بالضبط', 'See only verified compatible products')}</p></div>
  ${bikeSelects('bike')}<button class="btn" onclick="saveBike()">⌕ ${txt('بحث', 'Find parts')}</button></div>
- <section class="section container">${sectionHead('تسوق حسب الفئة', 'Shop by category', '/shop')}<div class="categories">${cats().slice(0, 8).map(c => `<a class="cat-item reveal" href="#/shop?category=${E(c.slug)}"><span class="cat-circle">${img(c.image_url || CATEGORY_REFERENCE_IMAGES[c.slug] || MEDIA.garage, c.name_ar)}</span><span>${E(t(c, 'name_ar', 'name_en'))}</span></a>`).join('')}</div></section>
+ <section class="section container">${sectionHead('تسوق حسب الفئة', 'Shop by category', '/shop')}<div class="categories">${cats().slice(0, 8).map(c => `<a class="cat-item reveal" href="#/shop?category=${E(c.id)}"><span class="cat-circle">${img(c.image_url || CATEGORY_REFERENCE_IMAGES[c.slug] || MEDIA.garage, c.name_ar)}</span><span>${E(t(c, 'name_ar', 'name_en'))}</span></a>`).join('')}</div></section>
  <section class="section container"><div class="services-grid">${quick.map(([r, ar, en, d, eng, sym]) => `<a href="#/${r}" class="service-tile reveal"><div><strong>${txt(ar, en)}</strong><p>${txt(d, eng)}</p><span class="tiny-link">${txt('ابدأ الآن ←', 'Get started →')}</span></div><span class="service-symbol">${icon(r === 'maintenance' ? 'dashboard' : r === 'garage' ? 'user' : r === 'builder' ? 'cart' : 'search')}</span></a>`).join('')}</div></section>
  <section class="section container">${sectionHead('منتجات مميزة', 'Featured products')}<div class="grid grid-4">${catalog.map(cardProduct).join('')}</div>${!catalog.length ? noProducts() : ''}</section>
  <section class="section container">${topBanner('home') || `<div class="promo-banner reveal"><img src="${MEDIA.garage}" loading="lazy" alt="Motorcycles"><div><span class="kicker">MR MIDO MOTORS</span><h2>${txt('جاهز للمشوار الجاي؟', 'Ready for the next ride?')}</h2><p>${txt('كل اللي يحتاجه موتوسيكلَك من قطع غيار وإكسسوارات وخدمات في مكان واحد.', 'Accessories, service and motorcycle essentials in one place.')}</p><a class="btn primary sm" href="#/builder">${txt('جهز موتوسيكلَك', 'Build your ride')}</a></div></div>`}</section>
@@ -3457,7 +3600,9 @@ function shop(showOffers = false) {
 
   const q = getQ();
   const slug = q.get('category') || state.shopCategory;
-  const category = cats().find(c => c.slug === slug);
+const category = cats().find(
+  c => String(c.id) === String(slug) || c.slug === slug
+);
   const query = q.get('q') || '';
   const fit = q.get('fit') === '1';
   const offers = showOffers || q.get('offers') === '1';
@@ -3480,7 +3625,7 @@ function shop(showOffers = false) {
   ps = ps.slice(start, start + per);
   const title = fit ? txt('قطع الغيار المناسبة لموتوسيكلَك', 'Compatible parts') : category ? t(category, 'name_ar', 'name_en') : offers ? tr('offers') : tr('shop');
   return `${pageHead(title, txt('اكتشف المنتجات واختر الأنسب لموتوسيكلَك', 'Discover motorcycle parts and accessories'))}<div class="container">${topBanner(category?.slug || 'shop')}
- <div class="shop-layout section"><aside class="surface filters"><h3>${txt('تصفية النتائج', 'Filters')}</h3><div class="field"><label>${txt('الفئة', 'Category')}</label><select onchange="state.shopPage=1;nav('/shop?category='+this.value)"><option value="">${txt('كل الفئات', 'All categories')}</option>${cats().map(c => `<option ${slug === c.slug ? 'selected' : ''} value="${E(c.slug)}">${E(t(c, 'name_ar', 'name_en'))}</option>`).join('')}</select></div>
+ <div class="shop-layout section"><aside class="surface filters"><h3>${txt('تصفية النتائج', 'Filters')}</h3><div class="field"><label>${txt('الفئة', 'Category')}</label><select onchange="state.shopPage=1;nav('/shop?category='+this.value)"><option value="">${txt('كل الفئات', 'All categories')}</option>${cats().map(c => `<option ${String(slug) === String(c.id) || slug === c.slug ? 'selected' : ''} value="${E(c.id)}">${E(t(c, 'name_ar', 'name_en'))}</option>`).join('')}</select></div>
  <div class="field"><label>${txt('أقصى سعر', 'Maximum price')}</label><input type="number" min="0" placeholder="EGP" value="${E(state.shopPrice)}" onchange="state.shopPrice=this.value;state.shopPage=1;render()"></div>
  <label class="small"><input type="checkbox" ${state.shopAvail ? 'checked' : ''} onchange="state.shopAvail=this.checked;state.shopPage=1;render()"> ${txt('المتوفر فقط', 'In stock only')}</label>
  <div class="line"></div><button class="btn full sm outline" onclick="state.shopPrice='';state.shopAvail=false;state.shopCategory='';state.shopPage=1;nav('/shop')">${txt('مسح الفلاتر', 'Clear filters')}</button>
@@ -4849,15 +4994,15 @@ const A = {
     'alt',
     'sort_order:int'
   ],
+
   categories: [
     'name_ar',
     'name_en',
-    'slug',
-    'parent_id:categories',
     'image_url:image',
     'sort_order:int',
     'is_active:bool'
   ],
+
   brands: [
     'name',
     'image_url:image',
@@ -5114,9 +5259,55 @@ function allowedSections() {
     'role_permissions'
   ].includes(x[0]) || state.roles.includes('owner')) && perm(x[3]))
 }
+
 function adminNav(active) {
-  return `<div class="admin-side"><h3 style="color:white;margin:5px 10px 14px;display:flex;align-items:center;gap:10px">${icon('dashboard')} ${txt('الإدارة', 'Admin')}</h3><div class="admin-nav-list">${allowedSections().map(([key, ar, en]) => `<a href="#/admin/${key === 'overview' ? '' : key}" class="${key === active ? 'active' : ''}">${txt(ar, en)}</a>`).join('')}</div></div>`
+  const sections = allowedSections();
+
+  const current = sections.find(x => x[0] === active);
+
+  const currentName = current
+    ? txt(current[1], current[2])
+    : txt('نظرة عامة', 'Overview');
+
+  return `
+    <div class="mido-admin-menu">
+      <details class="mido-admin-details">
+        <summary class="mido-admin-trigger">
+          <span class="mido-admin-trigger-left">
+            <span class="mido-admin-hamburger">
+              ${icon('menu')}
+            </span>
+
+            <span>
+              <strong>${txt('قائمة الإدارة', 'Admin Menu')}</strong>
+              <small>${currentName}</small>
+            </span>
+          </span>
+
+          <span class="mido-admin-chevron">⌄</span>
+        </summary>
+
+        <nav class="mido-admin-dropdown"
+             aria-label="${txt('أقسام الإدارة', 'Admin sections')}">
+
+          ${sections.map(([key, ar, en]) => `
+            <a
+              href="#/admin/${key === 'overview' ? '' : key}"
+              class="${key === active ? 'active' : ''}"
+              ${key === active ? 'aria-current="page"' : ''}
+              onclick="this.closest('details').open = false"
+            >
+              <span>${txt(ar, en)}</span>
+              ${key === active ? '<span>✓</span>' : ''}
+            </a>
+          `).join('')}
+
+        </nav>
+      </details>
+    </div>
+  `;
 }
+
 function adminPage(section = 'overview') {
 
   if (!state.user || !state.staff) return authGate('admin');
@@ -5186,7 +5377,14 @@ function adminCustomers() {
   return `<div class="table-wrap"><table class="data-table"><thead><tr><th>${txt('الاسم', 'Name')}</th><th>${txt('الهاتف', 'Phone')}</th><th>${txt('الطلبات', 'Orders')}</th><th>${txt('الحجوزات', 'Bookings')}</th></tr></thead><tbody>${rows.map(p => `<tr><td>${E(p.full_name)}</td><td>${E(p.phone)}</td><td>${get('orders').filter(o => o.user_id === p.id).length}</td><td>${get('service_bookings').filter(b => b.user_id === p.id).length}</td></tr>`).join('')}</tbody></table></div>`
 }
 function adminInventory() {
+  const quantity = Number(data.get('quantity'));
 
+  if (!Number.isSafeInteger(quantity) || quantity < 0) {
+    return toast(
+      txt('اكتب كمية صحيحة', 'Enter a valid quantity'),
+      true
+    );
+  }
   const rows = get('inventory').sort((a, b) => a.quantity - b.quantity);
   return `<p class="notice info">${txt('المخزون بيتغير من العملية الآمنة دي فقط، وكل تغيير بيتسجل في حركة المخزون.', 'Stock adjustments go through a secure RPC and are logged.')}</p>
  <div class="table-wrap" style="margin-top:17px"><table class="data-table"><thead><tr><th>${txt('المنتج', 'Product')}</th><th>${txt('الكمية', 'Qty')}</th><th>${txt('الحد الأدنى', 'Min')}</th><th>${txt('تعديل المخزون', 'Adjust')}</th></tr></thead><tbody>
@@ -5464,11 +5662,154 @@ function adminTable(section) {
  <button class="btn sm outline" onclick="deleteAdminRecord('${section}','${E(x[keyCol(section)])}')">${txt('حذف', 'Delete')}</button>`}</td></tr>`).join('') || `<tr><td colspan="${shown.length + 1}" class="muted">${txt('لا توجد سجلات', 'No records')}</td></tr>`}</tbody></table></div>
  <p class="muted small" style="margin-top:12px">${rows.length > 100 ? txt('عرض أول 100 سجل فقط.', 'Showing first 100 records.') : ''}</p>`
 }
+
+async function uploadCategoryImage(input) {
+  const file = input.files?.[0];
+  if (!file) return;
+
+  const progress = document.getElementById(
+    'category-upload-progress'
+  );
+
+  const imageField = document.getElementById(
+    'admin-media-image_url'
+  );
+
+  const form = input.closest('form');
+  const saveButton = form?.querySelector(
+    'button[type="submit"], button:not([type])'
+  );
+
+  const allowed = [
+    'image/jpeg',
+    'image/png',
+    'image/webp',
+    'image/gif'
+  ];
+
+  if (!allowed.includes(file.type)) {
+    toast(
+      txt('صيغة الصورة غير مدعومة', 'Unsupported image format'),
+      true
+    );
+    input.value = '';
+    return;
+  }
+
+  input.disabled = true;
+  input.dataset.uploading = '1';
+
+  if (saveButton) saveButton.disabled = true;
+
+  if (progress) {
+    progress.textContent = txt(
+      'جاري رفع الصورة...',
+      'Uploading image...'
+    );
+  }
+
+  try {
+    const compressed = await compressImageIfNeeded(file);
+
+    const uploadForm = new FormData();
+    uploadForm.set('image', compressed);
+
+    const result = await callEdge(
+      'upload-image',
+      uploadForm,
+      true
+    );
+
+    const url = safeUrl(result.url || '');
+
+    if (!/^https:\/\//i.test(url)) {
+      throw new Error('INVALID_IMAGE_URL');
+    }
+
+    if (imageField) {
+      imageField.value = url;
+      imageField.dispatchEvent(
+        new Event('change', { bubbles: true })
+      );
+    }
+
+    if (progress) {
+      progress.textContent = txt(
+        'تم رفع الصورة بنجاح',
+        'Image uploaded successfully'
+      );
+    }
+
+    toast(
+      txt('تم رفع الصورة', 'Image uploaded')
+    );
+
+  } catch (error) {
+    if (progress) {
+      progress.textContent = txt(
+        'فشل رفع الصورة، حاول مرة أخرى',
+        'Upload failed, please try again'
+      );
+    }
+
+    toast(friendlyError(error), true);
+    input.value = '';
+
+  } finally {
+    input.disabled = false;
+    delete input.dataset.uploading;
+
+    if (saveButton) saveButton.disabled = false;
+  }
+}
+
 function adminField(table, spec, record) {
 
   const [key, kind = '', opts = ''] = spec.split(':');
   const val = record?.[key];
   const label = key.replaceAll('_', ' ');
+  
+  if (table === 'categories' && key === 'image_url') {
+    return `
+      <div class="field wide">
+        <label>
+          ${txt('صورة التصنيف', 'Category Image')}
+        </label>
+
+        ${val ? `
+          <img
+            src="${E(safeUrl(val))}"
+            alt="Category"
+            style="width:110px;height:100px;
+                   object-fit:contain;
+                   border:1px solid #ddd;
+                   border-radius:10px;
+                   margin-bottom:10px"
+          >
+        ` : ''}
+
+        <input
+          type="file"
+          accept="image/jpeg,image/png,image/webp,image/gif"
+          onchange="uploadCategoryImage(this)"
+        >
+
+        <textarea
+          class="input"
+          id="admin-media-image_url"
+          rows="1"
+          placeholder="https://..."
+          style="margin-top:10px"
+        >${E(val || '')}</textarea>
+
+        <small
+          id="category-upload-progress"
+          class="muted"
+        ></small>
+      </div>
+    `;
+  }
+
   if (kind === 'bool') return `<div class="field"><label><input type="checkbox" name="${key}" ${val ? 'checked' : ''}> ${E(label)}</label></div>`;
   if (kind === 'select') return `<div class="field"><label>${E(label)}</label><select name="${key}"><option value="">—</option>${opts.split('|').map(x => `<option ${val === x ? 'selected' : ''}>${E(x)}</option>`).join('')}</select></div>`;
   if (kind === 'image') return `<div class="field wide"><label>${E(label)}</label>${mediaInput('admin-media-' + key, false, val || '')}<input type="hidden" name="${key}" value=""></div>`;
@@ -5503,16 +5844,721 @@ function adminField(table, spec, record) {
   ].includes(kind) ? 'number' : 'text'}" ${kind === 'num' ? 'step="0.01"' : ''}
  value="${E(kind === 'datetime' && val ? String(val).slice(0, 16) : val ?? '')}"></div>`
 }
+
+function editSimpleProduct(id) {
+  const p = id ? by('products', id) : null;
+
+  if (id && !p) {
+    return toast(txt('المنتج غير موجود', 'Product not found'), true);
+  }
+
+  const photo = p ? pimg(p.id) : '';
+  
+  const categoryOptions = get('categories')
+    .filter(c => c.is_active !== false)
+    .map(c => `
+      <option
+        value="${E(c.id)}"
+        ${p?.category_id === c.id ? 'selected' : ''}
+      >
+        ${E(t(c, 'name_ar', 'name_en') || c.name_ar)}
+      </option>
+    `)
+    .join('');
+
+  const originalPrice =
+    p && p.compare_at_price > p.price
+      ? Number(p.compare_at_price)
+      : Number(p?.price || 0);
+
+  const offerPrice =
+    p && p.compare_at_price > p.price
+      ? Number(p.price)
+      : '';
+
+  openModal(`
+    <h2 style="margin-bottom:18px">
+      ${txt(id ? 'تعديل المنتج' : 'إضافة منتج',
+            id ? 'Edit Product' : 'Add Product')}
+    </h2>
+
+    <form id="simple-product-form"
+          onsubmit="event.preventDefault();saveSimpleProduct('${id || ''}',this)">
+
+      <div class="field">
+        <label>${txt('صورة المنتج', 'Product Image')}</label>
+
+        ${photo ? `
+          <img src="${E(safeUrl(photo))}"
+               alt="Product"
+               style="width:130px;height:110px;
+                      object-fit:contain;margin-bottom:10px;
+                      border:1px solid #eee;border-radius:10px">
+        ` : ''}
+
+        <input type="file"
+               name="image"
+               accept="image/jpeg,image/png,image/webp,image/gif"
+               ${id ? '' : 'required'}>
+      </div>
+
+      <div class="field">
+        <label>${txt('اسم المنتج', 'Product Name')}</label>
+        <input type="text"
+               name="name"
+               value="${E(p?.name_ar || '')}"
+               maxlength="250"
+               required>
+      </div>
+
+      <div class="field">
+        <label>${txt('وصف المنتج', 'Description')}</label>
+        <textarea name="description"
+                  rows="3">${E(p?.description_ar || '')}</textarea>
+      </div>
+      <div class="field">
+        <label>
+          ${txt('تصنيف المنتج', 'Product Category')}
+        </label>
+
+        <select name="category_id" required>
+          <option value="">
+            ${txt('اختار التصنيف', 'Select Category')}
+          </option>
+
+          ${categoryOptions}
+        </select>
+      </div>
+      <div class="form-grid">
+        <div class="field">
+          <label>${txt('السعر الأساسي', 'Regular Price')}</label>
+          <input type="number"
+                 name="price"
+                 min="0.01"
+                 step="0.01"
+                 value="${originalPrice || ''}"
+                 required>
+        </div>
+
+        <div class="field">
+          <label>${txt('سعر العرض (اختياري)', 'Sale Price (Optional)')}</label>
+          <input type="number"
+                 name="offer"
+                 min="0.01"
+                 step="0.01"
+                 value="${offerPrice}"
+                 placeholder="${txt('بدون عرض', 'No sale')}">
+        </div>
+      </div>
+
+      <p class="muted small" style="margin:8px 0 16px">
+        ${txt(
+          'لو فيه عرض، اكتب السعر بعد الخصم. المنتج هيتنشر تلقائيًا بعد الحفظ.',
+          'Enter the discounted price if applicable. The product will be published after saving.'
+        )}
+      </p>
+
+      <button type="submit"
+              class="btn primary full">
+        ${txt('حفظ ونشر المنتج', 'Save & Publish')}
+      </button>
+    </form>
+  `);
+}
+
+async function saveSimpleProduct(id, form) {
+  const data = new FormData(form);
+
+  const name = String(data.get('name') || '').trim();
+  const description = String(data.get('description') || '').trim();
+
+  const regular = Number(data.get('price'));
+  const offerText = String(data.get('offer') || '').trim();
+  const offer = offerText ? Number(offerText) : null;
+
+  const imageFile = form.elements.image.files[0];
+
+  if (!name || !Number.isFinite(regular) || regular <= 0) {
+    return toast(
+      txt('راجع الاسم والسعر', 'Check name and price'),
+      true
+    );
+  }
+
+  if (offer !== null &&
+      (!Number.isFinite(offer) || offer <= 0 || offer >= regular)) {
+    return toast(
+      txt('سعر العرض لازم يكون أقل من السعر الأساسي وأكبر من صفر',
+          'Sale price must be positive and less than regular price'),
+      true
+    );
+  }
+
+  if (!id && !imageFile) {
+    return toast(
+      txt('اختار صورة للمنتج', 'Choose a product image'),
+      true
+    );
+  }
+
+  const button = form.querySelector('button[type="submit"]');
+  button.disabled = true;
+
+  try {
+    let imageUrl = '';
+
+    // Upload the image before saving the product
+    if (imageFile) {
+      const types = [
+        'image/jpeg',
+        'image/png',
+        'image/webp',
+        'image/gif'
+      ];
+
+      if (!types.includes(imageFile.type)) {
+        throw Error('UNSUPPORTED_IMAGE_TYPE_OR_SIZE');
+      }
+
+      button.textContent =
+        txt('جاري رفع الصورة...', 'Uploading image...');
+
+      const uploadData = new FormData();
+      uploadData.set(
+        'image',
+        await compressImageIfNeeded(imageFile)
+      );
+
+      const uploaded = await callEdge(
+        'upload-image',
+        uploadData,
+        true
+      );
+
+      imageUrl = safeUrl(uploaded.url || '');
+
+      if (!/^https:\/\//i.test(imageUrl)) {
+        throw Error('INVALID_IMAGE_URL');
+      }
+    }
+
+    button.textContent =
+      txt('جاري حفظ المنتج...', 'Saving product...');
+
+    const productData = {
+      name_ar: name,
+      description_ar: description || null,
+      price: offer !== null ? offer : regular,
+      compare_at_price: offer !== null ? regular : null
+    };
+
+    let productId = id;
+
+    if (id) {
+      // Edit an existing product
+      const { error } = await state.db
+        .from('products')
+        .update(productData)
+        .eq('id', id);
+
+      if (error) throw error;
+
+    } else {
+      // Generate a unique SKU automatically
+      productData.sku = 'MM-' + crypto.randomUUID();
+      productData.name_en = name;
+      productData.description_en = description || null;
+
+      // Keep unpublished until its image is saved
+      productData.is_active = false;
+
+      const { data: created, error } = await state.db
+        .from('products')
+        .insert(productData)
+        .select('id')
+        .single();
+
+      if (error) throw error;
+
+      productId = created.id;
+    }
+
+    // Save new image or replace the first existing image
+    if (imageUrl) {
+      const oldImage = get('product_images')
+        .find(x => x.product_id === productId);
+
+      let result;
+
+      if (oldImage) {
+        result = await state.db
+          .from('product_images')
+          .update({
+            url: imageUrl,
+            alt: name
+          })
+          .eq('id', oldImage.id);
+      } else {
+        result = await state.db
+          .from('product_images')
+          .insert({
+            product_id: productId,
+            url: imageUrl,
+            alt: name,
+            sort_order: 0
+          });
+      }
+
+      if (result.error) throw result.error;
+    }
+
+    // Publish after saving the product and image
+    const { error: publishError } = await state.db
+      .from('products')
+      .update({ is_active: true })
+      .eq('id', productId);
+
+    if (publishError) throw publishError;
+
+    closeModal();
+    await loadAdminData();
+    render();
+
+    toast(txt('تم حفظ ونشر المنتج', 'Product published successfully'));
+
+  } catch (error) {
+    toast(friendlyError(error), true);
+  } finally {
+    button.disabled = false;
+    button.textContent = txt('حفظ ونشر المنتج', 'Save & Publish');
+  }
+}
+
+function editSimpleProduct(id) {
+  const p = id ? by('products', id) : null;
+
+  if (id && !p) {
+    return toast(
+      txt('المنتج مش موجود', 'Product not found'),
+      true
+    );
+  }
+
+  const categories = get('categories')
+    .filter(c => c.is_active !== false);
+
+  const categoryOptions = categories.map(c => `
+    <option value="${E(c.id)}"
+      ${p?.category_id === c.id ? 'selected' : ''}>
+      ${E(t(c, 'name_ar', 'name_en') || c.name_ar)}
+    </option>
+  `).join('');
+
+  const currentImage = p ? pimg(p.id) : '';
+
+  const hasOffer = p &&
+    Number(p.compare_at_price) > Number(p.price);
+
+  const regularPrice = p
+    ? (hasOffer ? p.compare_at_price : p.price)
+    : '';
+
+  const offerPrice = hasOffer ? p.price : '';
+
+  openModal(`
+    <h2 style="margin-bottom:18px">
+      ${txt(
+        id ? 'تعديل المنتج' : 'إضافة منتج جديد',
+        id ? 'Edit Product' : 'Add New Product'
+      )}
+    </h2>
+
+    <form id="simple-product-form"
+      onsubmit="event.preventDefault();saveSimpleProduct('${id || ''}',this)">
+
+      <div class="field">
+        <label>${txt('صورة المنتج', 'Product Image')}</label>
+
+        ${currentImage ? `
+          <img
+            src="${E(safeUrl(currentImage))}"
+            alt="Product"
+            style="width:130px;height:110px;object-fit:contain;
+                   border:1px solid #eee;border-radius:10px;
+                   margin-bottom:10px"
+          >
+        ` : ''}
+
+        <input
+          type="file"
+          name="image"
+          accept="image/jpeg,image/png,image/webp,image/gif"
+          ${currentImage ? '' : 'required'}
+        >
+      </div>
+
+      <div class="field">
+        <label>${txt('اسم المنتج', 'Product Name')}</label>
+        <input
+          name="name"
+          type="text"
+          value="${E(p?.name_ar || '')}"
+          required
+        >
+      </div>
+
+      <div class="field">
+        <label>${txt('وصف المنتج', 'Description')}</label>
+        <textarea name="description"
+          rows="3">${E(p?.description_ar || '')}</textarea>
+      </div>
+
+      <div class="field">
+        <label>${txt('التصنيف', 'Category')}</label>
+        <select name="category_id" required>
+          <option value="">
+            ${txt('اختار التصنيف', 'Select Category')}
+          </option>
+          ${categoryOptions}
+        </select>
+      </div>
+
+      <div class="form-grid">
+
+        <div class="field">
+          <label>${txt('السعر الأساسي', 'Regular Price')}</label>
+          <input
+            type="number"
+            name="price"
+            min="0.01"
+            step="0.01"
+            value="${regularPrice}"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label>${txt('سعر العرض (اختياري)', 'Sale Price (Optional)')}</label>
+          <input
+            type="number"
+            name="offer"
+            min="0.01"
+            step="0.01"
+            value="${offerPrice}"
+            placeholder="${txt('بدون عرض', 'No offer')}"
+          >
+        </div>
+
+      </div>
+      <div class="field">
+        <label>
+          ${txt('الكمية المتاحة', 'Available Quantity')}
+        </label>
+
+        <input
+          type="number"
+          name="quantity"
+          min="0"
+          step="1"
+          value="${id ? qty(id) : 0}"
+          required
+        >
+      </div>
+
+      
+      
+      <p class="muted small" style="margin:12px 0">
+        ${txt(
+          'المنتج هيظهر في المتجر بعد الحفظ. سيب سعر العرض فاضي لو مفيش خصم.',
+          'The product will be published after saving. Leave the sale price blank if there is no discount.'
+        )}
+      </p>
+
+      <button type="submit" class="btn primary full">
+        ${txt('حفظ ونشر المنتج', 'Save & Publish Product')}
+      </button>
+
+    </form>
+  `);
+}
+
+
+async function saveSimpleProduct(id, form) {
+  const data = new FormData(form);
+
+  const name = String(data.get('name') || '').trim();
+  const description = String(data.get('description') || '').trim();
+  const categoryId = String(data.get('category_id') || '').trim();
+  
+  const quantity = Number(data.get('quantity'));
+
+  if (
+    !Number.isSafeInteger(quantity) ||
+    quantity < 0 ||
+    quantity > 100000
+  ) {
+    return toast(
+      txt('اكتب كمية صحيحة من 0 إلى 100000',
+          'Enter a valid quantity between 0 and 100000'),
+      true
+    );
+  }
+
+
+  const regular = Number(data.get('price'));
+  const offerText = String(data.get('offer') || '').trim();
+  const offer = offerText === '' ? null : Number(offerText);
+
+  const imageFile = form.elements.image.files[0];
+  const oldProduct = id ? by('products', id) : null;
+
+  if (!name || !categoryId) {
+    return toast(
+      txt('اكتب الاسم واختار التصنيف',
+          'Enter a name and select a category'),
+      true
+    );
+  }
+
+  if (!Number.isFinite(regular) || regular <= 0) {
+    return toast(
+      txt('اكتب سعر صحيح', 'Enter a valid price'),
+      true
+    );
+  }
+
+  if (
+    offer !== null &&
+    (!Number.isFinite(offer) || offer <= 0 || offer >= regular)
+  ) {
+    return toast(
+      txt(
+        'سعر العرض لازم يكون أقل من السعر الأساسي',
+        'Sale price must be lower than regular price'
+      ),
+      true
+    );
+  }
+
+  if (!imageFile && !pimg(id)) {
+    return toast(
+      txt('اختار صورة للمنتج', 'Choose a product image'),
+      true
+    );
+  }
+
+  const button = form.querySelector('button[type="submit"]');
+  button.disabled = true;
+
+  try {
+    let imageUrl = '';
+
+    if (imageFile) {
+      const acceptedTypes = [
+        'image/jpeg',
+        'image/png',
+        'image/webp',
+        'image/gif'
+      ];
+
+      if (!acceptedTypes.includes(imageFile.type)) {
+        throw Error('UNSUPPORTED_IMAGE_TYPE_OR_SIZE');
+      }
+
+      button.textContent = txt(
+        'جاري رفع الصورة...',
+        'Uploading image...'
+      );
+
+      const uploadForm = new FormData();
+
+      const compressed = await compressImageIfNeeded(imageFile);
+      uploadForm.set('image', compressed);
+
+      const uploaded = await callEdge(
+        'upload-image',
+        uploadForm,
+        true
+      );
+
+      imageUrl = safeUrl(uploaded.url || '');
+
+      if (!imageUrl) {
+        throw Error('INVALID_IMAGE_URL');
+      }
+    }
+
+    button.textContent = txt(
+      'جاري حفظ المنتج...',
+      'Saving product...'
+    );
+
+    const productData = {
+      name_ar: name,
+      description_ar: description || null,
+      category_id: categoryId,
+      price: offer !== null ? offer : regular,
+      compare_at_price: offer !== null ? regular : null
+    };
+
+    let productId = id;
+
+    if (id) {
+      if (!oldProduct) {
+        throw Error('PRODUCT_NOT_FOUND');
+      }
+
+      const { error } = await state.db
+        .from('products')
+        .update(productData)
+        .eq('id', id);
+
+      if (error) throw error;
+
+    } else {
+      productData.sku =
+        'MM-' + crypto.randomUUID().slice(0, 8).toUpperCase();
+
+      productData.name_en = name;
+      productData.description_en = description || null;
+      productData.is_active = false;
+
+      const { data: created, error } = await state.db
+        .from('products')
+        .insert(productData)
+        .select('id')
+        .single();
+
+      if (error) throw error;
+
+      productId = created.id;
+    }
+
+    if (imageUrl) {
+      const oldImage = get('product_images')
+        .find(x => x.product_id === productId);
+
+      if (oldImage) {
+        const { error } = await state.db
+          .from('product_images')
+          .update({
+            url: imageUrl,
+            alt: name
+          })
+          .eq('id', oldImage.id);
+
+        if (error) throw error;
+
+      } else {
+        const { error } = await state.db
+          .from('product_images')
+          .insert({
+            product_id: productId,
+            url: imageUrl,
+            alt: name,
+            sort_order: 0
+          });
+
+        if (error) throw error;
+      }
+    }
+
+    // Set inventory quantity through the secure stock RPC
+    const currentQuantity = id ? qty(id) : 0;
+    const stockDelta = quantity - currentQuantity;
+
+    if (stockDelta !== 0) {
+      const { error: stockError } = await state.db.rpc(
+        'adjust_inventory',
+        {
+          p_product: productId,
+          p_delta: stockDelta,
+          p_reason: id
+            ? 'Product stock updated'
+            : 'Initial product stock'
+        }
+      );
+
+      if (stockError) throw stockError;
+    }
+
+    const { error: publishError } = await state.db
+      .from('products')
+      .update({ is_active: true })
+      .eq('id', productId);
+
+    if (publishError) throw publishError;
+
+    closeModal();
+    await loadAdminData();
+    render();
+
+    toast(
+      txt('تم حفظ ونشر المنتج بنجاح',
+          'Product saved and published successfully')
+    );
+
+  } catch (error) {
+    toast(friendlyError(error), true);
+
+  } finally {
+    button.disabled = false;
+    button.textContent = txt(
+      'حفظ ونشر المنتج',
+      'Save & Publish Product'
+    );
+  }
+}
+
+
 function editAdminRecord(section, id) {
+  if (section === 'products') {
+    return editSimpleProduct(id);
+  }
 
   const key = keyCol(section);
-  const rec = get(section).find(x => String(x[key]) === String(id));
+
+  const rec = id
+    ? get(section).find(x => String(x[key]) === String(id))
+    : null;
+
   const specs = fieldsFor(section);
-  if (!specs.length) return toast(txt('القسم للعرض فقط', 'Read only'), true);
-  const title = id ? txt('تعديل السجل', 'Edit record') : txt('إضافة سجل', 'Add record');
-  openModal(`<h2>${title} · ${E(section)}</h2><form onsubmit="event.preventDefault();saveAdminRecord('${section}','${id || ''}',this)"><div class="form-grid">${specs.map(s => adminField(section, s, rec)).join('')}</div>
- <p class="muted small">${txt('الخانات الفارغة الاختيارية تُترك بدون بيانات. تأكد من صلاحياتك ومن توافق العلاقات.', 'Leave optional inputs blank. Access is enforced by the database.')}</p><button class="btn primary">${txt('حفظ السجل', 'Save record')}</button></form>`)
+
+  if (!specs.length) {
+    return toast(
+      txt('القسم للعرض فقط', 'Read only'),
+      true
+    );
+  }
+
+  const title = id
+    ? txt('تعديل السجل', 'Edit record')
+    : txt('إضافة سجل', 'Add record');
+
+  openModal(`
+    <h2>${title} · ${E(section)}</h2>
+
+    <form
+      onsubmit="event.preventDefault();saveAdminRecord('${section}','${id || ''}',this)"
+    >
+      <div class="form-grid">
+        ${specs.map(s => adminField(section, s, rec)).join('')}
+      </div>
+
+      <p class="muted small">
+        ${txt(
+          'املأ البيانات المطلوبة ثم اضغط حفظ.',
+          'Fill in the required information and save.'
+        )}
+      </p>
+
+      <button type="submit" class="btn primary">
+        ${txt('حفظ السجل', 'Save record')}
+      </button>
+    </form>
+  `);
 }
+
 async function saveAdminRecord(section, id, form) {
 
   const specs = fieldsFor(section), f = new FormData(form), obj = {
@@ -5532,10 +6578,18 @@ async function saveAdminRecord(section, id, form) {
         'num'
       ].includes(kind)) value = Number(value); else if (kind === 'array') value = value.split(',').map(x => x.trim()).filter(Boolean); else if (kind === 'datetime') value = new Date(value).toISOString();
     }
+
     obj[key] = value;
   }
+
+  // Generate a slug automatically for new categories
+  if (section === 'categories' && !id) {
+    obj.slug = 'cat-' + crypto.randomUUID().replace(/-/g, '').slice(0, 16);
+  }
+
   const key = keyCol(section);
   try {
+
 
     const q = state.db.from(section);
     let result;
