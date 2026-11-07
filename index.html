@@ -4209,6 +4209,337 @@ body.mido-menu-open {
   }
 }
 
+/* Small breadcrumb on all inner pages */
+
+.mido-breadcrumb {
+  background: #fafafa;
+  border-bottom: 1px solid #e6eaec;
+  margin: 0;
+  padding: 12px 0;
+}
+
+.mido-breadcrumb-inner {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  flex-wrap: wrap;
+  min-height: 22px;
+  font-size: 12px;
+}
+
+.mido-breadcrumb a {
+  color: #557078;
+  font-weight: 700;
+  transition: color .2s;
+}
+
+.mido-breadcrumb a:hover {
+  color: #0e788c;
+}
+
+.mido-breadcrumb-arrow {
+  color: #9ba8ab;
+  font-size: 19px;
+  line-height: 1;
+}
+
+html[dir="ltr"] .mido-breadcrumb-arrow {
+  transform: rotate(180deg);
+}
+
+.mido-breadcrumb-current {
+  color: #1d3035;
+  font-weight: 800;
+}
+
+@media (max-width: 760px) {
+  .mido-breadcrumb {
+    padding: 9px 0;
+  }
+
+  .mido-breadcrumb-inner {
+    font-size: 11px;
+    gap: 7px;
+  }
+}
+
+/* MR MIDO - ACCOUNT PAGE */
+
+.mido-account-page {
+  max-width: 1120px;
+  padding-top: 28px;
+  padding-bottom: 45px;
+}
+
+.mido-account-intro {
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.mido-account-avatar {
+  width: 104px;
+  height: 104px;
+  margin: 0 auto 15px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #183f56, #14758b);
+  border: 4px solid #fff;
+  box-shadow: 0 0 0 2px #ffcc38, 0 8px 24px #0002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: white;
+  font: 900 30px Arial, sans-serif;
+}
+
+.mido-account-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mido-account-intro h1 {
+  font-size: clamp(20px, 3vw, 27px);
+  margin-bottom: 5px;
+}
+
+.mido-account-intro p {
+  color: #728185;
+  font-size: 12px;
+}
+
+.mido-account-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 13px;
+  margin-bottom: 28px;
+}
+
+.mido-account-stat {
+  background: #fff;
+  border: 1px solid #e5eaec;
+  border-radius: 15px;
+  padding: 19px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.mido-account-stat strong {
+  font-size: 26px;
+  color: #172326;
+}
+
+.mido-account-stat span {
+  font-size: 12px;
+  color: #657579;
+}
+
+.mido-account-heading {
+  font-size: 19px;
+  margin-bottom: 14px;
+}
+
+.mido-account-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.mido-account-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+  padding: 13px 16px;
+  border: 1px solid #e2e9eb;
+  border-radius: 14px;
+  background: #fff;
+  color: #203338;
+  font-weight: 800;
+  font-size: 13px;
+  box-shadow: 0 3px 10px #00000006;
+  transition: transform .25s, box-shadow .25s,
+              border-color .25s, background .25s;
+}
+
+.mido-account-link:hover {
+  transform: translateY(-4px);
+  border-color: #ffcc38;
+  background: #fffdf5;
+  box-shadow: 0 10px 25px #00000012;
+}
+
+.mido-account-link-icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px;
+  background: #f0f5f6;
+  font-size: 20px;
+}
+
+.mido-account-link-arrow {
+  margin-inline-start: auto;
+  color: #7e9498;
+  font-size: 25px;
+}
+
+html[dir="ltr"] .mido-account-link-arrow {
+  transform: rotate(180deg);
+}
+
+.mido-admin-link {
+  display: inline-flex;
+  margin-top: 20px;
+  padding: 12px 18px;
+  background: #ffcc38;
+  border-radius: 11px;
+  font-weight: 800;
+}
+
+.mido-account-settings {
+  margin-top: 36px;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #e4e9ea;
+  border-radius: 18px;
+}
+
+.mido-account-settings h2 {
+  margin-bottom: 18px;
+}
+
+.mido-settings-form {
+  display: grid;
+  gap: 10px;
+  max-width: 600px;
+}
+
+.mido-security-actions {
+  margin-top: 24px;
+  display: grid;
+  gap: 10px;
+}
+
+.mido-security-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #e4e9eb;
+  font-size: 13px;
+  font-weight: 800;
+  transition: transform .2s, background .2s;
+}
+
+.mido-security-link:hover {
+  transform: translateY(-2px);
+  background: #f5f8f8;
+}
+
+.mido-security-link.danger {
+  color: #bf3434;
+  border-color: #f3dada;
+}
+
+.mido-security-link.danger:hover {
+  background: #fff1f1;
+}
+
+.mido-signout-btn {
+  display: block;
+  margin-top: 22px;
+  padding: 10px 15px;
+  background: transparent;
+  border: 1px solid #adb9bd;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+@media (max-width: 760px) {
+  .mido-account-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .mido-account-links {
+    grid-template-columns: 1fr;
+  }
+
+  .mido-account-settings {
+    padding: 17px;
+  }
+
+  .mido-account-avatar {
+    width: 85px;
+    height: 85px;
+    font-size: 25px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mido-account-link,
+  .mido-security-link {
+    transition: none;
+  }
+}
+
+.mido-delete-page {
+  max-width: 620px;
+  margin: auto;
+}
+
+.mido-delete-phrase {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: #f4f6f7;
+  padding: 14px;
+  border-radius: 12px;
+  margin: 15px 0 22px;
+}
+
+.mido-delete-phrase code {
+  overflow-wrap: anywhere;
+  font-size: 13px;
+}
+
+.mido-delete-agree {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 18px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.mido-delete-agree input {
+  margin-top: 5px;
+}
+.mido-login-error {
+  margin-top: 16px;
+  padding: 17px;
+  background: #fff3f2;
+  border: 1px solid #f2c6c4;
+  border-radius: 12px;
+  color: #8b2929;
+  text-align: center;
+}
+
+.mido-login-error strong {
+  display: block;
+  font-size: 15px;
+}
+
+.mido-login-error p {
+  margin: 8px 0 14px;
+  font-size: 12px;
+}
 </style>
 
 
@@ -4910,8 +5241,29 @@ function footer() {
     </footer>
   `;
 }
+
 function pageHead(title, subtitle = '') {
-  return `<section class="page-hero"><div class="container"><h1>${E(title)}</h1>${subtitle ? `<p>${E(subtitle)}</p>` : ''}</div></section>`
+  const path = route();
+  const segments = path.split('/').filter(Boolean);
+
+  // No breadcrumb on homepage
+  if (!segments.length) return '';
+
+  return `
+    <nav class="mido-breadcrumb" aria-label="Breadcrumb">
+      <div class="container mido-breadcrumb-inner">
+        <a href="#/">
+          ${txt('الرئيسية', 'Home')}
+        </a>
+
+        <span class="mido-breadcrumb-arrow">‹</span>
+
+        <span class="mido-breadcrumb-current">
+          ${E(title)}
+        </span>
+      </div>
+    </nav>
+  `;
 }
 function topBanner(key) {
 
@@ -5857,9 +6209,39 @@ async function submitAuth(form, signup) {
       else nav('/login');
 
     });
-  } catch (e) {
-    toast(friendlyError(e), true)
+
+} catch (e) {
+  if (!signup &&
+      (e.code === 'invalid_credentials' ||
+       /invalid login credentials/i.test(e.message || ''))) {
+
+    let notice = form.querySelector('.mido-login-error');
+
+    if (!notice) {
+      notice = document.createElement('div');
+      notice.className = 'mido-login-error';
+      form.appendChild(notice);
+    }
+
+    notice.innerHTML = `
+      <strong>
+        ${txt('فشل تسجيل الدخول', 'Sign in failed')}
+      </strong>
+      <p>
+        ${txt(
+          'البريد أو كلمة المرور غير صحيحين، أو الحساب غير موجود. لو لسه معندكش حساب، اعمل حساب جديد.',
+          'Incorrect email or password, or the account does not exist. You can create a new account.'
+        )}
+      </p>
+      <a href="#/signup" class="btn primary">
+        ${txt('إنشاء حساب جديد', 'Create account')}
+      </a>
+    `;
+
+  } else {
+    toast(friendlyError(e), true);
   }
+}
 }
 async function resetPassword() {
 
@@ -5886,40 +6268,495 @@ async function logout() {
   nav('/');
   toast(txt('تم تسجيل الخروج', 'Signed out'))
 }
-function accountPage() {
 
+function accountPage() {
   if (!state.user) return authGate('account');
-  const profile = get('profiles').find(x => x.id === state.user.id) || {
-  };
-  const orders = get('orders').filter(x => x.user_id === state.user.id);
-  const bookings = get('service_bookings').filter(x => x.user_id === state.user.id);
-  return `${pageHead(tr('account'))}<div class="container section"><div class="spread"><h2>${txt('أهلاً بيك', 'Welcome')}, ${E(profile.full_name || state.user.email)}</h2><button class="btn sm outline" onclick="logout()">${txt('تسجيل خروج', 'Sign out')}</button></div>
- <div class="grid grid-4" style="margin:20px 0"><a class="stat" href="#/orders"><strong>${orders.length}</strong>${txt('طلباتي', 'Orders')}</a><a class="stat" href="#/bookings"><strong>${bookings.length}</strong>${txt('حجوزات الصيانة', 'Service bookings')}</a><a class="stat" href="#/garage"><strong>${get('customer_motorcycles').filter(x => x.user_id === state.user.id).length}</strong>${tr('garage')}</a><a class="stat" href="#/favorites"><strong>${get('wishlists').filter(x => x.user_id === state.user.id).length}</strong>${tr('favorites')}</a></div>
- ${state.staff ? `<a class="btn primary" href="#/admin">⚙ ${txt('لوحة الإدارة', 'Admin dashboard')}</a>` : ''}
- <div class="grid grid-2" style="margin-top:19px"><form class="surface" onsubmit="event.preventDefault();saveProfile(this)"><h3>${txt('بياناتي', 'My details')}</h3><div class="field"><label>${txt('الاسم', 'Name')}</label><input name="full_name" value="${E(profile.full_name || '')}"></div><div class="field"><label>${txt('الهاتف', 'Phone')}</label><input name="phone" value="${E(profile.phone || '')}"></div><button class="btn sm primary">${txt('حفظ التغييرات', 'Save changes')}</button></form>
- <div class="surface"><h3>${txt('روابط حسابك', 'Account links')}</h3>${[
-      [
-        'orders',
-        'طلباتي'
-      ],
-      [
-        'bookings',
-        'حجوزاتي'
-      ],
-      [
-        'garage',
-        'جراجك'
-      ],
-      [
-        'favorites',
-        'المفضلة'
-      ],
-      [
-        'reminders',
-        'تذكيرات الصيانة'
-      ]
-    ].map(([r, n]) => `<a class="section-link" style="display:block;padding:10px 0;border-bottom:1px solid var(--line)" href="#/${r}">${E(n)} ←</a>`).join('')}</div></div></div>`
+
+  const user = state.user;
+  const profile = get('profiles').find(
+    x => x.id === user.id
+  ) || {};
+
+  const metadata = user.user_metadata || {};
+
+  const fullName = String(
+    profile.full_name ||
+    metadata.full_name ||
+    metadata.name ||
+    user.email?.split('@')[0] ||
+    'User'
+  ).trim();
+
+  const initials = fullName
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map(x => Array.from(x)[0] || '')
+    .join('')
+    .toLocaleUpperCase();
+
+  const providers = user.app_metadata?.providers || [];
+
+  const googleAccount =
+    user.app_metadata?.provider === 'google' ||
+    providers.includes('google') ||
+    user.identities?.some(x => x.provider === 'google');
+
+  const picture = String(
+    metadata.avatar_url ||
+    metadata.picture ||
+    ''
+  );
+
+  const avatar = googleAccount && /^https:\/\//i.test(picture)
+    ? `<img src="${E(picture)}"
+         alt="${E(fullName)}"
+         referrerpolicy="no-referrer"
+         onerror="this.hidden=true;this.nextElementSibling.hidden=false">
+       <span hidden>${E(initials || 'U')}</span>`
+    : `<span>${E(initials || 'U')}</span>`;
+
+  const orders = get('orders').filter(
+    x => x.user_id === user.id
+  );
+
+  const bookings = get('service_bookings').filter(
+    x => x.user_id === user.id
+  );
+
+  const bikes = get('customer_motorcycles').filter(
+    x => x.user_id === user.id
+  );
+
+  const favorites = get('wishlists').filter(
+    x => x.user_id === user.id
+  );
+
+  const stats = [
+    [orders.length, 'طلباتي', 'Orders'],
+    [bookings.length, 'حجوزاتي', 'Bookings'],
+    [bikes.length, 'جراجي', 'Garage'],
+    [favorites.length, 'المفضلة', 'Favorites']
+  ];
+
+  const links = [
+    ['orders', '📦', 'طلباتي', 'My orders'],
+    ['bookings', '📅', 'حجوزاتي', 'My bookings'],
+    ['garage', '🏍️', 'جراجي', 'My garage'],
+    ['favorites', '❤️', 'المفضلة', 'Favorites'],
+    ['reminders', '🔔', 'تذكيرات الصيانة', 'Service reminders']
+  ];
+
+  return `
+    ${pageHead(txt('حسابي', 'My account'))}
+
+    <div class="container mido-account-page">
+
+      <section class="mido-account-intro">
+        <div class="mido-account-avatar">
+          ${avatar}
+        </div>
+
+        <h1>${txt('أهلاً بيك', 'Welcome')}, ${E(fullName)}</h1>
+        <p dir="ltr">${E(user.email || '')}</p>
+      </section>
+
+      <div class="mido-account-stats">
+        ${stats.map(([count, ar, en]) => `
+          <div class="mido-account-stat">
+            <strong>${count}</strong>
+            <span>${txt(ar, en)}</span>
+          </div>
+        `).join('')}
+      </div>
+
+      <h2 class="mido-account-heading">
+        ${txt('روابط حسابك', 'Your account')}
+      </h2>
+
+      <div class="mido-account-links">
+        ${links.map(([routeName, emoji, ar, en]) => `
+          <a class="mido-account-link" href="#/${routeName}">
+            <span class="mido-account-link-icon">${emoji}</span>
+            <span>${txt(ar, en)}</span>
+            <span class="mido-account-link-arrow">‹</span>
+          </a>
+        `).join('')}
+      </div>
+
+      ${state.staff ? `
+        <a class="mido-admin-link" href="#/admin">
+          ⚙ ${txt('لوحة الإدارة', 'Admin dashboard')}
+        </a>
+      ` : ''}
+
+      <section class="mido-account-settings">
+        <h2>${txt('إعدادات الحساب', 'Account settings')}</h2>
+
+        <form class="mido-settings-form"
+              onsubmit="event.preventDefault();saveProfile(this)">
+
+          <div class="field">
+            <label>${txt('الاسم', 'Full name')}</label>
+            <input name="full_name"
+                   value="${E(profile.full_name || fullName)}"
+                   required>
+          </div>
+
+          <div class="field">
+            <label>${txt('رقم الهاتف', 'Phone number')}</label>
+            <input name="phone"
+                   type="tel"
+                   value="${E(profile.phone || '')}">
+          </div>
+
+          <button class="btn primary" type="submit">
+            ${txt('حفظ التغييرات', 'Save changes')}
+          </button>
+        </form>
+
+        <div class="mido-security-actions">
+          <a href="#/account/password"
+             class="mido-security-link">
+            <span>🔐</span>
+            ${txt('تغيير كلمة المرور', 'Change password')}
+          </a>
+
+          <a href="#/account/delete"
+             class="mido-security-link danger">
+            <span>🗑️</span>
+            ${txt('حذف الحساب', 'Delete account')}
+          </a>
+        </div>
+
+        <button class="mido-signout-btn"
+                onclick="logout()">
+          ${txt('تسجيل الخروج', 'Sign out')}
+        </button>
+      </section>
+
+    </div>
+  `;
 }
+
+const midoPasswordFlow = {
+  email: '',
+  verified: false
+};
+
+function accountPasswordPage() {
+  if (!state.user) return authGate('account');
+
+  const email = midoPasswordFlow.email ||
+    state.user.email || '';
+
+  let content = '';
+
+  if (!midoPasswordFlow.email) {
+    content = `
+      <form onsubmit="event.preventDefault();sendAccountPasswordOTP(this)">
+        <div class="field">
+          <label>${txt('البريد الإلكتروني', 'Email')}</label>
+          <input type="email" name="email"
+                 value="${E(email)}" required>
+        </div>
+        <button class="btn primary full">
+          ${txt('إرسال رمز التحقق', 'Send verification code')}
+        </button>
+      </form>
+    `;
+  } else if (!midoPasswordFlow.verified) {
+    content = `
+      <form onsubmit="event.preventDefault();verifyAccountPasswordOTP(this)">
+        <p class="muted">
+          ${txt('أرسلنا رمز تحقق إلى', 'Verification code sent to')}
+          <b dir="ltr">${E(email)}</b>
+        </p>
+        <div class="field">
+          <label>${txt('رمز التحقق', 'Verification code')}</label>
+          <input name="otp" inputmode="numeric"
+                 autocomplete="one-time-code"
+                 minlength="6" required>
+        </div>
+        <button class="btn primary full">
+          ${txt('تأكيد الرمز', 'Verify code')}
+        </button>
+      </form>
+    `;
+  } else {
+    content = `
+      <form onsubmit="event.preventDefault();finishAccountPasswordChange(this)">
+        <div class="field">
+          <label>${txt('كلمة المرور الجديدة', 'New password')}</label>
+          <input type="password" name="password"
+                 minlength="8" autocomplete="new-password" required>
+        </div>
+        <div class="field">
+          <label>${txt('تأكيد كلمة المرور', 'Confirm password')}</label>
+          <input type="password" name="confirm_password"
+                 minlength="8" autocomplete="new-password" required>
+        </div>
+        <button class="btn primary full">
+          ${txt('تغيير كلمة المرور', 'Update password')}
+        </button>
+      </form>
+    `;
+  }
+
+  return `
+    ${pageHead(txt('تغيير كلمة المرور', 'Change password'))}
+    <div class="container section">
+      <div class="surface" style="max-width:500px;margin:auto">
+        <h2 style="margin-bottom:15px">
+          🔐 ${txt('حماية حسابك', 'Account security')}
+        </h2>
+        ${content}
+        <a href="#/account" class="section-link"
+           style="display:inline-block;margin-top:18px">
+          ${txt('العودة للحساب', 'Back to account')}
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+async function sendAccountPasswordOTP(form) {
+  if (!state.db || !state.user) return;
+
+  const email = form.email.value.trim();
+
+  // This flow is for the signed-in account only.
+  if (email.toLowerCase() !==
+      String(state.user.email || '').toLowerCase()) {
+    return toast(
+      txt('اكتب البريد المرتبط بحسابك', 'Enter your account email'),
+      true
+    );
+  }
+
+  try {
+    const { error } =
+      await state.db.auth.resetPasswordForEmail(email, {
+        redirectTo: location.href.split('#')[0] +
+          '#/account/password'
+      });
+
+    if (error) throw error;
+
+    midoPasswordFlow.email = email;
+    midoPasswordFlow.verified = false;
+
+    render();
+    toast(txt('راجع بريدك للحصول على الرمز',
+              'Check your email for the code'));
+  } catch (e) {
+    toast(friendlyError(e), true);
+  }
+}
+
+async function verifyAccountPasswordOTP(form) {
+  try {
+    const token = form.otp.value.trim();
+
+    const { error } = await state.db.auth.verifyOtp({
+      email: midoPasswordFlow.email,
+      token,
+      type: 'recovery'
+    });
+
+    if (error) throw error;
+
+    midoPasswordFlow.verified = true;
+    render();
+
+    toast(txt('تم تأكيد الرمز', 'Code verified'));
+  } catch (e) {
+    toast(txt('الرمز غير صحيح أو انتهت صلاحيته',
+              'Invalid or expired code'), true);
+  }
+}
+
+async function finishAccountPasswordChange(form) {
+  const password = form.password.value;
+  const confirmation = form.confirm_password.value;
+
+  if (password !== confirmation) {
+    return toast(
+      txt('كلمتا المرور غير متطابقتين',
+          'Passwords do not match'),
+      true
+    );
+  }
+
+  if (password.length < 8) {
+    return toast(
+      txt('كلمة المرور لازم تكون 8 أحرف على الأقل',
+          'Use at least 8 characters'),
+      true
+    );
+  }
+
+  if (!midoPasswordFlow.verified) return;
+
+  try {
+    const { error } = await state.db.auth.updateUser({
+      password
+    });
+
+    if (error) throw error;
+
+    midoPasswordFlow.email = '';
+    midoPasswordFlow.verified = false;
+
+    toast(txt('تم تغيير كلمة المرور بنجاح',
+              'Password updated successfully'));
+    nav('/account');
+  } catch (e) {
+    toast(friendlyError(e), true);
+  }
+}
+
+function accountDeletePage() {
+  if (!state.user) return authGate('account');
+
+  const email = state.user.email || '';
+  const phrase = `DELETE ${email} ACCOUNT`;
+
+  return `
+    ${pageHead(txt('حذف الحساب', 'Delete account'))}
+
+    <div class="container section">
+      <div class="surface mido-delete-page">
+
+        <h2>🗑️ ${txt('حذف الحساب نهائيًا', 'Permanently delete account')}</h2>
+
+        <div class="notice" style="margin:18px 0">
+          ${txt(
+            'تحذير: قد تفقد الوصول إلى حسابك وبياناته بعد الحذف، وقد تظل بعض سجلات الطلبات محفوظة وفق سياسة الاحتفاظ بالبيانات.',
+            'Warning: You may lose access to your account and data. Some order records may be retained according to the data retention policy.'
+          )}
+        </div>
+
+        <p>
+          ${txt('انسخ العبارة التالية ثم اكتبها في الخانة:',
+                 'Copy and enter the following phrase:')}
+        </p>
+
+        <div class="mido-delete-phrase">
+          <code dir="ltr" id="delete-account-phrase">${E(phrase)}</code>
+          <button type="button"
+                  class="btn sm outline"
+                  onclick="copyAccountDeletePhrase()">
+            📋 ${txt('نسخ', 'Copy')}
+          </button>
+        </div>
+
+        <form onsubmit="event.preventDefault();submitAccountDeletion(this)">
+          <label class="mido-delete-agree">
+            <input type="checkbox" name="agree" required>
+            <span>
+              ${txt(
+                'أفهم أنني أطلب حذف حسابي نهائيًا وأوافق على فقدان الوصول إليه.',
+                'I understand that I am requesting permanent account deletion and loss of access.'
+              )}
+            </span>
+          </label>
+
+          <div class="field">
+            <label>${txt('عبارة التأكيد', 'Confirmation phrase')}</label>
+            <input name="confirmation"
+                   dir="ltr"
+                   autocomplete="off"
+                   spellcheck="false"
+                   required>
+          </div>
+
+          <button type="submit" class="btn full"
+                  style="background:#c42c37;color:#fff">
+            ${txt('حذف الحساب نهائيًا', 'Delete account permanently')}
+          </button>
+        </form>
+
+        <a href="#/account" class="section-link"
+           style="display:inline-block;margin-top:18px">
+          ${txt('إلغاء والعودة للحساب', 'Cancel and go back')}
+        </a>
+      </div>
+    </div>
+  `;
+}
+
+async function copyAccountDeletePhrase() {
+  const phrase = document.getElementById(
+    'delete-account-phrase'
+  )?.textContent || '';
+
+  try {
+    await navigator.clipboard.writeText(phrase);
+    toast(txt('تم نسخ العبارة', 'Phrase copied'));
+  } catch (e) {
+    toast(txt('تعذر النسخ التلقائي؛ انسخ العبارة يدويًا',
+              'Copy failed; select the text manually'), true);
+  }
+}
+
+async function submitAccountDeletion(form) {
+  if (!state.user || !state.db) return;
+
+  const phrase =
+    `DELETE ${state.user.email || ''} ACCOUNT`;
+
+  if (!form.agree.checked ||
+      form.confirmation.value.trim() !== phrase) {
+    return toast(
+      txt('لازم توافق وتكتب العبارة صحيحة بالكامل',
+          'Accept the terms and enter the exact phrase'),
+      true
+    );
+  }
+
+  if (!confirm(txt(
+    'آخر تأكيد: هل تريد حذف حسابك نهائيًا؟',
+    'Final confirmation: permanently delete your account?'
+  ))) return;
+
+  const button = form.querySelector('[type="submit"]');
+
+  try {
+    button.disabled = true;
+
+    const { data, error } = await state.db.functions.invoke(
+      'delete-my-account',
+      {
+        body: {
+          confirmation: phrase,
+          acceptedTerms: true
+        }
+      }
+    );
+
+    if (error) throw error;
+    if (!data?.success) {
+      throw new Error('Account deletion was not confirmed');
+    }
+
+    await state.db.auth.signOut();
+
+    state.user = null;
+    state.staff = false;
+    state.roles = [];
+
+    nav('/');
+
+    toast(txt('تم حذف الحساب', 'Account deleted'));
+  } catch (e) {
+    toast(txt('تعذر حذف الحساب. حاول لاحقًا أو تواصل مع الدعم.',
+              'Could not delete the account. Contact support if this continues.'), true);
+  } finally {
+    if (button.isConnected) button.disabled = false;
+  }
+}
+
 async function saveProfile(form) {
   try {
     await dbUpdate('profiles', state.user.id, {
@@ -8915,6 +9752,7 @@ function render() {
   else if (key === 'garage') html = garagePage(); else if (key === 'builder') html = builderPage(); else if (key === 'calculator') html = calculatorPage();
   else if (key === 'cart') html = cartPage(); else if (key === 'checkout') html = checkoutPage(); else if (key === 'success') html = successPage();
   else if (key === 'track') html = trackPage(); else if (key === 'login') html = authPage(false); else if (key === 'signup') html = authPage(true);
+  else if (path === '/account/password') html = accountPasswordPage();else if (path === '/account/delete') html = accountDeletePage();
   else if (key === 'account') html = accountPage(); else if (key === 'orders') html = ordersPage(); else if (key === 'bookings') html = bookingsPage(); else if (key === 'favorites') html = favoritesPage();
   else if (key === 'reminders') html = garagePage(); else if (key === 'articles') html = articlesPage(); else if (key === 'article') html = articlePage(seg[1]);
   else if (key === 'faq') html = faqPage(); else if (key === 'contact' || key === 'about') html = contentPage(key); else if (key === 'page') html = contentPage(seg[1]);
