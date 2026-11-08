@@ -7828,13 +7828,37 @@ function openMedia(target) {
  <p id="media-progress" class="muted small" style="margin-top:10px"></p>`)
 }
 function attachMediaUrl(url) {
+  const targetId = state.imageField;
+  if (!targetId) return;
 
-  const el = $(state.imageField);
-  if (!el) return;
-  el.value = el.dataset.multiple === '1' && el.value ? el.value.trim() + '\n' + url : url;
-  el.dispatchEvent(new Event('change', {
-    bubbles: true
-  }));
+  let el = document.getElementById(targetId);
+
+  if (!el) {
+    for (let i = midoModalStack.length - 1; i >= 0; i--) {
+      el = Array.from(
+        midoModalStack[i].querySelectorAll('[id]')
+      ).find(node => node.id === targetId);
+
+      if (el) break;
+    }
+  }
+
+  if (!el) {
+    toast(
+      txt('حقل الصورة غير موجود', 'Image field not found'),
+      true
+    );
+    return;
+  }
+
+  el.value =
+    el.dataset.multiple === '1' && el.value
+      ? el.value.trim() + '\n' + url
+      : url;
+
+  el.dispatchEvent(
+    new Event('change', { bubbles: true })
+  );
 }
 function acceptMediaLink() {
 
@@ -7954,13 +7978,46 @@ async function mediaSelected(input) {
     toast(txt('تم رفع الصور وربطها تلقائيًا', 'Images uploaded and linked automatically'));
   }
 }
+const midoModalStack = [];
+
 function openModal(html) {
-  $('modal-root').innerHTML = `<div class="overlay" onclick="if(event.target===this)closeModal()"><div class="dialog" role="dialog" aria-modal="true"><div class="dialog-head"><strong>Mr Mido Motors</strong><button class="close" onclick="closeModal()" aria-label="Close">×</button></div>${html}</div></div>`;
-  document.body.classList.add('modal-open')
+  const root = document.getElementById('modal-root');
+
+  if (root.firstElementChild) {
+    midoModalStack.push(root.firstElementChild);
+    root.replaceChildren();
+  }
+
+  root.innerHTML = `
+    <div class="overlay"
+         onclick="if(event.target === this) closeModal()">
+      <div class="dialog" role="dialog" aria-modal="true">
+        <div class="dialog-head">
+          <strong>Mr Mido Motors</strong>
+          <button type="button"
+                  class="close"
+                  onclick="closeModal()"
+                  aria-label="Close">×</button>
+        </div>
+        ${html}
+      </div>
+    </div>
+  `;
+
+  document.body.classList.add('modal-open');
 }
 function closeModal() {
-  $('modal-root').innerHTML = '';
-  document.body.classList.remove('modal-open')
+  const root = document.getElementById('modal-root');
+
+  root.replaceChildren();
+
+  const previousModal = midoModalStack.pop();
+
+  if (previousModal) {
+    root.appendChild(previousModal);
+  } else {
+    document.body.classList.remove('modal-open');
+  }
 }
 function friendlyError(e) {
 
