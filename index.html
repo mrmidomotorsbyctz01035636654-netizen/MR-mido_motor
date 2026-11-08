@@ -4540,6 +4540,911 @@ html[dir="ltr"] .mido-account-link-arrow {
   margin: 8px 0 14px;
   font-size: 12px;
 }
+.mido-admin-menu {
+  position: static !important;
+  z-index: auto !important;
+  width: 100%;
+  margin-bottom: 22px;
+}
+
+/* =========================
+   ADMIN TRIGGER BUTTON
+========================= */
+.mido-admin-trigger {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 72px;
+  padding: 14px 18px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at top right, rgba(255,204,56,.14), transparent 32%),
+    linear-gradient(135deg, #081518 0%, #102328 55%, #173238 100%);
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow:
+    0 14px 30px rgba(0,0,0,.14),
+    inset 0 1px 0 rgba(255,255,255,.04);
+  color: #fff;
+  transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+
+.mido-admin-trigger:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,204,56,.45);
+  box-shadow:
+    0 18px 35px rgba(0,0,0,.18),
+    inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.mido-admin-trigger-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-align: start;
+  min-width: 0;
+}
+
+.mido-admin-hamburger {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ffd84a, #ffbf00);
+  color: #142426;
+  box-shadow: 0 8px 18px rgba(255,204,56,.23);
+  flex: 0 0 46px;
+}
+
+.mido-admin-hamburger .icon-svg {
+  width: 22px;
+  height: 22px;
+}
+
+.mido-admin-trigger-title {
+  min-width: 0;
+}
+
+.mido-admin-trigger-title strong {
+  display: block;
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.mido-admin-trigger-title small {
+  display: block;
+  font-size: 11px;
+  color: #a9c0c3;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mido-admin-open-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 42px;
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.05);
+  color: #ffcc38;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .3px;
+  flex: 0 0 auto;
+}
+
+/* =========================
+   BACKDROP
+========================= */
+.mido-admin-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1190;
+  background: rgba(4, 11, 15, .72);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .32s ease, visibility .32s ease;
+}
+
+.mido-admin-backdrop.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* =========================
+   DRAWER
+========================= */
+.mido-admin-drawer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  z-index: 1200;
+  width: min(400px, 92vw);
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  background:
+    radial-gradient(circle at top, rgba(255,204,56,.08), transparent 27%),
+    linear-gradient(180deg, #0a1518 0%, #0d1d22 50%, #0b171b 100%);
+  color: #e7eeee;
+  border-inline-start: 1px solid rgba(255,255,255,.06);
+  box-shadow: 0 0 55px rgba(0,0,0,.42);
+  overflow: hidden;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    transform .42s cubic-bezier(.22,1,.36,1),
+    visibility .42s ease;
+}
+
+html[dir="rtl"] .mido-admin-drawer {
+  right: 0;
+  left: auto;
+  transform: translateX(105%);
+}
+
+html[dir="ltr"] .mido-admin-drawer {
+  left: 0;
+  right: auto;
+  transform: translateX(-105%);
+}
+
+.mido-admin-drawer.open {
+  transform: translateX(0) !important;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+.mido-admin-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 22px 20px 16px;
+  padding-top: max(22px, env(safe-area-inset-top));
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.mido-admin-drawer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.mido-admin-drawer-brand-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 46px;
+  width: 46px;
+  height: 46px;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #ffd84a, #ffbf00);
+  color: #152326;
+  box-shadow: 0 10px 20px rgba(255,204,56,.18);
+}
+
+.mido-admin-drawer-brand-icon .icon-svg {
+  width: 22px;
+  height: 22px;
+}
+
+.mido-admin-drawer-brand strong {
+  display: block;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.mido-admin-drawer-brand small {
+  display: block;
+  color: #8fb0b4;
+  font: 700 10px Arial, sans-serif;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.mido-admin-drawer-close {
+  display: grid;
+  place-items: center;
+  flex: 0 0 40px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 13px;
+  background: rgba(255,255,255,.06);
+  color: #fff;
+  transition: background .2s ease, transform .25s ease, border-color .2s ease;
+}
+
+.mido-admin-drawer-close:hover {
+  background: rgba(255,204,56,.12);
+  border-color: rgba(255,204,56,.35);
+  color: #ffcc38;
+  transform: rotate(90deg);
+}
+
+.mido-admin-drawer-close .icon-svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* =========================
+   CURRENT SECTION
+========================= */
+.mido-admin-drawer-current {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 15px 16px;
+  margin: 16px 16px 12px;
+  border: 1px solid rgba(255,204,56,.18);
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(255,204,56,.09), rgba(255,255,255,.02));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.03);
+}
+
+.mido-admin-drawer-current small {
+  color: #b2c6c8;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.mido-admin-drawer-current strong {
+  color: #ffcc38;
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.mido-admin-drawer-label {
+  padding: 2px 18px 10px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .6px;
+  color: #89a2a6;
+}
+
+/* =========================
+   LINKS
+========================= */
+.mido-admin-drawer-links {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 0 14px 18px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #475e62 transparent;
+}
+
+.mido-admin-drawer-link {
+  position: relative;
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  min-height: 58px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.08);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+  color: #e5efef !important;
+  text-decoration: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.02);
+  transition:
+    transform .22s ease,
+    border-color .22s ease,
+    background .22s ease,
+    box-shadow .22s ease;
+}
+
+.mido-admin-drawer-link:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,204,56,.28);
+  background:
+    linear-gradient(135deg, rgba(255,204,56,.08), rgba(255,255,255,.02));
+  box-shadow: 0 10px 18px rgba(0,0,0,.14);
+}
+
+.mido-admin-drawer-link.active {
+  border-color: rgba(255,204,56,.65);
+  background:
+    linear-gradient(135deg, rgba(255,204,56,.14), rgba(255,255,255,.025));
+  box-shadow:
+    0 12px 24px rgba(0,0,0,.17),
+    inset 0 0 0 1px rgba(255,204,56,.08);
+}
+
+.mido-admin-drawer-link::before {
+  content: '';
+  position: absolute;
+  inset-block: 10px;
+  inset-inline-start: 0;
+  width: 3px;
+  border-radius: 999px;
+  background: transparent;
+  transition: background .22s ease;
+}
+
+.mido-admin-drawer-link.active::before {
+  background: #ffcc38;
+}
+
+.mido-admin-drawer-link-icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.06);
+  color: #b9cdcf;
+  transition: background .22s ease, color .22s ease, transform .22s ease;
+}
+
+.mido-admin-drawer-link:hover .mido-admin-drawer-link-icon {
+  transform: scale(1.04);
+}
+
+.mido-admin-drawer-link.active .mido-admin-drawer-link-icon {
+  background: linear-gradient(135deg, #ffd84a, #ffbf00);
+  color: #132326;
+  box-shadow: 0 8px 16px rgba(255,204,56,.18);
+}
+
+.mido-admin-drawer-link-icon .icon-svg {
+  width: 19px;
+  height: 19px;
+}
+
+.mido-admin-drawer-link-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.45;
+  color: inherit;
+}
+
+.mido-admin-drawer-link-end {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+}
+
+.mido-admin-drawer-link-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 74px;
+  height: 29px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255,204,56,.13);
+  border: 1px solid rgba(255,204,56,.34);
+  color: #ffcc38;
+  font-size: 10px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.mido-admin-drawer-link-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.05);
+  color: #90a9ad;
+}
+
+.mido-admin-drawer-link-arrow .icon-svg {
+  width: 14px;
+  height: 14px;
+}
+
+html[dir="ltr"] .mido-admin-drawer-link-arrow .icon-svg {
+  transform: rotate(180deg);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.mido-admin-drawer-footer {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 16px 18px;
+  padding-bottom: max(16px, env(safe-area-inset-bottom));
+  border-top: 1px solid rgba(255,255,255,.08);
+  color: #9eb5b8;
+  font-size: 11px;
+  background: rgba(255,255,255,.02);
+}
+
+.mido-admin-drawer-status {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4fd39c;
+  box-shadow: 0 0 0 4px rgba(79,211,156,.12);
+}
+
+.mido-admin-drawer-footer a {
+  margin-inline-start: auto;
+  color: #ffcc38;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+body.mido-admin-drawer-open {
+  overflow: hidden;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 760px) {
+  .mido-admin-drawer {
+    width: min(370px, 93vw);
+  }
+
+  .mido-admin-trigger {
+    min-height: 66px;
+    padding: 12px 14px;
+  }
+
+  .mido-admin-drawer-header {
+    padding-inline: 15px;
+  }
+
+  .mido-admin-drawer-links {
+    padding-inline: 12px;
+  }
+
+  .mido-admin-drawer-link {
+    min-height: 54px;
+  }
+
+  .mido-admin-drawer-link-badge {
+    min-width: 62px;
+    font-size: 9px;
+    padding-inline: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mido-admin-drawer,
+  .mido-admin-backdrop,
+  .mido-admin-drawer-link,
+  .mido-admin-trigger {
+    transition: none !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mido-admin-drawer,
+  .mido-admin-backdrop,
+  .mido-admin-drawer-link {
+    transition: none !important;
+  }
+}
+/* Admin drawer layout correction */
+
+.admin-layout {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 0 !important;
+}
+
+.admin-layout > .mido-admin-menu {
+  grid-column: 1 !important;
+  width: 100% !important;
+}
+
+.admin-layout > .admin-panel {
+  grid-column: 1 !important;
+  min-width: 0;
+  width: 100%;
+}
+
+@media (max-width: 760px) {
+  .admin-layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
+/* =========================
+   ADMIN OVERVIEW ENHANCEMENTS
+========================= */
+.mido-overview-extras {
+  margin-top: 22px;
+}
+
+.mido-admin-alerts {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.mido-admin-alert {
+  background: linear-gradient(135deg, rgba(3,29,35,.98), rgba(15,53,56,.95));
+  border: 1px solid rgba(245, 200, 66, .35);
+  border-radius: 18px;
+  padding: 14px 16px;
+  color: #fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,.10);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mido-admin-alert-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: rgba(245, 200, 66, .14);
+  border: 1px solid rgba(245, 200, 66, .28);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 42px;
+}
+
+.mido-admin-alert-icon svg {
+  width: 19px;
+  height: 19px;
+  stroke: #f4c933;
+}
+
+.mido-admin-alert-text strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.mido-admin-alert-text small {
+  color: rgba(255,255,255,.72);
+  font-size: 12px;
+}
+
+.mido-dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.mido-dashboard-card {
+  background: #fff;
+  border: 1px solid #e7edf0;
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(16,24,40,.05);
+}
+
+.mido-dashboard-card h3 {
+  margin: 0 0 14px;
+  color: #0b2230;
+  font-size: 22px;
+}
+
+.mido-dashboard-card .muted {
+  color: #70808c;
+  font-size: 13px;
+}
+
+.mido-mini-table {
+  display: grid;
+  gap: 10px;
+}
+
+.mido-mini-row {
+  display: grid;
+  grid-template-columns: 1.2fr .65fr .95fr .9fr;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 14px;
+  border: 1px solid #edf2f5;
+  border-radius: 16px;
+  background: #fbfcfd;
+}
+
+.mido-mini-row.head {
+  background: #f4f8fa;
+  font-weight: 700;
+  color: #0b2230;
+}
+
+.mido-badge-up,
+.mido-badge-down,
+.mido-badge-neutral {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 68px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.mido-badge-up {
+  color: #0a7a38;
+  background: rgba(21, 170, 89, .12);
+}
+
+.mido-badge-down {
+  color: #b42318;
+  background: rgba(240, 68, 56, .12);
+}
+
+.mido-badge-neutral {
+  color: #475467;
+  background: rgba(71, 84, 103, .10);
+}
+
+.mido-activity-list {
+  display: grid;
+  gap: 10px;
+}
+
+.mido-activity-item {
+  display: flex;
+  align-items: start;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid #edf2f5;
+  border-radius: 16px;
+  background: #fbfcfd;
+}
+
+.mido-activity-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-top: 6px;
+  background: #f4c933;
+  flex: 0 0 12px;
+  box-shadow: 0 0 0 5px rgba(244, 201, 51, .12);
+}
+
+.mido-activity-item strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #0b2230;
+}
+
+.mido-activity-item small {
+  color: #667085;
+}
+
+.mido-dashboard-charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.mido-chart-wrap {
+  background: #fff;
+  border: 1px solid #e7edf0;
+  border-radius: 22px;
+  padding: 18px;
+  box-shadow: 0 8px 24px rgba(16,24,40,.05);
+}
+
+.mido-chart-wrap h3 {
+  margin: 0 0 14px;
+  color: #0b2230;
+  font-size: 20px;
+}
+
+.mido-chart-canvas {
+  position: relative;
+  height: 280px;
+}
+
+@media (max-width: 1100px) {
+  .mido-admin-alerts {
+    grid-template-columns: repeat(2, minmax(160px, 1fr));
+  }
+
+  .mido-dashboard-grid,
+  .mido-dashboard-charts {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .mido-admin-alerts {
+    grid-template-columns: 1fr;
+  }
+
+  .mido-mini-row,
+  .mido-mini-row.head {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ADMIN NOTIFICATION CENTER */
+
+.mido-notification-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 13px 18px;
+  margin-bottom: 20px;
+  background: #fff;
+  border: 1px solid #e4e9eb;
+  border-radius: 15px;
+}
+
+.mido-notification-bar > div:first-child strong,
+.mido-notification-bar > div:first-child small {
+  display: block;
+}
+
+.mido-notification-bar > div:first-child strong {
+  font-size: 14px;
+}
+
+.mido-notification-bar > div:first-child small {
+  color: #7a8b90;
+  font-size: 11px;
+}
+
+.mido-notification-holder {
+  position: relative;
+}
+
+.mido-notification-bell {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: #101f24;
+  color: #ffcc38;
+  border: 1px solid #30464a;
+  border-radius: 13px;
+  transition: transform .2s, background .2s;
+}
+
+.mido-notification-bell:hover {
+  transform: rotate(-8deg);
+  background: #203b42;
+}
+
+.mido-notification-bell svg {
+  width: 22px;
+  height: 22px;
+}
+
+.mido-notification-count {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 4px;
+  border-radius: 50px;
+  background: #dc3545;
+  color: #fff;
+  font: 800 10px/20px Arial, sans-serif;
+  text-align: center;
+}
+
+.mido-notification-panel {
+  position: absolute;
+  top: calc(100% + 11px);
+  inset-inline-end: 0;
+  width: min(365px, calc(100vw - 36px));
+  max-height: 420px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid #e3e9ec;
+  border-radius: 16px;
+  box-shadow: 0 16px 45px #101f2430;
+  z-index: 150;
+}
+
+.mido-notification-panel[hidden] {
+  display: none !important;
+}
+
+.mido-notification-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px;
+  border-bottom: 1px solid #edf0f1;
+}
+
+.mido-notification-panel-head button {
+  border: 0;
+  background: transparent;
+  font-size: 11px;
+  color: #667b80;
+}
+
+.mido-notification-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px;
+  border-bottom: 1px solid #edf0f1;
+}
+
+.mido-notification-item.unread {
+  background: #fffbed;
+}
+
+.mido-notification-item strong {
+  font-size: 12px;
+}
+
+.mido-notification-item p,
+.mido-notification-item small {
+  display: block;
+  font-size: 11px;
+  color: #718185;
+}
+
+.mido-notification-item button {
+  flex-shrink: 0;
+  border: 1px solid #e7cc73;
+  border-radius: 8px;
+  padding: 5px 8px;
+  background: #fff8df;
+  color: #806100;
+  font-size: 10px;
+}
+
+.mido-notification-empty {
+  padding: 25px 15px;
+  color: #718185;
+  text-align: center;
+  font-size: 12px;
+}
+
+.mido-notification-all {
+  display: block;
+  padding: 13px;
+  text-align: center;
+  color: #176b78;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mido-notification-bell {
+    transition: none;
+  }
+}
+
 </style>
 
 
@@ -6200,13 +7105,53 @@ async function submitAuth(form, signup) {
         password
       });
       if (error) throw error;
-      toast(signup ? txt('راجع بريدك الإلكتروني لتأكيد الحساب عند الحاجة', 'Check your email if verification is required') : txt('تم تسجيل الدخول', 'Signed in'));
-      if (data?.user && data?.session) {
-        state.user = data.user;
-        await loadPrivate();
-        nav('/' + (getQ().get('next') || (state.staff ? 'admin' : 'account')).replace(/^\//, ''));
-      }
-      else nav('/login');
+
+if (data?.user && data?.session) {
+  state.user = data.user;
+
+  try {
+    await loadPrivate();
+  } catch (loadError) {
+    console.error('Account data loading failed:', loadError);
+    state.staff = false;
+    state.roles = [];
+  }
+
+  const next = getQ().get('next');
+
+  const destination = next &&
+    /^\/?(account|admin|orders|bookings|favorites)(\/|$)/.test(next)
+      ? '/' + next.replace(/^\//, '')
+      : state.staff ? '/admin' : '/account';
+
+  const oldHash = location.hash;
+
+  nav(destination);
+
+  // If hash didn't change, redraw manually.
+  if (location.hash === oldHash) {
+    render();
+  }
+
+  toast(
+    txt('تم تسجيل الدخول بنجاح', 'Signed in successfully')
+  );
+
+} else if (signup) {
+  toast(
+    txt(
+      'تم إنشاء الحساب. راجع بريدك لتأكيده قبل تسجيل الدخول.',
+      'Account created. Check your email to verify it.'
+    )
+  );
+} else {
+  throw new Error(
+    txt(
+      'لم يتم إنشاء جلسة تسجيل دخول. حاول مرة أخرى.',
+      'No sign-in session was created. Please try again.'
+    )
+  );
+}
 
     });
 
@@ -6926,6 +7871,60 @@ async function compressImageIfNeeded(file) {
   }
   return file;
 }
+
+/* Upload images and save only direct ImgBB links */
+async function uploadToImgBB(file) {
+  if (!(file instanceof File)) {
+    throw Error('NO_IMAGE_SELECTED');
+  }
+
+  const allowedTypes = [
+    'image/jpeg',
+    'image/png',
+    'image/webp',
+    'image/gif'
+  ];
+
+  if (!allowedTypes.includes(file.type)) {
+    throw Error('UNSUPPORTED_IMAGE_TYPE_OR_SIZE');
+  }
+
+  const readyFile = await compressImageIfNeeded(file);
+
+  if (readyFile.size > 5 * 1024 * 1024) {
+    throw Error('UNSUPPORTED_IMAGE_TYPE_OR_SIZE');
+  }
+
+  const form = new FormData();
+  form.set('image', readyFile);
+
+  const result = await callEdge(
+    CONFIG.imgbbEndpoint,
+    form,
+    true
+  );
+
+  const url = String(result?.url || '').trim();
+
+  let parsed;
+
+  try {
+    parsed = new URL(url);
+  } catch {
+    throw Error('IMGBB_INVALID_IMAGE_URL');
+  }
+
+  if (
+    parsed.protocol !== 'https:' ||
+    parsed.hostname !== 'i.ibb.co' ||
+    !/\.(jpg|jpeg|png|webp|gif|avif)$/i.test(parsed.pathname)
+  ) {
+    throw Error('IMGBB_INVALID_IMAGE_URL');
+  }
+
+  return parsed.href;
+}
+
 async function mediaSelected(input) {
 
   const files = [
@@ -6942,11 +7941,8 @@ async function mediaSelected(input) {
         'image/gif'
       ].includes(file.type)) throw Error('UNSUPPORTED_IMAGE_TYPE_OR_SIZE');
       $('media-progress').textContent = `${txt('جاري رفع', 'Uploading')} ${file.name} (${done + 1}/${files.length})`;
-      const uploadFile = await compressImageIfNeeded(file);
-      const form = new FormData();
-      form.set('image', uploadFile);
-      const d = await callEdge('upload-image', form, true);
-      attachMediaUrl(d.url);
+      const imageUrl = await uploadToImgBB(file);
+      attachMediaUrl(imageUrl);
       done++;
 
     } catch (e) {
@@ -6970,7 +7966,15 @@ function friendlyError(e) {
 
   const s = String(e?.message || e);
   const pairs = {
+    'IMGBB_INVALID_IMAGE_URL': txt(
+      'خدمة الرفع لم ترجع رابط ImgBB مباشر. راجع إعدادات upload-image.',
+      'Upload did not return a direct ImgBB URL.'
+    ),
 
+    'UNSUPPORTED_IMAGE_TYPE_OR_SIZE': txt(
+      'اختار صورة JPG أو PNG أو WEBP أو GIF بحجم مناسب.',
+      'Choose a supported image with a valid size.'
+    ),
     'INSUFFICIENT_STOCK': txt('المخزون غير كافي. راجع السلة.', 'Insufficient stock.'),
     'SLOT_FULL': txt('الموعد امتلأ؛ اختار ميعاد تاني.', 'Appointment is full.'),
     'SLOT_UNAVAILABLE': txt('الموعد مش متاح.', 'Appointment unavailable.'),
@@ -7636,6 +8640,130 @@ function allowedSections() {
   ].includes(x[0]) || state.roles.includes('owner')) && perm(x[3]))
 }
 
+function adminGlyph(name) {
+  const icons = {
+    overview: `<svg viewBox="0 0 24 24" class="icon-svg"><path d="M4 13h6v7H4zM14 4h6v16h-6zM4 4h6v6H4zM14 14h6v6h-6z"/></svg>`,
+    products: `<svg viewBox="0 0 24 24" class="icon-svg"><path d="M12 3 20 7 12 11 4 7 12 3Z"/><path d="M20 7v10l-8 4-8-4V7"/><path d="M12 11v10"/></svg>`,
+    product_images: `<svg viewBox="0 0 24 24" class="icon-svg"><rect x="4" y="5" width="16" height="14" rx="2"/><circle cx="9" cy="10" r="1.5"/><path d="m20 16-4.5-4.5L10 17l-2.5-2.5L4 18"/></svg>`,
+    categories: `<svg viewBox="0 0 24 24" class="icon-svg"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></svg>`,
+    brands: `<svg viewBox="0 0 24 24" class="icon-svg"><path d="M11 4H6a2 2 0 0 0-2 2v5l8.5 8.5a2 2 0 0 0 2.8 0l4.2-4.2a2 2 0 0 0 0-2.8L11 4Z"/><circle cx="8" cy="8" r="1.2"/></svg>`,
+    motorcycle_models: `<svg viewBox="0 0 24 24" class="icon-svg"><circle cx="6.5" cy="17" r="2.5"/><circle cx="17.5" cy="17" r="2.5"/><path d="M8.5 17h4l2-4h3"/><path d="M10 9h3l2 4"/><path d="M9 10 7 14"/></svg>`,
+    motorcycle_years: `<svg viewBox="0 0 24 24" class="icon-svg"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M8 3v4M16 3v4M4 10h16"/></svg>`,
+    product_compatibility: `<svg viewBox="0 0 24 24" class="icon-svg"><path d="M14 7a4 4 0 1 0-5 5l-5 5 3 3 5-5a4 4 0 0 0 5-5l3-3-3-3-3 3Z"/></svg>`,
+    product_reviews: `<svg viewBox="0 0 24 24" class="icon-svg"><path d="m12 4 2.3 4.7 5.2.8-3.8 3.7.9 5.2L12 16l-4.6 2.4.9-5.2-3.8-3.7 5.2-.8L12 4Z"/></svg>`,
+    product_questions: `<svg viewBox="0 0 24 24" class="icon-svg"><path d="M5 6h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H9l-4 3v-3H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z"/><path d="M9.5 10a2.5 2.5 0 1 1 4 2c-.8.6-1.5 1.1-1.5 2"/><circle cx="12" cy="16.5" r=".5" fill="currentColor" stroke="none"/></svg>`,
+    inventory: `<svg viewBox="0 0 24 24" class="icon-svg"><path d="M3 10h18v10H3z"/><path d="M7 10V6h10v4"/><path d="M3 14h18"/></svg>`,
+    inventory_movements: `<svg viewBox="0 0 24 24" class="icon-svg"><path d="M7 7h11"/><path d="m14 4 4 3-4 3"/><path d="M17 17H6"/><path d="m10 20-4-3 4-3"/></svg>`,
+    suppliers: `<svg viewBox="0 0 24 24" class="icon-svg"><path d="M3 7h11v9H3z"/><path d="M14 10h3l3 3v3h-6z"/><circle cx="7" cy="18" r="1.5"/><circle cx="17" cy="18" r="1.5"/></svg>`,
+    purchase_orders: `<svg viewBox="0 0 24 24" class="icon-svg"><path d="M6 4h9l3 3v13H6z"/><path d="M15 4v4h4"/><path d="M9 12h6M9 16h6"/></svg>`,
+    orders: `<svg viewBox="0 0 24 24" class="icon-svg"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3Z"/><path d="M9 8h6M9 12h6"/></svg>`,
+    customers: `<svg viewBox="0 0 24 24" class="icon-svg"><circle cx="9" cy="9" r="3"/><circle cx="17" cy="10" r="2.5"/><path d="M4 19a5 5 0 0 1 10 0"/><path d="M14.5 19a4 4 0 0 1 5.5-3.5"/></svg>`,
+    service_bookings: `<svg viewBox="0 0 24 24" class="icon-svg"><path d="M14 4a5 5 0 0 0 0 7l-4 4a2 2 0 0 1-3 0l-1-1a2 2 0 0 1 0-3l4-4a5 5 0 0 0 7 0Z"/><path d="m15 13 5 5"/><path d="M18 11l2-2"/></svg>`,
+    notifications: `<svg viewBox="0 0 24 24" class="icon-svg"><path d="M6 16h12l-1.2-1.8A4 4 0 0 1 16 12V9a4 4 0 1 0-8 0v3a4 4 0 0 1-.8 2.2L6 16Z"/><path d="M10 19a2 2 0 0 0 4 0"/></svg>`,
+    image_requests: `<svg viewBox="0 0 24 24" class="icon-svg"><rect x="4" y="6" width="16" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M9 6l1-2h4l1 2"/></svg>`,
+    design: `<svg viewBox="0 0 24 24" class="icon-svg"><path d="m4 16 8-8 4 4-8 8H4z"/><path d="m14 6 2-2 4 4-2 2"/></svg>`,
+    business: `<svg viewBox="0 0 24 24" class="icon-svg"><path d="M4 20V6l8-3 8 3v14"/><path d="M9 20v-4h6v4"/><path d="M8 9h.01M12 9h.01M16 9h.01M8 13h.01M12 13h.01M16 13h.01" stroke-linecap="round"/></svg>`,
+    assistant: `<svg viewBox="0 0 24 24" class="icon-svg"><rect x="6" y="7" width="12" height="10" rx="3"/><path d="M12 3v3M9 12h.01M15 12h.01" stroke-linecap="round"/><path d="M9 15c.8.7 1.8 1 3 1s2.2-.3 3-1"/></svg>`,
+    default: `<svg viewBox="0 0 24 24" class="icon-svg"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a2 2 0 0 1-2.8 2.8l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V20a2 2 0 0 1-4 0v-.2a1 1 0 0 0-.6-.9 1 1 0 0 0-1.1.2l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H4a2 2 0 0 1 0-4h.2a1 1 0 0 0 .9-.6 1 1 0 0 0-.2-1.1l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V4a2 2 0 0 1 4 0v.2a1 1 0 0 0 .6.9 1 1 0 0 0 1.1-.2l.1-.1a2 2 0 0 1 2.8 2.8l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6h.2a2 2 0 0 1 0 4H20a1 1 0 0 0-.9.6Z"/></svg>`
+  };
+
+  return icons[name] || icons.default;
+}
+
+function midoAdminBell() {
+  if (!state.user || !state.staff) return '';
+
+  const notifications = get('notifications')
+    .filter(n =>
+      n.audience === 'staff' ||
+      n.user_id === state.user.id
+    )
+    .sort((a, b) =>
+      new Date(b.created_at) - new Date(a.created_at)
+    );
+
+  const unread = notifications.filter(n => !n.is_read).length;
+
+  return `
+    <div class="mido-notification-bar">
+      <div>
+        <strong>${txt('مركز التنبيهات', 'Notification center')}</strong>
+        <small>${txt('تابع آخر تحديثات المتجر', 'Track store updates')}</small>
+      </div>
+
+      <div class="mido-notification-holder">
+        <button
+          type="button"
+          class="mido-notification-bell"
+          onclick="toggleMidoNotifications()"
+          aria-label="${txt('فتح الإشعارات', 'Open notifications')}"
+          aria-expanded="false"
+        >
+          <svg viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+            <path d="M10 21h4"/>
+          </svg>
+
+          ${unread ? `
+            <span class="mido-notification-count">
+              ${unread > 99 ? '99+' : unread}
+            </span>
+          ` : ''}
+        </button>
+
+        <div class="mido-notification-panel" id="mido-notification-panel" hidden>
+          <div class="mido-notification-panel-head">
+            <strong>${txt('الإشعارات', 'Notifications')}</strong>
+            <button type="button" onclick="toggleMidoNotifications(false)">
+              ${txt('إغلاق', 'Close')}
+            </button>
+          </div>
+
+          <div class="mido-notification-items">
+            ${notifications.length ? notifications.slice(0, 8).map(n => `
+              <div class="mido-notification-item ${n.is_read ? '' : 'unread'}">
+                <div>
+                  <strong>${E(n.title || '')}</strong>
+                  <p>${E(n.body || '')}</p>
+                  <small>${n.created_at ? humanDate(n.created_at) : ''}</small>
+                </div>
+                ${!n.is_read ? `
+                  <button type="button" onclick="readNotification('${E(n.id)}')">
+                    ${txt('تمت القراءة', 'Mark read')}
+                  </button>
+                ` : ''}
+              </div>
+            `).join('') : `
+              <p class="mido-notification-empty">
+                ${txt('مفيش إشعارات حاليًا', 'No notifications yet')}
+              </p>
+            `}
+          </div>
+
+          <a class="mido-notification-all" href="#/admin/notifications"
+             onclick="toggleMidoNotifications(false)">
+            ${txt('عرض كل الإشعارات', 'View all notifications')}
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function toggleMidoNotifications(force) {
+  const panel = document.getElementById('mido-notification-panel');
+  const button = document.querySelector('.mido-notification-bell');
+
+  if (!panel) return;
+
+  const open = typeof force === 'boolean' ? force : panel.hidden;
+
+  panel.hidden = !open;
+  button?.setAttribute('aria-expanded', String(open));
+}
+
 function adminNav(active) {
   const sections = allowedSections();
 
@@ -7643,111 +8771,448 @@ function adminNav(active) {
 
   const currentName = current
     ? txt(current[1], current[2])
-    : txt('نظرة عامة', 'Overview');
+    : txt('لوحة التحكم', 'Overview');
+
+  const iconMap = {
+    overview: 'overview',
+    products: 'products',
+    product_images: 'product_images',
+    categories: 'categories',
+    brands: 'brands',
+    motorcycle_models: 'motorcycle_models',
+    motorcycle_years: 'motorcycle_years',
+    product_compatibility: 'product_compatibility',
+    product_reviews: 'product_reviews',
+    product_questions: 'product_questions',
+    inventory: 'inventory',
+    inventory_movements: 'inventory_movements',
+    suppliers: 'suppliers',
+    purchase_orders: 'purchase_orders',
+    orders: 'orders',
+    customers: 'customers',
+    service_bookings: 'service_bookings',
+    notifications: 'notifications',
+    image_requests: 'image_requests',
+    design: 'design',
+    business: 'business',
+    assistant: 'assistant'
+  };
 
   return `
     <div class="mido-admin-menu">
-      <details class="mido-admin-details">
-        <summary class="mido-admin-trigger">
-          <span class="mido-admin-trigger-left">
-            <span class="mido-admin-hamburger">
-              ${icon('menu')}
-            </span>
 
-            <span>
-              <strong>${txt('قائمة الإدارة', 'Admin Menu')}</strong>
-              <small>${currentName}</small>
-            </span>
+      <button type="button"
+        class="mido-admin-trigger"
+        onclick="toggleAdminDrawer(true)"
+        aria-controls="mido-admin-drawer"
+        aria-expanded="false">
+
+        <span class="mido-admin-trigger-left">
+          <span class="mido-admin-hamburger">
+            ${icon('menu')}
           </span>
 
-          <span class="mido-admin-chevron">⌄</span>
-        </summary>
+          <span class="mido-admin-trigger-title">
+            <strong>${txt('قائمة الإدارة', 'Admin Menu')}</strong>
+            <small>${currentName}</small>
+          </span>
+        </span>
 
-        <nav class="mido-admin-dropdown"
+        <span class="mido-admin-open-icon">
+          ${txt('فتح القائمة', 'Open menu')}
+        </span>
+      </button>
+
+      <div class="mido-admin-backdrop"
+           onclick="toggleAdminDrawer(false)"
+           aria-hidden="true"></div>
+
+      <aside
+        id="mido-admin-drawer"
+        class="mido-admin-drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-label="${txt('قائمة الإدارة', 'Admin Menu')}"
+        aria-hidden="true"
+        inert>
+
+        <div class="mido-admin-drawer-header">
+          <div class="mido-admin-drawer-brand">
+            <span class="mido-admin-drawer-brand-icon">
+              ${icon('dashboard')}
+            </span>
+
+            <div>
+              <strong>${txt('لوحة الإدارة', 'Administration')}</strong>
+              <small>MR MIDO MOTORS</small>
+            </div>
+          </div>
+
+          <button type="button"
+            class="mido-admin-drawer-close"
+            onclick="toggleAdminDrawer(false)"
+            aria-label="${txt('إغلاق القائمة', 'Close menu')}">
+            ${icon('close')}
+          </button>
+        </div>
+
+        <div class="mido-admin-drawer-current">
+          <small>${txt('القسم الحالي', 'Current section')}</small>
+          <strong>${currentName}</strong>
+        </div>
+
+        <div class="mido-admin-drawer-label">
+          ${txt('أقسام لوحة الإدارة', 'ADMIN SECTIONS')}
+        </div>
+
+        <nav class="mido-admin-drawer-links"
              aria-label="${txt('أقسام الإدارة', 'Admin sections')}">
 
           ${sections.map(([key, ar, en]) => `
             <a
               href="#/admin/${key === 'overview' ? '' : key}"
-              class="${key === active ? 'active' : ''}"
+              class="mido-admin-drawer-link ${key === active ? 'active' : ''}"
               ${key === active ? 'aria-current="page"' : ''}
-              onclick="this.closest('details').open = false"
-            >
-              <span>${txt(ar, en)}</span>
-              ${key === active ? '<span>✓</span>' : ''}
+              onclick="toggleAdminDrawer(false)">
+
+              <span class="mido-admin-drawer-link-icon">
+                ${adminGlyph(iconMap[key] || 'default')}
+              </span>
+
+              <span class="mido-admin-drawer-link-name">
+                ${txt(ar, en)}
+              </span>
+
+              <span class="mido-admin-drawer-link-end">
+                ${
+                  key === active
+                    ? `<span class="mido-admin-drawer-link-badge">${txt('أنت هنا', 'You’re here')}</span>`
+                    : `<span class="mido-admin-drawer-link-arrow"><svg viewBox="0 0 24 24" class="icon-svg"><path d="M9 6l6 6-6 6"/></svg></span>`
+                }
+              </span>
+
             </a>
           `).join('')}
 
         </nav>
-      </details>
+
+        <div class="mido-admin-drawer-footer">
+          <span class="mido-admin-drawer-status"></span>
+          ${txt('إدارة المتجر', 'Store management')}
+          <a href="#/account" onclick="toggleAdminDrawer(false)">
+            ${txt('حسابي', 'My account')}
+          </a>
+        </div>
+
+      </aside>
+    </div>
+  `;
+}
+function toggleAdminDrawer(open) {
+  const drawer = document.getElementById(
+    'mido-admin-drawer'
+  );
+
+  const backdrop = document.querySelector(
+    '.mido-admin-backdrop'
+  );
+
+  const trigger = document.querySelector(
+    '.mido-admin-trigger'
+  );
+
+  if (!drawer) {
+    document.body.classList.remove('mido-admin-drawer-open');
+    return;
+  }
+
+  const shouldOpen = Boolean(open);
+
+  drawer.classList.toggle('open', shouldOpen);
+  backdrop?.classList.toggle('open', shouldOpen);
+
+  drawer.setAttribute(
+    'aria-hidden',
+    String(!shouldOpen)
+  );
+
+  drawer.inert = !shouldOpen;
+
+  trigger?.setAttribute(
+    'aria-expanded',
+    String(shouldOpen)
+  );
+
+  document.body.classList.toggle(
+    'mido-admin-drawer-open',
+    shouldOpen
+  );
+
+  if (shouldOpen) {
+    drawer.querySelector(
+      '.mido-admin-drawer-close'
+    )?.focus();
+  } else {
+    trigger?.focus({ preventScroll: true });
+  }
+}
+
+// Close with Escape
+document.addEventListener('keydown', event => {
+  const drawer = document.getElementById(
+    'mido-admin-drawer'
+  );
+
+  if (!drawer?.classList.contains('open')) return;
+
+  if (event.key === 'Escape') {
+    toggleAdminDrawer(false);
+  }
+
+  // Keep keyboard navigation inside the open drawer.
+  if (event.key === 'Tab') {
+    const focusable = Array.from(
+      drawer.querySelectorAll('button, a[href]')
+    ).filter(el => !el.disabled);
+
+    if (!focusable.length) return;
+
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+
+    if (event.shiftKey &&
+        document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey &&
+               document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
+});
+
+/* RESTORE ADMIN PAGE AND DASHBOARD */
+
+function adminPage(section = 'overview') {
+  if (!state.user) return authGate('admin');
+
+  if (!state.staff) {
+    return pageHead(txt('غير مصرح', 'Access denied')) +
+      `<div class="container section">
+        <div class="notice">
+          ${txt(
+            'هذا الحساب لا يمتلك صلاحية دخول لوحة الإدارة.',
+            'This account does not have admin access.'
+          )}
+        </div>
+      </div>`;
+  }
+
+  const item = ADMIN_SECTIONS.find(
+    x => x[0] === section
+  ) || ADMIN_SECTIONS[0];
+
+  if (
+    !perm(item[3]) ||
+    (
+      ['user_roles', 'role_permissions'].includes(section) &&
+      !state.roles.includes('owner')
+    )
+  ) {
+    return pageHead(txt('غير مصرح', 'Access denied'));
+  }
+
+  let content;
+
+  switch (section) {
+    case 'overview':
+      content = adminOverview();
+      break;
+    case 'design':
+      content = adminDesign();
+      break;
+    case 'business':
+      content = adminBusiness();
+      break;
+    case 'assistant':
+      content = adminAssistant();
+      break;
+    case 'inventory':
+      content = adminInventory();
+      break;
+    case 'customers':
+      content = adminCustomers();
+      break;
+    case 'product_reviews':
+    case 'product_questions':
+      content = adminModeration(section);
+      break;
+    case 'notifications':
+      content = adminNotifications();
+      break;
+    case 'user_roles':
+      content = adminStaffRoles();
+      break;
+    case 'role_permissions':
+      content = adminPermissions();
+      break;
+    case 'image_requests':
+      content = adminPhotoRequests();
+      break;
+    case 'orders':
+      content = adminOrders();
+      break;
+    case 'service_bookings':
+      content = adminBookings();
+      break;
+    case 'purchase_orders':
+      content = adminPurchases();
+      break;
+    default:
+      content = adminTable(section);
+  }
+
+  return `
+    ${pageHead(
+      txt('لوحة إدارة مستر ميدو', 'Mr Mido Administration')
+    )}
+
+    <div class="container section">
+      <div class="admin-layout">
+
+        ${adminNav(section)}
+        ${section === 'overview' ? midoAdminBell() : ''}
+
+        <div class="admin-panel">
+          <div class="spread" style="margin-bottom:17px">
+            <h2>${txt(item[1], item[2])}</h2>
+
+            <a class="btn sm outline" href="#/account">
+              ${txt('حسابي', 'My account')}
+            </a>
+          </div>
+
+          ${content}
+        </div>
+
+      </div>
     </div>
   `;
 }
 
-function adminPage(section = 'overview') {
-
-  if (!state.user || !state.staff) return authGate('admin');
-  const item = ADMIN_SECTIONS.find(x => x[0] === section) || ADMIN_SECTIONS[0];
-  if (!perm(item[3]) || ([
-    'user_roles',
-    'role_permissions'
-  ].includes(section) && !state.roles.includes('owner'))) return pageHead(txt('غير مصرح', 'Access denied'));
-  return `${pageHead(txt('لوحة إدارة مستر ميدو', 'Mr Mido Administration'), txt('البيانات تُقرأ وتُحفظ بصلاحيات Supabase', 'Data access is enforced by Supabase permissions'))}
- <div class="container section"><div class="admin-layout">${adminNav(section)}<div class="admin-panel"><div class="spread" style="margin-bottom:17px"><h2>${txt(item[1], item[2])}</h2><a class="btn sm outline" href="#/account">${txt('حسابي', 'My account')}</a></div>
- ${section === 'overview' ? adminOverview() : section === 'design' ? adminDesign() : section === 'business' ? adminBusiness() : section === 'assistant' ? adminAssistant() : section === 'inventory' ? adminInventory() : section === 'customers' ? adminCustomers() : section === 'product_reviews' ? adminModeration('product_reviews') : section === 'product_questions' ? adminModeration('product_questions') : section === 'notifications' ? adminNotifications() : section === 'user_roles' ? adminStaffRoles() : section === 'role_permissions' ? adminPermissions() : section === 'image_requests' ? adminPhotoRequests() : section === 'orders' ? adminOrders() : section === 'service_bookings' ? adminBookings() : section === 'purchase_orders' ? adminPurchases() : adminTable(section)}</div></div></div>`
-}
 function adminOverview() {
+  const orders = get('orders');
+  const inventory = get('inventory');
 
-  const os = get('orders'), now = new Date();
-  const paid = os.filter(x => x.status !== 'cancelled');
-  const revenue = paid.filter(x => x.status === 'delivered').reduce((s, x) => s + Number(x.total), 0);
-  const lows = get('inventory').filter(x => x.quantity <= x.min_quantity);
+  const delivered = orders.filter(
+    x => x.status === 'delivered'
+  );
+
+  const revenue = delivered.reduce(
+    (sum, x) => sum + Number(x.total || 0),
+    0
+  );
+
+  const lowStock = inventory.filter(
+    x => Number(x.quantity) <= Number(x.min_quantity)
+  );
+
   const stats = [
     [
-      'إجمالي مبيعات تم تسليمها',
+      txt('المبيعات المسلّمة', 'Delivered revenue'),
       fmt(revenue),
       'orders'
     ],
     [
-      'كل الطلبات',
-      os.length,
+      txt('كل الطلبات', 'All orders'),
+      orders.length,
       'orders'
     ],
     [
-      'طلبات جديدة',
-      os.filter(x => x.status === 'received').length,
+      txt('طلبات جديدة', 'New orders'),
+      orders.filter(x => x.status === 'received').length,
       'orders'
     ],
     [
-      'حجوزات جديدة',
-      get('service_bookings').filter(x => x.status === 'pending').length,
+      txt('حجوزات جديدة', 'New bookings'),
+      get('service_bookings').filter(
+        x => x.status === 'pending'
+      ).length,
       'service_bookings'
     ],
     [
-      'طلبات صور جديدة',
-      get('image_requests').filter(x => x.status === 'new').length,
+      txt('طلبات صور جديدة', 'Image requests'),
+      get('image_requests').filter(
+        x => x.status === 'new'
+      ).length,
       'image_requests'
     ],
     [
-      'منتجات نشطة',
+      txt('المنتجات النشطة', 'Active products'),
       products().length,
       'products'
     ],
     [
-      'مخزون منخفض',
-      lows.length,
+      txt('مخزون منخفض', 'Low stock'),
+      lowStock.length,
       'inventory'
     ],
     [
-      'العملاء',
+      txt('العملاء', 'Customers'),
       get('profiles').length,
       'customers'
     ]
   ];
-  return `<div class="grid grid-4">${stats.map(([n, v, k]) => `<a class="stat" href="#/admin/${k}"><strong>${v}</strong><span class="muted small">${n}</span></a>`).join('')}</div>
- <div class="grid grid-2" style="margin-top:18px"><div class="surface"><h3>${txt('آخر الطلبات', 'Latest orders')}</h3>${os.slice(0, 8).map(x => `<div class="sum-row"><span>${E(x.order_number)}</span><span>${fmt(x.total)} • ${E(x.status)}</span></div>`).join('') || '<p class="muted">—</p>'}</div>
- <div class="surface"><h3>${txt('منتجات وصلت للحد الأدنى', 'Low stock')}</h3>${lows.slice(0, 8).map(x => `<div class="sum-row"><span>${E(by('products', x.product_id)?.name_ar || x.product_id)}</span><strong>${x.quantity}</strong></div>`).join('') || '<p class="muted">—</p>'}</div></div>`
+
+  return `
+    <div class="grid grid-4">
+      ${stats.map(([name, value, link]) => `
+        <a class="stat" href="#/admin/${link}">
+          <strong>${value}</strong>
+          <span class="muted small">${name}</span>
+        </a>
+      `).join('')}
+    </div>
+
+    <div class="grid grid-2" style="margin-top:18px">
+
+      <div class="surface">
+        <h3>${txt('آخر الطلبات', 'Latest orders')}</h3>
+        ${
+          orders.slice(0, 8).map(x => `
+            <div class="sum-row">
+              <span>${E(x.order_number)}</span>
+              <span>
+                ${fmt(x.total)}
+                • ${E(x.status)}
+              </span>
+            </div>
+          `).join('') || '<p class="muted">—</p>'
+        }
+      </div>
+
+      <div class="surface">
+        <h3>${txt('مخزون منخفض', 'Low stock')}</h3>
+        ${
+          lowStock.slice(0, 8).map(x => `
+            <div class="sum-row">
+              <span>
+                ${E(
+                  by('products', x.product_id)?.name_ar ||
+                  x.product_id
+                )}
+              </span>
+              <strong>${x.quantity}</strong>
+            </div>
+          `).join('') || '<p class="muted">—</p>'
+        }
+      </div>
+
+    </div>
+  `;
 }
+
 function adminCustomers() {
   const rows = get('profiles');
   return `<div class="table-wrap"><table class="data-table"><thead><tr><th>${txt('الاسم', 'Name')}</th><th>${txt('الهاتف', 'Phone')}</th><th>${txt('الطلبات', 'Orders')}</th><th>${txt('الحجوزات', 'Bookings')}</th></tr></thead><tbody>${rows.map(p => `<tr><td>${E(p.full_name)}</td><td>${E(p.phone)}</td><td>${get('orders').filter(o => o.user_id === p.id).length}</td><td>${get('service_bookings').filter(b => b.user_id === p.id).length}</td></tr>`).join('')}</tbody></table></div>`
@@ -8085,22 +9550,7 @@ async function uploadCategoryImage(input) {
   }
 
   try {
-    const compressed = await compressImageIfNeeded(file);
-
-    const uploadForm = new FormData();
-    uploadForm.set('image', compressed);
-
-    const result = await callEdge(
-      'upload-image',
-      uploadForm,
-      true
-    );
-
-    const url = safeUrl(result.url || '');
-
-    if (!/^https:\/\//i.test(url)) {
-      throw new Error('INVALID_IMAGE_URL');
-    }
+    const url = await uploadToImgBB(file);
 
     if (imageField) {
       imageField.value = url;
@@ -8399,23 +9849,7 @@ async function saveSimpleProduct(id, form) {
       button.textContent =
         txt('جاري رفع الصورة...', 'Uploading image...');
 
-      const uploadData = new FormData();
-      uploadData.set(
-        'image',
-        await compressImageIfNeeded(imageFile)
-      );
-
-      const uploaded = await callEdge(
-        'upload-image',
-        uploadData,
-        true
-      );
-
-      imageUrl = safeUrl(uploaded.url || '');
-
-      if (!/^https:\/\//i.test(imageUrl)) {
-        throw Error('INVALID_IMAGE_URL');
-      }
+      imageUrl = await uploadToImgBB(imageFile);
     }
 
     button.textContent =
@@ -8746,22 +10180,7 @@ async function saveSimpleProduct(id, form) {
         'Uploading image...'
       );
 
-      const uploadForm = new FormData();
-
-      const compressed = await compressImageIfNeeded(imageFile);
-      uploadForm.set('image', compressed);
-
-      const uploaded = await callEdge(
-        'upload-image',
-        uploadForm,
-        true
-      );
-
-      imageUrl = safeUrl(uploaded.url || '');
-
-      if (!imageUrl) {
-        throw Error('INVALID_IMAGE_URL');
-      }
+      imageUrl = await uploadToImgBB(imageFile);
     }
 
     button.textContent = txt(
@@ -9681,6 +11100,352 @@ function hydrateBike(prefix, b) {
   fillBikeYears(prefix);
   $(`${prefix}-year`).value = String(b.year || '');
 }
+let midoOrdersChart = null;
+let midoUsersChart = null;
+
+function midoAdminStatIcon(type) {
+  const icons = {
+    orders: `<svg viewBox="0 0 24 24" fill="none"><path d="M8 7h11M8 12h11M8 17h7M4 7h.01M4 12h.01M4 17h.01" stroke-width="2" stroke-linecap="round"/></svg>`,
+    users: `<svg viewBox="0 0 24 24" fill="none"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2M9.5 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM20 21v-2a4 4 0 0 0-3-3.87M16.5 3.13a4 4 0 0 1 0 7.75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+    stock: `<svg viewBox="0 0 24 24" fill="none"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" stroke-width="2"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12" stroke-width="2"/></svg>`,
+    bookings: `<svg viewBox="0 0 24 24" fill="none"><path d="M8 2v4M16 2v4M3 10h18M5 6h14a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+  };
+  return icons[type] || icons.orders;
+}
+
+function midoDateKey(value) {
+  const d = value ? new Date(value) : new Date();
+  if (Number.isNaN(d.getTime())) return '';
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+
+function midoTimeAgo(value) {
+  const d = value ? new Date(value) : new Date();
+  if (Number.isNaN(d.getTime())) return txt('الآن', 'Now');
+  const diff = Math.max(1, Math.floor((Date.now() - d.getTime()) / 60000));
+  if (diff < 60) return txt(`منذ ${diff} دقيقة`, `${diff} min ago`);
+  const hrs = Math.floor(diff / 60);
+  if (hrs < 24) return txt(`منذ ${hrs} ساعة`, `${hrs}h ago`);
+  const days = Math.floor(hrs / 24);
+  return txt(`منذ ${days} يوم`, `${days}d ago`);
+}
+
+function midoLastDays(count = 7) {
+  const arr = [];
+  for (let i = count - 1; i >= 0; i--) {
+    const d = new Date();
+    d.setDate(d.getDate() - i);
+    arr.push(d);
+  }
+  return arr;
+}
+
+function midoCountByDays(rows, dateField, count = 7) {
+  const days = midoLastDays(count);
+  return days.map(d => {
+    const key = midoDateKey(d);
+    return rows.filter(x => midoDateKey(x?.[dateField] || x?.created_at || x?.updated_at) === key).length;
+  });
+}
+
+function midoRecentStockRows(limit = 6) {
+const rows = get('inventory_movements') || [];
+
+  return rows
+    .slice()
+    .sort((a, b) => new Date(b.created_at || b.recorded_at || b.updated_at || 0) - new Date(a.created_at || a.recorded_at || a.updated_at || 0))
+    .slice(0, limit);
+}
+
+function midoRecentDashboardActivity(limit = 8) {
+  const orders = (get('orders') || []).map(x => ({
+    type: 'order',
+    title: txt('طلب جديد', 'New order'),
+    body: `${txt('رقم الطلب', 'Order')} #${x.order_number || x.id || '-'}`,
+    time: x.created_at || x.updated_at
+  }));
+
+  const users = (get('profiles') || []).map(x => ({
+    type: 'user',
+    title: txt('عميل جديد', 'New customer'),
+    body: E(x.full_name || x.email || txt('بدون اسم', 'Unnamed')),
+    time: x.created_at || x.updated_at
+  }));
+
+  const bookings = (get('service_bookings') || []).map(x => ({
+    type: 'booking',
+    title: txt('حجز صيانة', 'Service booking'),
+    body: `${txt('الحالة', 'Status')}: ${E(x.status || '-')}`,
+    time: x.created_at || x.updated_at
+  }));
+
+  const merged = [...orders, ...users, ...bookings]
+    .filter(x => x.time)
+    .sort((a, b) => new Date(b.time) - new Date(a.time))
+    .slice(0, limit);
+
+  return merged;
+}
+
+function midoLowStockCount() {
+  return (get('products') || []).filter(p => Number(qty(p.id)) <= 5).length;
+}
+
+function midoAdminAlertsHtml() {
+  const newOrders = (get('orders') || []).filter(x => midoDateKey(x.created_at) === midoDateKey(new Date())).length;
+  const newUsers = (get('profiles') || []).filter(x => midoDateKey(x.created_at) === midoDateKey(new Date())).length;
+  const lowStock = midoLowStockCount();
+  const newBookings = (get('service_bookings') || []).filter(x => midoDateKey(x.created_at) === midoDateKey(new Date())).length;
+
+  const items = [
+    {
+      icon: 'orders',
+      title: txt('طلبات اليوم', 'Today orders'),
+      sub: txt(`${newOrders} طلب جديد`, `${newOrders} new orders`)
+    },
+    {
+      icon: 'users',
+      title: txt('عملاء جدد', 'New customers'),
+      sub: txt(`${newUsers} حساب جديد`, `${newUsers} new accounts`)
+    },
+    {
+      icon: 'stock',
+      title: txt('تنبيه مخزون', 'Stock alert'),
+      sub: txt(`${lowStock} منتجات مخزونها قليل`, `${lowStock} low-stock products`)
+    },
+    {
+      icon: 'bookings',
+      title: txt('حجوزات جديدة', 'New bookings'),
+      sub: txt(`${newBookings} حجز جديد`, `${newBookings} new bookings`)
+    }
+  ];
+
+  return `
+    <div class="mido-admin-alerts">
+      ${items.map(item => `
+        <div class="mido-admin-alert">
+          <span class="mido-admin-alert-icon">${midoAdminStatIcon(item.icon)}</span>
+          <div class="mido-admin-alert-text">
+            <strong>${item.title}</strong>
+            <small>${item.sub}</small>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+}
+
+function midoStockReviewHtml() {
+  const rows = midoRecentStockRows(6);
+
+  return `
+    <div class="mido-dashboard-card">
+      <h3>${txt('مراجعة سريعة لحركة المخزون', 'Quick stock review')}</h3>
+      <div class="muted" style="margin-bottom:14px">
+        ${txt('آخر الحركات التي تمت على المخزون', 'Latest stock movements')}
+      </div>
+
+      <div class="mido-mini-table">
+        <div class="mido-mini-row head">
+          <div>${txt('المنتج', 'Product')}</div>
+          <div>${txt('الحركة', 'Movement')}</div>
+          <div>${txt('السبب', 'Reason')}</div>
+          <div>${txt('الوقت', 'Time')}</div>
+        </div>
+
+        ${rows.length ? rows.map(row => {
+          const product = by('products', row.product_id);
+          const delta = Number(row.quantity_delta ?? 0);
+          const reason = row.reason || row.note || row.notes || txt('بدون سبب', 'No reason');
+          const badgeClass = delta > 0 ? 'mido-badge-up' : delta < 0 ? 'mido-badge-down' : 'mido-badge-neutral';
+          const badgeText = delta > 0 ? `+${delta}` : `${delta}`;
+
+          return `
+            <div class="mido-mini-row">
+              <div>${E(product?.name_ar || product?.name_en || txt('منتج', 'Product'))}</div>
+              <div><span class="${badgeClass}">${badgeText}</span></div>
+              <div>${E(reason)}</div>
+              <div>${midoTimeAgo(row.created_at || row.updated_at || row.recorded_at)}</div>
+            </div>
+          `;
+        }).join('') : `
+          <div class="mido-mini-row">
+            <div style="grid-column:1/-1">${txt('لا توجد حركات مخزون حتى الآن', 'No stock movements yet')}</div>
+          </div>
+        `}
+      </div>
+    </div>
+  `;
+}
+
+function midoActivityFeedHtml() {
+  const rows = midoRecentDashboardActivity(8);
+
+  return `
+    <div class="mido-dashboard-card">
+      <h3>${txt('آخر النشاطات', 'Latest activity')}</h3>
+      <div class="muted" style="margin-bottom:14px">
+        ${txt('طلبات وعملاء وحجوزات بشكل سريع', 'Quick feed of orders, customers and bookings')}
+      </div>
+
+      <div class="mido-activity-list">
+        ${rows.length ? rows.map(item => `
+          <div class="mido-activity-item">
+            <span class="mido-activity-dot"></span>
+            <div>
+              <strong>${item.title}</strong>
+              <div>${item.body}</div>
+              <small>${midoTimeAgo(item.time)}</small>
+            </div>
+          </div>
+        `).join('') : `
+          <div class="mido-activity-item">
+            <span class="mido-activity-dot"></span>
+            <div>
+              <strong>${txt('لا يوجد نشاط حديث', 'No recent activity')}</strong>
+            </div>
+          </div>
+        `}
+      </div>
+    </div>
+  `;
+}
+
+function midoChartsHtml() {
+  return `
+    <div class="mido-dashboard-charts">
+      <div class="mido-chart-wrap">
+        <h3>${txt('إحصائية الطلبات - آخر 7 أيام', 'Orders chart - last 7 days')}</h3>
+        <div class="mido-chart-canvas">
+          <canvas id="midoOrdersChart"></canvas>
+        </div>
+      </div>
+
+      <div class="mido-chart-wrap">
+        <h3>${txt('العملاء الجدد والحجوزات', 'New customers & bookings')}</h3>
+        <div class="mido-chart-canvas">
+          <canvas id="midoUsersChart"></canvas>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function midoDrawDashboardCharts() {
+  if (typeof Chart === 'undefined') return;
+
+  const ordersCanvas = document.getElementById('midoOrdersChart');
+  const usersCanvas = document.getElementById('midoUsersChart');
+
+  if (!ordersCanvas || !usersCanvas) return;
+
+  const dayLabels = midoLastDays(7).map(d =>
+    d.toLocaleDateString(lang === 'ar' ? 'ar-EG' : 'en-US', {
+      weekday: 'short',
+      day: 'numeric'
+    })
+  );
+
+  const ordersData = midoCountByDays(get('orders') || [], 'created_at', 7);
+  const usersData = midoCountByDays(get('profiles') || [], 'created_at', 7);
+  const bookingsData = midoCountByDays(get('service_bookings') || [], 'created_at', 7);
+
+  if (midoOrdersChart) midoOrdersChart.destroy();
+  if (midoUsersChart) midoUsersChart.destroy();
+
+  midoOrdersChart = new Chart(ordersCanvas, {
+    type: 'line',
+    data: {
+      labels: dayLabels,
+      datasets: [{
+        label: txt('الطلبات', 'Orders'),
+        data: ordersData,
+        borderColor: '#0b6b73',
+        backgroundColor: 'rgba(11,107,115,.12)',
+        tension: .35,
+        fill: true,
+        borderWidth: 3,
+        pointRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: true } },
+      scales: {
+        y: { beginAtZero: true, ticks: { precision: 0 } }
+      }
+    }
+  });
+
+  midoUsersChart = new Chart(usersCanvas, {
+    type: 'bar',
+    data: {
+      labels: dayLabels,
+      datasets: [
+        {
+          label: txt('عملاء جدد', 'New customers'),
+          data: usersData,
+          backgroundColor: 'rgba(244,201,51,.75)',
+          borderRadius: 10
+        },
+        {
+          label: txt('حجوزات', 'Bookings'),
+          data: bookingsData,
+          backgroundColor: 'rgba(11,107,115,.75)',
+          borderRadius: 10
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: true } },
+      scales: {
+        y: { beginAtZero: true, ticks: { precision: 0 } }
+      }
+    }
+  });
+}
+
+function injectAdminOverviewEnhancements() {
+  const path = route();
+  const seg = path.split('/').filter(Boolean);
+  const isAdminOverview = seg[0] === 'admin' && (seg[1] || 'overview') === 'overview';
+
+  if (!isAdminOverview) return;
+
+  const host =
+    document.querySelector('#app .section.container') ||
+    document.querySelector('#app .container');
+
+  if (!host) return;
+
+  const old = host.querySelector('.mido-overview-extras');
+  if (old) old.remove();
+
+  const html = `
+    <section class="mido-overview-extras">
+      ${midoAdminAlertsHtml()}
+
+      <div class="mido-dashboard-grid">
+        ${midoStockReviewHtml()}
+        ${midoActivityFeedHtml()}
+      </div>
+
+      ${midoChartsHtml()}
+    </section>
+  `;
+
+  host.insertAdjacentHTML('beforeend', html);
+
+  setTimeout(() => {
+    midoDrawDashboardCharts();
+  }, 50);
+}
 function render() {
 
   
@@ -9758,6 +11523,7 @@ function render() {
   else if (key === 'faq') html = faqPage(); else if (key === 'contact' || key === 'about') html = contentPage(key); else if (key === 'page') html = contentPage(seg[1]);
   else if (key === 'admin') html = adminPage(seg[1] || 'overview'); else html = notFound();
   $('app').innerHTML = html;
+  injectAdminOverviewEnhancements();
   const prefix = {
     '': 'bike',
     builder: 'build',
@@ -9933,4 +11699,6 @@ document.addEventListener('keydown', event => {
 
 document.addEventListener('DOMContentLoaded', boot);
 </script>
-</body></html>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
