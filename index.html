@@ -5444,6 +5444,1746 @@ body.mido-admin-drawer-open {
     transition: none;
   }
 }
+/* ========== ADMIN DASHBOARD REBUILD ========== */
+.admin-dashboard-shell {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
+.lux-dashboard {
+  display: grid;
+  gap: 18px;
+}
+
+.lux-dashboard-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 24px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top right, rgba(255,210,74,.18), transparent 28%),
+    linear-gradient(135deg, #0c1118, #111927 52%, #0b1119);
+  border: 1px solid rgba(255,255,255,.06);
+  color: #fff;
+  box-shadow: 0 18px 45px rgba(8,12,18,.22);
+}
+
+.lux-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #f3c95a;
+  margin-bottom: 8px;
+}
+
+.lux-dashboard-top h1 {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 2.3vw, 36px);
+  line-height: 1.15;
+  color: #fff;
+}
+
+.lux-dashboard-top p {
+  margin: 0;
+  max-width: 620px;
+  color: #aeb9c8;
+  line-height: 1.7;
+  font-size: 14px;
+}
+
+.lux-dashboard-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.lux-filter-box {
+  min-width: 180px;
+}
+
+.lux-filter-box label {
+  display: block;
+  margin-bottom: 8px;
+  color: #c9d3df;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.lux-filter-box select {
+  width: 100%;
+  min-height: 46px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.05);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.1);
+  padding: 0 14px;
+  outline: none;
+}
+
+.lux-filter-box select option {
+  color: #111;
+}
+
+.lux-ghost-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(243,201,90,.35);
+  background: rgba(243,201,90,.08);
+  color: #f3c95a;
+  font-weight: 800;
+  text-decoration: none;
+  transition: .2s ease;
+}
+
+.lux-ghost-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(243,201,90,.14);
+}
+
+.lux-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.lux-stat-card {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 18px;
+  border-radius: 22px;
+  background: #fff;
+  border: 1px solid #e8edf3;
+  box-shadow: 0 10px 28px rgba(16,24,40,.06);
+  text-decoration: none;
+  color: inherit;
+  transition: .22s ease;
+}
+
+.lux-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 38px rgba(16,24,40,.10);
+}
+
+.lux-stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(135deg, rgba(12,17,24,.98), rgba(20,31,47,.92));
+  color: #f3c95a;
+  flex-shrink: 0;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.05);
+}
+
+.lux-svg-icon {
+  display: grid;
+  place-items: center;
+}
+
+.lux-svg-icon svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lux-stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.lux-stat-content span {
+  font-size: 12px;
+  color: #6a7789;
+  font-weight: 700;
+}
+
+.lux-stat-content strong {
+  font-size: 26px;
+  line-height: 1.1;
+  color: #0f1724;
+}
+
+.lux-stat-content small {
+  color: #8c97a8;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.lux-main-grid {
+  display: grid;
+  grid-template-columns: 1.7fr .9fr;
+  gap: 18px;
+}
+
+.lux-side-stack {
+  display: grid;
+  gap: 18px;
+}
+
+.lux-two-grid {
+  display: grid;
+  grid-template-columns: 1.25fr .95fr;
+  gap: 18px;
+}
+
+.lux-card {
+  background: #fff;
+  border: 1px solid #e8edf3;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(15,23,36,.05);
+  padding: 20px;
+  overflow: hidden;
+}
+
+.lux-chart-card {
+  background:
+    radial-gradient(circle at top right, rgba(243,201,90,.08), transparent 22%),
+    linear-gradient(135deg, #0d1218, #141d29);
+  border-color: rgba(255,255,255,.05);
+  color: #fff;
+}
+
+.lux-card-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.lux-card-head h3 {
+  margin: 0;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.lux-card-head p {
+  margin: 6px 0 0;
+  color: #8a96a8;
+  font-size: 13px;
+}
+
+.lux-chart-card .lux-card-head p,
+.lux-chart-card .lux-card-head h3 {
+  color: #fff;
+}
+
+.lux-chart-holder {
+  height: 330px;
+}
+
+.lux-link {
+  color: #0b6b73;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 13px;
+}
+
+.lux-alert-list,
+.lux-ranked-list,
+.lux-activity-list,
+.lux-movement-list {
+  display: grid;
+  gap: 12px;
+}
+
+.lux-alert-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #edf1f6;
+  background: #f9fbfd;
+}
+
+.lux-alert-item strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
+.lux-alert-item small {
+  color: #728094;
+  line-height: 1.6;
+}
+
+.lux-alert-item.danger {
+  background: #fff7f7;
+  border-color: #f3d7d7;
+}
+
+.lux-alert-item.warn {
+  background: #fffaf0;
+  border-color: #f1e2bc;
+}
+
+.lux-alert-item.info {
+  background: #f4f9fd;
+  border-color: #d8e8f5;
+}
+
+.lux-alert-item.success {
+  background: #f4fbf8;
+  border-color: #d8efe4;
+}
+
+.lux-alert-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: #101925;
+  color: #f3c95a;
+  flex-shrink: 0;
+}
+
+.lux-inventory-summary {
+  display: grid;
+  gap: 16px;
+}
+
+.lux-inventory-hero {
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #0d1218, #151f2b);
+  color: #fff;
+}
+
+.lux-inventory-hero strong {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 6px;
+}
+
+.lux-inventory-hero span {
+  color: #b7c0ce;
+  font-size: 13px;
+}
+
+.lux-mini-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 12px;
+}
+
+.lux-mini-stats > div {
+  background: #f8fafc;
+  border: 1px solid #edf1f6;
+  border-radius: 18px;
+  padding: 14px;
+}
+
+.lux-mini-stats b {
+  display: block;
+  font-size: 18px;
+  color: #101925;
+  margin-bottom: 4px;
+}
+
+.lux-mini-stats span {
+  font-size: 12px;
+  color: #7b8797;
+  line-height: 1.5;
+}
+
+.lux-table-wrap {
+  overflow-x: auto;
+}
+
+.lux-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lux-table th,
+.lux-table td {
+  padding: 14px 10px;
+  text-align: start;
+  border-bottom: 1px solid #eef2f6;
+  vertical-align: middle;
+}
+
+.lux-table th {
+  color: #7f8a9c;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.lux-table td strong {
+  display: block;
+  color: #0f1724;
+}
+
+.lux-table td small {
+  display: block;
+  margin-top: 4px;
+  color: #8994a5;
+  font-size: 12px;
+}
+
+.lux-status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 0 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  background: #eff3f7;
+  color: #334155;
+}
+
+.lux-status-badge.received { background: #eef7ff; color: #1863c6; }
+.lux-status-badge.confirmed { background: #f4f6ff; color: #4c55cc; }
+.lux-status-badge.preparing { background: #fff8ea; color: #b7791f; }
+.lux-status-badge.shipped { background: #eef9f4; color: #15803d; }
+.lux-status-badge.out_for_delivery { background: #eef7f9; color: #0f766e; }
+.lux-status-badge.delivered { background: #edf9f0; color: #0f9f50; }
+.lux-status-badge.cancelled { background: #fff1f1; color: #d14343; }
+
+.lux-empty,
+.lux-empty-cell {
+  color: #8b97a8;
+  text-align: center;
+  padding: 18px 0;
+}
+
+.lux-ranked-item,
+.lux-movement-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid #eef2f6;
+}
+
+.lux-ranked-item:last-child,
+.lux-movement-item:last-child {
+  border-bottom: 0;
+}
+
+.lux-rank-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #121924, #1c2838);
+  color: #f3c95a;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.lux-ranked-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.lux-ranked-info strong,
+.lux-movement-item strong {
+  display: block;
+  color: #101925;
+}
+
+.lux-ranked-info small,
+.lux-movement-item small {
+  color: #7f8b9b;
+  font-size: 12px;
+}
+
+.lux-ranked-value {
+  color: #0b6b73;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.lux-activity-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid #eef2f6;
+}
+
+.lux-activity-item:last-child {
+  border-bottom: 0;
+}
+
+.lux-activity-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: #f7f9fc;
+  border: 1px solid #edf1f6;
+  color: #0f1724;
+  flex-shrink: 0;
+}
+
+.lux-activity-content strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #101925;
+}
+
+.lux-activity-content p {
+  margin: 0;
+  color: #677487;
+  line-height: 1.6;
+  font-size: 13px;
+}
+
+.lux-activity-content small {
+  display: inline-block;
+  margin-top: 6px;
+  color: #97a2b2;
+  font-size: 12px;
+}
+
+.lux-movement-meta {
+  text-align: end;
+}
+
+.lux-move-badge {
+  display: inline-flex;
+  min-width: 54px;
+  justify-content: center;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.lux-move-badge.up {
+  background: #edf9f0;
+  color: #0f9f50;
+}
+
+.lux-move-badge.down {
+  background: #fff1f1;
+  color: #d14343;
+}
+
+.lux-move-badge.flat {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+@media (max-width: 1300px) {
+  .lux-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .lux-main-grid,
+  .lux-two-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 780px) {
+  .lux-dashboard-top {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .lux-dashboard-actions {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .lux-stat-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lux-mini-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .lux-chart-holder {
+    height: 260px;
+  }
+
+  .lux-card {
+    padding: 16px;
+    border-radius: 20px;
+  }
+
+  .lux-table th,
+  .lux-table td {
+    padding: 12px 8px;
+  }
+}
+
+/* Dashboard chart refinements */
+
+.lux-chart-holder {
+  position: relative;
+  height: 350px;
+  min-width: 0;
+}
+
+.lux-chart-holder canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.lux-chart-zero-note {
+  position: absolute;
+  bottom: 8px;
+  left: 0;
+  right: 0;
+  margin: 0;
+  text-align: center;
+  color: #8f9dac;
+  font-size: 11px;
+  pointer-events: none;
+}
+
+.lux-chart-zero-note:empty {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .lux-chart-holder {
+    height: 290px;
+  }
+}
+
+/* Unified dashboard header */
+
+.admin-layout:has(.lux-dashboard) {
+  display: block !important;
+}
+
+.admin-layout:has(.lux-dashboard) > .admin-panel {
+  width: 100%;
+  min-width: 0;
+}
+
+.lux-dashboard-top {
+  align-items: center;
+}
+
+.lux-dashboard-actions {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.lux-dashboard-actions .mido-admin-menu {
+  width: auto !important;
+  margin: 0 !important;
+  flex: 0 0 auto;
+}
+
+.lux-dashboard-actions .mido-admin-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px !important;
+  height: 46px;
+  min-height: 46px;
+  padding: 0 !important;
+  border-radius: 13px;
+  background: #ffcc38 !important;
+  color: #101a1c !important;
+  border: 1px solid #ffcc38 !important;
+  box-shadow: none;
+}
+
+.lux-dashboard-actions .mido-admin-trigger-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lux-dashboard-actions .mido-admin-hamburger {
+  width: 26px;
+  height: 26px;
+  border: 0;
+  background: transparent;
+  color: #101a1c;
+}
+
+.lux-dashboard-actions .mido-admin-hamburger .icon-svg {
+  width: 21px;
+  height: 21px;
+}
+
+.lux-dashboard-actions .mido-admin-trigger-title,
+.lux-dashboard-actions .mido-admin-open-icon {
+  display: none !important;
+}
+
+.lux-dashboard-actions .mido-notification-bar {
+  display: block !important;
+  width: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0;
+  box-shadow: none !important;
+}
+
+.lux-dashboard-actions .mido-notification-bar > div:first-child {
+  display: none !important;
+}
+
+.lux-dashboard-actions .mido-notification-bell {
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: #192530;
+  border: 1px solid #40505a;
+  color: #ffcc38;
+}
+
+.lux-dashboard-actions .mido-notification-bell:hover {
+  background: #263844;
+}
+
+.lux-dashboard-actions .mido-notification-panel {
+  color: #172326;
+  text-align: start;
+}
+
+.lux-dashboard-actions .mido-notification-panel strong {
+  color: #172326;
+}
+
+.lux-dashboard-actions .lux-filter-box {
+  min-width: 165px;
+}
+
+@media (max-width: 760px) {
+  .lux-dashboard-actions {
+    flex-direction: row !important;
+    align-items: flex-end;
+    width: 100%;
+  }
+
+  .lux-dashboard-actions .lux-filter-box {
+    flex: 1 1 130px;
+    min-width: 0;
+  }
+
+  .lux-dashboard-actions .mido-admin-menu,
+  .lux-dashboard-actions .mido-notification-bar {
+    flex: 0 0 auto;
+    width: auto !important;
+  }
+}
+
+/* ImgBB media upload results */
+
+.mido-media-result {
+  display: grid;
+  grid-template-columns: 115px minmax(0, 1fr);
+  gap: 14px;
+  margin: 14px 0;
+  padding: 14px;
+  background: #f8fafb;
+  border: 1px solid #e1e7e9;
+  border-radius: 14px;
+}
+
+.mido-media-result > img {
+  width: 115px;
+  height: 115px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #e1e7e9;
+}
+
+.mido-media-result-body {
+  display: grid;
+  gap: 9px;
+  min-width: 0;
+}
+
+.mido-media-result-body label {
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.mido-media-result-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 540px) {
+  .mido-media-result {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Product management */
+
+.mido-products-manager {
+  display: grid;
+  gap: 18px;
+}
+
+.mido-products-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.mido-products-head h2 {
+  font-size: 24px;
+}
+
+.mido-product-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.mido-product-stats > div {
+  background: #fff;
+  border: 1px solid #e5e9eb;
+  padding: 17px;
+  border-radius: 13px;
+}
+
+.mido-product-stats small,
+.mido-product-stats strong {
+  display: block;
+}
+
+.mido-product-stats small {
+  color: #768388;
+  font-size: 12px;
+}
+
+.mido-product-stats strong {
+  font-size: 25px;
+  color: #142426;
+}
+
+.mido-product-tabs {
+  display: flex;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e4e9eb;
+}
+
+.mido-product-tabs button {
+  padding: 10px 17px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  font-weight: 800;
+  color: #617176;
+}
+
+.mido-product-tabs button.active {
+  background: #142426;
+  color: #ffcc38;
+}
+
+.mido-product-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.mido-product-filters input,
+.mido-product-filters select {
+  min-height: 44px;
+  padding: 9px 13px;
+  border: 1px solid #dce3e5;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.mido-product-filters input {
+  flex: 1;
+  min-width: 0;
+}
+
+.mido-product-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mido-product-identity img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border: 1px solid #edf0f1;
+  background: #f7f9f9;
+  border-radius: 9px;
+}
+
+.mido-product-identity strong,
+.mido-product-identity small {
+  display: block;
+}
+
+.mido-product-identity small {
+  color: #839094;
+}
+
+.mido-media-library {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 13px;
+}
+
+.mido-media-library-item {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  background: #fff;
+  padding: 12px;
+  border: 1px solid #e4e9eb;
+  border-radius: 12px;
+}
+
+.mido-media-library-item img {
+  height: 135px;
+  width: 100%;
+  object-fit: contain;
+  background: #f7f9f9;
+  border-radius: 8px;
+}
+
+.mido-media-library-item input {
+  font-size: 11px;
+}
+
+.mido-media-library-item small {
+  color: #899598;
+}
+
+.mido-products-table tr[hidden],
+#mido-products-media-view[hidden],
+#mido-products-list-view[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 680px) {
+  .mido-products-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .mido-product-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .mido-product-filters {
+    flex-direction: column;
+  }
+}
+
+/* Premium product image upload */
+
+.mido-product-image-upload {
+  width: 100%;
+}
+
+.mido-product-upload-row {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
+  gap: 10px;
+  width: 100%;
+}
+
+.mido-product-upload-row > input[type="text"] {
+  min-width: 0;
+  width: 100%;
+  height: 52px;
+  margin: 0;
+  padding: 0 15px;
+  border-radius: 13px;
+  border: 1px solid #dce4e5;
+  background: #f8faf9;
+  color: #26383b;
+  font-size: 12px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+}
+
+.mido-product-upload-row > input[type="text"]:focus {
+  outline: none;
+  border-color: #e3b72b;
+}
+
+.mido-product-upload-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 150px;
+  height: 52px;
+  padding: 0 18px;
+  margin: 0 !important;
+  border: 1px solid #d8e0e3;
+  border-radius: 14px;
+  background: linear-gradient(180deg, #0d2236 0%, #0a1a29 100%);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(6, 16, 27, .12);
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease,
+    border-color .2s ease;
+}
+
+.mido-product-upload-btn:hover {
+  transform: translateY(-1px);
+  border-color: #ffcc38;
+  box-shadow: 0 14px 28px rgba(6, 16, 27, .18);
+  background: linear-gradient(180deg, #102842 0%, #0b1d30 100%);
+}
+.mido-product-upload-btn:focus-visible {
+  outline: 3px solid #ffcc38;
+  outline-offset: 3px;
+}
+
+#mido-product-upload-status {
+  display: block;
+  margin-top: 9px;
+  font-size: 11px;
+  color: #718285;
+}
+
+#mido-product-image-preview {
+  width: 120px !important;
+  height: 115px !important;
+  object-fit: contain;
+  background: #f7f9f9;
+  padding: 8px;
+  border: 1px solid #e2e8e9;
+  border-radius: 13px;
+  margin-top: 12px;
+}
+
+@media (max-width: 480px) {
+  .mido-product-upload-row {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: 7px;
+  }
+
+  .mido-product-upload-btn {
+    min-width: 105px;
+    padding: 0 11px;
+    font-size: 11px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mido-product-upload-btn {
+    transition: none;
+  }
+}
+/* Shared admin hero */
+
+.mido-admin-hero {
+  display: grid;
+  gap: 18px;
+  padding: 22px 24px;
+  margin-bottom: 22px;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 204, 56, .16);
+  background:
+    radial-gradient(circle at top right, rgba(255, 204, 56, .12), transparent 35%),
+    linear-gradient(135deg, #04111e 0%, #071a2f 48%, #1f241c 100%);
+  box-shadow: 0 22px 50px rgba(3, 9, 18, .16);
+  color: #fff;
+}
+
+.mido-admin-hero-actions {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.mido-admin-hero-content {
+  display: grid;
+  gap: 8px;
+}
+
+.mido-admin-hero-kicker {
+  color: #ffcc38;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.mido-admin-hero h1 {
+  margin: 0;
+  font-size: clamp(30px, 3vw, 46px);
+  line-height: 1.05;
+  font-weight: 900;
+}
+
+.mido-admin-hero p {
+  margin: 0;
+  max-width: 760px;
+  color: rgba(255,255,255,.82);
+  font-size: 14px;
+}
+
+.mido-admin-hero-bell-wrap {
+  position: relative;
+}
+
+.mido-admin-hero-bell {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  border: 1px solid rgba(255, 204, 56, .28);
+  border-radius: 18px;
+  background: rgba(255,255,255,.06);
+  color: #ffcc38;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: .25s ease;
+  backdrop-filter: blur(8px);
+}
+
+.mido-admin-hero-bell:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 204, 56, .5);
+  background: rgba(255,255,255,.1);
+}
+
+.mido-admin-hero-bell svg {
+  width: 21px;
+  height: 21px;
+}
+
+.mido-admin-hero-badge {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  min-width: 21px;
+  height: 21px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #ffcc38;
+  color: #0d1620;
+  font-size: 11px;
+  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #07121f;
+}
+
+.mido-admin-hero .mido-admin-menu {
+  width: auto;
+}
+
+.mido-admin-hero .mido-admin-trigger {
+  min-height: 54px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255, 204, 56, .18);
+  box-shadow: none;
+}
+
+.mido-admin-hero .mido-admin-trigger:hover {
+  background: rgba(255,255,255,.1);
+}
+
+@media (max-width: 768px) {
+  .mido-admin-hero {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .mido-admin-hero-actions {
+    align-items: center;
+  }
+
+  .mido-admin-hero h1 {
+    font-size: 28px;
+  }
+}
+/* Product page polish */
+
+.mido-products-manager {
+  display: grid;
+  gap: 18px;
+}
+
+.mido-products-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.mido-products-toolbar-note {
+  color: #7f8a90;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.mido-products-add-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f6d14c, #ffbf00);
+  color: #09111b;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 12px 24px rgba(255, 196, 0, .22);
+}
+
+.mido-products-add-btn span {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.mido-product-stats > div,
+.mido-media-library-item,
+.mido-products-manager .table-wrap,
+.mido-product-filters,
+.mido-product-tabs {
+  background: #fff;
+  border: 1px solid #e7ecee;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(10, 17, 26, .04);
+}
+
+.mido-product-stats {
+  gap: 14px;
+}
+
+.mido-product-stats > div {
+  padding: 20px;
+}
+
+.mido-product-tabs {
+  padding: 8px;
+  border-bottom: 0;
+}
+
+.mido-product-tabs button {
+  border-radius: 12px;
+}
+
+.mido-product-filters {
+  padding: 14px;
+  margin-bottom: 0;
+}
+
+.mido-products-manager .table-wrap {
+  padding: 10px;
+}
+
+.mido-price-stack {
+  display: grid;
+  gap: 4px;
+}
+
+.mido-price-stack strong {
+  color: #09111b;
+  font-size: 15px;
+}
+
+.mido-price-stack small {
+  color: #718086;
+  font-size: 12px;
+}
+
+/* FINAL SHARED ADMIN HEADER */
+
+.admin-layout {
+  display: block !important;
+}
+
+.admin-layout > .admin-panel {
+  width: 100%;
+  min-width: 0;
+  grid-column: auto !important;
+  grid-row: auto !important;
+}
+
+.mido-admin-hero {
+  display: grid;
+  gap: 20px;
+  min-height: 205px;
+  padding: 25px 28px;
+  margin: 0 0 24px;
+  background:
+    radial-gradient(
+      circle at 0% 100%,
+      rgba(255, 204, 56, .10),
+      transparent 42%
+    ),
+    linear-gradient(
+      115deg,
+      #081b20 0%,
+      #0a1927 55%,
+      #101e20 100%
+    );
+  border: 1px solid rgba(255, 204, 56, .16);
+  border-radius: 24px;
+  box-shadow: 0 16px 38px rgba(10, 25, 31, .12);
+  color: #fff;
+}
+
+.mido-admin-hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.mido-admin-hero .mido-admin-menu {
+  width: auto !important;
+  margin: 0 !important;
+  flex: 0 0 auto;
+}
+
+.mido-admin-hero .mido-admin-trigger {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px !important;
+  width: 46px !important;
+  padding: 0 !important;
+  border-radius: 13px;
+  background: #ffcc38 !important;
+  border: 1px solid #ffcc38 !important;
+  color: #101d20 !important;
+  box-shadow: none !important;
+}
+
+.mido-admin-hero .mido-admin-trigger-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mido-admin-hero .mido-admin-hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #101d20;
+}
+
+.mido-admin-hero .mido-admin-hamburger svg {
+  width: 21px;
+  height: 21px;
+}
+
+.mido-admin-hero .mido-admin-trigger-title,
+.mido-admin-hero .mido-admin-open-icon {
+  display: none !important;
+}
+
+.mido-admin-hero .mido-admin-hero-bell {
+  width: 46px;
+  height: 46px;
+  border-radius: 13px;
+  background: #142b30;
+  border: 1px solid #3c4c4d;
+  color: #ffcc38;
+}
+
+.mido-admin-hero-content {
+  display: grid;
+  gap: 6px;
+}
+
+.mido-admin-hero-content h1 {
+  font-size: clamp(28px, 3vw, 37px);
+  line-height: 1.3;
+  color: #fff;
+  margin: 0;
+}
+
+.mido-admin-hero-content p {
+  max-width: 680px;
+  color: #b9c8ce;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.mido-admin-hero-kicker {
+  color: #ffcc38;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.mido-admin-hero-filter {
+  display: grid;
+  gap: 7px;
+  width: min(230px, 100%);
+}
+
+.mido-admin-hero-filter label {
+  color: #d8e2e5;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.mido-admin-hero-filter select {
+  width: 100%;
+  min-height: 43px;
+  padding: 8px 13px;
+  border: 1px solid #3b5155;
+  border-radius: 11px;
+  background: #16282e;
+  color: #fff;
+  outline: none;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.mido-admin-hero-filter select option {
+  background: #16282e;
+  color: #fff;
+}
+
+.mido-admin-hero-filter select:focus-visible {
+  outline: 2px solid #ffcc38;
+  outline-offset: 2px;
+}
+
+.mido-admin-hero-bell-wrap {
+  position: relative;
+  z-index: 3;
+}
+
+.mido-admin-hero .mido-notification-panel {
+  color: #172326;
+  text-align: start;
+}
+
+@media (max-width: 760px) {
+  .mido-admin-hero {
+    min-height: auto;
+    padding: 18px;
+    border-radius: 18px;
+    gap: 16px;
+  }
+
+  .mido-admin-hero-content h1 {
+    font-size: 27px;
+  }
+
+  .mido-admin-hero-filter {
+    width: 100%;
+  }
+}
+
+/* Compact unified admin hero */
+
+.mido-admin-hero {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 225px;
+  grid-template-rows: auto auto;
+  column-gap: 24px;
+  row-gap: 12px;
+  align-items: center;
+
+  min-height: 0 !important;
+  padding: 22px 26px !important;
+  margin-bottom: 20px;
+}
+
+/* Title and description on the right in Arabic */
+
+.mido-admin-hero-content {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  align-self: center;
+  gap: 5px;
+  min-width: 0;
+}
+
+.mido-admin-hero-content h1 {
+  font-size: clamp(26px, 2.5vw, 34px);
+  line-height: 1.25;
+}
+
+.mido-admin-hero-content p {
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* Menu and notifications together */
+.mido-admin-hero-actions {
+  grid-column: 2;
+  grid-row: 1;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+}
+/* Date filter below the two buttons */
+
+.mido-admin-hero-filter {
+  grid-column: 2;
+  grid-row: 2;
+  width: 100%;
+  min-width: 0;
+  gap: 5px;
+}
+
+.mido-admin-hero-filter select {
+  min-height: 42px;
+}
+
+/* Match both controls */
+
+.mido-admin-hero .mido-admin-trigger,
+.mido-admin-hero .mido-admin-hero-bell {
+  width: 46px !important;
+  height: 46px !important;
+  min-height: 46px !important;
+  border-radius: 12px;
+}
+
+/* Responsive layout */
+
+@media (max-width: 680px) {
+  .mido-admin-hero {
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 12px;
+    row-gap: 16px;
+    padding: 18px !important;
+  }
+
+  .mido-admin-hero-content {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .mido-admin-hero-content h1 {
+    font-size: 25px;
+  }
+
+  .mido-admin-hero-actions {
+    grid-column: 2;
+    grid-row: 1;
+    gap: 7px;
+  }
+
+  .mido-admin-hero-filter {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    max-width: none;
+  }
+
+  .mido-admin-hero .mido-admin-trigger,
+  .mido-admin-hero .mido-admin-hero-bell {
+    width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+  }
+}
+
+/* MIDO RESTOCK */
+
+.mido-products-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.mido-restock-button,
+.mido-restock-row-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1px solid #dce5e6;
+  background: #fff;
+  color: #143338;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background .2s, border-color .2s;
+}
+
+.mido-restock-button {
+  min-height: 49px;
+  padding: 0 20px;
+  border-radius: 14px;
+}
+
+.mido-restock-button:hover,
+.mido-restock-row-btn:hover {
+  background: #fff9e5;
+  border-color: #e5bd35;
+}
+
+.mido-restock-row-btn {
+  min-height: 34px;
+  margin: 4px;
+  padding: 5px 13px;
+  border-radius: 9px;
+  font-size: 11px;
+}
+
+.mido-restock-rule-status {
+  display: block;
+  margin-top: 5px;
+  color: #13835d;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.mido-restock-rule-status.waiting {
+  color: #b77a13;
+}
+
+.overlay:has(.mido-restock-dialog) .dialog {
+  width: min(570px, 100%);
+  border-radius: 22px;
+  padding: 24px;
+}
+
+.mido-restock-dialog {
+  display: grid;
+  gap: 16px;
+  color: #142426;
+}
+
+.mido-restock-heading h2 {
+  font-size: 23px;
+  margin-bottom: 5px;
+}
+
+.mido-restock-heading p {
+  color: #758589;
+  font-size: 12px;
+}
+
+.mido-restock-current {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 16px;
+  margin-bottom: 14px;
+  border: 1px solid #dce6e7;
+  border-radius: 13px;
+  background: #f7faf9;
+}
+
+.mido-restock-current span {
+  color: #62777a;
+  font-size: 12px;
+}
+
+.mido-restock-current strong {
+  font-size: 24px;
+  color: #122c30;
+}
+
+.mido-restock-automation {
+  padding: 15px;
+  margin-top: 15px;
+  border: 1px solid #dfe7e8;
+  border-radius: 15px;
+  background: #f8faf9;
+}
+
+.mido-restock-switch {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.mido-restock-switch input {
+  width: 19px;
+  height: 19px;
+  accent-color: #133f42;
+}
+
+#mido-restock-auto-fields {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #e0e6e7;
+}
+
+#mido-restock-auto-fields[hidden],
+#mido-restock-date-section[hidden],
+#mido-restock-quantity-section[hidden] {
+  display: none !important;
+}
+
+.mido-restock-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.mido-restock-actions .btn {
+  flex: 1;
+}
+
+@media (max-width: 520px) {
+  .mido-restock-actions {
+    flex-direction: column;
+  }
+
+  .mido-restock-button {
+    flex: 1;
+  }
+}
 
 </style>
 
@@ -7825,7 +9565,8 @@ function openMedia(target) {
  <div class="field"><label>${txt('التقاط بالكاميرا على الموبايل', 'Take photo with mobile camera')}</label><input type="file" accept="image/*" capture="environment" onchange="mediaSelected(this)"></div>
  ${state.staff ? `<h3>${txt('مكتبة صور سبق رفعها', 'Recently uploaded media')}</h3><div class="upload-previews">${get('media_assets').slice(0, 14).map(m => `<button type="button" class="btn sm outline" onclick="attachMediaUrl('${E(safeUrl(m.url))}');closeModal()">${img(m.url, 'Saved image')}</button>`).join('')}</div>` : ''}
  <div class="field"><label>${txt('أو رابط مباشر للصورة', 'Or direct image URL')}</label><input id="media-url" placeholder="https://i.ibb.co/..."></div><button class="btn sm primary" onclick="acceptMediaLink()">${txt('استخدم الرابط', 'Use URL')}</button>
- <p id="media-progress" class="muted small" style="margin-top:10px"></p>`)
+ <div id="media-upload-results"></div>
+<p id="media-progress" class="muted small" style="margin-top:10px"></p>`)
 }
 function attachMediaUrl(url) {
   const targetId = state.imageField;
@@ -7949,34 +9690,502 @@ async function uploadToImgBB(file) {
   return parsed.href;
 }
 
-async function mediaSelected(input) {
 
-  const files = [
-    ...input.files
-  ].slice(0, 6);
-  let done = 0;
-  for (const file of files) {
+function midoGenerateImageCode() {
+  return 'IMG-' +
+    crypto.randomUUID()
+      .replace(/-/g, '')
+      .slice(0, 8)
+      .toUpperCase();
+}
 
-    try {
-      if (![
-        'image/jpeg',
-        'image/png',
-        'image/webp',
-        'image/gif'
-      ].includes(file.type)) throw Error('UNSUPPORTED_IMAGE_TYPE_OR_SIZE');
-      $('media-progress').textContent = `${txt('جاري رفع', 'Uploading')} ${file.name} (${done + 1}/${files.length})`;
-      const imageUrl = await uploadToImgBB(file);
-      attachMediaUrl(imageUrl);
-      done++;
+async function midoUploadProductImage(input) {
+  const file = input.files?.[0];
+  if (!file) return;
 
-    } catch (e) {
-      toast(friendlyError(e), true)
+  const form = input.closest('form');
+
+  const nameField = form?.querySelector(
+    '#mido-product-image-name'
+  );
+
+  const urlField = form?.querySelector(
+    '#mido-product-image-url'
+  );
+
+  const status = form?.querySelector(
+    '#mido-product-upload-status'
+  );
+
+  const preview = form?.querySelector(
+    '#mido-product-image-preview'
+  );
+
+  const saveProductButton = form?.querySelector(
+    'button[type="submit"]'
+  );
+
+  if (!form || !nameField || !urlField) return;
+
+  input.disabled = true;
+
+  if (saveProductButton) {
+    saveProductButton.disabled = true;
+  }
+urlField.value = '';
+form.dataset.imagePending = '1';
+  nameField.value = file.name;
+
+  if (status) {
+    status.textContent = txt(
+      'جاري رفع الصورة على ImgBB...',
+      'Uploading image to ImgBB...'
+    );
+  }
+
+  try {
+    const url = await uploadToImgBB(file);
+
+    if (status) {
+      status.textContent = txt(
+        'تم رفع الصورة. احفظ اسمها ورقمها في المكتبة.',
+        'Uploaded. Save the image name and code.'
+      );
+    }
+
+    const defaultName = file.name
+      .replace(/\.[^.]+$/, '')
+      .trim();
+
+    const generatedCode = midoGenerateImageCode();
+
+    openModal(`
+      <div class="mido-image-save-dialog">
+<div style="
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:12px;
+  margin-bottom:15px;
+  border:1px solid #e1e7e9;
+  border-radius:12px;
+  background:#f8fafb;
+">
+  <img
+    src="${E(url)}"
+    alt="Uploaded image"
+    style="
+      width:120px;
+      height:120px;
+      object-fit:contain;
+    "
+  >
+</div>
+        <h2>
+          ${txt(
+            'حفظ الصورة في المكتبة',
+            'Save image to library'
+          )}
+        </h2>
+
+        <p class="muted small">
+          ${txt(
+            'تم رفع الصورة على ImgBB. اكتب اسمًا ورقمًا للصورة قبل استخدامها.',
+            'Image uploaded to ImgBB. Enter a name and code before using it.'
+          )}
+        </p>
+
+        <form
+          id="mido-image-library-save-form"
+          onsubmit="event.preventDefault()"
+        >
+
+          <div class="field">
+            <label>
+              ${txt('اسم الصورة', 'Image name')}
+            </label>
+
+            <input
+              name="image_name"
+              type="text"
+              maxlength="150"
+              value="${E(defaultName)}"
+              required
+            >
+          </div>
+
+          <div class="field">
+            <label>
+              ${txt('رقم الصورة', 'Image code')}
+            </label>
+
+            <div class="mido-image-code-row">
+              <input
+                name="image_code"
+                type="text"
+                maxlength="40"
+                value="${E(generatedCode)}"
+                required
+              >
+
+              <button
+                type="button"
+                class="btn sm outline"
+                onclick="this.previousElementSibling.value = midoGenerateImageCode()"
+              >
+                ${txt('توليد رقم', 'Generate')}
+              </button>
+            </div>
+          </div>
+
+          <div class="mido-image-save-actions">
+
+            <button
+              type="submit"
+              class="btn primary"
+            >
+              ${txt('حفظ الصورة', 'Save image')}
+            </button>
+
+            <button
+              type="button"
+              class="btn outline"
+              onclick="midoCancelImageNaming()"
+            >
+              ${txt('إلغاء', 'Cancel')}
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+    `);
+
+    const libraryForm = document.getElementById(
+      'mido-image-library-save-form'
+    );
+
+    libraryForm.addEventListener('submit', async event => {
+      event.preventDefault();
+
+      const imageName = libraryForm.elements.image_name.value.trim();
+
+      const imageCode = libraryForm.elements.image_code.value
+        .trim()
+        .toUpperCase();
+
+      if (!imageName || !/^[A-Z0-9_-]{3,40}$/.test(imageCode)) {
+        toast(
+          txt(
+            'اكتب اسم الصورة ورقمًا من 3 إلى 40 حرفًا أو رقمًا إنجليزيًا.',
+            'Enter a name and a valid image code.'
+          ),
+          true
+        );
+        return;
+      }
+
+      const button = libraryForm.querySelector(
+        'button[type="submit"]'
+      );
+
+      button.disabled = true;
+      button.textContent = txt(
+        'جاري الحفظ...',
+        'Saving...'
+      );
+
+      try {
+        // Store the image code with its name.
+        // No extra database column is required.
+        const savedName = `${imageCode} | ${imageName}`;
+        
+
+        const { data, error } = await state.db
+          .from('media_assets')
+          .insert({
+            url,
+            file_name: savedName,
+            source: 'imgbb',
+            uploader_id: state.user.id
+          })
+          .select('*')
+          .single();
+
+        if (error) throw error;
+
+        if (!state.data.media_assets) {
+          state.data.media_assets = [];
+        }
+
+        state.data.media_assets.unshift(data);
+
+        // Return the ImgBB URL to the original product form.
+urlField.value = url;
+nameField.value = `${imageCode} — ${imageName}`;
+
+delete form.dataset.imagePending;
+        urlField.dispatchEvent(
+          new Event('change', { bubbles: true })
+        );
+
+        if (preview) {
+          preview.src = url;
+          preview.style.display = 'block';
+        }
+
+        if (status) {
+          status.textContent = txt(
+            'تم حفظ الصورة في المكتبة. أكمل بيانات المنتج.',
+            'Image saved. Continue editing your product.'
+          );
+        }
+
+        closeModal();
+
+        toast(
+          txt(
+            'تم حفظ الصورة في المكتبة وربطها بنموذج المنتج',
+            'Image saved and linked to the product form'
+          )
+        );
+
+      } catch (error) {
+        button.disabled = false;
+        button.textContent = txt(
+          'حفظ الصورة',
+          'Save image'
+        );
+
+        toast(friendlyError(error), true);
+      }
+    });
+
+  } catch (error) {
+    if (status) {
+      status.textContent = txt(
+        'فشل رفع الصورة.',
+        'Image upload failed.'
+      );
+    }
+
+    toast(friendlyError(error), true);
+
+  } finally {
+    input.disabled = false;
+    input.value = '';
+
+    if (saveProductButton) {
+      saveProductButton.disabled = false;
     }
   }
-  if (done) {
-    closeModal();
-    toast(txt('تم رفع الصور وربطها تلقائيًا', 'Images uploaded and linked automatically'));
+}
+
+function midoCancelImageNaming() {
+  const previousModal = midoModalStack[
+    midoModalStack.length - 1
+  ];
+
+  const form = previousModal?.querySelector(
+    '#simple-product-form'
+  );
+
+  if (form) {
+    delete form.dataset.imagePending;
+
+    const status = form.querySelector(
+      '#mido-product-upload-status'
+    );
+
+    if (status) {
+      status.textContent = txt(
+        'تم إلغاء حفظ الصورة. يمكنك اختيار صورة أخرى.',
+        'Image save cancelled. You can choose another image.'
+      );
+    }
   }
+
+  closeModal();
+}
+async function mediaSelected(input) {
+  const files = [...(input.files || [])].slice(0, 6);
+
+  const results = document.getElementById(
+    'media-upload-results'
+  );
+
+  const progress = document.getElementById(
+    'media-progress'
+  );
+
+  if (!results || !progress || !files.length) return;
+
+  input.disabled = true;
+
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+
+    progress.textContent = txt(
+      `جاري رفع الصورة ${i + 1} من ${files.length}...`,
+      `Uploading image ${i + 1} of ${files.length}...`
+    );
+
+    try {
+      // Existing secure Supabase Edge Function.
+      const url = await uploadToImgBB(file);
+
+      const card = document.createElement('div');
+      card.className = 'mido-media-result';
+
+      const preview = document.createElement('img');
+      preview.src = url;
+      preview.alt = file.name;
+      preview.loading = 'lazy';
+
+      const details = document.createElement('div');
+      details.className = 'mido-media-result-body';
+
+      const label = document.createElement('label');
+      label.textContent = txt(
+        'احفظ الصورة باسم',
+        'Save image as'
+      );
+
+      const name = document.createElement('input');
+      name.type = 'text';
+      name.className = 'input';
+      name.maxLength = 180;
+      name.placeholder = txt(
+        'مثال: صورة أمامية للموتور',
+        'Example: Front product image'
+      );
+      name.value = file.name.replace(/\.[^.]+$/, '');
+
+      const link = document.createElement('input');
+      link.type = 'text';
+      link.className = 'input';
+      link.readOnly = true;
+      link.value = url;
+
+      const actions = document.createElement('div');
+      actions.className = 'mido-media-result-actions';
+
+      const save = document.createElement('button');
+      save.type = 'button';
+      save.className = 'btn primary sm';
+      save.textContent = txt(
+        'حفظ في مكتبة الصور',
+        'Save to media library'
+      );
+
+      const use = document.createElement('button');
+      use.type = 'button';
+      use.className = 'btn sm outline';
+      use.textContent = txt(
+        'استخدام الصورة',
+        'Use image'
+      );
+
+      const copy = document.createElement('button');
+      copy.type = 'button';
+      copy.className = 'btn sm outline';
+      copy.textContent = txt('نسخ الرابط', 'Copy URL');
+
+      save.onclick = async () => {
+        const fileName = name.value.trim();
+
+        if (!fileName) {
+          toast(
+            txt('اكتب اسم الصورة أولًا', 'Enter an image name'),
+            true
+          );
+          name.focus();
+          return;
+        }
+
+        save.disabled = true;
+
+        try {
+          const { data, error } = await state.db
+            .from('media_assets')
+            .insert({
+              url,
+              file_name: fileName,
+              source: 'imgbb',
+              uploader_id: state.user.id
+            })
+            .select('*')
+            .single();
+
+          if (error) throw error;
+
+          if (!state.data.media_assets) {
+            state.data.media_assets = [];
+          }
+
+          state.data.media_assets.unshift(data);
+
+save.textContent = txt('تم الحفظ', 'Saved');
+
+attachMediaUrl(url);
+
+toast(
+  txt(
+    'تم حفظ الصورة في المكتبة وربطها بالمنتج',
+    'Image saved to the library and linked to the product'
+  )
+);
+
+closeModal();
+        } catch (error) {
+          save.disabled = false;
+          toast(friendlyError(error), true);
+        }
+      };
+
+      use.onclick = () => {
+        attachMediaUrl(url);
+        closeModal();
+
+        toast(
+          txt('تم اختيار الصورة', 'Image selected')
+        );
+      };
+
+      copy.onclick = async () => {
+        try {
+          await navigator.clipboard.writeText(url);
+          toast(txt('تم نسخ الرابط', 'URL copied'));
+        } catch {
+          link.focus();
+          link.select();
+          toast(
+            txt(
+              'حدد الرابط وانسخه باستخدام Ctrl+C',
+              'Select the URL and press Ctrl+C'
+            )
+          );
+        }
+      };
+
+      actions.append(save, use, copy);
+      details.append(label, name, link, actions);
+      card.append(preview, details);
+      results.appendChild(card);
+
+    } catch (error) {
+      toast(friendlyError(error), true);
+    }
+  }
+
+  input.disabled = false;
+  input.value = '';
+
+  progress.textContent = txt(
+    'اكتمل رفع الملفات. اكتب اسم الصورة واضغط حفظ لإضافتها للمكتبة.',
+    'Upload finished. Name each image and save it to the library.'
+  );
 }
 const midoModalStack = [];
 
@@ -8027,6 +10236,16 @@ function friendlyError(e) {
       'خدمة الرفع لم ترجع رابط ImgBB مباشر. راجع إعدادات upload-image.',
       'Upload did not return a direct ImgBB URL.'
     ),
+    'PRODUCT_SAVE_FAILED': txt(
+      'فشل التأكد من حفظ المنتج في قاعدة البيانات.',
+      'Could not verify product save.'
+    ),
+
+'PRODUCT_PUBLISH_FAILED': txt(
+  'المنتج لم يتم نشره. راجع الصلاحيات وحالة المنتج.',
+  'Product publication was not confirmed.'
+),
+    
 
     'UNSUPPORTED_IMAGE_TYPE_OR_SIZE': txt(
       'اختار صورة JPG أو PNG أو WEBP أو GIF بحجم مناسب.',
@@ -8114,8 +10333,8 @@ const ADMIN_SECTIONS = [
   ],
   [
     'products',
-    'المنتجات',
-    'Products',
+    'إدارة المنتجات',
+    'Product Management',
     'catalog.manage'
   ],
   [
@@ -8811,7 +11030,9 @@ function midoAdminBell() {
 
 function toggleMidoNotifications(force) {
   const panel = document.getElementById('mido-notification-panel');
-  const button = document.querySelector('.mido-notification-bell');
+  const button = document.querySelector(
+  '.mido-admin-hero-bell, .mido-notification-bell'
+);
 
   if (!panel) return;
 
@@ -8822,7 +11043,12 @@ function toggleMidoNotifications(force) {
 }
 
 function adminNav(active) {
-  const sections = allowedSections();
+  const sections = allowedSections().filter(
+  section => ![
+    'product_images',
+    'product_compatibility'
+  ].includes(section[0])
+);
 
   const current = sections.find(x => x[0] === active);
 
@@ -9048,7 +11274,171 @@ document.addEventListener('keydown', event => {
     }
   }
 });
+function adminSectionHero(section = 'overview') {
+  const sectionMeta = {
+    overview: {
+      title: txt('لوحة التحكم', 'Dashboard'),
+      desc: txt(
+        'متابعة شاملة للمبيعات والطلبات والعملاء والمخزون.',
+        'A complete overview of sales, orders, customers, and inventory.'
+      )
+    },
+    products: {
+      title: txt('إدارة المنتجات', 'Product Management'),
+      desc: txt(
+        'إضافة وتعديل وتنظيم منتجات المتجر ومكتبة الصور.',
+        'Create, edit, and organize store products and media.'
+      )
+    },
+    orders: {
+      title: txt('إدارة الطلبات', 'Orders Management'),
+      desc: txt(
+        'متابعة الطلبات وتحديث حالتها وإدارة التفاصيل.',
+        'Track orders, update statuses, and manage order details.'
+      )
+    },
+    inventory: {
+      title: txt('إدارة المخزون', 'Inventory Management'),
+      desc: txt(
+        'متابعة الكميات وحركة المخزون والتنبيهات.',
+        'Track stock quantities, movements, and alerts.'
+      )
+    },
+    customers: {
+      title: txt('العملاء', 'Customers'),
+      desc: txt(
+        'إدارة العملاء ومتابعة الحسابات والبيانات.',
+        'Manage customers and review account details.'
+      )
+    }
+  };
 
+  const meta = sectionMeta[section] || {
+    title: txt('لوحة الإدارة', 'Administration'),
+    desc: txt(
+      'إدارة أقسام المتجر والبيانات بشكل احترافي.',
+      'Manage store sections and data professionally.'
+    )
+  };
+
+  const notifications = (get('notifications') || [])
+    .filter(n => n.audience === 'staff' || n.user_id === state.user?.id)
+    .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+  const unread = notifications.filter(n => !n.is_read).length;
+
+  return `
+    <section class="mido-admin-hero">
+      <div class="mido-admin-hero-actions">
+        ${adminNav(section)}
+
+        <div class="mido-admin-hero-bell-wrap">
+          <button
+            type="button"
+            class="mido-admin-hero-bell"
+            onclick="toggleMidoNotifications()"
+            aria-label="${txt('فتح الإشعارات', 'Open notifications')}"
+            aria-expanded="false"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+              <path d="M10 21h4"/>
+            </svg>
+
+            ${unread ? `
+              <span class="mido-admin-hero-badge">
+                ${unread > 99 ? '99+' : unread}
+              </span>
+            ` : ''}
+          </button>
+
+          <div class="mido-notification-panel" id="mido-notification-panel" hidden>
+            <div class="mido-notification-panel-head">
+              <strong>${txt('الإشعارات', 'Notifications')}</strong>
+              <button type="button" onclick="toggleMidoNotifications(false)">
+                ${txt('إغلاق', 'Close')}
+              </button>
+            </div>
+
+            <div class="mido-notification-items">
+              ${notifications.length ? notifications.slice(0, 8).map(n => `
+                <div class="mido-notification-item ${n.is_read ? '' : 'unread'}">
+                  <div>
+                    <strong>${E(n.title || '')}</strong>
+                    <p>${E(n.body || '')}</p>
+                    <small>${n.created_at ? humanDate(n.created_at) : ''}</small>
+                  </div>
+                  ${!n.is_read ? `
+                    <button type="button" onclick="readNotification('${E(n.id)}')">
+                      ${txt('تمت القراءة', 'Mark read')}
+                    </button>
+                  ` : ''}
+                </div>
+              `).join('') : `
+                <p class="mido-notification-empty">
+                  ${txt('مفيش إشعارات حاليًا', 'No notifications yet')}
+                </p>
+              `}
+            </div>
+
+            <a class="mido-notification-all" href="#/admin/notifications"
+              onclick="toggleMidoNotifications(false)">
+              ${txt('عرض كل الإشعارات', 'View all notifications')}
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="mido-admin-hero-content">
+        <div class="mido-admin-hero-kicker">
+          ${txt('لوحة الإدارة', 'Administration')}
+        </div>
+
+        <h1>${meta.title}</h1>
+        <p>${meta.desc}</p>
+      </div>
+
+      ${section === 'overview' ? `
+        <div class="mido-admin-hero-filter">
+          <label for="mido-dashboard-period">
+            ${txt('الفترة الزمنية', 'Date range')}
+          </label>
+
+          <select
+            id="mido-dashboard-period"
+            onchange="setAdminDashboardRange(this.value)"
+          >
+            <option value="today"
+              ${adminDashboardRange() === 'today' ? 'selected' : ''}>
+              ${txt('اليوم', 'Today')}
+            </option>
+
+            <option value="7"
+              ${adminDashboardRange() === '7' ? 'selected' : ''}>
+              ${txt('آخر 7 أيام', 'Last 7 days')}
+            </option>
+
+            <option value="30"
+              ${adminDashboardRange() === '30' ? 'selected' : ''}>
+              ${txt('آخر 30 يوم', 'Last 30 days')}
+            </option>
+
+            <option value="90"
+              ${adminDashboardRange() === '90' ? 'selected' : ''}>
+              ${txt('آخر 90 يوم', 'Last 90 days')}
+            </option>
+
+            <option value="all"
+              ${adminDashboardRange() === 'all' ? 'selected' : ''}>
+              ${txt('كل الفترات', 'All time')}
+            </option>
+          </select>
+        </div>
+      ` : ''}
+
+    </section>
+  `;
+}
 /* RESTORE ADMIN PAGE AND DASHBOARD */
 
 function adminPage(section = 'overview') {
@@ -9083,6 +11473,9 @@ function adminPage(section = 'overview') {
   let content;
 
   switch (section) {
+    case 'products':
+       content = midoProductsManager();
+       break;
     case 'overview':
       content = adminOverview();
       break;
@@ -9138,138 +11531,1644 @@ function adminPage(section = 'overview') {
     <div class="container section">
       <div class="admin-layout">
 
-        ${adminNav(section)}
-        ${section === 'overview' ? midoAdminBell() : ''}
-
-        <div class="admin-panel">
-          <div class="spread" style="margin-bottom:17px">
-            <h2>${txt(item[1], item[2])}</h2>
-
-            <a class="btn sm outline" href="#/account">
-              ${txt('حسابي', 'My account')}
-            </a>
-          </div>
-
-          ${content}
-        </div>
-
-      </div>
+<div class="admin-panel ${section === 'overview' ? 'admin-dashboard-shell' : ''}">
+  ${adminSectionHero(section)}
+  ${content}
+</div>
+</div>
     </div>
   `;
+}
+
+function midoProductsManager() {
+  const rows = get('products') || [];
+  const stock = get('inventory') || [];
+
+  const published = rows.filter(p => p.is_active).length;
+
+  const lowStock = rows.filter(p => {
+    const inventory = stock.find(x => x.product_id === p.id);
+
+    return inventory &&
+      Number(inventory.quantity) <= Number(inventory.min_quantity);
+  }).length;
+
+  return `
+    <section class="mido-products-manager">
+
+<div class="mido-products-toolbar">
+  <button
+  type="button"
+  class="mido-restock-button"
+  onclick="midoOpenRestock()"
+>
+  ${txt('ريستوك جديد', 'New restock')}
+</button>
+  <button
+    type="button"
+    class="mido-products-add-btn"
+    onclick="editSimpleProduct(null)"
+  >
+    <span>+</span>
+    ${txt('إضافة منتج', 'Add Product')}
+  </button>
+
+  <div class="mido-products-toolbar-note">
+    ${txt(
+      'إدارة المنتجات ومكتبة الصور من مكان واحد.',
+      'Manage products and media from one place.'
+    )}
+  </div>
+</div>
+      <div class="mido-product-stats">
+        <div>
+          <small>${txt('إجمالي المنتجات', 'Total products')}</small>
+          <strong>${rows.length}</strong>
+        </div>
+
+        <div>
+          <small>${txt('المنتجات المنشورة', 'Published products')}</small>
+          <strong>${published}</strong>
+        </div>
+
+        <div>
+          <small>${txt('مخزون منخفض', 'Low stock')}</small>
+          <strong>${lowStock}</strong>
+        </div>
+      </div>
+
+      <div class="mido-product-tabs">
+        <button type="button" class="active"
+                onclick="midoProductManagerTab('list')">
+          ${txt('المنتجات', 'Products')}
+        </button>
+
+        <button type="button"
+                onclick="midoProductManagerTab('media')">
+          ${txt('مكتبة الصور', 'Media Library')}
+        </button>
+      </div>
+
+      <div id="mido-products-list-view">
+
+        <div class="mido-product-filters">
+          <input type="search"
+                 id="mido-product-search"
+                 placeholder="${txt(
+                   'ابحث بالاسم أو SKU أو الباركود',
+                   'Search name, SKU or barcode'
+                 )}"
+                 oninput="midoFilterProducts()">
+
+          <select id="mido-product-status"
+                  onchange="midoFilterProducts()">
+            <option value="all">${txt('كل المنتجات', 'All products')}</option>
+            <option value="active">${txt('منشور', 'Published')}</option>
+            <option value="inactive">${txt('مخفي', 'Hidden')}</option>
+            <option value="low">${txt('مخزون منخفض', 'Low stock')}</option>
+          </select>
+        </div>
+
+        <div class="table-wrap">
+          <table class="data-table mido-products-table">
+            <thead>
+              <tr>
+                <th>${txt('المنتج', 'Product')}</th>
+                <th>${txt('الأسعار', 'Prices')}</th>
+                <th>${txt('الكمية', 'Quantity')}</th>
+                <th>${txt('الحالة', 'Status')}</th>
+                <th>${txt('الإجراء', 'Action')}</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              ${rows.map(p => {
+                const inventory = stock.find(x => x.product_id === p.id);
+                const quantity = Number(inventory?.quantity ?? 0);
+                const minimum = Number(inventory?.min_quantity ?? 0);
+
+                return `
+                  <tr class="mido-product-row"
+                      data-search="${E([
+                        p.name_ar,
+                        p.name_en,
+                        p.sku,
+                        p.barcode
+                      ].filter(Boolean).join(' ').toLowerCase())}"
+                      data-status="${p.is_active ? 'active' : 'inactive'}"
+                      data-low="${inventory && quantity <= minimum ? '1' : '0'}">
+
+                    <td>
+                      <div class="mido-product-identity">
+                        <img src="${E(safeUrl(pimg(p.id) || ''))}"
+                             alt=""
+                             loading="lazy"
+                             onerror="this.style.visibility='hidden'">
+
+                        <div>
+                          <strong>${E(p.name_ar || p.name_en || '')}</strong>
+                          <small>${E(p.sku || '—')}</small>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>
+  <div class="mido-price-stack">
+    <strong>${txt('بيع', 'Sell')}: ${fmt(p.price)}</strong>
+    <small>${txt('جملة', 'Wholesale')}: ${p.cost_price != null ? fmt(p.cost_price) : '—'}</small>
+  </div>
+</td>
+<td>
+  <strong>${quantity}</strong>
+
+  ${(() => {
+    const rule = get('mido_restock_rules')
+      .find(x => x.product_id === p.id);
+
+    if (!rule?.enabled) return '';
+
+    const waiting = Number(rule.reserve_quantity) <
+      Number(rule.add_quantity);
+
+    return `
+      <small class="mido-restock-rule-status ${waiting ? 'waiting' : ''}">
+        ${waiting
+          ? txt('الاحتياطي غير كافٍ', 'Insufficient reserve')
+          : txt('ريستوك تلقائي مفعّل', 'Auto restock enabled')}
+      </small>
+    `;
+  })()}
+</td>
+                    <td>
+                      <span class="tag ${p.is_active ? 'status-delivered' : 'status-pending'}">
+                        ${p.is_active
+                          ? txt('منشور', 'Published')
+                          : txt('مخفي', 'Hidden')}
+                      </span>
+                    </td>
+
+                    <td>
+                      <button type="button"
+                              class="btn sm outline"
+                              onclick="editSimpleProduct('${p.id}')">
+                        ${txt('تعديل', 'Edit')}
+                      </button>
+<button
+  type="button"
+  class="mido-restock-row-btn"
+  onclick="midoOpenRestock('${p.id}')"
+>
+  ${txt('ريستوك', 'Restock')}
+</button>
+                    </td>
+                  </tr>
+                `;
+              }).join('')}
+            </tbody>
+          </table>
+        </div>
+
+        <p id="mido-products-no-results"
+           class="muted small"
+           hidden>
+          ${txt('مفيش منتجات مطابقة للبحث', 'No matching products')}
+        </p>
+      </div>
+
+      <div id="mido-products-media-view" hidden>
+        <div class="spread" style="margin-bottom:15px">
+          <h3>${txt('مكتبة الصور', 'Media Library')}</h3>
+
+          <button class="btn primary sm"
+                  onclick="openMedia('mido-products-media-temp')">
+            ${txt('رفع صورة', 'Upload image')}
+          </button>
+        </div>
+
+        <textarea id="mido-products-media-temp" hidden></textarea>
+
+        <div class="mido-media-library">
+          ${get('media_assets').map(asset => `
+            <div class="mido-media-library-item">
+              <img src="${E(safeUrl(asset.url))}"
+                   alt="${E(asset.file_name || '')}"
+                   loading="lazy">
+
+              <strong>${E(asset.file_name || txt('صورة بدون اسم', 'Unnamed image'))}</strong>
+              <small>${E(humanDate(asset.created_at))}</small>
+
+              <input class="input" readonly value="${E(asset.url)}">
+
+              <button type="button"
+                      class="btn sm outline"
+                      data-copy-url="${E(asset.url)}"
+                      onclick="midoCopyMediaUrl(this)">
+                ${txt('نسخ الرابط', 'Copy URL')}
+              </button>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+
+    </section>
+  `;
+}
+
+function midoProductManagerTab(tab) {
+  const list = document.getElementById('mido-products-list-view');
+  const media = document.getElementById('mido-products-media-view');
+
+  if (!list || !media) return;
+
+  list.hidden = tab !== 'list';
+  media.hidden = tab !== 'media';
+
+  const buttons = document.querySelectorAll(
+    '.mido-product-tabs button'
+  );
+
+  buttons.forEach((button, index) => {
+    button.classList.toggle(
+      'active',
+      tab === (index === 0 ? 'list' : 'media')
+    );
+  });
+}
+
+/* MIDO RESTOCK UI */
+
+function midoRestockNumber(value) {
+  const n = Number(value);
+  return Number.isSafeInteger(n) && n >= 0 ? n : 0;
+}
+
+function midoRestockProductOptions(filter = '') {
+  const search = String(filter).trim().toLowerCase();
+
+  return get('products')
+    .filter(p => [
+      p.name_ar, p.name_en, p.sku, p.barcode
+    ].some(x => String(x || '').toLowerCase().includes(search)))
+    .map(p => `
+      <option value="${E(p.id)}">
+        ${E(p.name_ar || p.name_en || 'Product')}
+        ${p.sku ? ` — ${E(p.sku)}` : ''}
+      </option>
+    `).join('');
+}
+
+function midoOpenRestock(productId = '') {
+  if (!state.staff || !perm('inventory.manage')) {
+    toast(
+      txt('ليس لديك صلاحية إدارة المخزون', 'Inventory permission required'),
+      true
+    );
+    return;
+  }
+
+  openModal(`
+    <div class="mido-restock-dialog">
+      <div class="mido-restock-heading">
+        <h2>${txt('ريستوك المخزون', 'Inventory restock')}</h2>
+        <p>${txt(
+          'إضافة حالية أو مجدولة، مع إمكانية إعداد ريستوك تلقائي.',
+          'Immediate or scheduled restock, with optional automation.'
+        )}</p>
+      </div>
+
+      <form id="mido-restock-form"
+            onsubmit="event.preventDefault();midoSaveRestock(this)">
+
+        <div class="field">
+          <label>${txt('بحث عن المنتج', 'Search product')}</label>
+          <input type="search"
+                 placeholder="${txt('الاسم أو SKU أو الباركود', 'Name, SKU or barcode')}"
+                 oninput="midoFilterRestockProducts(this.value)">
+        </div>
+
+        <div class="field">
+          <label>${txt('المنتج', 'Product')}</label>
+          <select name="product_id"
+                  id="mido-restock-product"
+                  required
+                  onchange="midoRestockProductChanged()">
+            <option value="">${txt('اختر المنتج', 'Select product')}</option>
+            ${midoRestockProductOptions()}
+          </select>
+        </div>
+
+        <div class="mido-restock-current">
+          <span>${txt('المخزون الحالي', 'Current stock')}</span>
+          <strong id="mido-restock-current-qty">—</strong>
+        </div>
+
+        <div class="field">
+          <label>${txt('نوع العملية', 'Restock action')}</label>
+          <select name="mode"
+                  onchange="midoRestockToggleFields()">
+            <option value="now">${txt('تنفيذ حالًا', 'Restock now')}</option>
+            <option value="schedule">${txt('تحديد تاريخ وساعة', 'Schedule restock')}</option>
+            <option value="none">${txt('إعداد التلقائي فقط', 'Automation settings only')}</option>
+          </select>
+        </div>
+
+        <div id="mido-restock-quantity-section">
+          <div class="field">
+            <label>${txt('الكمية المضافة', 'Quantity to add')}</label>
+            <input name="quantity" type="number"
+                   min="1" max="100000" step="1" value="10">
+          </div>
+
+          <div class="field">
+            <label>${txt('سبب الإضافة', 'Reason')}</label>
+            <input name="reason" type="text"
+                   maxlength="150"
+                   value="${txt('استلام بضاعة جديدة', 'New stock received')}">
+          </div>
+        </div>
+
+        <div class="field" id="mido-restock-date-section" hidden>
+          <label>${txt('موعد تنفيذ الريستوك', 'Scheduled date and time')}</label>
+          <input name="scheduled_at" type="datetime-local">
+          <small class="muted">${txt(
+            'الموعد حسب توقيت جهازك، ويتحوّل لتوقيت موحد عند الحفظ.',
+            'Uses your local time and is converted when saved.'
+          )}</small>
+        </div>
+
+        <div class="mido-restock-automation">
+          <label class="mido-restock-switch">
+            <input name="auto_enabled" type="checkbox"
+                   onchange="midoRestockToggleFields()">
+            <span>${txt('تفعيل الريستوك التلقائي', 'Enable automatic restock')}</span>
+          </label>
+
+          <div id="mido-restock-auto-fields" hidden>
+            <div class="form-grid">
+              <div class="field">
+                <label>${txt('لما يتبقى كام قطعة؟', 'Trigger at quantity')}</label>
+                <input name="threshold" type="number"
+                       min="0" max="100000" step="1" value="0">
+              </div>
+
+              <div class="field">
+                <label>${txt('أضف كام قطعة؟', 'Quantity per restock')}</label>
+                <input name="auto_quantity" type="number"
+                       min="1" max="100000" step="1" value="10">
+              </div>
+
+              <div class="field wide">
+                <label>${txt('الرصيد الاحتياطي الفعلي', 'Verified reserve stock')}</label>
+                <input name="reserve_quantity" type="number"
+                       min="0" max="1000000" step="1" value="0">
+              </div>
+            </div>
+
+            <p class="muted small">
+              ${txt(
+                'الكمية التلقائية تُخصم من الاحتياطي. لو الاحتياطي مش كافي، مش هنزوّد المخزون برقم وهمي.',
+                'Automatic additions are deducted from verified reserve stock.'
+              )}
+            </p>
+          </div>
+        </div>
+
+        <div class="mido-restock-actions">
+          <button type="submit" class="btn primary">
+            ${txt('حفظ إعدادات الريستوك', 'Save restock')}
+          </button>
+          <button type="button" class="btn outline"
+                  onclick="closeModal()">
+            ${txt('إلغاء', 'Cancel')}
+          </button>
+        </div>
+      </form>
+    </div>
+  `);
+
+  const select = document.getElementById('mido-restock-product');
+
+  if (productId && select) {
+    select.value = productId;
+  }
+
+  midoRestockProductChanged();
+}
+
+function midoFilterRestockProducts(query) {
+  const select = document.getElementById('mido-restock-product');
+  if (!select) return;
+
+  const previous = select.value;
+
+  select.innerHTML = `
+    <option value="">${txt('اختر المنتج', 'Select product')}</option>
+    ${midoRestockProductOptions(query)}
+  `;
+
+  if ([...select.options].some(o => o.value === previous)) {
+    select.value = previous;
+  } else {
+    select.value = '';
+  }
+
+  midoRestockProductChanged();
+}
+
+function midoRestockProductChanged() {
+  const form = document.getElementById('mido-restock-form');
+  if (!form) return;
+
+  const id = form.elements.product_id.value;
+  const stock = get('inventory').find(x => x.product_id === id);
+  const rule = get('mido_restock_rules').find(x => x.product_id === id);
+
+  document.getElementById('mido-restock-current-qty').textContent =
+    stock ? stock.quantity : '—';
+
+  form.elements.auto_enabled.checked = !!rule?.enabled;
+  form.elements.threshold.value = rule?.threshold_qty ?? 0;
+  form.elements.auto_quantity.value = rule?.add_quantity ?? 10;
+  form.elements.reserve_quantity.value = rule?.reserve_quantity ?? 0;
+
+  midoRestockToggleFields();
+}
+
+function midoRestockToggleFields() {
+  const form = document.getElementById('mido-restock-form');
+  if (!form) return;
+
+  const mode = form.elements.mode.value;
+  const auto = form.elements.auto_enabled.checked;
+    form.elements.reason.closest('.field').hidden =
+    mode !== 'now';
+
+  document.getElementById('mido-restock-quantity-section').hidden =
+    mode === 'none';
+
+  document.getElementById('mido-restock-date-section').hidden =
+    mode !== 'schedule';
+
+  document.getElementById('mido-restock-auto-fields').hidden =
+    !auto;
+}
+
+async function midoSaveRestock(form) {
+  if (!state.staff || !perm('inventory.manage')) {
+    return toast(txt('غير مصرح', 'Access denied'), true);
+  }
+
+  const f = new FormData(form);
+  const id = String(f.get('product_id') || '');
+  const mode = String(f.get('mode') || 'now');
+
+  const quantity = Number(f.get('quantity'));
+  const threshold = Number(f.get('threshold'));
+  const autoQuantity = Number(f.get('auto_quantity'));
+  const reserve = Number(f.get('reserve_quantity'));
+  const enabled = f.get('auto_enabled') === 'on';
+
+  if (!id || !by('products', id)) {
+    return toast(txt('اختر منتجًا', 'Select a product'), true);
+  }
+
+  const validInt = (n, min, max) =>
+    Number.isSafeInteger(n) && n >= min && n <= max;
+
+  if (mode !== 'none' && !validInt(quantity, 1, 100000)) {
+    return toast(txt('الكمية غير صحيحة', 'Invalid quantity'), true);
+  }
+
+  if (enabled && (
+    !validInt(threshold, 0, 100000) ||
+    !validInt(autoQuantity, 1, 100000) ||
+    !validInt(reserve, 0, 1000000)
+  )) {
+    return toast(txt('راجع إعدادات الريستوك التلقائي', 'Invalid automatic restock settings'), true);
+  }
+
+  const previousRule = get('mido_restock_rules')
+    .find(x => x.product_id === id);
+
+  const needsRuleUpdate = enabled || !!previousRule;
+
+  const button = form.querySelector('button[type="submit"]');
+  button.disabled = true;
+
+  let completedSteps = 0;
+
+  try {
+    if (needsRuleUpdate) {
+      const { error } = await state.db.rpc('mido_restock_save_rule', {
+        p_product: id,
+        p_enabled: enabled,
+        p_threshold: enabled ? threshold : (previousRule?.threshold_qty ?? 0),
+        p_add_quantity: enabled ? autoQuantity : (previousRule?.add_quantity ?? 10),
+        p_reserve: enabled ? reserve : (previousRule?.reserve_quantity ?? 0)
+      });
+
+      if (error) throw error;
+      completedSteps++;
+    }
+
+    if (mode === 'now') {
+      const reason = String(f.get('reason') || '').trim();
+
+      if (reason.length < 3) {
+        throw Error('اكتب سببًا واضحًا لإضافة المخزون');
+      }
+
+      const { error } = await state.db.rpc('adjust_inventory', {
+        p_product: id,
+        p_delta: quantity,
+        p_reason: `Manual restock: ${reason}`
+      });
+
+      if (error) throw error;
+      completedSteps++;
+    }
+
+    if (mode === 'schedule') {
+      const dateText = String(f.get('scheduled_at') || '');
+      const date = new Date(dateText);
+
+      if (!dateText || !Number.isFinite(date.getTime()) ||
+          date.getTime() <= Date.now()) {
+        throw Error('اختار موعدًا مستقبليًا صحيحًا');
+      }
+
+      const { error } = await state.db.rpc('mido_restock_schedule', {
+        p_product: id,
+        p_quantity: quantity,
+        p_scheduled_at: date.toISOString()
+      });
+
+      if (error) throw error;
+      completedSteps++;
+    }
+
+    form.closest('.overlay')?.removeAttribute('data-unsaved');
+    closeModal(true);
+
+    await loadAdminData();
+    render();
+
+    toast(txt('تم حفظ عملية الريستوك', 'Restock saved'));
+
+  } catch (error) {
+    toast(
+      completedSteps
+        ? txt(
+            'تم تنفيذ جزء من العملية. راجع حركة المخزون وإعدادات الريستوك قبل المحاولة مجددًا.',
+            'Partially completed. Check the stock log before retrying.'
+          )
+        : friendlyError(error),
+      true
+    );
+  } finally {
+    button.disabled = false;
+  }
+}
+
+function midoFilterProducts() {
+  const query = (
+    document.getElementById('mido-product-search')?.value || ''
+  ).trim().toLowerCase();
+
+  const status = document.getElementById(
+    'mido-product-status'
+  )?.value || 'all';
+
+  let visible = 0;
+
+  document.querySelectorAll('.mido-product-row')
+    .forEach(row => {
+      const matchesSearch =
+        row.dataset.search.includes(query);
+
+      const matchesStatus =
+        status === 'all' ||
+        (status === 'low'
+          ? row.dataset.low === '1'
+          : row.dataset.status === status);
+
+      const show = matchesSearch && matchesStatus;
+
+      row.hidden = !show;
+
+      if (show) visible++;
+    });
+
+  const empty = document.getElementById(
+    'mido-products-no-results'
+  );
+
+  if (empty) empty.hidden = visible > 0;
+}
+
+async function midoCopyMediaUrl(button) {
+  const url = button.dataset.copyUrl || '';
+
+  try {
+    await navigator.clipboard.writeText(url);
+    toast(txt('تم نسخ الرابط', 'URL copied'));
+  } catch {
+    toast(
+      txt('تعذر النسخ التلقائي، انسخ الرابط من الحقل', 'Copy the URL manually'),
+      true
+    );
+  }
 }
 
 function adminOverview() {
-  const orders = get('orders');
-  const inventory = get('inventory');
-
-  const delivered = orders.filter(
-    x => x.status === 'delivered'
-  );
-
-  const revenue = delivered.reduce(
-    (sum, x) => sum + Number(x.total || 0),
-    0
-  );
-
-  const lowStock = inventory.filter(
-    x => Number(x.quantity) <= Number(x.min_quantity)
-  );
-
-  const stats = [
-    [
-      txt('المبيعات المسلّمة', 'Delivered revenue'),
-      fmt(revenue),
-      'orders'
-    ],
-    [
-      txt('كل الطلبات', 'All orders'),
-      orders.length,
-      'orders'
-    ],
-    [
-      txt('طلبات جديدة', 'New orders'),
-      orders.filter(x => x.status === 'received').length,
-      'orders'
-    ],
-    [
-      txt('حجوزات جديدة', 'New bookings'),
-      get('service_bookings').filter(
-        x => x.status === 'pending'
-      ).length,
-      'service_bookings'
-    ],
-    [
-      txt('طلبات صور جديدة', 'Image requests'),
-      get('image_requests').filter(
-        x => x.status === 'new'
-      ).length,
-      'image_requests'
-    ],
-    [
-      txt('المنتجات النشطة', 'Active products'),
-      products().length,
-      'products'
-    ],
-    [
-      txt('مخزون منخفض', 'Low stock'),
-      lowStock.length,
-      'inventory'
-    ],
-    [
-      txt('العملاء', 'Customers'),
-      get('profiles').length,
-      'customers'
-    ]
-  ];
+  const data = adminDashBuildData();
 
   return `
-    <div class="grid grid-4">
-      ${stats.map(([name, value, link]) => `
-        <a class="stat" href="#/admin/${link}">
-          <strong>${value}</strong>
-          <span class="muted small">${name}</span>
-        </a>
-      `).join('')}
-    </div>
-
-    <div class="grid grid-2" style="margin-top:18px">
-
-      <div class="surface">
-        <h3>${txt('آخر الطلبات', 'Latest orders')}</h3>
-        ${
-          orders.slice(0, 8).map(x => `
-            <div class="sum-row">
-              <span>${E(x.order_number)}</span>
-              <span>
-                ${fmt(x.total)}
-                • ${E(x.status)}
-              </span>
+    <section class="lux-dashboard">
+      <div class="lux-stat-grid">
+        ${data.stats.map(card => `
+          <a class="lux-stat-card" href="${card.link}">
+            <div class="lux-stat-icon">${adminDashIcon(card.icon)}</div>
+            <div class="lux-stat-content">
+              <span>${card.label}</span>
+              <strong>${card.value}</strong>
+              <small>${card.note}</small>
             </div>
-          `).join('') || '<p class="muted">—</p>'
-        }
+          </a>
+        `).join('')}
       </div>
 
-      <div class="surface">
-        <h3>${txt('مخزون منخفض', 'Low stock')}</h3>
-        ${
-          lowStock.slice(0, 8).map(x => `
-            <div class="sum-row">
-              <span>
-                ${E(
-                  by('products', x.product_id)?.name_ar ||
-                  x.product_id
-                )}
-              </span>
-              <strong>${x.quantity}</strong>
+      <div class="lux-main-grid">
+        <section class="lux-card lux-chart-card">
+          <div class="lux-card-head">
+            <div>
+              <h3>${txt('حركة المبيعات والطلبات', 'Sales & orders trend')}</h3>
+              <p>${txt('تطور الأداء خلال الفترة المحددة', 'Performance trend during the selected period')}</p>
             </div>
-          `).join('') || '<p class="muted">—</p>'
-        }
+          </div>
+
+          <div class="lux-chart-holder">
+            <canvas id="adminOverviewMainChart"></canvas>
+          </div>
+        </section>
+
+        <aside class="lux-side-stack">
+          <section class="lux-card">
+            <div class="lux-card-head">
+              <div>
+                <h3>${txt('التنبيهات', 'Alerts')}</h3>
+                <p>${txt('المهام والحالات التي تحتاج متابعة', 'Important items that need attention')}</p>
+              </div>
+            </div>
+
+            <div class="lux-alert-list">
+              ${data.alerts.length ? data.alerts.map(item => `
+                <a class="lux-alert-item ${item.tone}" href="${item.link}">
+                  <span class="lux-alert-icon">${adminDashIcon(item.icon)}</span>
+                  <div>
+                    <strong>${item.title}</strong>
+                    <small>${item.body}</small>
+                  </div>
+                </a>
+              `).join('') : `
+                <div class="lux-empty">
+                  ${txt('لا توجد تنبيهات حالياً', 'No alerts at the moment')}
+                </div>
+              `}
+            </div>
+          </section>
+
+          <section class="lux-card">
+            <div class="lux-card-head">
+              <div>
+                <h3>${txt('قيمة المخزون', 'Inventory value')}</h3>
+                <p>${txt('إجمالي قيمة البضاعة الموجودة بتكلفة الشراء', 'Total stock value based on purchase cost')}</p>
+              </div>
+            </div>
+
+            <div class="lux-inventory-summary">
+              <div class="lux-inventory-hero">
+                <strong>${fmt(data.inventoryValue)}</strong>
+                <span>${txt('إجمالي القيمة الحالية', 'Current total value')}</span>
+              </div>
+
+              <div class="lux-mini-stats">
+                <div>
+                  <b>${data.totalUnits}</b>
+                  <span>${txt('إجمالي الوحدات', 'Total units')}</span>
+                </div>
+                <div>
+                  <b>${data.lowStockCount}</b>
+                  <span>${txt('مخزون منخفض', 'Low stock')}</span>
+                </div>
+                <div>
+                  <b>${data.productsCount}</b>
+                  <span>${txt('منتجات نشطة', 'Active products')}</span>
+                </div>
+              </div>
+            </div>
+          </section>
+        </aside>
       </div>
 
-    </div>
+      <div class="lux-two-grid">
+        <section class="lux-card">
+          <div class="lux-card-head">
+            <div>
+              <h3>${txt('آخر الطلبات', 'Latest orders')}</h3>
+              <p>${txt('أحدث الطلبات مع الانتقال لتفاصيلها', 'Newest orders with quick access to details')}</p>
+            </div>
+            <a class="lux-link" href="#/admin/orders">${txt('عرض الكل', 'View all')}</a>
+          </div>
+
+          <div class="lux-table-wrap">
+            <table class="lux-table">
+              <thead>
+                <tr>
+                  <th>${txt('الطلب', 'Order')}</th>
+                  <th>${txt('العميل', 'Customer')}</th>
+                  <th>${txt('الإجمالي', 'Total')}</th>
+                  <th>${txt('الحالة', 'Status')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${data.recentOrders.length ? data.recentOrders.map(order => `
+                  <tr onclick="openOrderAdmin('${order.id}')" style="cursor:pointer">
+                    <td>
+                      <strong>#${E(order.order_number || order.id || '-')}</strong>
+                      <small>${E(humanDate(order.created_at || order.updated_at || ''))}</small>
+                    </td>
+                    <td>
+                      <strong>${E(order.customer_name || txt('بدون اسم', 'No name'))}</strong>
+                      <small>${E(order.phone || '')}</small>
+                    </td>
+                    <td>${fmt(order.total || 0)}</td>
+                    <td>
+                      <span class="lux-status-badge ${E(order.status || '')}">
+                        ${E(adminDashOrderStatus(order.status))}
+                      </span>
+                    </td>
+                  </tr>
+                `).join('') : `
+                  <tr>
+                    <td colspan="4" class="lux-empty-cell">
+                      ${txt('لا توجد طلبات في هذه الفترة', 'No orders in this period')}
+                    </td>
+                  </tr>
+                `}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="lux-card">
+          <div class="lux-card-head">
+            <div>
+              <h3>${txt('المنتجات الأكثر مبيعًا', 'Top selling products')}</h3>
+              <p>${txt('المنتجات الأعلى في عدد الوحدات المباعة', 'Products with the highest sold quantity')}</p>
+            </div>
+          </div>
+
+          <div class="lux-ranked-list">
+            ${data.topProducts.length ? data.topProducts.map((item, index) => `
+              <div class="lux-ranked-item">
+                <div class="lux-rank-circle">${index + 1}</div>
+                <div class="lux-ranked-info">
+                  <strong>${E(item.name)}</strong>
+                  <small>${txt('الوحدات المباعة', 'Units sold')}: ${item.qty}</small>
+                </div>
+                <div class="lux-ranked-value">${fmt(item.sales)}</div>
+              </div>
+            `).join('') : `
+              <div class="lux-empty">
+                ${txt('لا توجد مبيعات كافية لعرض المنتجات الأعلى', 'Not enough sales data yet')}
+              </div>
+            `}
+          </div>
+        </section>
+      </div>
+
+      <div class="lux-two-grid">
+        <section class="lux-card">
+          <div class="lux-card-head">
+            <div>
+              <h3>${txt('أحدث الأنشطة', 'Latest activities')}</h3>
+              <p>${txt('آخر التغييرات والعمليات داخل المتجر', 'Recent actions and changes across the store')}</p>
+            </div>
+          </div>
+
+          <div class="lux-activity-list">
+            ${data.activities.length ? data.activities.map(item => `
+              <div class="lux-activity-item">
+                <span class="lux-activity-icon">${adminDashIcon(item.icon)}</span>
+                <div class="lux-activity-content">
+                  <strong>${item.title}</strong>
+                  <p>${item.body}</p>
+                  <small>${item.timeText}</small>
+                </div>
+              </div>
+            `).join('') : `
+              <div class="lux-empty">
+                ${txt('لا يوجد نشاط حديث', 'No recent activity')}
+              </div>
+            `}
+          </div>
+        </section>
+
+        <section class="lux-card">
+          <div class="lux-card-head">
+            <div>
+              <h3>${txt('مراجعة سريعة لحركة المخزون', 'Quick inventory movement review')}</h3>
+              <p>${txt('آخر الحركات التي تمت على المخزون', 'Recent inventory movements')}</p>
+            </div>
+          </div>
+
+          <div class="lux-movement-list">
+            ${data.stockMovements.length ? data.stockMovements.map(row => `
+              <div class="lux-movement-item">
+                <div>
+                  <strong>${E(row.productName)}</strong>
+                  <small>${E(row.reason)}</small>
+                </div>
+
+                <div class="lux-movement-meta">
+                  <span class="lux-move-badge ${row.delta > 0 ? 'up' : row.delta < 0 ? 'down' : 'flat'}">
+                    ${row.delta > 0 ? '+' : ''}${row.delta}
+                  </span>
+                  <small>${E(row.when)}</small>
+                </div>
+              </div>
+            `).join('') : `
+              <div class="lux-empty">
+                ${txt('لا توجد حركات مخزون حتى الآن', 'No inventory movements yet')}
+              </div>
+            `}
+          </div>
+        </section>
+      </div>
+
+    </section>
+  `;
+}
+function adminDashboardRange() {
+  return window.__adminDashboardRange || '30';
+}
+
+function setAdminDashboardRange(value) {
+  window.__adminDashboardRange = value || '30';
+  render();
+}
+
+function adminDashNum(value) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : 0;
+}
+
+function adminDashDate(value) {
+  const d = new Date(value || 0);
+  return Number.isNaN(d.getTime()) ? null : d;
+}
+
+function adminDashStartDate(range) {
+  if (range === 'all') return null;
+
+  const now = new Date();
+
+  if (range === 'today') {
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  }
+
+  const days = Number(range || 30);
+  const start = new Date();
+  start.setHours(0, 0, 0, 0);
+  start.setDate(start.getDate() - (days - 1));
+  return start;
+}
+
+function adminDashInRange(row, range = adminDashboardRange(), dateField = 'created_at') {
+  if (range === 'all') return true;
+
+  const raw = row?.[dateField] || row?.created_at || row?.updated_at || row?.recorded_at;
+  const d = adminDashDate(raw);
+  if (!d) return false;
+
+  const start = adminDashStartDate(range);
+  if (!start) return true;
+
+  return d >= start;
+}
+
+function adminDashOrderStatus(status) {
+  const map = {
+    received: txt('جديد', 'New'),
+    confirmed: txt('مؤكد', 'Confirmed'),
+    preparing: txt('قيد التجهيز', 'Preparing'),
+    shipped: txt('تم الشحن', 'Shipped'),
+    out_for_delivery: txt('خرج للتسليم', 'Out for delivery'),
+    delivered: txt('مكتمل', 'Delivered'),
+    cancelled: txt('ملغي', 'Cancelled')
+  };
+
+  return map[status] || status || '—';
+}
+
+function adminDashIcon(type) {
+  const icons = {
+    sales: `<svg viewBox="0 0 24 24"><path d="M12 1v22"/><path d="M17 5.5a4 4 0 0 0-4-2.5H10a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6H11a4 4 0 0 1-4-2.5"/></svg>`,
+    orders: `<svg viewBox="0 0 24 24"><path d="M7 4h10l1 5H6l1-5Z"/><path d="M6 9v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V9"/><path d="M9 13h6"/></svg>`,
+    customers: `<svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="3.5"/><path d="M20 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 4.13a4 4 0 0 1 0 7.75"/></svg>`,
+    stock: `<svg viewBox="0 0 24 24"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4Z"/><path d="M9 12h6"/><path d="M12 9v6"/></svg>`,
+    inventory: `<svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>`,
+    value: `<svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"/><path d="M7 12h10"/><path d="M12 8v8"/></svg>`,
+    alert: `<svg viewBox="0 0 24 24"><path d="m12 3 9 16H3l9-16Z"/><path d="M12 9v4"/><circle cx="12" cy="17" r="1"/></svg>`,
+    activity: `<svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 7-4-14-3 7H2"/></svg>`,
+    bookings: `<svg viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg>`,
+    trending: `<svg viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 7-7"/><path d="M14 8h6v6"/></svg>`
+  };
+
+  return `
+    <span class="lux-svg-icon">
+      ${icons[type] || icons.activity}
+    </span>
   `;
 }
 
+function adminDashBuildData() {
+  const range = adminDashboardRange();
+
+  const orders = (get('orders') || []);
+  const orderItems = (get('order_items') || []);
+  const profiles = (get('profiles') || []);
+  const inventory = (get('inventory') || []);
+  const productsRows = (get('products') || []);
+  const bookings = (get('service_bookings') || []);
+  const movements = (get('inventory_movements') || []);
+
+  const filteredOrders = orders.filter(x => adminDashInRange(x, range, 'created_at'));
+  const filteredProfiles = profiles.filter(x => adminDashInRange(x, range, 'created_at'));
+  const filteredBookings = bookings.filter(x => adminDashInRange(x, range, 'created_at'));
+  const filteredMovements = movements.filter(x => adminDashInRange(x, range, 'created_at'));
+
+  const deliveredOrders = filteredOrders.filter(x => x.status === 'delivered');
+  const revenue = deliveredOrders.reduce((sum, x) => sum + adminDashNum(x.total), 0);
+
+  const pendingOrders = orders.filter(x =>
+    ['received', 'confirmed', 'preparing', 'shipped', 'out_for_delivery'].includes(x.status)
+  ).length;
+
+  const lowStockRows = inventory.filter(x =>
+    adminDashNum(x.quantity) <= adminDashNum(x.min_quantity)
+  );
+
+  const inventoryValue = inventory.reduce((sum, row) => {
+    const product = by('products', row.product_id) || {};
+    const unitCost = adminDashNum(
+      row.unit_cost ??
+      row.cost_price ??
+      product.cost_price ??
+      product.purchase_price ??
+      product.wholesale_price ??
+      product.price
+    );
+
+    return sum + (adminDashNum(row.quantity) * unitCost);
+  }, 0);
+
+  const totalUnits = inventory.reduce((sum, row) => sum + adminDashNum(row.quantity), 0);
+
+  const avgOrder = filteredOrders.length
+    ? filteredOrders.reduce((sum, x) => sum + adminDashNum(x.total), 0) / filteredOrders.length
+    : 0;
+
+  const rangeOrderIds = new Set(filteredOrders.map(x => x.id));
+
+  const topMap = {};
+
+  orderItems.forEach(item => {
+    if (!rangeOrderIds.has(item.order_id)) return;
+
+    const product = by('products', item.product_id) || {};
+    const key = item.product_id || item.item_name || item.id;
+
+    if (!topMap[key]) {
+      topMap[key] = {
+        id: key,
+        name: product.name_ar || product.name_en || item.item_name || txt('منتج', 'Product'),
+        qty: 0,
+        sales: 0
+      };
+    }
+
+    topMap[key].qty += adminDashNum(item.quantity);
+    topMap[key].sales += adminDashNum(item.line_total || (adminDashNum(item.unit_price) * adminDashNum(item.quantity)));
+  });
+
+  const topProducts = Object.values(topMap)
+    .sort((a, b) => b.qty - a.qty)
+    .slice(0, 6);
+
+  const alerts = [];
+
+  if (lowStockRows.length) {
+    alerts.push({
+      tone: 'danger',
+      icon: 'alert',
+      title: txt('تنبيه مخزون منخفض', 'Low stock alert'),
+      body: txt(`${lowStockRows.length} منتجات وصلت للحد الأدنى أو أقل`, `${lowStockRows.length} products are at or below minimum stock`),
+      link: '#/admin/inventory'
+    });
+  }
+
+  if (pendingOrders) {
+    alerts.push({
+      tone: 'warn',
+      icon: 'orders',
+      title: txt('طلبات تحتاج متابعة', 'Orders need attention'),
+      body: txt(`${pendingOrders} طلبات لم تُغلق بعد`, `${pendingOrders} orders are still open`),
+      link: '#/admin/orders'
+    });
+  }
+
+  const pendingBookings = bookings.filter(x => x.status === 'pending').length;
+  if (pendingBookings) {
+    alerts.push({
+      tone: 'info',
+      icon: 'bookings',
+      title: txt('حجوزات صيانة معلقة', 'Pending bookings'),
+      body: txt(`${pendingBookings} حجوزات في انتظار المتابعة`, `${pendingBookings} bookings waiting for follow-up`),
+      link: '#/admin/service_bookings'
+    });
+  }
+
+  if (!alerts.length) {
+    alerts.push({
+      tone: 'success',
+      icon: 'trending',
+      title: txt('الوضع مستقر', 'Everything looks good'),
+      body: txt('لا توجد تنبيهات حرجة حالياً', 'No critical alerts right now'),
+      link: '#/admin/overview'
+    });
+  }
+
+  const activities = [
+    ...filteredOrders.map(x => ({
+      icon: 'orders',
+      title: txt('طلب جديد', 'New order'),
+      body: `#${x.order_number || x.id} • ${fmt(x.total || 0)}`,
+      time: x.created_at || x.updated_at
+    })),
+    ...filteredProfiles.map(x => ({
+      icon: 'customers',
+      title: txt('عميل جديد', 'New customer'),
+      body: E(x.full_name || x.email || txt('بدون اسم', 'No name')),
+      time: x.created_at || x.updated_at
+    })),
+    ...filteredBookings.map(x => ({
+      icon: 'bookings',
+      title: txt('حجز صيانة', 'Service booking'),
+      body: `${txt('الحالة', 'Status')}: ${E(x.status || '-')}`,
+      time: x.created_at || x.updated_at
+    })),
+    ...filteredMovements.map(x => {
+      const product = by('products', x.product_id);
+      const delta = adminDashNum(x.quantity_delta);
+      return {
+        icon: 'inventory',
+        title: txt('حركة مخزون', 'Inventory movement'),
+        body: `${E(product?.name_ar || product?.name_en || txt('منتج', 'Product'))} • ${delta > 0 ? '+' : ''}${delta}`,
+        time: x.created_at || x.updated_at || x.recorded_at
+      };
+    })
+  ]
+    .filter(x => x.time)
+    .sort((a, b) => new Date(b.time) - new Date(a.time))
+    .slice(0, 8)
+    .map(x => ({
+      ...x,
+      timeText: humanDate(x.time)
+    }));
+
+  const recentOrders = filteredOrders
+    .slice()
+    .sort((a, b) => new Date(b.created_at || b.updated_at || 0) - new Date(a.created_at || a.updated_at || 0))
+    .slice(0, 6);
+
+  const stockMovements = movements
+    .slice()
+    .sort((a, b) => new Date(b.created_at || b.updated_at || b.recorded_at || 0) - new Date(a.created_at || a.updated_at || a.recorded_at || 0))
+    .slice(0, 6)
+    .map(row => {
+      const product = by('products', row.product_id);
+      return {
+        productName: product?.name_ar || product?.name_en || txt('منتج', 'Product'),
+        reason: row.reason || row.note || row.notes || txt('بدون سبب', 'No reason'),
+        delta: adminDashNum(row.quantity_delta),
+        when: humanDate(row.created_at || row.updated_at || row.recorded_at || '')
+      };
+    });
+
+  const stats = [
+    {
+      label: txt('إجمالي المبيعات', 'Sales total'),
+      value: fmt(revenue),
+      note: txt('المبيعات المكتملة خلال الفترة', 'Completed sales in selected period'),
+      icon: 'sales',
+      link: '#/admin/orders'
+    },
+    {
+      label: txt('إجمالي الطلبات', 'Total orders'),
+      value: filteredOrders.length,
+      note: txt('عدد الطلبات خلال الفترة', 'Orders during selected period'),
+      icon: 'orders',
+      link: '#/admin/orders'
+    },
+    {
+      label: txt('متوسط الطلب', 'Average order'),
+      value: fmt(avgOrder),
+      note: txt('متوسط قيمة الطلب', 'Average order value'),
+      icon: 'trending',
+      link: '#/admin/orders'
+    },
+    {
+      label: txt('عملاء جدد', 'New customers'),
+      value: filteredProfiles.length,
+      note: txt('حسابات جديدة خلال الفترة', 'New accounts during selected period'),
+      icon: 'customers',
+      link: '#/admin/customers'
+    },
+    {
+      label: txt('حجوزات الصيانة', 'Service bookings'),
+      value: filteredBookings.length,
+      note: txt('حجوزات جديدة خلال الفترة', 'New bookings during selected period'),
+      icon: 'bookings',
+      link: '#/admin/service_bookings'
+    },
+    {
+      label: txt('مخزون منخفض', 'Low stock'),
+      value: lowStockRows.length,
+      note: txt('منتجات تحتاج توريد', 'Products that need restocking'),
+      icon: 'stock',
+      link: '#/admin/inventory'
+    },
+    {
+      label: txt('قيمة المخزون', 'Inventory value'),
+      value: fmt(inventoryValue),
+      note: txt('بتكلفة الشراء', 'Based on purchase cost'),
+      icon: 'value',
+      link: '#/admin/inventory'
+    },
+    {
+      label: txt('إجمالي الوحدات', 'Total units'),
+      value: totalUnits,
+      note: txt('الوحدات الموجودة بالمخزون', 'Units currently in inventory'),
+      icon: 'inventory',
+      link: '#/admin/inventory'
+    }
+  ];
+
+  return {
+    range,
+    stats,
+    alerts,
+    activities,
+    topProducts,
+    recentOrders,
+    stockMovements,
+    inventoryValue,
+    totalUnits,
+    productsCount: productsRows.length,
+    lowStockCount: lowStockRows.length
+  };
+}
+
+function adminDashBuildChartSeries(range = adminDashboardRange()) {
+  const orders = get('orders') || [];
+  const delivered = orders.filter(x => x.status === 'delivered');
+
+  if (range === 'all') {
+    const labels = [];
+    const ordersSeries = [];
+    const salesSeries = [];
+
+    for (let i = 11; i >= 0; i--) {
+      const d = new Date();
+      d.setDate(1);
+      d.setMonth(d.getMonth() - i);
+
+      const y = d.getFullYear();
+      const m = d.getMonth();
+
+      labels.push(
+        d.toLocaleDateString(lang === 'ar' ? 'ar-EG' : 'en-US', { month: 'short' })
+      );
+
+      const monthOrders = orders.filter(x => {
+        const dx = adminDashDate(x.created_at || x.updated_at);
+        return dx && dx.getFullYear() === y && dx.getMonth() === m;
+      });
+
+      const monthSales = delivered
+        .filter(x => {
+          const dx = adminDashDate(x.created_at || x.updated_at);
+          return dx && dx.getFullYear() === y && dx.getMonth() === m;
+        })
+        .reduce((sum, x) => sum + adminDashNum(x.total), 0);
+
+      ordersSeries.push(monthOrders.length);
+      salesSeries.push(monthSales);
+    }
+
+    return { labels, ordersSeries, salesSeries };
+  }
+
+  const days = range === 'today' ? 1 : Number(range || 30);
+  const labels = [];
+  const ordersSeries = [];
+  const salesSeries = [];
+
+  for (let i = days - 1; i >= 0; i--) {
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    d.setDate(d.getDate() - i);
+
+    const next = new Date(d);
+    next.setDate(next.getDate() + 1);
+
+    labels.push(
+      days === 1
+        ? txt('اليوم', 'Today')
+        : d.toLocaleDateString(lang === 'ar' ? 'ar-EG' : 'en-US', {
+            day: 'numeric',
+            month: days > 31 ? 'short' : undefined
+          })
+    );
+
+    const dayOrders = orders.filter(x => {
+      const dx = adminDashDate(x.created_at || x.updated_at);
+      return dx && dx >= d && dx < next;
+    });
+
+    const daySales = delivered
+      .filter(x => {
+        const dx = adminDashDate(x.created_at || x.updated_at);
+        return dx && dx >= d && dx < next;
+      })
+      .reduce((sum, x) => sum + adminDashNum(x.total), 0);
+
+    ordersSeries.push(dayOrders.length);
+    salesSeries.push(daySales);
+  }
+
+  return { labels, ordersSeries, salesSeries };
+}
+
+
+function initAdminOverviewPage(tries = 0) {
+  const path = route();
+  const seg = path.split('/').filter(Boolean);
+
+  const isOverview =
+    seg[0] === 'admin' &&
+    (seg[1] || 'overview') === 'overview';
+
+  if (!isOverview) return;
+
+  const canvas = document.getElementById(
+    'adminOverviewMainChart'
+  );
+
+  if (!canvas) return;
+
+  if (typeof Chart === 'undefined') {
+    if (tries < 20) {
+      setTimeout(() => {
+        initAdminOverviewPage(tries + 1);
+      }, 200);
+    }
+    return;
+  }
+
+  const range = adminDashboardRange();
+  const series = adminDashBuildChartSeries(range);
+
+  const locale = lang === 'ar' ? 'ar-EG' : 'en-US';
+
+  // Get the real date corresponding to each point.
+  function pointDate(index) {
+    const date = new Date();
+    date.setHours(0, 0, 0, 0);
+
+    if (range === 'all') {
+      date.setDate(1);
+      date.setMonth(date.getMonth() - (11 - index));
+    } else {
+      const days = range === 'today'
+        ? 1
+        : Number(range || 30);
+
+      date.setDate(date.getDate() - (days - 1 - index));
+    }
+
+    return date;
+  }
+
+  const salesTotal = series.salesSeries.reduce(
+    (sum, value) => sum + Number(value || 0),
+    0
+  );
+
+  const ordersTotal = series.ordersSeries.reduce(
+    (sum, value) => sum + Number(value || 0),
+    0
+  );
+
+  if (
+    window.adminOverviewMainChart &&
+    typeof window.adminOverviewMainChart.destroy === 'function'
+  ) {
+    window.adminOverviewMainChart.destroy();
+  }
+
+  window.adminOverviewMainChart = new Chart(canvas, {
+    type: 'line',
+
+    data: {
+      labels: series.labels,
+
+      datasets: [
+        {
+          label: txt('المبيعات', 'Sales'),
+          data: series.salesSeries,
+
+          yAxisID: 'ySales',
+
+          borderColor: '#358eff',
+          backgroundColor: 'rgba(53,142,255,.10)',
+
+          borderWidth: 2.5,
+          tension: 0.28,
+          fill: true,
+
+          pointRadius: 3,
+          pointHoverRadius: 6,
+          pointBackgroundColor: '#358eff',
+          pointBorderColor: '#101820',
+          pointBorderWidth: 2,
+
+          pointHoverBackgroundColor: '#358eff',
+          pointHoverBorderColor: '#ffffff',
+          pointHoverBorderWidth: 2
+        },
+
+        {
+          label: txt('الطلبات', 'Orders'),
+          data: series.ordersSeries,
+
+          yAxisID: 'yOrders',
+
+          borderColor: '#34b981',
+          backgroundColor: 'rgba(52,185,129,.08)',
+
+          borderWidth: 2.5,
+          tension: 0.28,
+          fill: false,
+
+          pointRadius: 3,
+          pointHoverRadius: 6,
+          pointBackgroundColor: '#34b981',
+          pointBorderColor: '#101820',
+          pointBorderWidth: 2,
+
+          pointHoverBackgroundColor: '#34b981',
+          pointHoverBorderColor: '#ffffff',
+          pointHoverBorderWidth: 2
+        }
+      ]
+    },
+
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
+
+      plugins: {
+        legend: {
+          display: true,
+          position: 'top',
+          align: 'center',
+
+          labels: {
+            color: '#d5dce5',
+            usePointStyle: true,
+            pointStyle: 'circle',
+            boxWidth: 9,
+            boxHeight: 9,
+            padding: 20,
+            font: {
+              family: 'Cairo',
+              size: 12,
+              weight: 'bold'
+            }
+          }
+        },
+
+        tooltip: {
+          enabled: true,
+
+          mode: 'index',
+          intersect: false,
+
+          backgroundColor: '#242a32',
+          borderColor: 'rgba(255,255,255,.12)',
+          borderWidth: 1,
+
+          titleColor: '#ffffff',
+          bodyColor: '#eef2f7',
+
+          padding: 13,
+          cornerRadius: 11,
+
+          displayColors: true,
+          boxWidth: 9,
+          boxHeight: 9,
+          boxPadding: 6,
+
+          titleFont: {
+            family: 'Cairo',
+            size: 13,
+            weight: 'bold'
+          },
+
+          bodyFont: {
+            family: 'Cairo',
+            size: 12
+          },
+
+          callbacks: {
+            title(items) {
+              if (!items.length) return '';
+
+              const date = pointDate(
+                items[0].dataIndex
+              );
+
+              return date.toLocaleDateString(locale, {
+                weekday: 'long',
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+              });
+            },
+
+            label(context) {
+              const value = Number(
+                context.parsed.y || 0
+              );
+
+              if (context.datasetIndex === 0) {
+                return (
+                  txt('المبيعات: ', 'Sales: ') +
+                  fmt(value)
+                );
+              }
+
+              return (
+                txt('الطلبات: ', 'Orders: ') +
+                value.toLocaleString(locale)
+              );
+            }
+          }
+        }
+      },
+
+      scales: {
+        x: {
+          grid: {
+            color: 'rgba(255,255,255,.055)',
+            drawBorder: false
+          },
+
+          border: {
+            display: false
+          },
+
+          ticks: {
+            color: '#9eabba',
+            maxRotation: 0,
+            autoSkip: true,
+            maxTicksLimit: 8,
+
+            font: {
+              family: 'Cairo',
+              size: 11
+            }
+          }
+        },
+
+        ySales: {
+          type: 'linear',
+          position: 'left',
+          beginAtZero: true,
+
+          grid: {
+            color: 'rgba(255,255,255,.065)'
+          },
+
+          border: {
+            display: false
+          },
+
+          ticks: {
+            color: '#8caad5',
+
+            callback(value) {
+              return Number(value).toLocaleString(locale);
+            },
+
+            font: {
+              family: 'Cairo',
+              size: 11
+            }
+          },
+
+          title: {
+            display: true,
+            text: txt('المبيعات (جنيه)', 'Sales (EGP)'),
+            color: '#8caad5',
+
+            font: {
+              family: 'Cairo',
+              size: 11
+            }
+          }
+        },
+
+        yOrders: {
+          type: 'linear',
+          position: 'right',
+          beginAtZero: true,
+
+          grid: {
+            drawOnChartArea: false
+          },
+
+          border: {
+            display: false
+          },
+
+          ticks: {
+            color: '#72c6a1',
+            precision: 0,
+            stepSize: 1,
+
+            font: {
+              family: 'Cairo',
+              size: 11
+            }
+          },
+
+          title: {
+            display: true,
+            text: txt('عدد الطلبات', 'Orders count'),
+            color: '#72c6a1',
+
+            font: {
+              family: 'Cairo',
+              size: 11
+            }
+          }
+        }
+      }
+    }
+  });
+
+  // Inform the admin when the selected period has no data.
+  const holder = canvas.closest('.lux-chart-holder');
+
+  if (holder) {
+    let note = holder.querySelector(
+      '.lux-chart-zero-note'
+    );
+
+    if (!note) {
+      note = document.createElement('p');
+      note.className = 'lux-chart-zero-note';
+      holder.appendChild(note);
+    }
+
+    note.textContent =
+      !salesTotal && !ordersTotal
+        ? txt(
+            'لا توجد مبيعات أو طلبات مسجلة خلال الفترة المحددة.',
+            'No sales or orders recorded in this period.'
+          )
+        : '';
+  }
+}
 function adminCustomers() {
   const rows = get('profiles');
   return `<div class="table-wrap"><table class="data-table"><thead><tr><th>${txt('الاسم', 'Name')}</th><th>${txt('الهاتف', 'Phone')}</th><th>${txt('الطلبات', 'Orders')}</th><th>${txt('الحجوزات', 'Bookings')}</th></tr></thead><tbody>${rows.map(p => `<tr><td>${E(p.full_name)}</td><td>${E(p.phone)}</td><td>${get('orders').filter(o => o.user_id === p.id).length}</td><td>${get('service_bookings').filter(b => b.user_id === p.id).length}</td></tr>`).join('')}</tbody></table></div>`
@@ -9728,278 +13627,6 @@ function adminField(table, spec, record) {
  value="${E(kind === 'datetime' && val ? String(val).slice(0, 16) : val ?? '')}"></div>`
 }
 
-function editSimpleProduct(id) {
-  const p = id ? by('products', id) : null;
-
-  if (id && !p) {
-    return toast(txt('المنتج غير موجود', 'Product not found'), true);
-  }
-
-  const photo = p ? pimg(p.id) : '';
-  
-  const categoryOptions = get('categories')
-    .filter(c => c.is_active !== false)
-    .map(c => `
-      <option
-        value="${E(c.id)}"
-        ${p?.category_id === c.id ? 'selected' : ''}
-      >
-        ${E(t(c, 'name_ar', 'name_en') || c.name_ar)}
-      </option>
-    `)
-    .join('');
-
-  const originalPrice =
-    p && p.compare_at_price > p.price
-      ? Number(p.compare_at_price)
-      : Number(p?.price || 0);
-
-  const offerPrice =
-    p && p.compare_at_price > p.price
-      ? Number(p.price)
-      : '';
-
-  openModal(`
-    <h2 style="margin-bottom:18px">
-      ${txt(id ? 'تعديل المنتج' : 'إضافة منتج',
-            id ? 'Edit Product' : 'Add Product')}
-    </h2>
-
-    <form id="simple-product-form"
-          onsubmit="event.preventDefault();saveSimpleProduct('${id || ''}',this)">
-
-      <div class="field">
-        <label>${txt('صورة المنتج', 'Product Image')}</label>
-
-        ${photo ? `
-          <img src="${E(safeUrl(photo))}"
-               alt="Product"
-               style="width:130px;height:110px;
-                      object-fit:contain;margin-bottom:10px;
-                      border:1px solid #eee;border-radius:10px">
-        ` : ''}
-
-        <input type="file"
-               name="image"
-               accept="image/jpeg,image/png,image/webp,image/gif"
-               ${id ? '' : 'required'}>
-      </div>
-
-      <div class="field">
-        <label>${txt('اسم المنتج', 'Product Name')}</label>
-        <input type="text"
-               name="name"
-               value="${E(p?.name_ar || '')}"
-               maxlength="250"
-               required>
-      </div>
-
-      <div class="field">
-        <label>${txt('وصف المنتج', 'Description')}</label>
-        <textarea name="description"
-                  rows="3">${E(p?.description_ar || '')}</textarea>
-      </div>
-      <div class="field">
-        <label>
-          ${txt('تصنيف المنتج', 'Product Category')}
-        </label>
-
-        <select name="category_id" required>
-          <option value="">
-            ${txt('اختار التصنيف', 'Select Category')}
-          </option>
-
-          ${categoryOptions}
-        </select>
-      </div>
-      <div class="form-grid">
-        <div class="field">
-          <label>${txt('السعر الأساسي', 'Regular Price')}</label>
-          <input type="number"
-                 name="price"
-                 min="0.01"
-                 step="0.01"
-                 value="${originalPrice || ''}"
-                 required>
-        </div>
-
-        <div class="field">
-          <label>${txt('سعر العرض (اختياري)', 'Sale Price (Optional)')}</label>
-          <input type="number"
-                 name="offer"
-                 min="0.01"
-                 step="0.01"
-                 value="${offerPrice}"
-                 placeholder="${txt('بدون عرض', 'No sale')}">
-        </div>
-      </div>
-
-      <p class="muted small" style="margin:8px 0 16px">
-        ${txt(
-          'لو فيه عرض، اكتب السعر بعد الخصم. المنتج هيتنشر تلقائيًا بعد الحفظ.',
-          'Enter the discounted price if applicable. The product will be published after saving.'
-        )}
-      </p>
-
-      <button type="submit"
-              class="btn primary full">
-        ${txt('حفظ ونشر المنتج', 'Save & Publish')}
-      </button>
-    </form>
-  `);
-}
-
-async function saveSimpleProduct(id, form) {
-  const data = new FormData(form);
-
-  const name = String(data.get('name') || '').trim();
-  const description = String(data.get('description') || '').trim();
-
-  const regular = Number(data.get('price'));
-  const offerText = String(data.get('offer') || '').trim();
-  const offer = offerText ? Number(offerText) : null;
-
-  const imageFile = form.elements.image.files[0];
-
-  if (!name || !Number.isFinite(regular) || regular <= 0) {
-    return toast(
-      txt('راجع الاسم والسعر', 'Check name and price'),
-      true
-    );
-  }
-
-  if (offer !== null &&
-      (!Number.isFinite(offer) || offer <= 0 || offer >= regular)) {
-    return toast(
-      txt('سعر العرض لازم يكون أقل من السعر الأساسي وأكبر من صفر',
-          'Sale price must be positive and less than regular price'),
-      true
-    );
-  }
-
-  if (!id && !imageFile) {
-    return toast(
-      txt('اختار صورة للمنتج', 'Choose a product image'),
-      true
-    );
-  }
-
-  const button = form.querySelector('button[type="submit"]');
-  button.disabled = true;
-
-  try {
-    let imageUrl = '';
-
-    // Upload the image before saving the product
-    if (imageFile) {
-      const types = [
-        'image/jpeg',
-        'image/png',
-        'image/webp',
-        'image/gif'
-      ];
-
-      if (!types.includes(imageFile.type)) {
-        throw Error('UNSUPPORTED_IMAGE_TYPE_OR_SIZE');
-      }
-
-      button.textContent =
-        txt('جاري رفع الصورة...', 'Uploading image...');
-
-      imageUrl = await uploadToImgBB(imageFile);
-    }
-
-    button.textContent =
-      txt('جاري حفظ المنتج...', 'Saving product...');
-
-    const productData = {
-      name_ar: name,
-      description_ar: description || null,
-      price: offer !== null ? offer : regular,
-      compare_at_price: offer !== null ? regular : null
-    };
-
-    let productId = id;
-
-    if (id) {
-      // Edit an existing product
-      const { error } = await state.db
-        .from('products')
-        .update(productData)
-        .eq('id', id);
-
-      if (error) throw error;
-
-    } else {
-      // Generate a unique SKU automatically
-      productData.sku = 'MM-' + crypto.randomUUID();
-      productData.name_en = name;
-      productData.description_en = description || null;
-
-      // Keep unpublished until its image is saved
-      productData.is_active = false;
-
-      const { data: created, error } = await state.db
-        .from('products')
-        .insert(productData)
-        .select('id')
-        .single();
-
-      if (error) throw error;
-
-      productId = created.id;
-    }
-
-    // Save new image or replace the first existing image
-    if (imageUrl) {
-      const oldImage = get('product_images')
-        .find(x => x.product_id === productId);
-
-      let result;
-
-      if (oldImage) {
-        result = await state.db
-          .from('product_images')
-          .update({
-            url: imageUrl,
-            alt: name
-          })
-          .eq('id', oldImage.id);
-      } else {
-        result = await state.db
-          .from('product_images')
-          .insert({
-            product_id: productId,
-            url: imageUrl,
-            alt: name,
-            sort_order: 0
-          });
-      }
-
-      if (result.error) throw result.error;
-    }
-
-    // Publish after saving the product and image
-    const { error: publishError } = await state.db
-      .from('products')
-      .update({ is_active: true })
-      .eq('id', productId);
-
-    if (publishError) throw publishError;
-
-    closeModal();
-    await loadAdminData();
-    render();
-
-    toast(txt('تم حفظ ونشر المنتج', 'Product published successfully'));
-
-  } catch (error) {
-    toast(friendlyError(error), true);
-  } finally {
-    button.disabled = false;
-    button.textContent = txt('حفظ ونشر المنتج', 'Save & Publish');
-  }
-}
 
 function editSimpleProduct(id) {
   const p = id ? by('products', id) : null;
@@ -10023,15 +13650,8 @@ function editSimpleProduct(id) {
 
   const currentImage = p ? pimg(p.id) : '';
 
-  const hasOffer = p &&
-    Number(p.compare_at_price) > Number(p.price);
-
-  const regularPrice = p
-    ? (hasOffer ? p.compare_at_price : p.price)
-    : '';
-
-  const offerPrice = hasOffer ? p.price : '';
-
+const sellingPrice = p?.price ?? '';
+const wholesalePrice = p?.cost_price ?? '';
   openModal(`
     <h2 style="margin-bottom:18px">
       ${txt(
@@ -10056,13 +13676,95 @@ function editSimpleProduct(id) {
           >
         ` : ''}
 
-        <input
-          type="file"
-          name="image"
-          accept="image/jpeg,image/png,image/webp,image/gif"
-          ${currentImage ? '' : 'required'}
-        >
-      </div>
+
+<div class="mido-product-image-upload">
+
+  <div class="mido-product-upload-row">
+
+    <input
+      type="text"
+      id="mido-product-image-name"
+      class="input"
+      placeholder="${txt(
+        'لم يتم اختيار صورة',
+        'No image selected'
+      )}"
+      value="${E(currentImage ? 'صورة المنتج الحالية' : '')}"
+      readonly
+    >
+
+    <input
+      type="hidden"
+      name="product_image_url"
+      id="mido-product-image-url"
+      value="${E(currentImage || '')}"
+    >
+
+    <input
+      type="file"
+      id="mido-product-image-file"
+      accept="image/jpeg,image/png,image/webp,image/gif"
+      onchange="midoUploadProductImage(this)"
+      hidden
+    >
+
+
+<button
+  type="button"
+  class="mido-product-upload-btn"
+  onclick="document.getElementById('mido-product-image-file').click()"
+>
+  <svg
+    viewBox="0 0 24 24"
+    width="19"
+    height="19"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M12 16V3"/>
+    <path d="m7 8 5-5 5 5"/>
+    <path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/>
+  </svg>
+
+  <span>
+    ${txt('رفع صورة', 'Upload image')}
+  </span>
+</button>
+</div>
+
+  <small
+    id="mido-product-upload-status"
+    class="muted"
+    aria-live="polite"
+  >
+    ${txt(
+      'الصورة تترفع على ImgBB وتتحفظ في المكتبة باسم ورقم.',
+      'Image uploads to ImgBB and is saved to the library.'
+    )}
+  </small>
+
+  <img
+    id="mido-product-image-preview"
+    src="${E(safeUrl(currentImage || ''))}"
+    alt=""
+    style="
+      ${currentImage ? '' : 'display:none;'}
+      width:120px;
+      height:110px;
+      object-fit:contain;
+      border:1px solid #dfe6e7;
+      border-radius:12px;
+      margin-top:12px;
+    "
+  >
+
+</div>
+
+    </div>
 
       <div class="field">
         <label>${txt('اسم المنتج', 'Product Name')}</label>
@@ -10090,34 +13792,34 @@ function editSimpleProduct(id) {
         </select>
       </div>
 
-      <div class="form-grid">
+<div class="form-grid">
 
-        <div class="field">
-          <label>${txt('السعر الأساسي', 'Regular Price')}</label>
-          <input
-            type="number"
-            name="price"
-            min="0.01"
-            step="0.01"
-            value="${regularPrice}"
-            required
-          >
-        </div>
+  <div class="field">
+    <label>${txt('سعر البيع', 'Selling Price')}</label>
+    <input
+      type="number"
+      name="selling_price"
+      min="0.01"
+      step="0.01"
+      value="${sellingPrice}"
+      required
+    >
+  </div>
 
-        <div class="field">
-          <label>${txt('سعر العرض (اختياري)', 'Sale Price (Optional)')}</label>
-          <input
-            type="number"
-            name="offer"
-            min="0.01"
-            step="0.01"
-            value="${offerPrice}"
-            placeholder="${txt('بدون عرض', 'No offer')}"
-          >
-        </div>
+  <div class="field">
+    <label>${txt('سعر الجملة', 'Wholesale Price')}</label>
+    <input
+      type="number"
+      name="wholesale_price"
+      min="0"
+      step="0.01"
+      value="${wholesalePrice}"
+      placeholder="${txt('اختياري', 'Optional')}"
+    >
+  </div>
 
-      </div>
-      <div class="field">
+</div>
+<div class="field">
         <label>
           ${txt('الكمية المتاحة', 'Available Quantity')}
         </label>
@@ -10134,13 +13836,12 @@ function editSimpleProduct(id) {
 
       
       
-      <p class="muted small" style="margin:12px 0">
-        ${txt(
-          'المنتج هيظهر في المتجر بعد الحفظ. سيب سعر العرض فاضي لو مفيش خصم.',
-          'The product will be published after saving. Leave the sale price blank if there is no discount.'
-        )}
-      </p>
-
+<p class="muted small" style="margin:12px 0">
+  ${txt(
+    'اكتب سعر البيع للعميل النهائي، وسعر الجملة لو حابب تحفظه داخليًا.',
+    'Enter the selling price for customers and the wholesale price for internal use.'
+  )}
+</p>
       <button type="submit" class="btn primary full">
         ${txt('حفظ ونشر المنتج', 'Save & Publish Product')}
       </button>
@@ -10152,6 +13853,16 @@ function editSimpleProduct(id) {
 
 async function saveSimpleProduct(id, form) {
   const data = new FormData(form);
+  if (form.dataset.imagePending === '1') {
+  toast(
+    txt(
+      'لازم تكمل حفظ الصورة في المكتبة الأول.',
+      'Finish saving the image to the library first.'
+    ),
+    true
+  );
+  return;
+}
 
   const name = String(data.get('name') || '').trim();
   const description = String(data.get('description') || '').trim();
@@ -10172,13 +13883,14 @@ async function saveSimpleProduct(id, form) {
   }
 
 
-  const regular = Number(data.get('price'));
-  const offerText = String(data.get('offer') || '').trim();
-  const offer = offerText === '' ? null : Number(offerText);
-
-  const imageFile = form.elements.image.files[0];
-  const oldProduct = id ? by('products', id) : null;
-
+const sellingPrice = Number(data.get('selling_price'));
+const wholesaleText = String(data.get('wholesale_price') || '').trim();
+const wholesalePrice =
+  wholesaleText === '' ? null : Number(wholesaleText);
+const imageUrl = String(
+  form.querySelector('#mido-product-image-url')?.value || ''
+).trim();
+const oldProduct = id ? by('products', id) : null;
   if (!name || !categoryId) {
     return toast(
       txt('اكتب الاسم واختار التصنيف',
@@ -10187,27 +13899,23 @@ async function saveSimpleProduct(id, form) {
     );
   }
 
-  if (!Number.isFinite(regular) || regular <= 0) {
-    return toast(
-      txt('اكتب سعر صحيح', 'Enter a valid price'),
-      true
-    );
-  }
+if (!Number.isFinite(sellingPrice) || sellingPrice <= 0) {
+  return toast(
+    txt('اكتب سعر بيع صحيح', 'Enter a valid selling price'),
+    true
+  );
+}
 
-  if (
-    offer !== null &&
-    (!Number.isFinite(offer) || offer <= 0 || offer >= regular)
-  ) {
-    return toast(
-      txt(
-        'سعر العرض لازم يكون أقل من السعر الأساسي',
-        'Sale price must be lower than regular price'
-      ),
-      true
-    );
-  }
-
-  if (!imageFile && !pimg(id)) {
+if (
+  wholesalePrice !== null &&
+  (!Number.isFinite(wholesalePrice) || wholesalePrice < 0)
+) {
+  return toast(
+    txt('اكتب سعر جملة صحيح', 'Enter a valid wholesale price'),
+    true
+  );
+}
+  if (!imageUrl) {
     return toast(
       txt('اختار صورة للمنتج', 'Choose a product image'),
       true
@@ -10217,42 +13925,21 @@ async function saveSimpleProduct(id, form) {
   const button = form.querySelector('button[type="submit"]');
   button.disabled = true;
 
-  try {
-    let imageUrl = '';
-
-    if (imageFile) {
-      const acceptedTypes = [
-        'image/jpeg',
-        'image/png',
-        'image/webp',
-        'image/gif'
-      ];
-
-      if (!acceptedTypes.includes(imageFile.type)) {
-        throw Error('UNSUPPORTED_IMAGE_TYPE_OR_SIZE');
-      }
-
-      button.textContent = txt(
-        'جاري رفع الصورة...',
-        'Uploading image...'
-      );
-
-      imageUrl = await uploadToImgBB(imageFile);
-    }
-
-    button.textContent = txt(
-      'جاري حفظ المنتج...',
-      'Saving product...'
-    );
-
-    const productData = {
-      name_ar: name,
-      description_ar: description || null,
-      category_id: categoryId,
-      price: offer !== null ? offer : regular,
-      compare_at_price: offer !== null ? regular : null
-    };
-
+try {
+  button.textContent = txt(
+    'جاري حفظ المنتج...',
+    'Saving product...'
+  );
+const productData = {
+  name_ar: name,
+  name_en: name,
+  description_ar: description || null,
+  description_en: description || null,
+  category_id: categoryId,
+  price: sellingPrice,
+  cost_price: wholesalePrice,
+  compare_at_price: null
+};
     let productId = id;
 
     if (id) {
@@ -10260,13 +13947,18 @@ async function saveSimpleProduct(id, form) {
         throw Error('PRODUCT_NOT_FOUND');
       }
 
-      const { error } = await state.db
-        .from('products')
-        .update(productData)
-        .eq('id', id);
+const { data: savedProduct, error } = await state.db
+  .from('products')
+  .update(productData)
+  .eq('id', id)
+  .select('id')
+  .single();
 
-      if (error) throw error;
+if (error) throw error;
 
+if (!savedProduct?.id) {
+  throw Error('PRODUCT_SAVE_FAILED');
+}
     } else {
       productData.sku =
         'MM-' + crypto.randomUUID().slice(0, 8).toUpperCase();
@@ -10334,13 +14026,22 @@ async function saveSimpleProduct(id, form) {
       if (stockError) throw stockError;
     }
 
-    const { error: publishError } = await state.db
-      .from('products')
-      .update({ is_active: true })
-      .eq('id', productId);
+const { data: publishedProduct, error: publishError } =
+  await state.db
+    .from('products')
+    .update({ is_active: true })
+    .eq('id', productId)
+    .select('id,is_active')
+    .single();
 
-    if (publishError) throw publishError;
+if (publishError) throw publishError;
 
+if (
+  !publishedProduct?.id ||
+  publishedProduct.is_active !== true
+) {
+  throw Error('PRODUCT_PUBLISH_FAILED');
+}
     closeModal();
     await loadAdminData();
     render();
@@ -11469,39 +15170,7 @@ function midoDrawDashboardCharts() {
 }
 
 function injectAdminOverviewEnhancements() {
-  const path = route();
-  const seg = path.split('/').filter(Boolean);
-  const isAdminOverview = seg[0] === 'admin' && (seg[1] || 'overview') === 'overview';
-
-  if (!isAdminOverview) return;
-
-  const host =
-    document.querySelector('#app .section.container') ||
-    document.querySelector('#app .container');
-
-  if (!host) return;
-
-  const old = host.querySelector('.mido-overview-extras');
-  if (old) old.remove();
-
-  const html = `
-    <section class="mido-overview-extras">
-      ${midoAdminAlertsHtml()}
-
-      <div class="mido-dashboard-grid">
-        ${midoStockReviewHtml()}
-        ${midoActivityFeedHtml()}
-      </div>
-
-      ${midoChartsHtml()}
-    </section>
-  `;
-
-  host.insertAdjacentHTML('beforeend', html);
-
-  setTimeout(() => {
-    midoDrawDashboardCharts();
-  }, 50);
+  return;
 }
 function render() {
 
@@ -11579,9 +15248,16 @@ function render() {
   else if (key === 'reminders') html = garagePage(); else if (key === 'articles') html = articlesPage(); else if (key === 'article') html = articlePage(seg[1]);
   else if (key === 'faq') html = faqPage(); else if (key === 'contact' || key === 'about') html = contentPage(key); else if (key === 'page') html = contentPage(seg[1]);
   else if (key === 'admin') html = adminPage(seg[1] || 'overview'); else html = notFound();
-  $('app').innerHTML = html;
-  injectAdminOverviewEnhancements();
-  const prefix = {
+$('app').innerHTML = html;
+
+injectAdminOverviewEnhancements();
+
+if (key === 'admin' && (seg[1] || 'overview') === 'overview') {
+  setTimeout(() => {
+    initAdminOverviewPage();
+  }, 40);
+}
+ const prefix = {
     '': 'bike',
     builder: 'build',
     maintenance: 'book',
