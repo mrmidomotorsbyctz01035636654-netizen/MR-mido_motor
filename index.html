@@ -7185,6 +7185,1068 @@ body.mido-admin-drawer-open {
   }
 }
 
+/* Live clock in the unified admin header */
+
+.mido-admin-hero {
+  grid-template-columns: minmax(0, 1fr) 185px 225px;
+  column-gap: 18px;
+}
+
+.mido-admin-hero-content {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+}
+
+.mido-admin-hero-actions {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.mido-admin-hero-filter {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.mido-admin-live-clock {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 13px;
+  min-width: 0;
+
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 15px;
+  background: rgba(255,255,255,.035);
+  color: #fff;
+}
+
+.mido-admin-live-clock-icon {
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+
+  border-radius: 11px;
+  background: rgba(255,204,56,.1);
+  color: #ffcc38;
+}
+
+.mido-admin-live-clock-icon svg {
+  width: 19px;
+  height: 19px;
+}
+
+.mido-admin-live-clock-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  width: 100%;
+  text-align: center;
+}
+#mido-admin-clock-time {
+  font-family: Inter, Arial, sans-serif;
+  direction: ltr;
+  unicode-bidi: isolate;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -.2px;
+  line-height: 1.2;
+  color: #fff;
+  white-space: nowrap;
+}
+#mido-admin-clock-date {
+  font-family: Cairo, sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  color: rgba(255,255,255,.72);
+  white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .mido-admin-hero {
+    grid-template-columns: minmax(0,1fr) auto;
+  }
+
+  .mido-admin-hero-content {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .mido-admin-hero-actions {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .mido-admin-live-clock {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: fit-content;
+    max-width: 100%;
+  }
+
+  .mido-admin-hero-filter {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+}
+
+/* MIDO CATEGORIES — PREMIUM ADMIN */
+
+.mido-categories-manager {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+}
+
+.mido-categories-toolbar,
+.mido-category-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.mido-categories-toolbar h2 {
+  color: #132427;
+  font-size: 23px;
+  margin-bottom: 4px;
+}
+
+.mido-categories-toolbar p,
+.mido-category-card-head small {
+  color: #839198;
+  font-size: 12px;
+}
+
+.mido-category-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.mido-category-stat {
+  display: grid;
+  gap: 8px;
+  padding: 20px;
+  border: 1px solid #e5eaed;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 8px 27px rgba(9, 25, 31, .045);
+}
+
+.mido-category-stat span {
+  font-size: 12px;
+  font-weight: 700;
+  color: #788890;
+}
+
+.mido-category-stat strong {
+  font-family: Inter, Cairo, sans-serif;
+  font-size: 29px;
+  font-weight: 900;
+  color: #0e2227;
+}
+
+.mido-category-card {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #e5eaed;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 9px 30px rgba(10, 25, 30, .045);
+}
+
+.mido-category-card-head {
+  margin-bottom: 20px;
+}
+
+.mido-category-card-head h3 {
+  font-size: 19px;
+  color: #14282c;
+}
+
+.mido-category-search {
+  width: min(320px, 100%);
+  min-height: 44px;
+  padding: 9px 15px;
+  border: 1px solid #dde5e7;
+  border-radius: 12px;
+  background: #f9fbfb;
+  color: #162b30;
+  outline: none;
+}
+
+.mido-category-search:focus {
+  border-color: #b89e49;
+  box-shadow: 0 0 0 3px rgba(255,204,56,.12);
+}
+
+.mido-category-table th {
+  background: #f8fafb;
+  color: #708087;
+  font-weight: 800;
+}
+
+.mido-category-table td {
+  padding-block: 15px;
+}
+
+.mido-category-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 180px;
+}
+
+.mido-category-thumbnail {
+  display: grid;
+  place-items: center;
+  width: 49px;
+  height: 49px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #f3f6f7;
+  border: 1px solid #e8edee;
+}
+
+.mido-category-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.mido-category-identity strong,
+.mido-category-identity small {
+  display: block;
+}
+
+.mido-category-identity strong {
+  color: #14292d;
+  font-size: 12px;
+}
+
+.mido-category-identity small {
+  color: #8b999f;
+  margin-top: 3px;
+}
+
+.mido-category-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  min-height: 26px;
+  padding: 3px 11px;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.mido-category-status.on {
+  background: #e7f6ee;
+  color: #137a50;
+}
+
+.mido-category-status.off {
+  background: #f2f4f6;
+  color: #738087;
+}
+
+.mido-category-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+
+.mido-category-actions button {
+  padding: 7px 12px;
+  border: 1px solid #dce5e7;
+  border-radius: 9px;
+  background: #fff;
+  color: #21363a;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.mido-category-actions button:hover {
+  background: #fff9e6;
+  border-color: #e4c659;
+}
+
+.mido-category-actions button.danger {
+  color: #bd4545;
+}
+
+.mido-category-actions button.danger:hover {
+  background: #fff1f1;
+  border-color: #efb5b5;
+}
+
+.mido-category-empty {
+  text-align: center;
+  color: #89969b;
+  padding: 30px !important;
+}
+
+.mido-category-low-stock {
+  display: block;
+  color: #c18428;
+  font-size: 10px;
+  margin-top: 3px;
+}
+
+.mido-category-section-label {
+  color: #a18527;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+#mido-category-details {
+  scroll-margin-top: 80px;
+}
+
+.mido-category-editor {
+  display: grid;
+  gap: 16px;
+}
+
+.mido-category-editor h2 {
+  font-size: 23px;
+}
+
+.mido-category-options {
+  display: grid;
+  gap: 12px;
+  padding: 17px;
+  margin: 14px 0;
+  border: 1px solid #e3e9ea;
+  border-radius: 14px;
+  background: #f9fbfb;
+}
+
+.mido-category-options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.mido-category-options input {
+  width: 18px;
+  height: 18px;
+  accent-color: #193c40;
+}
+
+.mido-category-form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.mido-category-form-actions .btn {
+  flex: 1;
+}
+
+.mido-history-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 10px;
+  margin: 18px 0;
+}
+
+.mido-history-stats > div {
+  padding: 14px;
+  background: #f8fafb;
+  border: 1px solid #e4ebed;
+  border-radius: 13px;
+}
+
+.mido-history-stats small,
+.mido-history-stats strong {
+  display: block;
+}
+
+.mido-history-stats small {
+  color: #788a90;
+}
+
+.mido-history-stats strong {
+  font-size: 22px;
+  color: #122e33;
+}
+
+.overlay:has(.mido-product-history) .dialog {
+  width: min(1050px, 96vw);
+}
+
+@media (max-width: 900px) {
+  .mido-category-stat-grid {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .mido-category-card {
+    padding: 14px;
+  }
+
+  .mido-category-stat-grid {
+    gap: 9px;
+  }
+
+  .mido-category-stat {
+    padding: 14px;
+  }
+
+  .mido-category-search {
+    width: 100%;
+  }
+
+  .mido-category-form-actions {
+    flex-direction: column;
+  }
+
+  .mido-history-stats {
+    grid-template-columns: 1fr;
+  }
+}
+/* Smart image duplicate detection */
+
+.mido-existing-media-notice {
+  margin: 12px 0;
+  padding: 13px 16px;
+  border: 1px solid #c9e8dc;
+  border-radius: 12px;
+  background: #f0faf5;
+  color: #176548;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.8;
+}
+
+/* FINAL: COMPACT ADMIN ANALOG CLOCK */
+
+/* Three aligned areas: title, clock, controls */
+.mido-admin-hero {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 135px 225px;
+  grid-template-rows: auto auto;
+  column-gap: 16px;
+  row-gap: 10px;
+  align-items: center;
+  min-height: 0 !important;
+  padding: 20px 26px !important;
+}
+
+/* Page name stays on the right */
+.mido-admin-hero-content {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  min-width: 0;
+  align-self: center;
+}
+
+/* Menu and notifications stay on the left */
+.mido-admin-hero-actions {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+/* Date filter stays under the controls */
+.mido-admin-hero-filter {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+/* Clock without an outer card */
+.mido-admin-live-clock {
+  position: static !important;
+  inset: auto !important;
+  top: auto !important;
+  left: auto !important;
+  right: auto !important;
+
+  grid-column: 2;
+  grid-row: 1 / 3;
+  justify-self: center;
+  align-self: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  width: 130px;
+  height: auto;
+  min-width: 0;
+  padding: 0 !important;
+  margin: 0 !important;
+
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  color: #fff;
+  z-index: auto;
+}
+
+/* Small circular clock face */
+.mido-clock-face {
+  position: relative;
+  display: block;
+  width: 78px;
+  height: 78px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #343b4c;
+  box-shadow: none;
+}
+
+/* Hour markers */
+.mido-clock-mark {
+  position: absolute;
+  display: block;
+  background: rgba(220, 225, 240, .46);
+  border-radius: 9px;
+}
+
+.mido-clock-mark.top,
+.mido-clock-mark.bottom {
+  width: 2px;
+  height: 5px;
+  left: calc(50% - 1px);
+}
+
+.mido-clock-mark.top {
+  top: 3px;
+}
+
+.mido-clock-mark.bottom {
+  bottom: 3px;
+}
+
+.mido-clock-mark.left,
+.mido-clock-mark.right {
+  height: 2px;
+  width: 5px;
+  top: calc(50% - 1px);
+}
+
+.mido-clock-mark.left {
+  left: 3px;
+}
+
+.mido-clock-mark.right {
+  right: 3px;
+}
+
+/* Rotating hands */
+.mido-clock-hand {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  transform-origin: center bottom;
+  border-radius: 999px;
+}
+
+.mido-clock-hand.hour {
+  width: 3px;
+  height: 20px;
+  margin-left: -1.5px;
+  margin-top: -20px;
+  background: #8c93ba;
+}
+
+.mido-clock-hand.minute {
+  width: 2px;
+  height: 28px;
+  margin-left: -1px;
+  margin-top: -28px;
+  background: #b4b9dc;
+}
+
+.mido-clock-hand.second {
+  width: 1.5px;
+  height: 32px;
+  margin-left: -.75px;
+  margin-top: -32px;
+  background: #ffcc38;
+}
+
+.mido-clock-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: #e0e5ff;
+}
+
+/* Digital time and date */
+.mido-admin-live-clock-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 100%;
+  text-align: center;
+}
+
+#mido-admin-clock-time {
+  display: block;
+  font-family: Inter, Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.4;
+  color: #fff;
+  direction: ltr;
+  unicode-bidi: isolate;
+  white-space: nowrap;
+}
+
+#mido-admin-clock-date {
+  display: block;
+  font-size: 9px;
+  line-height: 1.4;
+  color: #aebdc5;
+  white-space: nowrap;
+}
+
+/* Tablet and mobile */
+@media (max-width: 900px) {
+  .mido-admin-hero {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    column-gap: 12px;
+    row-gap: 12px;
+  }
+
+  .mido-admin-hero-content {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .mido-admin-hero-actions {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .mido-admin-live-clock {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .mido-admin-hero-filter {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    width: min(225px, 100%);
+  }
+}
+
+@media (max-width: 560px) {
+  .mido-admin-hero {
+    padding: 16px !important;
+  }
+
+  .mido-admin-hero-content h1 {
+    font-size: 24px;
+  }
+
+  .mido-admin-live-clock {
+    width: 105px;
+  }
+
+  .mido-clock-face {
+    width: 65px;
+    height: 65px;
+  }
+
+  #mido-admin-clock-time {
+    font-size: 11px;
+  }
+
+  #mido-admin-clock-date {
+    font-size: 8px;
+  }
+
+  .mido-admin-hero-filter {
+    min-width: 0;
+  }
+}
+/* CENTER CLOCK INSIDE ADMIN BANNER */
+
+.mido-admin-hero {
+  position: relative;
+}
+
+.mido-admin-live-clock {
+  position: absolute !important;
+
+  top: 50% !important;
+  left: 50% !important;
+  right: auto !important;
+
+  transform: translate(-50%, -50%) !important;
+
+  grid-column: auto !important;
+  grid-row: auto !important;
+
+  margin: 0 !important;
+  z-index: 2;
+}
+
+/* Keep the title and controls in their positions */
+
+.mido-admin-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.mido-admin-hero-actions,
+.mido-admin-hero-filter {
+  position: relative;
+  z-index: 3;
+}
+
+@media (max-width: 700px) {
+  .mido-admin-live-clock {
+    position: static !important;
+    transform: none !important;
+
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+
+    justify-self: center !important;
+  }
+
+  .mido-admin-hero-filter {
+    grid-row: 3 !important;
+  }
+}
+
+/* MIDO MOTORCYCLE MANAGEMENT */
+
+.mido-moto-manager {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+}
+
+.mido-moto-toolbar,
+.mido-moto-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.mido-moto-toolbar h2 {
+  font-size: 22px;
+  color: #14282d;
+}
+
+.mido-moto-toolbar p,
+.mido-moto-head p {
+  font-size: 12px;
+  color: #788a90;
+}
+
+.mido-moto-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.mido-moto-stats > div {
+  display: grid;
+  gap: 7px;
+  background: #fff;
+  border: 1px solid #e6ebed;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(11,27,33,.045);
+}
+
+.mido-moto-stats span {
+  font-size: 12px;
+  color: #778991;
+  font-weight: 700;
+}
+
+.mido-moto-stats strong {
+  color: #10252b;
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.mido-moto-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 8px;
+  padding: 6px;
+  border: 1px solid #e4e9eb;
+  border-radius: 16px;
+  background: #fff;
+}
+
+.mido-moto-tabs button {
+  min-height: 44px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: #72838a;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.mido-moto-tabs button.active {
+  background: #11282e;
+  color: #ffcc38;
+}
+
+.mido-moto-card {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid #e3e9eb;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(10,25,31,.045);
+}
+
+.mido-moto-head {
+  margin-bottom: 18px;
+}
+
+.mido-moto-head h3 {
+  color: #152b30;
+}
+
+.mido-moto-head input,
+.mido-moto-head select {
+  width: min(320px, 100%);
+  min-height: 45px;
+  border: 1px solid #dae4e6;
+  background: #f9fbfb;
+  border-radius: 12px;
+  padding: 10px 14px;
+  color: #183036;
+  outline: none;
+}
+
+.mido-moto-head input:focus,
+.mido-moto-head select:focus {
+  border-color: #c5a549;
+}
+
+.mido-moto-table th {
+  background: #f7f9fa;
+  color: #73848a;
+}
+
+.mido-moto-table td {
+  padding-block: 13px;
+}
+
+.mido-moto-table tbody tr[hidden] {
+  display: none !important;
+}
+
+.mido-moto-identity {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-width: 170px;
+}
+
+.mido-moto-identity img,
+.mido-moto-no-image {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  border: 1px solid #e1e8ea;
+  background: #f3f6f7;
+}
+
+.mido-moto-identity img {
+  object-fit: contain;
+}
+
+.mido-moto-no-image {
+  display: grid;
+  place-items: center;
+  font: 900 19px Inter, Arial, sans-serif;
+  color: #536b71;
+}
+
+.mido-moto-identity strong,
+.mido-moto-identity small {
+  display: block;
+}
+
+.mido-moto-identity strong {
+  color: #1a3136;
+  font-size: 12px;
+}
+
+.mido-moto-identity small {
+  color: #85959a;
+  font-size: 11px;
+}
+
+.mido-moto-year-panel {
+  border: 1px solid #e5ebed;
+  border-radius: 16px;
+  padding: 18px;
+  background: #fafbfb;
+}
+
+.mido-moto-year-panel h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.mido-moto-year-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-bottom: 20px;
+}
+
+.mido-moto-year {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 11px;
+  border-radius: 10px;
+  border: 1px solid #dfe7e9;
+  background: #fff;
+}
+
+.mido-moto-year strong {
+  color: #173035;
+}
+
+.mido-moto-year small {
+  color: #839198;
+  font-size: 10px;
+}
+
+.mido-moto-year button {
+  border: 0;
+  border-radius: 6px;
+  background: #fff0f0;
+  color: #b63a3a;
+  padding: 3px 7px;
+  cursor: pointer;
+}
+
+.mido-moto-add-year {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+}
+
+.mido-moto-add-year .field {
+  flex: 1;
+  margin: 0;
+}
+
+.mido-moto-add-year .btn {
+  min-height: 44px;
+}
+
+.mido-moto-active {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  margin: 15px 0;
+}
+
+.mido-moto-active input {
+  width: 18px;
+  height: 18px;
+  accent-color: #17383e;
+}
+
+.mido-moto-form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.mido-moto-form-actions .btn {
+  flex: 1;
+}
+
+@media (max-width: 700px) {
+  .mido-moto-stats {
+    gap: 8px;
+  }
+
+  .mido-moto-stats > div {
+    padding: 12px;
+  }
+
+  .mido-moto-stats strong {
+    font-size: 21px;
+  }
+
+  .mido-moto-card {
+    padding: 13px;
+  }
+
+  .mido-moto-head input,
+  .mido-moto-head select {
+    width: 100%;
+  }
+
+  .mido-moto-year-list {
+    gap: 6px;
+  }
+}
+
+@media (max-width: 450px) {
+  .mido-moto-add-year,
+  .mido-moto-form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+.mido-moto-compatible-btn {
+  border: 1px solid #d8e5e2;
+  background: #edf7f3;
+  color: #17664f;
+  padding: 7px 11px;
+  border-radius: 9px;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.mido-moto-compatible-btn:hover {
+  background: #dff1e9;
+}
 </style>
 
 
@@ -8092,7 +9154,7 @@ function home() {
   ];
   return `<div id="hero-wrap">${heroMarkup()}</div><div class="finder reveal"><div><h3>◈ ${txt('اختار موتوسيكلَك', 'Find your motorcycle')}</h3><p>${txt('هنعرضلك قطع الغيار المتوافقة معاه بالضبط', 'See only verified compatible products')}</p></div>
  ${bikeSelects('bike')}<button class="btn" onclick="saveBike()">⌕ ${txt('بحث', 'Find parts')}</button></div>
- <section class="section container">${sectionHead('تسوق حسب الفئة', 'Shop by category', '/shop')}<div class="categories">${cats().slice(0, 8).map(c => `<a class="cat-item reveal" href="#/shop?category=${E(c.id)}"><span class="cat-circle">${img(c.image_url || CATEGORY_REFERENCE_IMAGES[c.slug] || MEDIA.garage, c.name_ar)}</span><span>${E(t(c, 'name_ar', 'name_en'))}</span></a>`).join('')}</div></section>
+ <section class="section container">${sectionHead('تسوق حسب الفئة', 'Shop by category', '/shop')}<div class="categories">${cats().filter(c => c.show_on_home !== false).slice(0, 8).map(c => `<a class="cat-item reveal" href="#/shop?category=${E(c.id)}"><span class="cat-circle">${img(c.image_url || CATEGORY_REFERENCE_IMAGES[c.slug] || MEDIA.garage, c.name_ar)}</span><span>${E(t(c, 'name_ar', 'name_en'))}</span></a>`).join('')}</div></section>
  <section class="section container"><div class="services-grid">${quick.map(([r, ar, en, d, eng, sym]) => `<a href="#/${r}" class="service-tile reveal"><div><strong>${txt(ar, en)}</strong><p>${txt(d, eng)}</p><span class="tiny-link">${txt('ابدأ الآن ←', 'Get started →')}</span></div><span class="service-symbol">${icon(r === 'maintenance' ? 'dashboard' : r === 'garage' ? 'user' : r === 'builder' ? 'cart' : 'search')}</span></a>`).join('')}</div></section>
  <section class="section container">${sectionHead('منتجات مميزة', 'Featured products')}<div class="grid grid-4">${catalog.map(cardProduct).join('')}</div>${!catalog.length ? noProducts() : ''}</section>
  <section class="section container">${topBanner('home') || `<div class="promo-banner reveal"><img src="${MEDIA.garage}" loading="lazy" alt="Motorcycles"><div><span class="kicker">MR MIDO MOTORS</span><h2>${txt('جاهز للمشوار الجاي؟', 'Ready for the next ride?')}</h2><p>${txt('كل اللي يحتاجه موتوسيكلَك من قطع غيار وإكسسوارات وخدمات في مكان واحد.', 'Accessories, service and motorcycle essentials in one place.')}</p><a class="btn primary sm" href="#/builder">${txt('جهز موتوسيكلَك', 'Build your ride')}</a></div></div>`}</section>
@@ -9637,6 +10699,97 @@ async function compressImageIfNeeded(file) {
   return file;
 }
 
+/* Smart media library: exact file duplicate detection */
+
+async function midoImageFingerprint(file) {
+  if (!(file instanceof File)) {
+    throw Error('NO_IMAGE_SELECTED');
+  }
+
+  if (!crypto?.subtle) {
+    throw Error('IMAGE_HASH_UNAVAILABLE');
+  }
+
+  const buffer = await file.arrayBuffer();
+  const digest = await crypto.subtle.digest('SHA-256', buffer);
+
+  return Array.from(new Uint8Array(digest))
+    .map(byte => byte.toString(16).padStart(2, '0'))
+    .join('');
+}
+
+async function midoFindExistingImage(hash) {
+  if (!state.db || !state.staff) return null;
+
+  const { data, error } = await state.db
+    .from('media_assets')
+    .select('id,url,file_name,file_hash,created_at')
+    .eq('file_hash', hash)
+    .maybeSingle();
+
+  if (error) throw error;
+
+  return data && safeUrl(data.url) ? data : null;
+}
+
+function midoExistingImageName(asset) {
+  return String(asset.file_name || '')
+    .replace(/\s*\|\s*/, ' — ')
+    .trim();
+}
+
+function midoApplyExistingImage(form, asset) {
+  const urlField = form?.querySelector(
+    '#mido-product-image-url, #mido-category-image-url'
+  );
+
+  const nameField = form?.querySelector(
+    '#mido-product-image-name, #mido-category-image-name'
+  );
+
+  const preview = form?.querySelector(
+    '#mido-product-image-preview, #mido-category-image-preview'
+  );
+
+  const status = form?.querySelector(
+    '#mido-product-upload-status, #mido-category-upload-status'
+  );
+
+  if (!urlField || !nameField) return false;
+
+  urlField.value = asset.url;
+  nameField.value = midoExistingImageName(asset);
+
+  delete form.dataset.imagePending;
+
+  urlField.dispatchEvent(
+    new Event('change', { bubbles: true })
+  );
+
+  if (preview) {
+    preview.src = asset.url;
+    preview.style.display = 'block';
+  }
+
+  if (status) {
+    status.textContent = txt(
+      'الصورة موجودة بالفعل في المكتبة، وتم استخدام الرابط المحفوظ.',
+      'Image already exists. Saved link reused.'
+    );
+  }
+
+  return true;
+}
+
+function midoNotifyExistingImage(asset) {
+  toast(
+    txt(
+      `وجدنا الصورة مرفوعة قبل كده باسم: ${midoExistingImageName(asset)}. تم استخدامها من غير رفع جديد.`,
+      `Existing image found: ${midoExistingImageName(asset)}. Reused without uploading.`
+    )
+  );
+}
+
 /* Upload images and save only direct ImgBB links */
 async function uploadToImgBB(file) {
   if (!(file instanceof File)) {
@@ -9705,22 +10858,21 @@ async function midoUploadProductImage(input) {
 
   const form = input.closest('form');
 
-  const nameField = form?.querySelector(
-    '#mido-product-image-name'
-  );
+const nameField = form?.querySelector(
+  '#mido-product-image-name, #mido-category-image-name'
+);
 
-  const urlField = form?.querySelector(
-    '#mido-product-image-url'
-  );
+const urlField = form?.querySelector(
+  '#mido-product-image-url, #mido-category-image-url'
+);
 
-  const status = form?.querySelector(
-    '#mido-product-upload-status'
-  );
+const status = form?.querySelector(
+  '#mido-product-upload-status, #mido-category-upload-status'
+);
 
-  const preview = form?.querySelector(
-    '#mido-product-image-preview'
-  );
-
+const preview = form?.querySelector(
+  '#mido-product-image-preview, #mido-category-image-preview'
+);
   const saveProductButton = form?.querySelector(
     'button[type="submit"]'
   );
@@ -9743,9 +10895,20 @@ form.dataset.imagePending = '1';
     );
   }
 
-  try {
-    const url = await uploadToImgBB(file);
+try {
+  // Check the original file before uploading anything.
+  const fileHash = await midoImageFingerprint(file);
 
+  const existingImage = await midoFindExistingImage(fileHash);
+
+  if (existingImage) {
+    midoApplyExistingImage(form, existingImage);
+    midoNotifyExistingImage(existingImage);
+    return;
+  }
+
+  // New image: upload to ImgBB as usual.
+  const url = await uploadToImgBB(file);
     if (status) {
       status.textContent = txt(
         'تم رفع الصورة. احفظ اسمها ورقمها في المكتبة.',
@@ -9901,24 +11064,32 @@ form.dataset.imagePending = '1';
         // No extra database column is required.
         const savedName = `${imageCode} | ${imageName}`;
         
+const { data, error } = await state.db
+.from('media_assets')
+.insert({
+  url,
+  file_name: savedName,
+  file_hash: fileHash,
+  source: 'imgbb',
+  uploader_id: state.user.id
+})         
+ .select('*')
+   .single();
 
-        const { data, error } = await state.db
-          .from('media_assets')
-          .insert({
-            url,
-            file_name: savedName,
-            source: 'imgbb',
-            uploader_id: state.user.id
-          })
-          .select('*')
-          .single();
+if (error) {
+  if (error.code === '23505') {
+    const existing = await midoFindExistingImage(fileHash);
 
-        if (error) throw error;
+    if (existing) {
+      midoApplyExistingImage(form, existing);
+      closeModal();
+      midoNotifyExistingImage(existing);
+      return;
+    }
+  }
 
-        if (!state.data.media_assets) {
-          state.data.media_assets = [];
-        }
-
+  throw error;
+}
         state.data.media_assets.unshift(data);
 
         // Return the ImgBB URL to the original product form.
@@ -9987,17 +11158,15 @@ function midoCancelImageNaming() {
     midoModalStack.length - 1
   ];
 
-  const form = previousModal?.querySelector(
-    '#simple-product-form'
-  );
-
+const form = previousModal?.querySelector(
+  '#simple-product-form, #mido-category-form'
+);
   if (form) {
     delete form.dataset.imagePending;
 
-    const status = form.querySelector(
-      '#mido-product-upload-status'
-    );
-
+const status = form.querySelector(
+  '#mido-product-upload-status, #mido-category-upload-status'
+);
     if (status) {
       status.textContent = txt(
         'تم إلغاء حفظ الصورة. يمكنك اختيار صورة أخرى.',
@@ -10031,10 +11200,31 @@ async function mediaSelected(input) {
       `Uploading image ${i + 1} of ${files.length}...`
     );
 
-    try {
-      // Existing secure Supabase Edge Function.
-      const url = await uploadToImgBB(file);
+try {
+  const fileHash = await midoImageFingerprint(file);
+  const existingImage = await midoFindExistingImage(fileHash);
 
+  if (existingImage) {
+    attachMediaUrl(existingImage.url);
+    midoNotifyExistingImage(existingImage);
+
+    if (files.length === 1) {
+      closeModal();
+    } else {
+      const notice = document.createElement('p');
+      notice.className = 'mido-existing-media-notice';
+      notice.textContent = txt(
+        `صورة موجودة: ${midoExistingImageName(existingImage)} — تم استخدام رابطها.`,
+        `Existing image: ${midoExistingImageName(existingImage)} — link reused.`
+      );
+      results.appendChild(notice);
+    }
+
+    continue;
+  }
+
+  // Only new images reach ImgBB.
+  const url = await uploadToImgBB(file);
       const card = document.createElement('div');
       card.className = 'mido-media-result';
 
@@ -10109,17 +11299,30 @@ async function mediaSelected(input) {
         try {
           const { data, error } = await state.db
             .from('media_assets')
-            .insert({
-              url,
-              file_name: fileName,
-              source: 'imgbb',
-              uploader_id: state.user.id
-            })
-            .select('*')
-            .single();
+.insert({
+  url,
+  file_name: fileName,
+  file_hash: fileHash,
+  source: 'imgbb',
+  uploader_id: state.user.id
+})
+.select('*')
+.single();
 
-          if (error) throw error;
+if (error) {
+  if (error.code === '23505') {
+    const existing = await midoFindExistingImage(fileHash);
 
+    if (existing) {
+      attachMediaUrl(existing.url);
+      midoNotifyExistingImage(existing);
+      closeModal();
+      return;
+    }
+  }
+
+  throw error;
+}
           if (!state.data.media_assets) {
             state.data.media_assets = [];
           }
@@ -10350,23 +11553,11 @@ const ADMIN_SECTIONS = [
     'catalog.manage'
   ],
   [
-    'brands',
-    'الماركات',
-    'Brands',
-    'catalog.manage'
-  ],
-  [
-    'motorcycle_models',
-    'موديلات الموتوسيكلات',
-    'Motorcycle models',
-    'catalog.manage'
-  ],
-  [
-    'motorcycle_years',
-    'سنوات الموديلات',
-    'Model years',
-    'catalog.manage'
-  ],
+  'motorcycles',
+  'إدارة الموتوسيكلات',
+  'Motorcycle Management',
+  'catalog.manage'
+],
   [
     'product_compatibility',
     'التوافق',
@@ -11062,6 +12253,7 @@ function adminNav(active) {
     product_images: 'product_images',
     categories: 'categories',
     brands: 'brands',
+    motorcycles: 'motorcycle_models',
     motorcycle_models: 'motorcycle_models',
     motorcycle_years: 'motorcycle_years',
     product_compatibility: 'product_compatibility',
@@ -11209,10 +12401,22 @@ function toggleAdminDrawer(open) {
     return;
   }
 
-  const shouldOpen = Boolean(open);
+const shouldOpen = Boolean(open);
 
-  drawer.classList.toggle('open', shouldOpen);
-  backdrop?.classList.toggle('open', shouldOpen);
+const menu = trigger?.closest('.mido-admin-menu');
+
+// Move the drawer and backdrop outside the admin banner
+// so they cover every page element correctly.
+if (shouldOpen) {
+  if (backdrop) document.body.appendChild(backdrop);
+  document.body.appendChild(drawer);
+} else if (menu) {
+  if (backdrop) menu.appendChild(backdrop);
+  menu.appendChild(drawer);
+}
+
+drawer.classList.toggle('open', shouldOpen);
+backdrop?.classList.toggle('open', shouldOpen);
 
   drawer.setAttribute(
     'aria-hidden',
@@ -11274,8 +12478,125 @@ document.addEventListener('keydown', event => {
     }
   }
 });
+
+/* Live Cairo clock — display only */
+
+let midoAdminClockTimer = null;
+
+
+function midoUpdateAdminClock() {
+  const timeEl = document.getElementById(
+    'mido-admin-clock-time'
+  );
+
+  const dateEl = document.getElementById(
+    'mido-admin-clock-date'
+  );
+
+  const hourHand = document.getElementById(
+    'mido-clock-hour'
+  );
+
+  const minuteHand = document.getElementById(
+    'mido-clock-minute'
+  );
+
+  const secondHand = document.getElementById(
+    'mido-clock-second'
+  );
+
+  if (
+    !timeEl || !dateEl ||
+    !hourHand || !minuteHand || !secondHand
+  ) return;
+
+  const now = new Date();
+  const timezone = 'Africa/Cairo';
+  const isArabic = lang === 'ar';
+
+  // Cairo time, not the computer's local timezone.
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone: timezone,
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hourCycle: 'h23'
+  }).formatToParts(now);
+
+  const part = type =>
+    parts.find(x => x.type === type)?.value || '0';
+
+  const hours24 = Number(part('hour'));
+  const minutes = Number(part('minute'));
+  const seconds = Number(part('second'));
+
+  const hours12 = hours24 % 12 || 12;
+  const ampm = hours24 >= 12 ? 'PM' : 'AM';
+
+  // Smooth, accurate clock hand positions.
+  const secondsDeg = seconds * 6;
+  const minutesDeg = minutes * 6 + seconds * 0.1;
+  const hoursDeg =
+    (hours24 % 12) * 30 +
+    minutes * 0.5 +
+    seconds / 120;
+
+  secondHand.style.transform =
+    `rotate(${secondsDeg}deg)`;
+
+  minuteHand.style.transform =
+    `rotate(${minutesDeg}deg)`;
+
+  hourHand.style.transform =
+    `rotate(${hoursDeg}deg)`;
+
+  const pad = n => String(n).padStart(2, '0');
+
+  timeEl.textContent =
+    `${pad(hours12)}:${pad(minutes)}:${pad(seconds)} ${ampm}`;
+
+  dateEl.textContent = new Intl.DateTimeFormat(
+    isArabic ? 'ar-EG' : 'en-US',
+    {
+      timeZone: timezone,
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric'
+    }
+  ).format(now);
+}
+function midoStartAdminClock() {
+  midoUpdateAdminClock();
+
+  if (midoAdminClockTimer !== null) return;
+
+  midoAdminClockTimer = setInterval(() => {
+    if (!route().startsWith('/admin')) {
+      clearInterval(midoAdminClockTimer);
+      midoAdminClockTimer = null;
+      return;
+    }
+
+    midoUpdateAdminClock();
+  }, 1000);
+}
+
 function adminSectionHero(section = 'overview') {
   const sectionMeta = {
+    motorcycles: {
+  title: txt('إدارة الموتوسيكلات', 'Motorcycle Management'),
+  desc: txt(
+    'تنظيم الماركات والموديلات وسنوات الصنع وربطها بالمنتجات المتوافقة.',
+    'Manage brands, models, production years and compatible products.'
+  )
+},
+    categories: {
+  title: txt('إدارة الفئات', 'Category Management'),
+  desc: txt(
+    'تنظيم أقسام المتجر، وإدارة المنتجات داخل كل فئة ومتابعة مبيعاتها.',
+    'Organize store categories, products and sales history.'
+  )
+},
     overview: {
       title: txt('لوحة التحكم', 'Dashboard'),
       desc: txt(
@@ -11389,6 +12710,37 @@ function adminSectionHero(section = 'overview') {
         </div>
       </div>
 
+<div class="mido-admin-live-clock" aria-label="${txt('الوقت الحالي بتوقيت القاهرة', 'Current Cairo time')}">
+
+  <div class="mido-clock-face" aria-hidden="true">
+    <span class="mido-clock-mark top"></span>
+    <span class="mido-clock-mark right"></span>
+    <span class="mido-clock-mark bottom"></span>
+    <span class="mido-clock-mark left"></span>
+
+    <span class="mido-clock-hand hour"
+          id="mido-clock-hour"></span>
+
+    <span class="mido-clock-hand minute"
+          id="mido-clock-minute"></span>
+
+    <span class="mido-clock-hand second"
+          id="mido-clock-second"></span>
+
+    <span class="mido-clock-center"></span>
+  </div>
+
+  <div class="mido-admin-live-clock-info">
+    <strong id="mido-admin-clock-time" dir="ltr">
+      --:--:-- --
+    </strong>
+
+    <span id="mido-admin-clock-date">
+      ${txt('توقيت القاهرة', 'Cairo time')}
+    </span>
+  </div>
+
+</div>
       <div class="mido-admin-hero-content">
         <div class="mido-admin-hero-kicker">
           ${txt('لوحة الإدارة', 'Administration')}
@@ -11455,7 +12807,17 @@ function adminPage(section = 'overview') {
         </div>
       </div>`;
   }
-
+if (
+  [
+    'motorcycles',
+    'brands',
+    'motorcycle_models',
+    'motorcycle_years'
+  ].includes(section) &&
+  !perm('catalog.manage')
+) {
+  return pageHead(txt('غير مصرح', 'Access denied'));
+}
   const item = ADMIN_SECTIONS.find(
     x => x[0] === section
   ) || ADMIN_SECTIONS[0];
@@ -11473,6 +12835,15 @@ function adminPage(section = 'overview') {
   let content;
 
   switch (section) {
+    case 'motorcycles':
+    case 'brands':
+    case 'motorcycle_models':
+    case 'motorcycle_years':
+     content = midoMotorcyclesManager();
+     break;
+    case 'categories':
+      content = midoCategoriesManager();
+      break;
     case 'products':
        content = midoProductsManager();
        break;
@@ -11538,6 +12909,1612 @@ function adminPage(section = 'overview') {
 </div>
     </div>
   `;
+}
+
+/* MIDO MOTORCYCLE MANAGEMENT */
+
+let midoMotoTab = 'brands';
+let midoMotoYearModel = '';
+
+function midoMotoNames(row) {
+  return row?.name_ar || row?.name || '—';
+}
+
+function midoMotoModels(brandId) {
+  return get('motorcycle_models').filter(
+    m => String(m.brand_id) === String(brandId)
+  );
+}
+
+function midoMotoYears(modelId) {
+  return get('motorcycle_years')
+    .filter(y => String(y.model_id) === String(modelId))
+    .sort((a, b) => Number(b.year) - Number(a.year));
+}
+
+function midoMotoFitments(modelId, year = null) {
+  return get('product_compatibility').filter(c => {
+    if (
+      String(c.model_id) !== String(modelId) ||
+      c.verified !== true
+    ) return false;
+
+    if (year === null) return true;
+
+    const from = c.year_from == null
+      ? -Infinity : Number(c.year_from);
+
+    const to = c.year_to == null
+      ? Infinity : Number(c.year_to);
+
+    return year >= from && year <= to;
+  });
+}
+
+function midoMotoCompatibleCount(modelId, year = null) {
+  return new Set(
+    midoMotoFitments(modelId, year).map(c => c.product_id)
+  ).size;
+}
+
+function midoMotoChangeTab(tab) {
+  midoMotoTab = tab;
+  render();
+}
+
+function midoMotoChooseYearModel(id) {
+  midoMotoYearModel = id;
+  render();
+}
+
+function midoMotoSearch(value) {
+  const q = String(value || '').trim().toLowerCase();
+
+  document.querySelectorAll(
+    '.mido-moto-table tbody tr[data-search]'
+  ).forEach(row => {
+    row.hidden = !row.dataset.search.includes(q);
+  });
+}
+
+function midoMotoShowCompatible(modelId, year = null) {
+  if (!state.staff || !perm('catalog.manage')) return;
+
+  const model = by('motorcycle_models', modelId);
+  if (!model) return;
+
+  const matches = midoMotoFitments(modelId, year);
+  const productIds = new Set(matches.map(c => String(c.product_id)));
+
+  const productsList = get('products').filter(
+    p => productIds.has(String(p.id))
+  );
+
+  openModal(`
+    <div class="mido-moto-compatible">
+      <h2>${txt('المنتجات المتوافقة', 'Compatible products')}</h2>
+
+      <p class="muted small" style="margin:7px 0 18px">
+        ${E(midoMotoNames(model))}
+        ${year === null ? '' : ` — ${year}`}
+      </p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>${txt('المنتج', 'Product')}</th>
+              <th>SKU</th>
+              <th>${txt('سعر البيع', 'Selling price')}</th>
+              <th>${txt('إجراء', 'Action')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${productsList.map(p => `
+              <tr>
+                <td>${E(p.name_ar || p.name_en || '')}</td>
+                <td>${E(p.sku || '—')}</td>
+                <td>${fmt(p.price || 0)}</td>
+                <td>
+                  <button type="button"
+                          class="btn sm outline"
+                          onclick="closeModal();editSimpleProduct('${E(p.id)}')">
+                    ${txt('تعديل المنتج', 'Edit product')}
+                  </button>
+                </td>
+              </tr>
+            `).join('') || `
+              <tr>
+                <td colspan="4">
+                  ${txt(
+                    'لا توجد منتجات مؤكدة التوافق في البيانات المحملة.',
+                    'No verified compatible products in loaded data.'
+                  )}
+                </td>
+              </tr>
+            `}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `);
+}
+
+function midoMotorcyclesManager() {
+  const brands = get('brands');
+  const models = get('motorcycle_models');
+  const years = get('motorcycle_years');
+
+  const selectedModel = models.find(
+    m => String(m.id) === String(midoMotoYearModel)
+  );
+
+  const modelOptions = models
+    .slice()
+    .sort((a, b) =>
+      midoMotoNames(a).localeCompare(midoMotoNames(b))
+    );
+
+  const tabs = [
+    ['brands', txt('الماركات', 'Brands')],
+    ['models', txt('الموديلات', 'Models')],
+    ['years', txt('السنوات', 'Years')]
+  ];
+
+  return `
+    <section class="mido-moto-manager">
+
+      <div class="mido-moto-toolbar">
+        <div>
+          <h2>${txt(
+            'إدارة الموتوسيكلات',
+            'Motorcycle Management'
+          )}</h2>
+          <p>${txt(
+            'بيانات الماركات والموديلات وسنوات الصنع',
+            'Brands, models and production years'
+          )}</p>
+        </div>
+
+        ${midoMotoTab === 'brands' ? `
+          <button type="button"
+                  class="mido-products-add-btn"
+                  onclick="midoMotoEdit('brands')">
+            + ${txt('إضافة ماركة', 'Add brand')}
+          </button>
+        ` : midoMotoTab === 'models' ? `
+          <button type="button"
+                  class="mido-products-add-btn"
+                  onclick="midoMotoEdit('motorcycle_models')">
+            + ${txt('إضافة موديل', 'Add model')}
+          </button>
+        ` : ''}
+      </div>
+
+      <div class="mido-moto-stats">
+        <div>
+          <span>${txt('الماركات', 'Brands')}</span>
+          <strong>${brands.length}</strong>
+        </div>
+        <div>
+          <span>${txt('الموديلات', 'Models')}</span>
+          <strong>${models.length}</strong>
+        </div>
+        <div>
+          <span>${txt('سنوات مسجلة', 'Registered years')}</span>
+          <strong>${years.length}</strong>
+        </div>
+      </div>
+
+      <div class="mido-moto-tabs">
+        ${tabs.map(([key, label]) => `
+          <button type="button"
+                  class="${key === midoMotoTab ? 'active' : ''}"
+                  onclick="midoMotoChangeTab('${key}')">
+            ${label}
+          </button>
+        `).join('')}
+      </div>
+
+      ${midoMotoTab === 'brands' ? `
+        <div class="mido-moto-card">
+          <div class="mido-moto-head">
+            <h3>${txt('قائمة الماركات', 'Brand list')}</h3>
+            <input type="search"
+                   placeholder="${txt('ابحث عن ماركة...', 'Search brands...')}"
+                   oninput="midoMotoSearch(this.value)">
+          </div>
+
+          <div class="table-wrap">
+            <table class="data-table mido-moto-table">
+              <thead>
+                <tr>
+                  <th>${txt('الماركة', 'Brand')}</th>
+                  <th>${txt('الموديلات', 'Models')}</th>
+                  <th>${txt('الحالة', 'Status')}</th>
+                  <th>${txt('الإجراءات', 'Actions')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${brands.map(b => `
+                  <tr data-search="${E(
+                    [b.name, b.name_ar].join(' ').toLowerCase()
+                  )}">
+                    <td>
+                      <div class="mido-moto-identity">
+                        ${b.image_url ? `
+                          <img src="${E(safeUrl(b.image_url))}"
+                               alt="" loading="lazy">
+                        ` : `<span class="mido-moto-no-image">M</span>`}
+                        <div>
+                          <strong>${E(midoMotoNames(b))}</strong>
+                          <small>${E(b.name || '')}</small>
+                        </div>
+                      </div>
+                    </td>
+
+                    <td>${midoMotoModels(b.id).length}</td>
+
+                    <td>
+                      <span class="mido-category-status ${b.is_active ? 'on' : 'off'}">
+                        ${b.is_active
+                          ? txt('نشطة', 'Active')
+                          : txt('مخفية', 'Hidden')}
+                      </span>
+                    </td>
+
+                    <td>
+                      <div class="mido-category-actions">
+                        <button type="button"
+                          onclick="midoMotoEdit('brands','${E(b.id)}')">
+                          ${txt('تعديل', 'Edit')}
+                        </button>
+
+                        <button type="button"
+                          onclick="midoMotoDelete('brands','${E(b.id)}')"
+                          class="danger">
+                          ${txt('حذف', 'Delete')}
+                        </button>
+                      </div>
+                    </td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ` : ''}
+
+      ${midoMotoTab === 'models' ? `
+        <div class="mido-moto-card">
+          <div class="mido-moto-head">
+            <h3>${txt('قائمة الموديلات', 'Model list')}</h3>
+            <input type="search"
+                   placeholder="${txt('ابحث عن موديل أو ماركة...', 'Search models or brands...')}"
+                   oninput="midoMotoSearch(this.value)">
+          </div>
+
+          <div class="table-wrap">
+            <table class="data-table mido-moto-table">
+              <thead>
+                <tr>
+                  <th>${txt('الموديل', 'Model')}</th>
+                  <th>${txt('الماركة', 'Brand')}</th>
+                  <th>${txt('السنوات', 'Years')}</th>
+                  <th>${txt('منتجات متوافقة', 'Compatible products')}</th>
+                  <th>${txt('الحالة', 'Status')}</th>
+                  <th>${txt('الإجراءات', 'Actions')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${models.map(m => {
+                  const brand = by('brands', m.brand_id);
+
+                  return `
+                    <tr data-search="${E(
+                      [m.name, m.name_ar, brand?.name,
+                        brand?.name_ar].join(' ').toLowerCase()
+                    )}">
+                      <td>
+                        <div class="mido-moto-identity">
+                          ${m.image_url ? `
+                            <img src="${E(safeUrl(m.image_url))}"
+                                 alt="" loading="lazy">
+                          ` : `<span class="mido-moto-no-image">M</span>`}
+
+                          <div>
+                            <strong>${E(midoMotoNames(m))}</strong>
+                            <small>${E(m.name || '')}</small>
+                          </div>
+                        </div>
+                      </td>
+
+                      <td>${E(midoMotoNames(brand))}</td>
+                      <td>${midoMotoYears(m.id).length}</td>
+                      <td>
+  <button type="button"
+          class="mido-moto-compatible-btn"
+          onclick="midoMotoShowCompatible('${E(m.id)}')">
+    ${midoMotoCompatibleCount(m.id)}
+    ${txt('عرض المنتجات', 'View products')}
+  </button>
+</td>
+
+                      <td>
+                        <span class="mido-category-status ${m.is_active ? 'on' : 'off'}">
+                          ${m.is_active
+                            ? txt('نشط', 'Active')
+                            : txt('مخفي', 'Hidden')}
+                        </span>
+                      </td>
+
+                      <td>
+                        <div class="mido-category-actions">
+                          <button type="button"
+                            onclick="midoMotoYearModel='${E(m.id)}';midoMotoChangeTab('years')">
+                            ${txt('السنوات', 'Years')}
+                          </button>
+
+                          <button type="button"
+                            onclick="midoMotoEdit('motorcycle_models','${E(m.id)}')">
+                            ${txt('تعديل', 'Edit')}
+                          </button>
+
+                          <button type="button" class="danger"
+                            onclick="midoMotoDelete('motorcycle_models','${E(m.id)}')">
+                            ${txt('حذف', 'Delete')}
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  `;
+                }).join('')}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      ` : ''}
+
+      ${midoMotoTab === 'years' ? `
+        <div class="mido-moto-card">
+          <div class="mido-moto-head">
+            <div>
+              <h3>${txt('إدارة سنوات الموديل', 'Manage model years')}</h3>
+              <p>${txt(
+                'اختار موديل لإضافة أو مراجعة سنوات صنعه.',
+                'Select a model to manage its production years.'
+              )}</p>
+            </div>
+
+            <select onchange="midoMotoChooseYearModel(this.value)">
+              <option value="">
+                ${txt('اختر الموديل', 'Choose model')}
+              </option>
+              ${modelOptions.map(m => {
+                const brand = by('brands', m.brand_id);
+
+                return `
+                  <option value="${E(m.id)}"
+                    ${selectedModel?.id === m.id ? 'selected' : ''}>
+                    ${E(midoMotoNames(brand))} — ${E(midoMotoNames(m))}
+                  </option>
+                `;
+              }).join('')}
+            </select>
+          </div>
+
+          ${selectedModel ? `
+            <div class="mido-moto-year-panel">
+              <h3>${txt('السنوات المسجلة', 'Registered years')}</h3>
+
+              <div class="mido-moto-year-list">
+                ${midoMotoYears(selectedModel.id).map(y => `
+                  <div class="mido-moto-year">
+                    <strong>${Number(y.year)}</strong>
+                    <small>
+                      ${midoMotoCompatibleCount(
+                        selectedModel.id, Number(y.year)
+                      )} ${txt('منتج متوافق', 'compatible products')}
+                    </small>
+                    <button type="button"
+                      onclick="midoMotoDelete('motorcycle_years','${E(y.id)}')"
+                      aria-label="${txt('حذف السنة', 'Remove year')}">
+                      ×
+                    </button>
+                  </div>
+                `).join('') || `
+                  <p class="muted">${txt(
+                    'لا توجد سنوات مسجلة',
+                    'No registered years'
+                  )}</p>
+                `}
+              </div>
+
+              <form class="mido-moto-add-year"
+                    onsubmit="event.preventDefault();midoMotoAddYear(this)">
+                <div class="field">
+                  <label>${txt('إضافة سنة جديدة', 'Add production year')}</label>
+                  <input type="number" name="year"
+                         min="1900" max="2100"
+                         step="1" required>
+                </div>
+
+                <button type="submit" class="btn primary">
+                  + ${txt('إضافة', 'Add')}
+                </button>
+              </form>
+            </div>
+          ` : ''}
+        </div>
+      ` : ''}
+
+    </section>
+  `;
+}
+
+function midoMotoEdit(table, id = '') {
+  if (!state.staff || !perm('catalog.manage')) {
+    return toast(txt('غير مصرح', 'Access denied'), true);
+  }
+
+  if (!['brands', 'motorcycle_models'].includes(table)) return;
+
+  const item = id ? by(table, id) : null;
+
+  if (id && !item) {
+    return toast(txt('السجل غير موجود', 'Record not found'), true);
+  }
+
+  const isModel = table === 'motorcycle_models';
+
+  openModal(`
+    <div class="mido-moto-editor">
+      <h2>
+        ${isModel
+          ? txt(id ? 'تعديل موديل' : 'إضافة موديل',
+                id ? 'Edit model' : 'Add model')
+          : txt(id ? 'تعديل ماركة' : 'إضافة ماركة',
+                id ? 'Edit brand' : 'Add brand')}
+      </h2>
+
+      <form id="mido-moto-editor-form"
+            onsubmit="event.preventDefault();midoMotoSave('${table}','${id}',this)">
+
+        ${isModel ? `
+          <div class="field">
+            <label>${txt('الماركة التابعة لها', 'Parent brand')}</label>
+            <select name="brand_id" required>
+              <option value="">${txt('اختر الماركة', 'Choose brand')}</option>
+              ${get('brands')
+                .filter(b => b.is_active || b.id === item?.brand_id)
+                .map(b => `
+                  <option value="${E(b.id)}"
+                    ${item?.brand_id === b.id ? 'selected' : ''}>
+                    ${E(midoMotoNames(b))}
+                  </option>
+                `).join('')}
+            </select>
+          </div>
+        ` : ''}
+
+        <div class="form-grid">
+          <div class="field">
+            <label>${txt('الاسم بالإنجليزي', 'English name')}</label>
+            <input name="name"
+                   required maxlength="120"
+                   value="${E(item?.name || '')}"
+                   placeholder="${isModel ? 'CBR 250' : 'Honda'}">
+          </div>
+
+          <div class="field">
+            <label>${txt('الاسم بالعربي', 'Arabic name')}</label>
+            <input name="name_ar"
+                   maxlength="120"
+                   value="${E(item?.name_ar || '')}"
+                   placeholder="${isModel ? 'سي بي آر 250' : 'هوندا'}">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>
+            ${isModel
+              ? txt('صورة الموديل', 'Model image')
+              : txt('شعار الماركة', 'Brand logo')}
+          </label>
+
+          ${mediaInput(
+            'mido-moto-image',
+            false,
+            item?.image_url || ''
+          )}
+
+          <small class="muted">
+            ${txt(
+              'استخدم صورة محفوظة في المكتبة أو ارفع صورة جديدة عبر ImgBB.',
+              'Choose library media or upload via ImgBB.'
+            )}
+          </small>
+        </div>
+
+        <label class="mido-moto-active">
+          <input type="checkbox" name="is_active"
+            ${item?.is_active !== false ? 'checked' : ''}>
+          ${txt(
+            isModel ? 'إظهار الموديل للعملاء' : 'إظهار الماركة للعملاء',
+            'Visible to customers'
+          )}
+        </label>
+
+        <div class="mido-moto-form-actions">
+          <button type="submit" class="btn primary">
+            ${txt('حفظ البيانات', 'Save changes')}
+          </button>
+
+          <button type="button" class="btn outline"
+                  onclick="closeModal()">
+            ${txt('إلغاء', 'Cancel')}
+          </button>
+        </div>
+      </form>
+    </div>
+  `);
+}
+
+async function midoMotoSave(table, id, form) {
+  if (!state.staff || !perm('catalog.manage')) {
+    return toast(txt('غير مصرح', 'Access denied'), true);
+  }
+
+  if (!['brands', 'motorcycle_models'].includes(table)) return;
+  if (form.dataset.saving === '1') return;
+
+  const f = new FormData(form);
+  const name = String(f.get('name') || '').trim();
+  const nameAr = String(f.get('name_ar') || '').trim();
+  const imageUrl = String(
+    document.getElementById('mido-moto-image')?.value || ''
+  ).trim();
+
+  if (!name || name.length > 120 || nameAr.length > 120) {
+    return toast(txt('راجع الاسم', 'Invalid name'), true);
+  }
+
+  if (imageUrl && !safeUrl(imageUrl)) {
+    return toast(txt('رابط الصورة غير صالح', 'Invalid image URL'), true);
+  }
+
+  const obj = {
+    name,
+    name_ar: nameAr || null,
+    image_url: imageUrl || null,
+    is_active: f.get('is_active') === 'on'
+  };
+
+  if (table === 'motorcycle_models') {
+    const brandId = String(f.get('brand_id') || '');
+
+    if (!by('brands', brandId)) {
+      return toast(txt('اختر ماركة صحيحة', 'Choose a valid brand'), true);
+    }
+
+    obj.brand_id = brandId;
+  }
+
+  const duplicate = get(table).some(row =>
+    String(row.id) !== String(id) &&
+    String(row.name || '').toLowerCase() === name.toLowerCase() &&
+    (
+      table === 'brands' ||
+      String(row.brand_id) === String(obj.brand_id)
+    )
+  );
+
+  if (duplicate) {
+    return toast(
+      txt('الاسم مسجل بالفعل', 'Name already exists'),
+      true
+    );
+  }
+
+  const button = form.querySelector('[type="submit"]');
+
+  try {
+    form.dataset.saving = '1';
+    if (button) button.disabled = true;
+
+    const q = state.db.from(table);
+
+    const result = id
+      ? await q.update(obj).eq('id', id).select('id').single()
+      : await q.insert(obj).select('id').single();
+
+    if (result.error) throw result.error;
+
+    closeModal();
+    await loadAdminData();
+    render();
+
+    toast(txt('تم حفظ البيانات', 'Changes saved'));
+
+  } catch (error) {
+    toast(friendlyError(error), true);
+
+  } finally {
+    delete form.dataset.saving;
+    if (button?.isConnected) button.disabled = false;
+  }
+}
+
+async function midoMotoAddYear(form) {
+  if (!state.staff || !perm('catalog.manage')) {
+    return toast(txt('غير مصرح', 'Access denied'), true);
+  }
+
+  if (form.dataset.saving === '1') return;
+
+  const modelId = midoMotoYearModel;
+  const year = Number(new FormData(form).get('year'));
+
+  if (!by('motorcycle_models', modelId)) {
+    return toast(txt('اختر الموديل', 'Select model'), true);
+  }
+
+  if (!Number.isSafeInteger(year) || year < 1900 || year > 2100) {
+    return toast(txt('سنة غير صحيحة', 'Invalid year'), true);
+  }
+
+  if (midoMotoYears(modelId).some(y => Number(y.year) === year)) {
+    return toast(txt('السنة موجودة بالفعل', 'Year already exists'), true);
+  }
+
+  const button = form.querySelector('button[type="submit"]');
+
+  try {
+    form.dataset.saving = '1';
+    if (button) button.disabled = true;
+
+    const { error } = await state.db
+      .from('motorcycle_years')
+      .insert({
+        model_id: modelId,
+        year
+      });
+
+    if (error) throw error;
+
+    await loadAdminData();
+    render();
+
+    toast(txt('تمت إضافة السنة', 'Year added'));
+
+  } catch (error) {
+    toast(friendlyError(error), true);
+
+  } finally {
+    delete form.dataset.saving;
+    if (button?.isConnected) button.disabled = false;
+  }
+}
+async function midoMotoDelete(table, id) {
+  if (!state.staff || !perm('catalog.manage')) {
+    return toast(txt('غير مصرح', 'Access denied'), true);
+  }
+
+  if (![
+    'brands',
+    'motorcycle_models',
+    'motorcycle_years'
+  ].includes(table)) return;
+
+  const row = by(table, id);
+
+  if (!row) {
+    return toast(txt('السجل غير موجود', 'Record not found'), true);
+  }
+
+  if (!confirm(txt(
+    'متأكد من الحذف؟ السجلات المرتبطة بمنتجات أو جراج العملاء محمية.',
+    'Delete this record? Linked products and customer bikes are protected.'
+  ))) return;
+
+  try {
+    const { error } = await state.db.rpc(
+      'mido_delete_motorcycle_reference',
+      {
+        p_table: table,
+        p_id: id
+      }
+    );
+
+    if (error) throw error;
+
+    if (
+      table === 'motorcycle_models' &&
+      midoMotoYearModel === id
+    ) {
+      midoMotoYearModel = '';
+    }
+
+    await loadAdminData();
+    render();
+
+    toast(txt('تم الحذف', 'Deleted'));
+
+  } catch (error) {
+    const message = String(error.message || '');
+
+    if (message.includes('MOTORCYCLE_REFERENCE_IN_USE')) {
+      return toast(
+        txt(
+          'لا يمكن الحذف: البيانات مرتبطة بمنتجات أو موديلات أو جراج عملاء. استخدم الإخفاء بدل الحذف.',
+          'Record is in use. Hide it instead of deleting.'
+        ),
+        true
+      );
+    }
+
+    toast(friendlyError(error), true);
+  }
+}
+/* MIDO CATEGORY MANAGEMENT */
+
+let midoCategoryOpened = null;
+let midoCategorySearch = '';
+
+function midoCategoryChildren(id) {
+  return get('categories').filter(
+    c => String(c.parent_id || '') === String(id)
+  );
+}
+
+function midoCategoryProductRows(id) {
+  return get('products').filter(
+    p => String(p.category_id) === String(id)
+  );
+}
+
+function midoCategoryDescendants(id, seen = new Set()) {
+  for (const child of midoCategoryChildren(id)) {
+    if (seen.has(child.id)) continue;
+
+    seen.add(child.id);
+    midoCategoryDescendants(child.id, seen);
+  }
+  return seen;
+}
+
+function midoCategoryProductsCount(id) {
+  return midoCategoryProductRows(id).length;
+}
+
+function midoCategoryPicture(id) {
+  const product = by('products', id);
+  return safeUrl(pimg(id) || '') ||
+    safeUrl(product?.image_url || '');
+}
+
+function midoCategoriesManager() {
+  const categories = [...get('categories')].sort(
+    (a, b) =>
+      Number(a.sort_order || 0) - Number(b.sort_order || 0) ||
+      String(a.name_ar || '').localeCompare(String(b.name_ar || ''), 'ar')
+  );
+
+  const products = get('products');
+  const roots = categories.filter(c => !c.parent_id);
+  const subcategories = categories.filter(c => !!c.parent_id);
+
+  const selected = categories.find(
+    c => String(c.id) === String(midoCategoryOpened)
+  );
+
+  const rows = categories.filter(c => {
+    const text = [
+      c.name_ar,
+      c.name_en,
+      c.slug,
+      by('categories', c.parent_id)?.name_ar
+    ].join(' ').toLowerCase();
+
+    return text.includes(midoCategorySearch.toLowerCase());
+  });
+
+  return `
+    <section class="mido-categories-manager">
+
+      <div class="mido-categories-toolbar">
+        <div>
+          <h2>${txt('الفئات', 'Categories')}</h2>
+          <p>${txt(
+            'عرض وتنظيم الفئات والمنتجات المرتبطة بها.',
+            'Organize categories and their products.'
+          )}</p>
+        </div>
+
+        <button class="mido-products-add-btn"
+                onclick="midoEditCategory(null)"
+                type="button">
+          ${txt('+ إضافة فئة', '+ Add category')}
+        </button>
+      </div>
+
+      <div class="mido-category-stat-grid">
+        <div class="mido-category-stat">
+          <span>${txt('إجمالي الفئات', 'Total categories')}</span>
+          <strong>${categories.length}</strong>
+        </div>
+        <div class="mido-category-stat">
+          <span>${txt('فئات رئيسية', 'Main categories')}</span>
+          <strong>${roots.length}</strong>
+        </div>
+        <div class="mido-category-stat">
+          <span>${txt('فئات فرعية', 'Subcategories')}</span>
+          <strong>${subcategories.length}</strong>
+        </div>
+        <div class="mido-category-stat">
+          <span>${txt('منتجات مصنفة', 'Categorized products')}</span>
+          <strong>${products.filter(p => p.category_id).length}</strong>
+        </div>
+      </div>
+
+      <div class="mido-category-card">
+        <div class="mido-category-card-head">
+          <div>
+            <h3>${txt('قائمة الفئات', 'Category list')}</h3>
+            <small>${txt(
+              'اضغط عرض المنتجات لفتح محتويات الفئة.',
+              'Open a category to review its products.'
+            )}</small>
+          </div>
+
+          <input
+            type="search"
+            class="mido-category-search"
+            placeholder="${txt(
+              'بحث بالعربي أو الإنجليزي...',
+              'Search Arabic or English name...'
+            )}"
+            value="${E(midoCategorySearch)}"
+            oninput="midoCategorySearchChanged(this.value)"
+          >
+        </div>
+
+        <div class="table-wrap">
+          <table class="data-table mido-category-table">
+            <thead>
+              <tr>
+                <th>${txt('الفئة', 'Category')}</th>
+                <th>${txt('المستوى', 'Level')}</th>
+                <th>${txt('المنتجات', 'Products')}</th>
+                <th>${txt('الترتيب', 'Order')}</th>
+                <th>${txt('الحالة', 'Status')}</th>
+                <th>${txt('الإجراءات', 'Actions')}</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${rows.map(c => `
+                <tr>
+                  <td>
+                    <div class="mido-category-identity">
+                      <span class="mido-category-thumbnail">
+                        ${c.image_url
+                          ? `<img src="${E(safeUrl(c.image_url))}" alt="" loading="lazy">`
+                          : `<span>${icon('dashboard')}</span>`}
+                      </span>
+                      <div>
+                        <strong>${E(c.name_ar || '')}</strong>
+                        <small>${E(c.name_en || c.slug || '')}</small>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td>
+                    ${c.parent_id
+                      ? E(by('categories', c.parent_id)?.name_ar ||
+                          txt('فرعية', 'Subcategory'))
+                      : txt('رئيسية', 'Main')}
+                  </td>
+
+                  <td>
+                    <strong>${midoCategoryProductsCount(c.id)}</strong>
+                  </td>
+
+                  <td>${Number(c.sort_order || 0)}</td>
+
+                  <td>
+                    <span class="mido-category-status ${c.is_active ? 'on' : 'off'}">
+                      ${c.is_active
+                        ? txt('نشطة', 'Active')
+                        : txt('مخفية', 'Hidden')}
+                    </span>
+                  </td>
+
+                  <td>
+                    <div class="mido-category-actions">
+                      <button type="button"
+                              onclick="midoOpenCategory('${E(c.id)}')">
+                        ${txt('المنتجات', 'Products')}
+                      </button>
+
+                      <button type="button"
+                              onclick="midoEditCategory('${E(c.id)}')">
+                        ${txt('تعديل', 'Edit')}
+                      </button>
+
+                      <button type="button"
+                              class="danger"
+                              onclick="midoDeleteCategory('${E(c.id)}')">
+                        ${txt('حذف', 'Delete')}
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              `).join('') || `
+                <tr>
+                  <td colspan="6" class="mido-category-empty">
+                    ${txt('لا توجد فئات مطابقة', 'No matching categories')}
+                  </td>
+                </tr>
+              `}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      ${selected ? midoCategoryDetailsHtml(selected) : ''}
+
+    </section>
+  `;
+}
+
+function midoCategorySearchChanged(value) {
+  midoCategorySearch = value;
+  const input = document.activeElement;
+  const start = input?.selectionStart;
+  const end = input?.selectionEnd;
+
+  render();
+
+  const next = document.querySelector('.mido-category-search');
+  if (next) {
+    next.focus({ preventScroll: true });
+    try { next.setSelectionRange(start, end); } catch {}
+  }
+}
+
+function midoOpenCategory(id) {
+  midoCategoryOpened = id;
+  render();
+
+  requestAnimationFrame(() => {
+    document.getElementById('mido-category-details')
+      ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
+function midoCloseCategory() {
+  midoCategoryOpened = null;
+  render();
+}
+
+function midoCategoryDetailsHtml(category) {
+  const products = midoCategoryProductRows(category.id);
+  const canSeeHistory = perm('orders.manage');
+  const subtotalQty = products.reduce((sum, p) => {
+  const inv = get('inventory').find(
+  i => String(i.product_id) === String(p.id)
+);
+    return sum + Number(inv?.quantity || 0);
+  }, 0);
+
+  return `
+    <section id="mido-category-details" class="mido-category-card">
+
+      <div class="mido-category-card-head">
+        <div>
+          <span class="mido-category-section-label">
+            ${txt('محتويات الفئة', 'Category contents')}
+          </span>
+          <h3>${E(category.name_ar || category.name_en || '')}</h3>
+          <small>
+            ${products.length} ${txt('منتج', 'products')}
+            · ${subtotalQty} ${txt('قطعة متاحة', 'units available')}
+          </small>
+        </div>
+
+        <button class="btn sm outline"
+                type="button"
+                onclick="midoCloseCategory()">
+          ${txt('إغلاق', 'Close')}
+        </button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table mido-category-table">
+          <thead>
+            <tr>
+              <th>${txt('المنتج', 'Product')}</th>
+              <th>${txt('سعر البيع', 'Selling price')}</th>
+              <th>${txt('سعر الجملة', 'Wholesale price')}</th>
+              <th>${txt('الكمية', 'Quantity')}</th>
+              <th>${txt('الحالة', 'Status')}</th>
+              <th>${txt('الإجراءات', 'Actions')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${products.map(p => {
+              const inv = get('inventory')
+                .find(i => String(i.product_id) === String(p.id));
+
+              const q = Number(inv?.quantity ?? 0);
+              const low = inv && q <= Number(inv.min_quantity ?? 0);
+
+              return `
+                <tr>
+                  <td>
+                    <div class="mido-category-identity">
+                      <span class="mido-category-thumbnail">
+                        ${midoCategoryPicture(p.id)
+                          ? `<img src="${E(midoCategoryPicture(p.id))}"
+                                  alt="" loading="lazy">`
+                          : '—'}
+                      </span>
+                      <div>
+                        <strong>${E(p.name_ar || p.name_en || '')}</strong>
+                        <small>${E(p.sku || '—')}</small>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td><strong>${fmt(p.price || 0)}</strong></td>
+
+                  <td>
+                    ${p.wholesale_price == null
+                      ? '—'
+                      : fmt(p.wholesale_price)}
+                  </td>
+
+                  <td>
+                    <strong>${q}</strong>
+                    ${low
+                      ? `<small class="mido-category-low-stock">
+                           ${txt('مخزون منخفض', 'Low stock')}
+                         </small>`
+                      : ''}
+                  </td>
+
+                  <td>
+                    <span class="mido-category-status ${p.is_active ? 'on' : 'off'}">
+                      ${p.is_active
+                        ? txt('منشور', 'Published')
+                        : txt('مخفي', 'Hidden')}
+                    </span>
+                  </td>
+
+                  <td>
+                    <div class="mido-category-actions">
+                      ${canSeeHistory ? `
+                        <button type="button"
+                                onclick="midoProductSalesHistory('${E(p.id)}')">
+                          ${txt('الهيستوري', 'History')}
+                        </button>
+                      ` : ''}
+
+                      <button type="button"
+                              onclick="editSimpleProduct('${E(p.id)}')">
+                        ${txt('تعديل', 'Edit')}
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              `;
+            }).join('') || `
+              <tr>
+                <td colspan="6" class="mido-category-empty">
+                  ${txt('الفئة لا تحتوي على منتجات', 'No products in this category')}
+                </td>
+              </tr>
+            `}
+          </tbody>
+        </table>
+      </div>
+
+      <p class="muted small">
+        ${txt(
+          'الأسعار والكميات من بيانات المتجر المحملة حاليًا. سعر الجملة داخلي للإدارة فقط.',
+          'Prices and stock use currently loaded data. Wholesale pricing is internal.'
+        )}
+      </p>
+    </section>
+  `;
+}
+
+function midoProductSalesHistory(productId) {
+  if (!state.staff || !perm('orders.manage')) {
+    toast(
+      txt('مطلوب صلاحية متابعة الطلبات', 'Orders permission required'),
+      true
+    );
+    return;
+  }
+
+  const product = by('products', productId);
+  if (!product) return;
+
+  const ordersById = new Map(
+    get('orders').map(o => [String(o.id), o])
+  );
+
+  const lines = get('order_items')
+    .filter(i => String(i.product_id) === String(productId))
+    .map(i => ({
+      line: i,
+      order: ordersById.get(String(i.order_id))
+    }))
+    .filter(x => !!x.order)
+    .sort((a, b) =>
+      new Date(b.order.created_at) - new Date(a.order.created_at)
+    );
+
+  const soldQty = lines
+    .filter(x => x.order.status !== 'cancelled')
+    .reduce((sum, x) => sum + Number(x.line.quantity || 0), 0);
+
+  const deliveredQty = lines
+    .filter(x => x.order.status === 'delivered')
+    .reduce((sum, x) => sum + Number(x.line.quantity || 0), 0);
+
+  const statusLabel = status => {
+    const labels = {
+      received: txt('جديد', 'Received'),
+      confirmed: txt('مؤكد', 'Confirmed'),
+      preparing: txt('قيد التجهيز', 'Preparing'),
+      shipped: txt('تم الشحن', 'Shipped'),
+      out_for_delivery: txt('خارج للتوصيل', 'Out for delivery'),
+      delivered: txt('تم التسليم', 'Delivered'),
+      cancelled: txt('ملغي', 'Cancelled')
+    };
+    return labels[status] || status || '—';
+  };
+
+  openModal(`
+    <div class="mido-product-history">
+
+      <h2>${txt('تاريخ مبيعات المنتج', 'Product sales history')}</h2>
+      <p class="muted">${E(product.name_ar || product.name_en || '')}</p>
+
+      <div class="mido-history-stats">
+        <div>
+          <small>${txt('وحدات في طلبات غير ملغاة', 'Units in non-cancelled orders')}</small>
+          <strong>${soldQty}</strong>
+        </div>
+        <div>
+          <small>${txt('وحدات تم تسليمها', 'Delivered units')}</small>
+          <strong>${deliveredQty}</strong>
+        </div>
+        <div>
+          <small>${txt('عدد الطلبات', 'Orders')}</small>
+          <strong>${lines.length}</strong>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>${txt('الطلب', 'Order')}</th>
+              <th>${txt('اسم الحساب', 'Account name')}</th>
+              <th>${txt('الكمية', 'Quantity')}</th>
+              <th>${txt('سعر الوحدة وقت الطلب', 'Unit price at order')}</th>
+              <th>${txt('الحالة', 'Status')}</th>
+              <th>${txt('التاريخ', 'Date')}</th>
+              <th>${txt('التفاصيل', 'Details')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${lines.map(({line, order}) => {
+              const account = get('profiles').find(
+                p => String(p.id) === String(order.user_id)
+              );
+
+              const accountName = account?.full_name ||
+                txt('غير متاح', 'Unavailable');
+
+              return `
+                <tr>
+                  <td>${E(order.order_number || order.id)}</td>
+                  <td>
+                    <strong>${E(accountName)}</strong>
+                    <small>${txt('اسم المستلم', 'Recipient')}:
+                      ${E(order.customer_name || '—')}</small>
+                  </td>
+                  <td>${Number(line.quantity || 0)}</td>
+                  <td>${fmt(line.unit_price || 0)}</td>
+                  <td>
+                    <span class="mido-category-status
+                      ${order.status === 'delivered' ? 'on' : 'off'}">
+                      ${E(statusLabel(order.status))}
+                    </span>
+                  </td>
+                  <td>${E(humanDate(order.created_at))}</td>
+                  <td>
+                    <button type="button"
+                            class="btn sm outline"
+                            onclick="closeModal();openOrderAdmin('${E(order.id)}')">
+                      ${txt('فتح الطلب', 'Open order')}
+                    </button>
+                  </td>
+                </tr>
+              `;
+            }).join('') || `
+              <tr>
+                <td colspan="7" class="mido-category-empty">
+                  ${txt('لا توجد مبيعات مسجلة في البيانات المحملة', 'No sales in loaded records')}
+                </td>
+              </tr>
+            `}
+          </tbody>
+        </table>
+      </div>
+
+      <p class="muted small">
+        ${txt(
+          'السجل يعرض الطلبات المحملة والمسموح للإدارة بقراءتها، وقد لا يشمل الطلبات المؤرشفة أو الأقدم.',
+          'Shows accessible loaded orders and may exclude older or archived orders.'
+        )}
+      </p>
+    </div>
+  `);
+}
+
+function midoEditCategory(id = null) {
+  if (!state.staff || !perm('catalog.manage')) {
+    toast(txt('غير مصرح', 'Access denied'), true);
+    return;
+  }
+
+  const category = id ? by('categories', id) : null;
+
+  if (id && !category) {
+    toast(txt('الفئة غير موجودة', 'Category not found'), true);
+    return;
+  }
+
+  const excluded = id
+    ? midoCategoryDescendants(id)
+    : new Set();
+
+  if (id) excluded.add(id);
+
+  const parents = get('categories')
+    .filter(c =>
+      !excluded.has(c.id) &&
+      c.is_active !== false
+    )
+    .sort((a, b) =>
+      Number(a.sort_order || 0) - Number(b.sort_order || 0)
+    );
+
+  openModal(`
+    <div class="mido-category-editor">
+
+      <h2>
+        ${id
+          ? txt('تعديل الفئة', 'Edit category')
+          : txt('إضافة فئة جديدة', 'Add category')}
+      </h2>
+
+      <p class="muted small">
+        ${txt(
+          'بيانات الفئة وتحديد مكان ظهورها في المتجر.',
+          'Category details and storefront visibility.'
+        )}
+      </p>
+
+      <form id="mido-category-form"
+      onsubmit="event.preventDefault();midoSaveCategory('${id || ''}',this)">
+
+        <div class="form-grid">
+          <div class="field">
+            <label>${txt('اسم الفئة بالعربي', 'Arabic name')}</label>
+            <input name="name_ar"
+                   maxlength="150"
+                   required
+                   value="${E(category?.name_ar || '')}">
+          </div>
+
+          <div class="field">
+            <label>${txt('اسم الفئة بالإنجليزي', 'English name')}</label>
+            <input name="name_en"
+                   maxlength="150"
+                   value="${E(category?.name_en || '')}">
+          </div>
+
+          <div class="field wide">
+            <label>${txt('الفئة الرئيسية التابعة لها', 'Parent category')}</label>
+            <select name="parent_id">
+              <option value="">${txt('فئة رئيسية مستقلة', 'Main category')}</option>
+              ${parents.map(p => `
+                <option value="${E(p.id)}"
+                  ${category?.parent_id === p.id ? 'selected' : ''}>
+                  ${E(p.name_ar || p.name_en)}
+                </option>
+              `).join('')}
+            </select>
+          </div>
+
+          <div class="field wide">
+            <label>${txt('وصف الفئة بالعربي', 'Arabic description')}</label>
+            <textarea name="description_ar"
+                      rows="3">${E(category?.description_ar || '')}</textarea>
+          </div>
+
+          <div class="field wide">
+            <label>${txt('وصف الفئة بالإنجليزي', 'English description')}</label>
+            <textarea name="description_en"
+                      rows="3">${E(category?.description_en || '')}</textarea>
+          </div>
+
+
+<div class="field wide">
+  <label>${txt('صورة الفئة', 'Category image')}</label>
+
+  <div class="mido-product-image-upload">
+
+    <div class="mido-product-upload-row">
+
+      <input
+        type="text"
+        id="mido-category-image-name"
+        class="input"
+        placeholder="${txt('لم يتم اختيار صورة', 'No image selected')}"
+        value="${E(category?.image_url ? 'صورة الفئة الحالية' : '')}"
+        readonly
+      >
+
+      <input
+        type="hidden"
+        id="mido-category-image-url"
+        name="category_image_url"
+        value="${E(category?.image_url || '')}"
+      >
+
+      <input
+        type="file"
+        id="mido-category-image-file"
+        accept="image/jpeg,image/png,image/webp,image/gif"
+        onchange="midoUploadProductImage(this)"
+        hidden
+      >
+
+      <button
+        type="button"
+        class="mido-product-upload-btn"
+        onclick="document.getElementById('mido-category-image-file').click()"
+      >
+        <svg viewBox="0 0 24 24" width="19" height="19"
+             fill="none" stroke="currentColor" stroke-width="1.8"
+             stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true">
+          <path d="M12 16V3"/>
+          <path d="m7 8 5-5 5 5"/>
+          <path d="M4 16v3a2 2 0 0 0 2-2v-3"/>
+        </svg>
+
+        <span>${txt('رفع صورة', 'Upload image')}</span>
+      </button>
+    </div>
+
+    <small
+      id="mido-category-upload-status"
+      class="muted"
+      aria-live="polite"
+    >
+      ${txt(
+        'ارفع صورة من جهازك، وبعدها احفظ اسمها ورقمها في المكتبة.',
+        'Upload an image, then save its name and code.'
+      )}
+    </small>
+
+    <img
+      id="mido-category-image-preview"
+      src="${E(safeUrl(category?.image_url || ''))}"
+      alt=""
+      style="
+        ${category?.image_url ? '' : 'display:none;'}
+        width:120px;
+        height:115px;
+        object-fit:contain;
+        margin-top:12px;
+        border:1px solid #e2e8e9;
+        border-radius:13px;
+        padding:8px;
+        background:#f7f9f9;
+      "
+    >
+
+  </div>
+</div>
+          <div class="field wide">
+            <label>${txt('ترتيب العرض', 'Display order')}</label>
+            <input name="sort_order"
+                   type="number" min="0" step="1"
+                   value="${Number(category?.sort_order ?? 0)}">
+          </div>
+        </div>
+
+        <div class="mido-category-options">
+          <label>
+            <input type="checkbox"
+                   name="is_active"
+                   ${category?.is_active !== false ? 'checked' : ''}>
+            ${txt('إظهار الفئة في المتجر', 'Show category in store')}
+          </label>
+
+          <label>
+            <input type="checkbox"
+                   name="show_on_home"
+                   ${category?.show_on_home !== false ? 'checked' : ''}>
+            ${txt('إظهار الفئة في الصفحة الرئيسية', 'Show on home page')}
+          </label>
+        </div>
+
+        <div class="mido-category-form-actions">
+          <button type="submit" class="btn primary">
+            ${txt('حفظ الفئة', 'Save category')}
+          </button>
+
+          <button type="button" class="btn outline"
+                  onclick="closeModal()">
+            ${txt('إلغاء', 'Cancel')}
+          </button>
+        </div>
+
+      </form>
+    </div>
+  `);
+}
+
+async function midoSaveCategory(id, form) {
+  if (!state.staff || !perm('catalog.manage')) {
+    toast(txt('غير مصرح', 'Access denied'), true);
+    return;
+  }
+
+  if (form.dataset.saving === '1') return;
+  if (form.dataset.imagePending === '1') {
+  toast(
+    txt(
+      'لازم تحفظ الصورة في مكتبة الصور الأول.',
+      'Save the image to the library first.'
+    ),
+    true
+  );
+  return;
+}
+  const f = new FormData(form);
+  const nameAr = String(f.get('name_ar') || '').trim();
+  const nameEn = String(f.get('name_en') || '').trim();
+  const parentId = String(f.get('parent_id') || '').trim() || null;
+  const order = Number(f.get('sort_order'));
+
+  const imageUrl = String(
+    document.getElementById('mido-category-image-url')?.value || ''
+  ).trim();
+
+  if (!nameAr || nameAr.length > 150) {
+    toast(txt('راجع اسم الفئة', 'Invalid category name'), true);
+    return;
+  }
+
+  if (!Number.isSafeInteger(order) || order < 0) {
+    toast(txt('ترتيب العرض غير صحيح', 'Invalid display order'), true);
+    return;
+  }
+
+  if (imageUrl && !safeUrl(imageUrl)) {
+    toast(txt('رابط الصورة غير صالح', 'Invalid image URL'), true);
+    return;
+  }
+
+  if (parentId && (
+    parentId === id ||
+    midoCategoryDescendants(id).has(parentId)
+  )) {
+    toast(txt('لا يمكن اختيار فئة فرعية كأب لنفس الفئة', 'Invalid parent category'), true);
+    return;
+  }
+
+  const obj = {
+    name_ar: nameAr,
+    name_en: nameEn || null,
+    parent_id: parentId,
+    description_ar: String(f.get('description_ar') || '').trim() || null,
+    description_en: String(f.get('description_en') || '').trim() || null,
+    image_url: imageUrl || null,
+    sort_order: order,
+    is_active: f.get('is_active') === 'on',
+    show_on_home: f.get('show_on_home') === 'on'
+  };
+
+  if (!id) {
+    obj.slug = 'cat-' + crypto.randomUUID()
+      .replace(/-/g, '')
+      .slice(0, 16);
+  }
+
+  const button = form.querySelector('[type="submit"]');
+  form.dataset.saving = '1';
+  if (button) button.disabled = true;
+
+  try {
+    const query = state.db.from('categories');
+
+    const result = id
+      ? await query.update(obj).eq('id', id).select('id').single()
+      : await query.insert(obj).select('id').single();
+
+    if (result.error) throw result.error;
+
+    closeModal();
+    await loadAdminData();
+    render();
+
+    toast(txt('تم حفظ الفئة بنجاح', 'Category saved'));
+
+  } catch (error) {
+    toast(friendlyError(error), true);
+  } finally {
+    delete form.dataset.saving;
+    if (button?.isConnected) button.disabled = false;
+  }
+}
+
+async function midoDeleteCategory(id) {
+  if (!state.staff || !perm('catalog.manage')) {
+    toast(txt('غير مصرح', 'Access denied'), true);
+    return;
+  }
+
+  const category = by('categories', id);
+  if (!category) return;
+
+  const productsCount = midoCategoryProductsCount(id);
+  const childrenCount = midoCategoryChildren(id).length;
+
+  if (productsCount || childrenCount) {
+    toast(
+      txt(
+        `مينفعش حذف الفئة: مرتبطة بـ ${productsCount} منتج و${childrenCount} فئة فرعية. انقلهم أو أخفي الفئة الأول.`,
+        'Category contains products or subcategories. Move them or hide the category first.'
+      ),
+      true
+    );
+    return;
+  }
+
+  if (!confirm(txt(
+    `هل تريد حذف فئة ${category.name_ar} نهائيًا؟`,
+    `Permanently delete ${category.name_en || category.name_ar}?`
+  ))) return;
+
+  try {
+    const { error } = await state.db.rpc(
+      'mido_delete_empty_category',
+      { p_category: id }
+    );
+
+    if (error) throw error;
+
+    if (midoCategoryOpened === id) midoCategoryOpened = null;
+
+    await loadAdminData();
+    render();
+    toast(txt('تم حذف الفئة', 'Category deleted'));
+
+  } catch (error) {
+    toast(friendlyError(error), true);
+  }
 }
 
 function midoProductsManager() {
@@ -11675,7 +14652,7 @@ function midoProductsManager() {
                     <td>
   <div class="mido-price-stack">
     <strong>${txt('بيع', 'Sell')}: ${fmt(p.price)}</strong>
-    <small>${txt('جملة', 'Wholesale')}: ${p.cost_price != null ? fmt(p.cost_price) : '—'}</small>
+    <small>${txt('جملة', 'Wholesale')}: ${p.wholesale_price != null ? fmt(p.wholesale_price) : '—'}</small>
   </div>
 </td>
 <td>
@@ -13651,7 +16628,7 @@ function editSimpleProduct(id) {
   const currentImage = p ? pimg(p.id) : '';
 
 const sellingPrice = p?.price ?? '';
-const wholesalePrice = p?.cost_price ?? '';
+const wholesalePrice = p?.wholesale_price ?? '';
   openModal(`
     <h2 style="margin-bottom:18px">
       ${txt(
@@ -13937,7 +16914,7 @@ const productData = {
   description_en: description || null,
   category_id: categoryId,
   price: sellingPrice,
-  cost_price: wholesalePrice,
+  wholesale_price: wholesalePrice,
   compare_at_price: null
 };
     let productId = id;
@@ -14728,7 +17705,9 @@ const STAFF_TABLES = [
   'builder_request_items',
   'media_assets',
   'audit_logs',
-  'user_roles'
+  'user_roles',
+  'mido_restock_rules',
+  'mido_restock_jobs'
 ];
 async function fetchTable(table, limit = 500) {
 
@@ -14766,13 +17745,34 @@ async function loadPublic() {
   ] : slots.data || [
   ];
 }
+
 async function loadProductCosts() {
   if (!state.staff) return;
-  const { data, error } = await state.db.rpc('admin_product_costs');
-  if (!error) for (const x of data || [
-  ]) {
-    const p = by('products', x.product_id);
-    if (p) p.cost_price = x.cost_price
+
+  const { data: costs, error: costError } =
+    await state.db.rpc('admin_product_costs');
+
+  if (!costError) {
+    for (const item of costs || []) {
+      const product = by('products', item.product_id);
+      if (product) product.cost_price = item.cost_price;
+    }
+  }
+
+  if (perm('catalog.manage')) {
+    const { data: prices, error: wholesaleError } =
+      await state.db.rpc('admin_product_wholesale_prices');
+
+    if (!wholesaleError) {
+      for (const item of prices || []) {
+        const product = by('products', item.product_id);
+        if (product) {
+          product.wholesale_price = item.wholesale_price;
+        }
+      }
+    } else {
+      console.warn('Wholesale prices:', wholesaleError.message);
+    }
   }
 }
 async function loadPrivate() {
@@ -15172,6 +18172,170 @@ function midoDrawDashboardCharts() {
 function injectAdminOverviewEnhancements() {
   return;
 }
+
+/* Automatic admin stock synchronization */
+
+let midoStockSyncTimer = null;
+let midoStockSyncBusy = false;
+let midoStockRenderPending = false;
+
+async function midoSyncAdminStock() {
+  if (
+    !state.db ||
+    !state.staff ||
+    !route().startsWith('/admin') ||
+    midoStockSyncBusy
+  ) return;
+
+  midoStockSyncBusy = true;
+
+  try {
+    // Read current stock directly from Supabase.
+    const { data: rows, error } = await state.db
+      .from('inventory')
+      .select('product_id,quantity,min_quantity,updated_at')
+      .order('product_id')
+      .limit(1000);
+
+    if (error) throw error;
+
+    const previous = get('inventory') || [];
+    const oldMap = new Map(
+      previous.map(row => [String(row.product_id), row])
+    );
+
+    const stockChanged =
+      rows.length !== previous.length ||
+      rows.some(row => {
+        const old = oldMap.get(String(row.product_id));
+
+        return !old ||
+          Number(old.quantity) !== Number(row.quantity) ||
+          Number(old.min_quantity) !== Number(row.min_quantity);
+      });
+
+    // Check scheduled restock completion.
+    let completedRestock = false;
+    let jobsChanged = false;
+
+    const { data: jobs, error: jobsError } = await state.db
+      .from('mido_restock_jobs')
+      .select('id,product_id,quantity,status,processed_at')
+      .order('created_at', { ascending: false })
+      .limit(100);
+
+    if (!jobsError && jobs) {
+      const previousJobs = get('mido_restock_jobs') || [];
+
+      const oldJobs = new Map(
+        previousJobs.map(job => [String(job.id), job])
+      );
+
+      completedRestock = jobs.some(job => {
+        const old = oldJobs.get(String(job.id));
+
+        return old?.status === 'pending' &&
+          job.status === 'completed';
+      });
+
+      jobsChanged = jobs.some(job => {
+        const old = oldJobs.get(String(job.id));
+
+        return !old || old.status !== job.status;
+      }) || (
+        previousJobs.length !== jobs.length &&
+        previousJobs.length <= 100
+      );
+    }
+
+    if (stockChanged || jobsChanged) {
+      if (stockChanged) {
+        state.data.inventory = await fetchTable('inventory');
+        state.data.inventory_movements =
+          await fetchTable('inventory_movements');
+        state.data.stock_adjustments =
+          await fetchTable('stock_adjustments');
+      }
+
+      if (jobsChanged) {
+        state.data.mido_restock_jobs =
+          await fetchTable('mido_restock_jobs');
+
+        state.data.mido_restock_rules =
+          await fetchTable('mido_restock_rules');
+      }
+
+      // Don't destroy a form while the admin is editing it.
+      if (document.querySelector('.overlay')) {
+        midoStockRenderPending = true;
+
+        const restockQty = document.getElementById(
+          'mido-restock-current-qty'
+        );
+
+        const productSelect = document.getElementById(
+          'mido-restock-product'
+        );
+
+        if (restockQty && productSelect?.value) {
+          const stock = get('inventory').find(
+            x => String(x.product_id) === productSelect.value
+          );
+
+          if (stock) restockQty.textContent = stock.quantity;
+        }
+
+      } else if (route().startsWith('/admin')) {
+        midoStockRenderPending = false;
+        render();
+      }
+
+      if (completedRestock) {
+        toast(
+          txt(
+            'تم تنفيذ الريستوك المجدول وتحديث المخزون تلقائيًا.',
+            'Scheduled restock completed. Stock updated automatically.'
+          )
+        );
+      }
+    }
+
+    // Apply delayed visual update after any modal is closed.
+    if (
+      midoStockRenderPending &&
+      !document.querySelector('.overlay') &&
+      route().startsWith('/admin')
+    ) {
+      midoStockRenderPending = false;
+      render();
+    }
+
+  } catch (error) {
+    console.warn(
+      'Automatic stock synchronization failed:',
+      error.message
+    );
+
+  } finally {
+    midoStockSyncBusy = false;
+  }
+}
+
+function midoStartAdminStockSync() {
+  if (midoStockSyncTimer !== null) return;
+
+  // Refresh in-place every five seconds.
+  midoStockSyncTimer = setInterval(() => {
+    if (!route().startsWith('/admin') || !state.staff) {
+      clearInterval(midoStockSyncTimer);
+      midoStockSyncTimer = null;
+      return;
+    }
+
+    midoSyncAdminStock();
+  }, 5000);
+}
+
 function render() {
 
   
@@ -15249,7 +18413,10 @@ function render() {
   else if (key === 'faq') html = faqPage(); else if (key === 'contact' || key === 'about') html = contentPage(key); else if (key === 'page') html = contentPage(seg[1]);
   else if (key === 'admin') html = adminPage(seg[1] || 'overview'); else html = notFound();
 $('app').innerHTML = html;
-
+if (key === 'admin' && state.staff) {
+  midoStartAdminClock();
+  midoStartAdminStockSync();
+}
 injectAdminOverviewEnhancements();
 
 if (key === 'admin' && (seg[1] || 'overview') === 'overview') {
