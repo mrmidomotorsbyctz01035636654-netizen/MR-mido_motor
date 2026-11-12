@@ -3448,6 +3448,433 @@ img {
     font-size: 12px;
   }
 }
+
+/* MIDO PRODUCT ENGAGEMENT — ADMIN */
+
+.mido-engagement-manager {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+}
+
+.mido-engagement-intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.mido-engagement-intro h2 {
+  font-size: 22px;
+  color: #14272b;
+}
+
+.mido-engagement-intro p {
+  font-size: 12px;
+  color: #819096;
+}
+
+.mido-engagement-live {
+  padding: 8px 12px;
+  border: 1px solid #d2e8db;
+  border-radius: 999px;
+  background: #edf8f1;
+  color: #237553;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.mido-engagement-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 14px;
+}
+
+.mido-engagement-stat {
+  display: grid;
+  gap: 9px;
+  padding: 19px;
+  background: #fff;
+  border: 1px solid #e4ebed;
+  border-radius: 19px;
+  box-shadow: 0 8px 25px rgba(9,25,31,.045);
+}
+
+.mido-engagement-stat span {
+  color: #788992;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.mido-engagement-stat strong {
+  font-size: 27px;
+  color: #13292e;
+  font-weight: 900;
+}
+
+.mido-engagement-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 6px;
+  gap: 7px;
+  border: 1px solid #e3e9eb;
+  background: #fff;
+  border-radius: 16px;
+}
+
+.mido-engagement-tabs button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  border: 0;
+  border-radius: 11px;
+  background: transparent;
+  color: #75868b;
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.mido-engagement-tabs button.active {
+  background: #142a30;
+  color: #ffcc38;
+}
+
+.mido-engagement-tabs button span {
+  padding: 2px 8px;
+  border-radius: 20px;
+  background: rgba(128,145,151,.14);
+  font-size: 11px;
+}
+
+.mido-engagement-controls {
+  display: grid;
+  grid-template-columns: minmax(0,1fr) 220px;
+  gap: 12px;
+}
+
+.mido-engagement-controls input,
+.mido-engagement-controls select {
+  width: 100%;
+  min-height: 46px;
+  background: #fff;
+  color: #1b3035;
+  border: 1px solid #dce5e8;
+  border-radius: 12px;
+  padding: 10px 14px;
+  outline: none;
+}
+
+.mido-engagement-controls input:focus,
+.mido-engagement-controls select:focus {
+  border-color: #ccab47;
+}
+
+.mido-engagement-list {
+  display: grid;
+  gap: 12px;
+}
+
+.mido-engagement-item,
+.mido-engagement-detail {
+  background: #fff;
+  border: 1px solid #e1e8eb;
+  border-radius: 19px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(9,25,31,.04);
+}
+
+.mido-engagement-item[hidden] {
+  display: none !important;
+}
+
+.mido-engagement-item-head,
+.mido-engagement-item-bottom,
+.mido-engagement-detail-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.mido-engagement-item-head strong,
+.mido-engagement-item-head small {
+  display: block;
+}
+
+.mido-engagement-item-head strong {
+  color: #172e33;
+  font-size: 13px;
+}
+
+.mido-engagement-item-head small {
+  color: #839398;
+  font-size: 11px;
+  margin-top: 3px;
+}
+
+.mido-engagement-status {
+  padding: 5px 11px;
+  border-radius: 100px;
+  font-size: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.mido-engagement-status.pending {
+  background: #fff6dd;
+  color: #a47717;
+}
+
+.mido-engagement-status.approved {
+  background: #e9f8f0;
+  color: #168052;
+}
+
+.mido-engagement-status.rejected {
+  background: #fcebec;
+  color: #bf484a;
+}
+
+.mido-engagement-status.hidden {
+  background: #eef1f3;
+  color: #68787e;
+}
+
+.mido-engagement-item > p {
+  margin: 15px 0;
+  color: #2f4449;
+  font-size: 13px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+}
+
+.mido-engagement-stars {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 9px;
+  color: #e2ad19;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.mido-engagement-stars span {
+  color: #76868b;
+  font-size: 11px;
+  letter-spacing: 0;
+}
+
+.mido-engagement-answer {
+  border: 1px solid #dbe9e3;
+  background: #f1f9f5;
+  padding: 13px 15px;
+  border-radius: 12px;
+  margin: 13px 0;
+}
+
+.mido-engagement-answer strong {
+  font-size: 12px;
+  color: #257756;
+}
+
+.mido-engagement-answer p {
+  font-size: 12px;
+  color: #34554b;
+  white-space: pre-wrap;
+}
+
+.mido-engagement-item-bottom {
+  padding-top: 12px;
+  border-top: 1px solid #edf1f2;
+}
+
+.mido-engagement-item-bottom small {
+  font-size: 11px;
+  color: #89989d;
+}
+
+.mido-engagement-item-bottom button {
+  border: 1px solid #dce5e7;
+  border-radius: 10px;
+  padding: 9px 14px;
+  background: #fff;
+  color: #173137;
+  font-weight: 800;
+  font-size: 11px;
+}
+
+.mido-engagement-item-bottom button:hover {
+  background: #fff8e1;
+  border-color: #e3bd4a;
+}
+
+.mido-engagement-detail {
+  scroll-margin-top: 80px;
+  display: grid;
+  gap: 17px;
+}
+
+.mido-engagement-detail-head h3 {
+  color: #172e33;
+  margin-top: 5px;
+}
+
+.mido-engagement-detail-head small {
+  color: #a88c35;
+}
+
+.mido-engagement-info {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 12px;
+}
+
+.mido-engagement-info > div {
+  background: #f8fafb;
+  border: 1px solid #e7ecee;
+  padding: 12px 14px;
+  border-radius: 12px;
+}
+
+.mido-engagement-info span,
+.mido-engagement-info strong {
+  display: block;
+}
+
+.mido-engagement-info span {
+  color: #8b989c;
+  font-size: 11px;
+}
+
+.mido-engagement-info strong {
+  color: #263e43;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.mido-engagement-content {
+  border: 1px solid #e2e9eb;
+  background: #f9fbfb;
+  padding: 17px;
+  border-radius: 13px;
+  color: #2b4045;
+  font-size: 13px;
+  line-height: 2;
+  white-space: pre-wrap;
+}
+
+.mido-engagement-product-link {
+  display: inline-flex;
+  width: fit-content;
+  padding: 9px 14px;
+  border-radius: 10px;
+  background: #eef4f4;
+  color: #22575d;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.mido-engagement-decision-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.mido-engagement-decision-actions .btn {
+  flex: 1;
+  min-width: 125px;
+}
+
+.mido-engagement-review-image {
+  max-width: 180px;
+  max-height: 180px;
+  object-fit: contain;
+  border: 1px solid #e3eaeb;
+  border-radius: 12px;
+}
+
+.mido-engagement-footnote,
+.mido-engagement-empty {
+  text-align: center;
+  color: #86959b;
+  font-size: 11px;
+  padding: 15px;
+}
+
+.mido-moderation-bell-alert {
+  display: grid;
+  gap: 5px;
+  padding: 13px;
+  border-radius: 12px;
+  border: 1px solid #e8cc6d;
+  background: #fff8e4;
+  color: #534318;
+}
+
+.mido-moderation-bell-alert strong {
+  font-size: 12px;
+}
+
+.mido-moderation-bell-alert span {
+  font-size: 11px;
+}
+
+.mido-product-rating-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.mido-product-rating-summary strong {
+  color: #162d32;
+  font-size: 19px;
+}
+
+.mido-product-rating-summary span {
+  color: #d9a91d;
+  font-size: 20px;
+}
+
+.mido-product-rating-summary small {
+  color: #849398;
+}
+
+@media (max-width: 700px) {
+  .mido-engagement-stats {
+    gap: 8px;
+  }
+
+  .mido-engagement-stat {
+    padding: 13px;
+  }
+
+  .mido-engagement-stat strong {
+    font-size: 23px;
+  }
+
+  .mido-engagement-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .mido-engagement-item,
+  .mido-engagement-detail {
+    padding: 15px;
+  }
+
+  .mido-engagement-info {
+    grid-template-columns: 1fr;
+  }
+
+  .mido-engagement-decision-actions {
+    flex-direction: column;
+  }
+}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.8/dist/umd/supabase.min.js" defer></script>
 </head>
@@ -9241,6 +9668,25 @@ function productDetail(id) {
   const related = products().filter(x => x.id !== p.id && x.category_id === p.category_id).slice(0, 4);
   const matched = state.bike ? (fitProduct(p, state.bike) ? txt('متوافق حسب بيانات الإدارة', 'Verified compatible') : txt('التوافق غير مؤكد — راجع الإدارة', 'Compatibility not verified')) : '';
   const rating = get('product_reviews').filter(x => x.product_id === id && x.approved);
+  const ratingAverage = rating.length
+    ? rating.reduce(
+        (sum, item) => sum + Number(item.rating || 0),
+        0
+      ) / rating.length
+    : 0;
+
+  const ratingSummary = rating.length
+    ? `
+      <div class="mido-product-rating-summary">
+        <strong>${ratingAverage.toFixed(1)} / 5</strong>
+        <span>${'★'.repeat(Math.round(ratingAverage))}</span>
+        <small>
+          ${rating.length}
+          ${txt('تقييم معتمد', 'approved reviews')}
+        </small>
+      </div>
+  `
+  : '';
   const count = qty(p.id);
   return `<div class="container"><p class="crumb">${lnk('shop')} / ${E(n)}</p><div class="detail-layout section"><div>
  <div class="detail-cover" id="product-cover">${img(imgs[0]?.url, n)}</div><div class="gallery-thumbs">${imgs.map(x => `<img src="${E(safeUrl(x.url))}" onclick="$('product-cover').innerHTML=this.outerHTML" alt="${E(n)}">`).join('')}</div></div>
@@ -9255,7 +9701,7 @@ function productDetail(id) {
  ${p.universal_fit ? `<p class="small">${txt('منتج متعدد الاستخدامات (حسب إعداد الإدارة)', 'Universal fit per catalog settings')}</p>` : ''}
  ${get('product_compatibility').filter(x => x.product_id === id && x.verified).map(x => `<div class="small">◈ ${E(by('motorcycle_models', x.model_id)?.name || '')} — ${x.year_from || txt('كل', 'All')} ${x.year_to ? '– ' + x.year_to : ''}</div>`).join('')}
  ${get('product_attributes').filter(x => x.product_id === id).map(x => `<p class="small"><strong>${E(t(x, 'label_ar', 'label_en'))}:</strong> ${E(t(x, 'value_ar', 'value_en'))}</p>`).join('')}</div></div>
- <section class="section"><h2>${txt('تقييمات العملاء', 'Customer reviews')}</h2>${rating.length ? rating.map(x => `<div class="surface" style="margin:10px 0">${'★'.repeat(x.rating)} — ${E(x.body || '')}</div>`).join('') : `<p class="muted">${txt('لا توجد تقييمات معتمدة بعد.', 'No approved reviews yet.')}</p>`}
+ <section class="section"><h2>${txt('تقييمات العملاء', 'Customer reviews')}</h2>${ratingSummary}${rating.length ? rating.map(x => `<div class="surface" style="margin:10px 0">${'★'.repeat(x.rating)} — ${E(x.body || '')}</div>`).join('') : `<p class="muted">${txt('لا توجد تقييمات معتمدة بعد.', 'No approved reviews yet.')}</p>`}
  ${state.user ? `<form class="surface" style="margin-top:13px" onsubmit="event.preventDefault();submitReview('${id}',this)"><div class="form-grid"><div class="field"><label>${txt('التقييم', 'Rating')}</label><select name="rating"><option value="5">★★★★★</option><option value="4">★★★★</option><option value="3">★★★</option><option value="2">★★</option><option value="1">★</option></select></div><div class="field"><label>${txt('رأيك', 'Review')}</label><input name="body" required maxlength="1000"></div><div class="field wide"><label>${txt('صورة اختيارية', 'Optional photo')}</label>${mediaInput('review-image')}</div></div><button class="btn sm">${txt('إرسال التقييم للمراجعة', 'Submit for approval')}</button></form>` : ''}</section>
  <section class="section"><h2>${txt('أسئلة عن المنتج', 'Product questions')}</h2>${get('product_questions').filter(x => x.product_id === id && x.approved).map(x => `<div class="surface" style="margin:9px 0"><strong>${E(x.question)}</strong><p class="muted">${E(x.answer || 'في انتظار رد الإدارة')}</p></div>`).join('') || `<p class="muted">${txt('لا توجد أسئلة منشورة بعد', 'No published questions yet')}</p>`}
  ${state.user ? `<form class="surface" onsubmit="event.preventDefault();submitProductQuestion('${id}',this)"><div class="field"><label>${txt('اسأل عن المنتج', 'Ask a question')}</label><textarea name="question" minlength="5" required></textarea></div><button class="btn sm primary">${txt('إرسال السؤال', 'Submit question')}</button></form>` : ''}</section>
@@ -11559,23 +12005,11 @@ const ADMIN_SECTIONS = [
   'catalog.manage'
 ],
   [
-    'product_compatibility',
-    'التوافق',
-    'Compatibility',
-    'catalog.manage'
-  ],
-  [
-    'product_reviews',
-    'تقييمات المنتجات',
-    'Product reviews',
-    'catalog.manage'
-  ],
-  [
-    'product_questions',
-    'أسئلة المنتجات',
-    'Product Q&A',
-    'catalog.manage'
-  ],
+  'engagement',
+  'تقييمات وأسئلة المنتجات',
+  'Product Reviews & Questions',
+  'catalog.manage'
+],
   [
     'inventory',
     'المخزون',
@@ -12235,11 +12669,15 @@ function toggleMidoNotifications(force) {
 
 function adminNav(active) {
   const sections = allowedSections().filter(
-  section => ![
-    'product_images',
-    'product_compatibility'
-  ].includes(section[0])
-);
+    section => ![
+      'product_images',
+      'product_compatibility',
+      'inventory',
+      'inventory_movements',
+      'suppliers',
+      'purchase_orders'
+    ].includes(section[0])
+  );
 
   const current = sections.find(x => x[0] === active);
 
@@ -12259,6 +12697,7 @@ function adminNav(active) {
     product_compatibility: 'product_compatibility',
     product_reviews: 'product_reviews',
     product_questions: 'product_questions',
+    engagement: 'product_questions',
     inventory: 'inventory',
     inventory_movements: 'inventory_movements',
     suppliers: 'suppliers',
@@ -12583,6 +13022,16 @@ function midoStartAdminClock() {
 
 function adminSectionHero(section = 'overview') {
   const sectionMeta = {
+    engagement: {
+  title: txt(
+    'تقييمات وأسئلة المنتجات',
+    'Product Reviews & Questions'
+  ),
+  desc: txt(
+    'مراجعة تقييمات العملاء والرد على الأسئلة وإدارة المحتوى المنشور.',
+    'Moderate customer reviews, answer questions and manage published content.'
+  )
+},
     motorcycles: {
   title: txt('إدارة الموتوسيكلات', 'Motorcycle Management'),
   desc: txt(
@@ -12646,7 +13095,18 @@ function adminSectionHero(section = 'overview') {
     .filter(n => n.audience === 'staff' || n.user_id === state.user?.id)
     .sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
 
-  const unread = notifications.filter(n => !n.is_read).length;
+  const moderationPending = perm('catalog.manage')
+  ? get('product_reviews').filter(
+      r => midoEngagementStatus(r) === 'pending'
+    ).length +
+    get('product_questions').filter(
+      q => midoEngagementStatus(q) === 'pending'
+    ).length
+  : 0;
+
+  const unread =
+    notifications.filter(n => !n.is_read).length +
+    moderationPending;
 
   return `
     <section class="mido-admin-hero">
@@ -12682,6 +13142,22 @@ function adminSectionHero(section = 'overview') {
             </div>
 
             <div class="mido-notification-items">
+              ${moderationPending ? `
+               <a href="#/admin/engagement"
+                  class="mido-moderation-bell-alert"
+                  onclick="toggleMidoNotifications(false)">
+                 <strong>
+                   ${txt(
+                     'تقييمات وأسئلة تحتاج مراجعة',
+                     'Reviews and questions need moderation'
+                   )}
+                 </strong>
+                 <span>
+                   ${moderationPending}
+                   ${txt('عنصر يحتاج متابعة', 'items require attention')}
+                 </span>
+               </a>
+             ` : ''}
               ${notifications.length ? notifications.slice(0, 8).map(n => `
                 <div class="mido-notification-item ${n.is_read ? '' : 'unread'}">
                   <div>
@@ -12865,9 +13341,10 @@ if (
     case 'customers':
       content = adminCustomers();
       break;
+    case 'engagement':
     case 'product_reviews':
     case 'product_questions':
-      content = adminModeration(section);
+      content = midoEngagementManager();
       break;
     case 'notifications':
       content = adminNotifications();
@@ -17606,6 +18083,607 @@ async function updateStockMinimum(id) {
   }
 }
 
+/* MIDO UNIFIED PRODUCT ENGAGEMENT */
+
+let midoEngagementTab = 'questions';
+let midoEngagementFilter = 'all';
+let midoEngagementSearchText = '';
+let midoEngagementSelected = null;
+
+function midoEngagementStatus(row) {
+  if (row.moderation_status &&
+      row.moderation_status !== 'pending') {
+    return row.moderation_status;
+  }
+  return row.approved ? 'approved' : 'pending';
+}
+
+function midoEngagementProduct(row) {
+  return by('products', row.product_id);
+}
+
+function midoEngagementCustomer(row) {
+  if (!perm('customers.read')) {
+    return txt('عميل مسجل', 'Registered customer');
+  }
+
+  const customer = get('profiles').find(
+    p => String(p.id) === String(row.user_id)
+  );
+
+  return customer?.full_name ||
+    txt('اسم الحساب غير متاح', 'Account name unavailable');
+}
+
+function midoEngagementDate(date) {
+  if (!date) return '—';
+
+  const d = new Date(date);
+  if (Number.isNaN(d.getTime())) return '—';
+
+  return new Intl.DateTimeFormat(
+    lang === 'ar' ? 'ar-EG' : 'en-GB',
+    {
+      timeZone: 'Africa/Cairo',
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    }
+  ).format(d);
+}
+
+function midoEngagementStatusText(status) {
+  const labels = {
+    pending: txt('بانتظار المراجعة', 'Pending review'),
+    approved: txt('منشور', 'Published'),
+    rejected: txt('مرفوض', 'Rejected'),
+    hidden: txt('مخفي', 'Hidden')
+  };
+  return labels[status] || status;
+}
+
+function midoEngagementRows() {
+  const table = midoEngagementTab === 'reviews'
+    ? 'product_reviews'
+    : 'product_questions';
+
+  return get(table).slice().sort(
+    (a, b) => new Date(b.created_at || 0) -
+              new Date(a.created_at || 0)
+  );
+}
+
+function midoEngagementChooseTab(tab) {
+  if (!['reviews', 'questions'].includes(tab)) return;
+
+  midoEngagementTab = tab;
+  midoEngagementSelected = null;
+  midoEngagementFilter = 'all';
+  midoEngagementSearchText = '';
+  render();
+}
+
+function midoEngagementChooseFilter(value) {
+  midoEngagementFilter = value;
+  midoEngagementApplyFilters();
+}
+
+function midoEngagementSearch(value) {
+  midoEngagementSearchText = value;
+  midoEngagementApplyFilters();
+}
+
+function midoEngagementApplyFilters() {
+  const q = midoEngagementSearchText
+    .trim().toLowerCase();
+
+  document.querySelectorAll(
+    '.mido-engagement-list [data-engagement-id]'
+  ).forEach(card => {
+    const statusMatch =
+      midoEngagementFilter === 'all' ||
+      card.dataset.status === midoEngagementFilter;
+
+    const searchMatch =
+      !q || (card.dataset.search || '').includes(q);
+
+    card.hidden = !(statusMatch && searchMatch);
+  });
+}
+
+function midoEngagementOpen(kind, id) {
+  if (!['review', 'question'].includes(kind)) return;
+
+  midoEngagementTab =
+    kind === 'review' ? 'reviews' : 'questions';
+
+  midoEngagementSelected = { kind, id };
+  render();
+
+  requestAnimationFrame(() => {
+    document.getElementById('mido-engagement-detail')
+      ?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+  });
+}
+
+function midoEngagementClose() {
+  midoEngagementSelected = null;
+  render();
+}
+
+function midoEngagementManager() {
+  if (!state.staff || !perm('catalog.manage')) {
+    return `<div class="notice">
+      ${txt('غير مصرح', 'Access denied')}
+    </div>`;
+  }
+
+  const reviews = get('product_reviews');
+  const questions = get('product_questions');
+
+  const pendingReviews = reviews.filter(
+    r => midoEngagementStatus(r) === 'pending'
+  ).length;
+
+  const unanswered = questions.filter(
+    q => !q.answer &&
+         midoEngagementStatus(q) === 'pending'
+  ).length;
+
+  const rows = midoEngagementRows();
+  const kind = midoEngagementTab === 'reviews'
+    ? 'review' : 'question';
+
+  const selected = midoEngagementSelected;
+  const selectedRow = selected
+    ? get(selected.kind === 'review'
+        ? 'product_reviews'
+        : 'product_questions'
+      ).find(x => String(x.id) === String(selected.id))
+    : null;
+
+  return `
+    <section class="mido-engagement-manager">
+
+      <div class="mido-engagement-intro">
+        <div>
+          <h2>${txt(
+            'تقييمات وأسئلة المنتجات',
+            'Product Reviews & Questions'
+          )}</h2>
+          <p>${txt(
+            'إدارة آراء العملاء ومتابعة الأسئلة من مكان واحد.',
+            'Manage customer feedback and product questions.'
+          )}</p>
+        </div>
+
+        <span class="mido-engagement-live">
+          ${txt('متصل ببيانات المتجر', 'Connected to store data')}
+        </span>
+      </div>
+
+      <div class="mido-engagement-stats">
+        ${[
+          [
+            txt('كل التقييمات', 'Total reviews'),
+            reviews.length
+          ],
+          [
+            txt('تنتظر المراجعة', 'Pending reviews'),
+            pendingReviews
+          ],
+          [
+            txt('أسئلة بدون رد', 'Unanswered questions'),
+            unanswered
+          ]
+        ].map(([label, value]) => `
+          <div class="mido-engagement-stat">
+            <span>${label}</span>
+            <strong>${value}</strong>
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="mido-engagement-tabs">
+        <button type="button"
+                class="${midoEngagementTab === 'questions'
+                  ? 'active' : ''}"
+                onclick="midoEngagementChooseTab('questions')">
+          ${txt('أسئلة المنتجات', 'Product questions')}
+          <span>${questions.length}</span>
+        </button>
+
+        <button type="button"
+                class="${midoEngagementTab === 'reviews'
+                  ? 'active' : ''}"
+                onclick="midoEngagementChooseTab('reviews')">
+          ${txt('تقييمات المنتجات', 'Product reviews')}
+          <span>${reviews.length}</span>
+        </button>
+      </div>
+
+      <div class="mido-engagement-controls">
+        <input
+          type="search"
+          value="${E(midoEngagementSearchText)}"
+          placeholder="${txt(
+            'ابحث باسم العميل أو المنتج أو المحتوى...',
+            'Search customer, product or content...'
+          )}"
+          oninput="midoEngagementSearch(this.value)"
+        >
+
+        <select onchange="midoEngagementChooseFilter(this.value)">
+          ${[
+            ['all', txt('كل الحالات', 'All statuses')],
+            ['pending', txt('بانتظار المراجعة', 'Pending')],
+            ['approved', txt('منشور', 'Published')],
+            ['rejected', txt('مرفوض', 'Rejected')],
+            ['hidden', txt('مخفي', 'Hidden')]
+          ].map(([value, label]) => `
+            <option value="${value}"
+              ${midoEngagementFilter === value
+                ? 'selected' : ''}>
+              ${label}
+            </option>
+          `).join('')}
+        </select>
+      </div>
+
+      <div class="mido-engagement-list">
+        ${rows.map(row => {
+          const product = midoEngagementProduct(row);
+          const productName =
+            product?.name_ar || product?.name_en ||
+            txt('منتج غير متاح', 'Unavailable product');
+
+          const customer = midoEngagementCustomer(row);
+          const status = midoEngagementStatus(row);
+          const content = kind === 'review'
+            ? (row.body || '')
+            : (row.question || '');
+
+          const search = [
+            customer,
+            productName,
+            content,
+            product?.sku || ''
+          ].join(' ').toLowerCase();
+
+          return `
+            <article class="mido-engagement-item"
+                     data-engagement-id="${E(row.id)}"
+                     data-status="${E(status)}"
+                     data-search="${E(search)}">
+
+              <div class="mido-engagement-item-head">
+                <div>
+                  <strong>${E(customer)}</strong>
+                  <small>${E(productName)}</small>
+                </div>
+
+                <span class="mido-engagement-status ${E(status)}">
+                  ${midoEngagementStatusText(status)}
+                </span>
+              </div>
+
+              ${kind === 'review' ? `
+                <div class="mido-engagement-stars" aria-label="${Number(row.rating || 0)} / 5">
+                  ${'★'.repeat(Math.max(0,
+                      Math.min(5, Number(row.rating || 0))))}
+                  <span>${Number(row.rating || 0)}/5</span>
+                </div>
+              ` : ''}
+
+              <p>${E(content)}</p>
+
+              ${kind === 'question' && row.answer ? `
+                <div class="mido-engagement-answer">
+                  <strong>${txt('رد الإدارة', 'Admin answer')}</strong>
+                  <p>${E(row.answer)}</p>
+                </div>
+              ` : ''}
+
+              <div class="mido-engagement-item-bottom">
+                <small>${midoEngagementDate(row.created_at)}</small>
+
+                <button type="button"
+                  onclick="midoEngagementOpen('${kind}','${E(row.id)}')">
+                  ${kind === 'review'
+                    ? txt('مراجعة التقييم', 'Review rating')
+                    : txt('عرض والرد', 'View & reply')}
+                </button>
+              </div>
+            </article>
+          `;
+        }).join('') || `
+          <div class="mido-engagement-empty">
+            ${txt('لا يوجد محتوى حتى الآن', 'No content yet')}
+          </div>
+        `}
+      </div>
+
+      ${selected && selectedRow
+        ? midoEngagementDetails(selected.kind, selectedRow)
+        : ''}
+
+      <p class="mido-engagement-footnote">
+        ${txt(
+          'البيانات من Supabase. التقييمات المعتمدة فقط هي التي تظهر في المتجر.',
+          'Data comes from Supabase. Only approved reviews appear publicly.'
+        )}
+      </p>
+    </section>
+  `;
+}
+
+function midoEngagementDetails(kind, row) {
+  const product = midoEngagementProduct(row);
+  const productName =
+    product?.name_ar || product?.name_en || '—';
+
+  const isReview = kind === 'review';
+  const status = midoEngagementStatus(row);
+
+  return `
+    <section id="mido-engagement-detail"
+             class="mido-engagement-detail">
+
+      <div class="mido-engagement-detail-head">
+        <div>
+          <small>${txt('تفاصيل التفاعل', 'Interaction details')}</small>
+          <h3>
+            ${isReview
+              ? txt('تفاصيل التقييم', 'Review details')
+              : txt('تفاصيل السؤال', 'Question details')}
+          </h3>
+        </div>
+
+        <button type="button"
+                class="btn sm outline"
+                onclick="midoEngagementClose()">
+          ${txt('رجوع', 'Back')}
+        </button>
+      </div>
+
+      <div class="mido-engagement-info">
+        <div>
+          <span>${txt('العميل', 'Customer')}</span>
+          <strong>${E(midoEngagementCustomer(row))}</strong>
+        </div>
+        <div>
+          <span>${txt('المنتج', 'Product')}</span>
+          <strong>${E(productName)}</strong>
+        </div>
+        <div>
+          <span>${txt('تاريخ الإرسال', 'Submitted')}</span>
+          <strong>${midoEngagementDate(row.created_at)}</strong>
+        </div>
+        <div>
+          <span>${txt('الحالة', 'Status')}</span>
+          <strong>${midoEngagementStatusText(status)}</strong>
+        </div>
+      </div>
+
+      ${product ? `
+        <a class="mido-engagement-product-link"
+           href="#/product/${E(product.id)}">
+          ${txt('فتح صفحة المنتج', 'Open product page')}
+        </a>
+      ` : ''}
+
+      ${isReview ? `
+        <div class="mido-engagement-stars">
+          ${'★'.repeat(Math.max(0,
+             Math.min(5, Number(row.rating || 0))))}
+          <span>${Number(row.rating || 0)}/5</span>
+        </div>
+
+        <div class="mido-engagement-content">
+          ${E(row.body || '')}
+        </div>
+
+        ${row.image_url && safeUrl(row.image_url) ? `
+          <a href="${E(safeUrl(row.image_url))}"
+             target="_blank" rel="noopener noreferrer">
+            <img class="mido-engagement-review-image"
+                 src="${E(safeUrl(row.image_url))}"
+                 alt="${txt('صورة التقييم', 'Review image')}">
+          </a>
+        ` : ''}
+
+        <div class="field">
+          <label>
+            ${txt('سبب الرفض أو الإخفاء', 'Reason for rejection or hiding')}
+          </label>
+          <textarea id="mido-engagement-reason"
+                    rows="3"
+                    maxlength="1000"
+                    placeholder="${txt(
+                      'اكتب السبب بشكل واضح...',
+                      'Explain the decision...'
+                    )}">${E(row.moderation_reason || '')}</textarea>
+        </div>
+
+        <div class="mido-engagement-decision-actions">
+          <button class="btn primary" type="button"
+            onclick="midoEngagementAction('review','${E(row.id)}','approve')">
+            ${txt('نشر التقييم', 'Publish review')}
+          </button>
+
+          <button class="btn outline" type="button"
+            onclick="midoEngagementAction('review','${E(row.id)}','hide')">
+            ${txt('إخفاء', 'Hide')}
+          </button>
+
+          <button class="btn redbtn" type="button"
+            onclick="midoEngagementAction('review','${E(row.id)}','reject')">
+            ${txt('رفض التقييم', 'Reject review')}
+          </button>
+        </div>
+
+      ` : `
+        <div class="mido-engagement-content">
+          <strong>${txt('سؤال العميل', 'Customer question')}</strong>
+          <p>${E(row.question || '')}</p>
+        </div>
+
+        ${row.answer ? `
+          <div class="mido-engagement-answer">
+            <strong>${txt('الرد المنشور', 'Published answer')}</strong>
+            <p>${E(row.answer)}</p>
+          </div>
+        ` : ''}
+
+        <div class="field">
+          <label>
+            ${txt('رد الإدارة على السؤال', 'Admin answer')}
+          </label>
+
+          <textarea id="mido-engagement-answer"
+                    rows="5"
+                    maxlength="4000"
+                    placeholder="${txt(
+                      'اكتب ردًا واضحًا ودقيقًا...',
+                      'Write a clear and accurate answer...'
+                    )}">${E(row.answer_draft ?? row.answer ?? '')}</textarea>
+        </div>
+
+        <div class="mido-engagement-decision-actions">
+          <button class="btn primary" type="button"
+            onclick="midoEngagementAction('question','${E(row.id)}','publish')">
+            ${txt('حفظ ونشر الرد', 'Save & publish answer')}
+          </button>
+
+          <button class="btn outline" type="button"
+            onclick="midoEngagementAction('question','${E(row.id)}','draft')">
+            ${txt('حفظ مسودة', 'Save draft')}
+          </button>
+        </div>
+
+        <div class="field">
+          <label>
+            ${txt('سبب رفض أو إخفاء السؤال', 'Reason for rejection or hiding')}
+          </label>
+          <textarea id="mido-engagement-reason"
+                    rows="2"
+                    maxlength="1000">${E(row.moderation_reason || '')}</textarea>
+        </div>
+
+        <div class="mido-engagement-decision-actions">
+          <button class="btn outline" type="button"
+            onclick="midoEngagementAction('question','${E(row.id)}','hide')">
+            ${txt('إخفاء السؤال', 'Hide question')}
+          </button>
+
+          <button class="btn redbtn" type="button"
+            onclick="midoEngagementAction('question','${E(row.id)}','reject')">
+            ${txt('رفض السؤال', 'Reject question')}
+          </button>
+        </div>
+      `}
+
+      ${row.moderated_at ? `
+        <p class="mido-engagement-footnote">
+          ${txt('آخر مراجعة', 'Last moderated')}:
+          ${midoEngagementDate(row.moderated_at)}
+        </p>
+      ` : ''}
+    </section>
+  `;
+}
+
+let midoEngagementSaving = false;
+
+async function midoEngagementAction(kind, id, action) {
+  if (!state.staff || !perm('catalog.manage')) {
+    return toast(txt('غير مصرح', 'Access denied'), true);
+  }
+
+  if (midoEngagementSaving) return;
+
+  const reason = document.getElementById(
+    'mido-engagement-reason'
+  )?.value.trim() || '';
+
+  const answer = document.getElementById(
+    'mido-engagement-answer'
+  )?.value.trim() || '';
+
+  const isAnswerAction =
+    kind === 'question' &&
+    ['draft', 'publish'].includes(action);
+
+  const value = isAnswerAction ? answer : reason;
+
+  if (action === 'reject' && reason.length < 8) {
+    return toast(
+      txt(
+        'اكتب سبب رفض واضح من 8 حروف على الأقل.',
+        'Provide a rejection reason of at least 8 characters.'
+      ),
+      true
+    );
+  }
+
+  if (isAnswerAction && answer.length < 3) {
+    return toast(
+      txt('اكتب الرد أولًا', 'Write an answer first'),
+      true
+    );
+  }
+
+  const needsConfirmation =
+    ['reject', 'hide'].includes(action);
+
+  if (needsConfirmation && !confirm(txt(
+    'متأكد من تنفيذ قرار المراجعة؟',
+    'Confirm this moderation action?'
+  ))) return;
+
+  midoEngagementSaving = true;
+
+  const buttons = document.querySelectorAll(
+    '.mido-engagement-detail button'
+  );
+  buttons.forEach(b => b.disabled = true);
+
+  try {
+    const { error } = await state.db.rpc(
+      'mido_moderate_engagement',
+      {
+        p_kind: kind,
+        p_id: id,
+        p_action: action,
+        p_text: value || null
+      }
+    );
+
+    if (error) throw error;
+
+    await loadAdminData();
+
+    midoEngagementSelected = null;
+    render();
+
+    toast(
+      txt('تم حفظ القرار بنجاح', 'Moderation saved successfully')
+    );
+
+  } catch (error) {
+    toast(friendlyError(error), true);
+    buttons.forEach(b => b.disabled = false);
+
+  } finally {
+    midoEngagementSaving = false;
+  }
+}
+
 function adminModeration(table) {
   const rows = get(table);
   return `<div class="grid grid-2">${rows.map(r => `<div class="surface"><h3>${E(by('products', r.product_id)?.name_ar || 'المنتج')}</h3><p>${E(r.body || r.question || '')}</p><p>${table === 'product_reviews' ? '★ ' + r.rating : 'الرد: ' + E(r.answer || '—')}</p><span class="tag ${r.approved ? 'status-confirmed' : 'status-pending'}">${r.approved ? 'معتمد' : 'قيد المراجعة'}</span><div class="flex" style="margin-top:12px"><button class="btn sm primary" onclick="approveReview('${table}','${r.id}',true)">اعتماد</button><button class="btn sm outline" onclick="approveReview('${table}','${r.id}',false)">إخفاء</button>${table === 'product_questions' ? `<button class="btn sm outline" onclick="answerQuestion('${r.id}')">إضافة رد</button>` : ''}</div></div>`).join('')}</div>`
@@ -18336,6 +19414,82 @@ function midoStartAdminStockSync() {
   }, 5000);
 }
 
+/* Admin engagement updates without page reload */
+
+let midoEngagementSyncTimer = null;
+let midoEngagementSyncBusy = false;
+
+async function midoSyncEngagement() {
+  if (
+    !state.db ||
+    !state.staff ||
+    !perm('catalog.manage') ||
+    !route().startsWith('/admin') ||
+    midoEngagementSyncBusy ||
+    midoEngagementSaving
+  ) return;
+
+  // Preserve any open editor or input being used.
+  if (
+    midoEngagementSelected ||
+    document.querySelector('.overlay') ||
+    document.activeElement?.matches(
+      'input, textarea, select'
+    )
+  ) return;
+
+  midoEngagementSyncBusy = true;
+
+  try {
+    const [reviews, questions] = await Promise.all([
+      fetchTable('product_reviews'),
+      fetchTable('product_questions')
+    ]);
+
+    const signature = rows =>
+      rows.map(x => [
+        x.id,
+        x.approved,
+        x.moderation_status,
+        x.moderated_at,
+        x.answer
+      ].join(':')).sort().join('|');
+
+    const changed =
+      signature(reviews) !== signature(get('product_reviews')) ||
+      signature(questions) !== signature(get('product_questions'));
+
+    if (changed) {
+      state.data.product_reviews = reviews;
+      state.data.product_questions = questions;
+      render();
+    }
+
+  } catch (error) {
+    console.warn('Engagement sync:', error.message);
+
+  } finally {
+    midoEngagementSyncBusy = false;
+  }
+}
+
+function midoStartEngagementSync() {
+  if (midoEngagementSyncTimer !== null) return;
+
+  midoEngagementSyncTimer = setInterval(() => {
+    if (
+      !state.staff ||
+      !route().startsWith('/admin')
+    ) {
+      clearInterval(midoEngagementSyncTimer);
+      midoEngagementSyncTimer = null;
+      return;
+    }
+
+    midoSyncEngagement();
+  }, 15000);
+}
+
 function render() {
 
   
@@ -18416,6 +19570,7 @@ $('app').innerHTML = html;
 if (key === 'admin' && state.staff) {
   midoStartAdminClock();
   midoStartAdminStockSync();
+  midoStartEngagementSync();
 }
 injectAdminOverviewEnhancements();
 
