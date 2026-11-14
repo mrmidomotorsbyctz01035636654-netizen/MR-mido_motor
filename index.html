@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
+  *meta names*
 <meta name="google-site-verification" content="cgbUfsBcMW1NdsiHd-7pX2yRURTVeLS_PzrvzNLha-Q" />
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -12,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+*CSS code*
 <style>
 :root {
   --primary: #ffd13b;
@@ -3873,6 +3875,791 @@ img {
   .mido-engagement-decision-actions {
     flex-direction: column;
   }
+}
+
+/* Professional promotion picker */
+
+.mido-picker-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, .77);
+  backdrop-filter: blur(7px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  direction: rtl;
+}
+
+.mido-picker-dialog {
+  width: min(720px, 100%);
+  max-height: min(850px, 92vh);
+  background: #151a1c;
+  border: 1px solid #3c4548;
+  border-radius: 20px;
+  color: #f4f6f6;
+  box-shadow: 0 26px 90px rgba(0, 0, 0, .55);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.mido-picker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 20px 22px 12px;
+}
+
+.mido-picker-header h3 {
+  color: #fff;
+  font-size: 19px;
+  margin: 0;
+}
+
+.mido-picker-header p {
+  color: #a8b3b6;
+  font-size: 12px;
+  margin: 6px 0 0;
+}
+
+.mido-picker-close {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border: 1px solid #465054;
+  border-radius: 50%;
+  background: #23292c;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.mido-picker-search {
+  padding: 10px 22px;
+}
+
+.mido-picker-search input {
+  width: 100%;
+  height: 46px;
+  background: #22282a;
+  border: 1px solid #414b4e;
+  border-radius: 12px;
+  padding: 0 15px;
+  color: #fff;
+  outline: none;
+}
+
+.mido-picker-search input:focus {
+  border-color: #e9bc4f;
+}
+
+.mido-picker-counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 22px 13px;
+  color: #e9bc4f;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.mido-picker-counter button {
+  background: transparent;
+  color: #c3ced0;
+  border: 0;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.mido-picker-items {
+  flex: 1;
+  min-height: 120px;
+  overflow-y: auto;
+  padding: 7px 18px 18px;
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  scrollbar-width: thin;
+}
+
+.mido-picker-item {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 13px 15px;
+  border: 1px solid #343e41;
+  border-radius: 12px;
+  background: #1c2224;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+
+.mido-picker-item:hover {
+  background: #252e30;
+  border-color: #657173;
+}
+
+.mido-picker-item.is-selected {
+  background: #302a19;
+  border-color: #e0b349;
+}
+
+.mido-picker-item input {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  margin: 0;
+  border: 2px solid #879497;
+  border-radius: 7px;
+  background: #111;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.mido-picker-item input[type="radio"] {
+  border-radius: 50%;
+}
+
+.mido-picker-item input:checked {
+  background: #ffcc38;
+  border-color: #ffcc38;
+}
+
+.mido-picker-item input:checked::after {
+  content: "✓";
+  color: #111;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.mido-picker-item input[type="radio"]:checked::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #111;
+  border-radius: 50%;
+}
+
+.mido-picker-item-main {
+  min-width: 0;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mido-picker-item-main strong {
+  color: #fff;
+  font-size: 13px;
+}
+
+.mido-picker-item-main small {
+  color: #91a0a3;
+  font-size: 11px;
+}
+
+.mido-picker-price {
+  color: #ffda72;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.mido-picker-empty {
+  color: #a8b5b8;
+  padding: 25px 15px;
+  text-align: center;
+}
+
+.mido-picker-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 22px;
+  border-top: 1px solid #384245;
+}
+
+.mido-picker-footer button {
+  border-radius: 10px;
+  padding: 11px 21px;
+  font-size: 13px;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.mido-picker-cancel {
+  background: #272f32;
+  color: #fff;
+  border: 1px solid #465154;
+}
+
+.mido-picker-save {
+  background: #ffcc38;
+  color: #171717;
+  border: 1px solid #ffcc38;
+}
+
+.mido-promo-choose-panel {
+  padding: 15px;
+  background: #1b2426;
+  border: 1px solid #344144;
+  border-radius: 12px;
+}
+
+.mido-promo-choose-panel p {
+  color: #becacc;
+  font-size: 12px;
+  margin: 4px 0;
+}
+
+.mido-promo-saved-prices {
+  margin-top: 15px;
+  display: grid;
+  gap: 7px;
+  max-height: 290px;
+  overflow-y: auto;
+}
+
+@media (max-width: 600px) {
+  .mido-picker-dialog {
+    max-height: 94vh;
+  }
+
+  .mido-picker-header,
+  .mido-picker-footer {
+    padding: 14px;
+  }
+
+  .mido-picker-search {
+    padding: 8px 14px;
+  }
+
+  .mido-picker-items {
+    padding: 8px 12px;
+  }
+
+  .mido-picker-item {
+    padding: 11px;
+  }
+}
+
+/* Unified Customer Management */
+
+.mido-customers {
+    direction: rtl;
+    background: #101415;
+    border: 1px solid #30383a;
+    border-radius: 18px;
+    padding: 22px;
+    color: #f2f5f5;
+}
+
+.mido-customer-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.mido-customer-head h2 {
+    color: #fff;
+    font-size: 21px;
+}
+
+.mido-customer-head p {
+    color: #a3b0b3;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.mido-customer-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.mido-customer-stats > div {
+    padding: 17px;
+    border: 1px solid #354044;
+    border-radius: 13px;
+    background: #1b2224;
+}
+
+.mido-customer-stats small {
+    display: block;
+    color: #aab7b9;
+    font-size: 12px;
+}
+
+.mido-customer-stats strong {
+    display: block;
+    color: #fff;
+    font-size: 24px;
+    margin-top: 8px;
+}
+
+.mido-customer-filters {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 180px;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.mido-customer-filters input,
+.mido-customer-filters select {
+    min-height: 45px;
+    width: 100%;
+    color: #fff;
+    background: #1b2224;
+    border: 1px solid #394448;
+    border-radius: 12px;
+    padding: 10px 13px;
+}
+
+.mido-customer-filters option {
+    background: #1b2224;
+    color: #fff;
+}
+
+.mido-customer-list {
+    display: grid;
+    gap: 9px;
+}
+
+.mido-customer-list-row {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr)) auto;
+    align-items: center;
+    gap: 12px;
+    background: #181f21;
+    border: 1px solid #343e41;
+    border-radius: 12px;
+    padding: 14px;
+}
+
+.mido-customer-list-row[hidden] {
+    display: none;
+}
+
+.mido-customer-list-row strong {
+    color: #fff;
+    display: block;
+    overflow-wrap: anywhere;
+}
+
+.mido-customer-list-row small {
+    display: block;
+    color: #a6b4b7;
+    font-size: 11px;
+    overflow-wrap: anywhere;
+}
+
+.mido-customer-list-row span {
+    color: #ccd5d6;
+    font-size: 12px;
+}
+
+.mido-customer-open,
+.mido-customer-back {
+    border: 1px solid #515e62;
+    background: #263034;
+    color: #fff;
+    border-radius: 10px;
+    padding: 9px 15px;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.mido-customer-open:hover,
+.mido-customer-back:hover {
+    border-color: #ffcc38;
+}
+
+.mido-customer-back {
+    margin-bottom: 20px;
+}
+
+.mido-customer-tabs {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    margin: 18px 0;
+    padding: 5px;
+    background: #1b2325;
+    border-radius: 12px;
+}
+
+.mido-customer-tabs button {
+    flex: 1;
+    min-width: 90px;
+    padding: 11px;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: #aebabc;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.mido-customer-tabs button.active {
+    background: #ffcc38;
+    color: #161a1b;
+}
+
+.mido-customer-section {
+    margin-top: 15px;
+    border: 1px solid #354044;
+    background: #182022;
+    border-radius: 14px;
+    padding: 18px;
+}
+
+.mido-customer-section h3 {
+    color: #fff;
+    font-size: 17px;
+    margin-bottom: 15px;
+}
+
+.mido-customer-info {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.mido-customer-info > div {
+    padding: 12px;
+    border: 1px solid #364245;
+    border-radius: 10px;
+}
+
+.mido-customer-info small,
+.mido-customer-record small {
+    display: block;
+    color: #a8b6b9;
+    font-size: 11px;
+}
+
+.mido-customer-info strong,
+.mido-customer-record strong {
+    color: #f1f5f5;
+    overflow-wrap: anywhere;
+}
+
+.mido-customer-record {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 13px;
+    margin-bottom: 8px;
+    background: #212b2d;
+    border: 1px solid #384649;
+    border-radius: 11px;
+}
+
+.mido-customer-empty {
+    padding: 25px 12px;
+    color: #aab7b9;
+    text-align: center;
+}
+
+.mido-customer-note {
+    margin-top: 18px;
+    padding: 12px;
+    color: #b9c8ca;
+    background: #252c20;
+    border: 1px solid #4b5337;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+@media (max-width: 760px) {
+    .mido-customers {
+        padding: 13px;
+    }
+
+    .mido-customer-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .mido-customer-filters {
+        grid-template-columns: 1fr;
+    }
+
+    .mido-customer-list-row {
+        grid-template-columns: minmax(0, 1fr) auto;
+    }
+
+    .mido-customer-list-row span {
+        display: none;
+    }
+
+    .mido-customer-info {
+        grid-template-columns: 1fr;
+    }
+
+    .mido-customer-tabs button {
+        flex: 0 0 auto;
+    }
+}
+
+/* Unified Maintenance Management */
+
+.mido-maint {
+    direction: rtl;
+    background: #101516;
+    color: #f4f6f6;
+    border: 1px solid #354044;
+    border-radius: 18px;
+    padding: 22px;
+}
+
+.mido-maint-top,
+.mido-maint-card-head,
+.mido-maint-card-foot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.mido-maint-top {
+    margin-bottom: 20px;
+}
+
+.mido-maint-top h2 {
+    font-size: 22px;
+    color: #fff;
+}
+
+.mido-maint-top p,
+.mido-maint-card p {
+    color: #a9b7ba;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.mido-maint-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.mido-maint-stats > div {
+    padding: 17px;
+    border: 1px solid #354246;
+    background: #1b2426;
+    border-radius: 13px;
+}
+
+.mido-maint-stats small {
+    display: block;
+    color: #aab7ba;
+}
+
+.mido-maint-stats strong {
+    display: block;
+    margin-top: 8px;
+    font-size: 25px;
+    color: #fff;
+}
+
+.mido-maint-tabs {
+    display: flex;
+    gap: 6px;
+    padding: 5px;
+    margin: 17px 0;
+    background: #1b2325;
+    border-radius: 12px;
+}
+
+.mido-maint-tabs button {
+    flex: 1;
+    border: 0;
+    border-radius: 9px;
+    color: #c1cbcd;
+    background: transparent;
+    padding: 11px 9px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.mido-maint-tabs button.active {
+    background: #ffcc38;
+    color: #171b1c;
+}
+
+.mido-maint-filters {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 180px;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.mido-maint-filters input,
+.mido-maint-filters select {
+    width: 100%;
+    min-height: 45px;
+    background: #1d2527;
+    border: 1px solid #39464a;
+    border-radius: 11px;
+    padding: 10px 13px;
+    color: #fff;
+}
+
+.mido-maint-list {
+    display: grid;
+    gap: 12px;
+}
+
+.mido-maint-card,
+.mido-maint-section {
+    border: 1px solid #354145;
+    border-radius: 14px;
+    padding: 18px;
+    background: #192123;
+}
+
+.mido-maint-card h3,
+.mido-maint-section h3 {
+    color: #fff;
+    font-size: 16px;
+}
+
+.mido-maint-status {
+    display: inline-flex;
+    padding: 5px 11px;
+    border-radius: 999px;
+    color: #ffdc75;
+    background: #3b321d;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.mido-maint-card-foot {
+    margin-top: 15px;
+    border-top: 1px solid #344043;
+    padding-top: 12px;
+    color: #aebbbd;
+    font-size: 12px;
+}
+
+.mido-maint-btn {
+    border: 1px solid #58676b;
+    background: #273236;
+    color: #fff;
+    padding: 9px 15px;
+    border-radius: 10px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.mido-maint-btn:hover {
+    border-color: #ffcc38;
+}
+
+.mido-maint-section {
+    margin-top: 15px;
+}
+
+.mido-maint-section h3 {
+    margin-bottom: 15px;
+}
+
+.mido-maint-info {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.mido-maint-info > div {
+    padding: 12px;
+    border: 1px solid #39474a;
+    border-radius: 10px;
+}
+
+.mido-maint-info small {
+    display: block;
+    color: #a8b6b9;
+    font-size: 11px;
+}
+
+.mido-maint-info strong {
+    color: #fff;
+    overflow-wrap: anywhere;
+}
+
+.mido-maint-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.mido-maint-record {
+    padding: 14px;
+    margin-top: 10px;
+    background: #222c2f;
+    border: 1px solid #3b484c;
+    border-radius: 11px;
+}
+
+.mido-maint-record p {
+    color: #b3c0c2;
+    font-size: 12px;
+}
+
+.mido-maint-empty {
+    padding: 30px 12px;
+    color: #a9b7b9;
+    text-align: center;
+}
+
+.mido-maint-help {
+    margin-top: 15px;
+    color: #c6bb93;
+    font-size: 12px;
+}
+
+.mido-maint-card[hidden] {
+    display: none;
+}
+
+@media (max-width: 760px) {
+    .mido-maint {
+        padding: 13px;
+    }
+
+    .mido-maint-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .mido-maint-filters,
+    .mido-maint-info {
+        grid-template-columns: 1fr;
+    }
+
+    .mido-maint-tabs {
+        overflow-x: auto;
+    }
+
+    .mido-maint-tabs button {
+        flex: 0 0 auto;
+        min-width: 110px;
+    }
 }
 
 </style>
@@ -8674,9 +9461,746 @@ body.mido-admin-drawer-open {
 .mido-moto-compatible-btn:hover {
   background: #dff1e9;
 }
+
+/* MIDO ORDER MANAGEMENT */
+
+.mido-orders-page {
+  display: grid;
+  gap: 18px;
+  min-width: 0;
+}
+
+.mido-orders-top,
+.mido-orders-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.mido-orders-top h2 {
+  font-size: 23px;
+  color: #13282d;
+}
+
+.mido-orders-top p,
+.mido-orders-panel-head small {
+  color: #83939a;
+  font-size: 12px;
+}
+
+.mido-orders-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: 13px;
+}
+
+.mido-order-stat {
+  display: grid;
+  gap: 8px;
+  padding: 19px;
+  background: #fff;
+  border: 1px solid #e3eaec;
+  border-radius: 19px;
+  box-shadow: 0 8px 24px rgba(9,26,30,.045);
+}
+
+.mido-order-stat span {
+  font-size: 11px;
+  font-weight: 700;
+  color: #859398;
+}
+
+.mido-order-stat strong {
+  font-size: 25px;
+  font-weight: 900;
+  color: #13282d;
+  overflow-wrap: anywhere;
+}
+
+.mido-orders-panel,
+.mido-order-detail-card {
+  background: #fff;
+  border: 1px solid #e3eaec;
+  border-radius: 19px;
+  padding: 20px;
+  min-width: 0;
+}
+
+.mido-orders-panel-head {
+  margin-bottom: 18px;
+}
+
+.mido-orders-panel-head h3 {
+  color: #13282d;
+}
+
+.mido-orders-filters {
+  display: grid;
+  grid-template-columns: minmax(180px,1fr) 180px 155px 155px;
+  gap: 9px;
+  margin-bottom: 17px;
+}
+
+.mido-orders-filters input,
+.mido-orders-filters select {
+  min-width: 0;
+  width: 100%;
+  min-height: 45px;
+  border: 1px solid #dce5e8;
+  border-radius: 11px;
+  background: #f9fbfb;
+  color: #1b3439;
+  padding: 9px 12px;
+  outline: none;
+}
+
+.mido-orders-filters input:focus,
+.mido-orders-filters select:focus {
+  border-color: #d1ab3f;
+}
+
+.mido-orders-table th {
+  background: #f7f9fa;
+  color: #75878d;
+}
+
+.mido-orders-table td {
+  padding: 15px 12px;
+}
+
+.mido-order-row[hidden] {
+  display: none !important;
+}
+
+.mido-orders-table td strong,
+.mido-orders-table td small {
+  display: block;
+}
+
+.mido-orders-table td small {
+  margin-top: 4px;
+  color: #87969a;
+}
+
+.mido-order-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: #edf1f3;
+  color: #586a70;
+  font-size: 11px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.mido-order-status.received,
+.mido-order-status.confirmed {
+  background: #fff4d9;
+  color: #987218;
+}
+
+.mido-order-status.preparing,
+.mido-order-status.shipped,
+.mido-order-status.out_for_delivery {
+  background: #e7f1fb;
+  color: #25679c;
+}
+
+.mido-order-status.delivered {
+  background: #e5f6ed;
+  color: #177b50;
+}
+
+.mido-order-status.cancelled {
+  background: #fbe9e9;
+  color: #bc4747;
+}
+
+.mido-order-open-btn {
+  padding: 8px 13px;
+  background: #132b31;
+  border: 1px solid #132b31;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.mido-order-open-btn:hover {
+  background: #23474d;
+}
+
+.overlay:has(.mido-order-details) .dialog {
+  width: min(1040px, 96vw);
+}
+
+.mido-order-details {
+  display: grid;
+  gap: 16px;
+  color: #183035;
+}
+
+.mido-order-detail-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.mido-order-detail-head span:first-child {
+  color: #87989d;
+  font-size: 11px;
+}
+
+.mido-order-detail-head h2 {
+  margin: 5px 0;
+  color: #10282d;
+  font: 900 25px Inter, Arial, sans-serif;
+}
+
+.mido-order-detail-head p {
+  font-size: 11px;
+  color: #85959a;
+}
+
+.mido-order-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 13px;
+}
+
+.mido-order-detail-card {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 15px;
+}
+
+.mido-order-detail-card h3 {
+  font-size: 16px;
+  color: #183237;
+}
+
+.mido-order-detail-card p {
+  color: #62777d;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.mido-order-product {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mido-order-product img {
+  width: 47px;
+  height: 47px;
+  object-fit: contain;
+  background: #f5f7f7;
+  border-radius: 9px;
+}
+
+.mido-order-cod-summary {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 9px;
+}
+
+.mido-order-cod-summary > div {
+  background: #f7fafa;
+  border: 1px solid #e4ebec;
+  padding: 12px;
+  border-radius: 11px;
+}
+
+.mido-order-cod-summary span,
+.mido-order-cod-summary strong {
+  display: block;
+}
+
+.mido-order-cod-summary span {
+  color: #839298;
+  font-size: 10px;
+}
+
+.mido-order-cod-summary strong {
+  color: #183237;
+  font-size: 15px;
+}
+
+.mido-order-save-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.mido-order-save-actions .btn {
+  flex: 1;
+}
+
+.mido-order-timeline {
+  display: grid;
+  gap: 10px;
+}
+
+.mido-order-history-row {
+  padding: 12px 15px;
+  border-inline-start: 3px solid #ffcc38;
+  background: #f8fafb;
+  border-radius: 9px;
+}
+
+.mido-order-history-row strong,
+.mido-order-history-row small {
+  display: block;
+}
+
+.mido-order-history-row small {
+  margin-top: 4px;
+  color: #8c9a9e;
+  font-size: 11px;
+}
+
+@media (max-width: 1000px) {
+  .mido-orders-filters {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .mido-orders-stats {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 9px;
+  }
+
+  .mido-order-stat {
+    padding: 14px;
+  }
+
+  .mido-order-stat strong {
+    font-size: 20px;
+  }
+
+  .mido-orders-panel,
+  .mido-order-detail-card {
+    padding: 13px;
+  }
+
+  .mido-order-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mido-order-save-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .mido-orders-filters {
+    grid-template-columns: 1fr;
+  }
+
+  .mido-order-cod-summary {
+    grid-template-columns: 1fr;
+  }
+}
+/* ORDERS SERVER PAGINATION */
+
+.mido-orders-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  color: #71858b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.mido-orders-pagination > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mido-orders-pagination button {
+  min-height: 38px;
+  padding: 8px 16px;
+  border: 1px solid #dce5e8;
+  border-radius: 10px;
+  background: #fff;
+  color: #193035;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.mido-orders-pagination button:hover:not(:disabled) {
+  background: #132b30;
+  color: #ffcc38;
+  border-color: #132b30;
+}
+
+.mido-orders-pagination button:disabled {
+  opacity: .4;
+  cursor: not-allowed;
+}
+
+.mido-orders-pagination strong {
+  color: #132b30;
+  min-width: 55px;
+  text-align: center;
+  direction: ltr;
+}
+
+@media (max-width: 560px) {
+  .mido-orders-pagination {
+    justify-content: center;
+  }
+}
+
+/* Mr Mido Motors — Coupons & Offers */
+
+.mido-promo {
+  background: #0b0c0d;
+  color: #fff;
+  border: 1px solid #323436;
+  border-radius: 18px;
+  padding: 22px;
+  direction: rtl;
+}
+
+.mido-promo * {
+  box-sizing: border-box;
+}
+
+.mido-promo h2,
+.mido-promo h3 {
+  color: #fff;
+}
+
+.mido-promo p,
+.mido-promo small {
+  color: #b8bec2;
+}
+
+.mido-promo-head,
+.mido-promo-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.mido-promo-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0;
+}
+
+.mido-promo-stat {
+  padding: 16px;
+  background: #151719;
+  border: 1px solid #353739;
+  border-radius: 12px;
+}
+
+.mido-promo-stat span {
+  display: block;
+  color: #c2c5c7;
+  font-size: 12px;
+}
+
+.mido-promo-stat strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 25px;
+  color: #fff;
+}
+
+.mido-promo-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  background: #1d1f21;
+  padding: 4px;
+  border-radius: 30px;
+  margin: 18px 0;
+}
+
+.mido-promo-tabs button {
+  border: 0;
+  background: transparent;
+  color: #e0e0e0;
+  padding: 11px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.mido-promo-tabs button.active {
+  background: #fff;
+  color: #111;
+  font-weight: 900;
+}
+
+.mido-promo-btn {
+  background: #161819;
+  color: #fff;
+  border: 1px solid #4a4d50;
+  padding: 9px 16px;
+  border-radius: 25px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.mido-promo-btn.primary {
+  background: #fff;
+  color: #111;
+  border-color: #fff;
+}
+
+.mido-promo-btn:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+.mido-promo input:not([type="checkbox"]),
+.mido-promo select,
+.mido-promo textarea {
+  width: 100%;
+  min-height: 44px;
+  background: #111315;
+  color: #fff;
+  border: 1px solid #3a3d40;
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+
+.mido-promo select option {
+  background: #111;
+  color: #fff;
+}
+
+.mido-promo-filters {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.mido-promo-list {
+  display: grid;
+  gap: 12px;
+}
+
+.mido-promo-entry {
+  background: #101112;
+  border: 1px solid #393c3f;
+  border-radius: 13px;
+  padding: 17px;
+}
+
+.mido-promo-meta {
+  color: #afb5b9;
+  font-size: 12px;
+}
+
+.mido-promo-good {
+  color: #4de6a0;
+}
+
+.mido-promo-bad {
+  color: #f2a3a3;
+}
+
+.mido-promo-form {
+  border-top: 1px solid #383a3d;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+.mido-promo-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+  margin-top: 15px;
+}
+
+.mido-promo-fields label {
+  display: block;
+  color: #ededed;
+  font-size: 12px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.mido-promo-fields .wide {
+  grid-column: 1 / -1;
+}
+
+.mido-promo-check {
+  display: flex !important;
+  gap: 8px;
+  align-items: center;
+}
+
+.mido-promo-check input {
+  width: auto;
+}
+
+.mido-promo-note {
+  background: #272315;
+  border: 1px solid #6b5a2a;
+  border-radius: 10px;
+  padding: 12px;
+  color: #f1d88b;
+  font-size: 12px;
+  margin-top: 18px;
+}
+
+@media (max-width: 760px) {
+  .mido-promo {
+    padding: 13px;
+  }
+
+  .mido-promo-stats,
+  .mido-promo-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mido-promo-filters {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .mido-promo-fields {
+    grid-template-columns: 1fr;
+  }
+}
+/* Campaign price previews */
+
+.mido-promo-preview {
+  display: grid;
+  gap: 8px;
+  max-height: 370px;
+  overflow-y: auto;
+  background: #111516;
+  border: 1px solid #303b3d;
+  border-radius: 14px;
+  padding: 12px;
+  margin-top: 12px;
+}
+
+.mido-promo-preview-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 11px 13px;
+  background: #1b2021;
+  border-radius: 10px;
+  color: #eef4f4;
+}
+
+.mido-promo-price {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.mido-promo-old {
+  color: #a0aaad;
+  text-decoration: line-through;
+}
+
+.mido-promo-price strong {
+  font-size: 15px;
+  color: #7ce3b1;
+}
+
+.mido-promo-entry {
+  background: #15191b;
+  border-color: #30393c;
+}
+
+.mido-promo-stat {
+  background: #181e20;
+  border-color: #30393c;
+}
+
+.mido-promo-btn.primary {
+  background: #ffcc38;
+  border-color: #ffcc38;
+  color: #111;
+}
+/* Promotions analytics */
+
+.mido-promo-analytics {
+  margin: 20px 0;
+  padding: 20px;
+  border: 1px solid #303b3d;
+  border-radius: 16px;
+  background: #151b1d;
+}
+
+.mido-promo-chart-box {
+  position: relative;
+  height: 320px;
+  margin-top: 20px;
+}
+
+.mido-promo-analytics-footer {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.mido-promo-analytics-footer > div {
+  background: #1e2628;
+  border: 1px solid #344043;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.mido-promo-analytics-footer small {
+  display: block;
+  color: #acbabc;
+}
+
+.mido-promo-analytics-footer strong {
+  display: block;
+  color: #fff;
+  font-size: 21px;
+  margin-top: 5px;
+}
+
+@media (max-width: 600px) {
+  .mido-promo-analytics {
+    padding: 12px;
+  }
+
+  .mido-promo-chart-box {
+    height: 265px;
+  }
+
+  .mido-promo-analytics-footer {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
 
-
+*HTML Code*
 <div id="header"></div>
 <main id="app" style="min-height:60vh"></main>
 <div id="footer"></div>
@@ -10150,15 +11674,14 @@ function checkoutPage() {
  <div class="field"><label>${txt('المنطقة', 'Area')} *</label><input name="district" required></div><div class="field"><label>${txt('الشارع', 'Street')} *</label><input name="street" required></div>
  <div class="field"><label>${txt('رقم العقار', 'Building number')} *</label><input name="building" required></div><div class="field"><label>${txt('الشقة / الدور', 'Apartment / floor')}</label><input name="apartment"></div>
  <div class="field wide"><label>${txt('علامة مميزة', 'Landmark')}</label><input name="landmark"></div><div class="field wide"><label>${txt('ملاحظات للطلب', 'Instructions')}</label><textarea name="notes"></textarea></div>
- <div class="field wide"><label>${txt('كوبون خصم (إن وجد)', 'Coupon (optional)')}</label><input name="coupon" placeholder="CODE"></div></div>
- <div class="notice info" style="margin:12px 0">✓ ${txt('طريقة الدفع الوحيدة: نقدًا عند الاستلام. الأسعار والشحن والمخزون هيتراجعوا تلقائيًا وقت التأكيد.', 'Cash on delivery. Prices, delivery and inventory are validated on the server.')}</div>
+</div> <div class="notice info" style="margin:12px 0">✓ ${txt('طريقة الدفع الوحيدة: نقدًا عند الاستلام. الأسعار والشحن والمخزون هيتراجعوا تلقائيًا وقت التأكيد.', 'Cash on delivery. Prices, delivery and inventory are validated on the server.')}</div>
  <label class="small"><input type="checkbox" required> ${txt('راجعت بيانات الطلب وأوافق على إرساله.', 'I have reviewed my order and approve submission.')}</label>
  <button class="btn primary full" style="margin-top:15px" ${!govs.length ? 'disabled' : ''}>${txt('تأكيد الطلب (الدفع عند الاستلام)', 'Place order — cash on delivery')}</button>
  ${!govs.length ? `<p class="notice" style="margin-top:10px">${txt('التوصيل غير مفعل حاليًا. اطلب من الإدارة تفعيل المحافظة وسعر الشحن.', 'Delivery is not yet configured by the administrator.')}</p>` : ''}</form>
  <aside class="surface sticky-summary"><h3 class="panel-title">${txt('مراجعة الطلب', 'Order review')}</h3>${cartLines().map(({ item, ref }) => `<div class="sum-row"><span>${E(t(ref, 'name_ar', 'name_en'))} ×${item.quantity}</span><strong>${fmt(ref.price * item.quantity)}</strong></div>`).join('')}
  <div class="line"></div><div class="sum-row"><span>${txt('المنتجات', 'Subtotal')}</span><strong>${fmt(subtotal)}</strong></div>
- <div class="sum-row"><span>${txt('الشحن', 'Delivery')}</span><strong id="checkout-shipping">${txt('اختر المحافظة', 'Select area')}</strong></div><div class="sum-row total"><span>${txt('الإجمالي قبل الخصم', 'Total before coupon')}</span><span id="checkout-total">${fmt(subtotal)}</span></div>
- <p class="muted small">${txt('الكوبون — إن وجد — يُراجع تلقائيًا قبل إتمام الطلب.', 'Coupons are validated at final submission.')}</p></aside></div></div>`
+ <div class="sum-row"><span>${txt('الشحن', 'Delivery')}</span><strong id="checkout-shipping">${txt('اختر المحافظة', 'Select area')}</strong></div><div class="sum-row total"><span>${txt('الإجمالي', 'Total')}</span><span id="checkout-total">${fmt(subtotal)}</span></div>
+ </aside></div></div>`
 }
 function updateCheckoutCities() {
 
@@ -10187,10 +11710,9 @@ async function submitCheckout(form) {
       kind: x.kind,
       quantity: x.quantity
     })),
-    address,
-    coupon: f.get('coupon') || null,
-    builder: state.checkoutBuilder || null
-  };
+address,
+builder: state.checkoutBuilder || null
+};
   try {
 
     await actionBusy(form, async () => {
@@ -12034,41 +13556,29 @@ const ADMIN_SECTIONS = [
     'Purchase orders',
     'inventory.manage'
   ],
-  [
-    'purchase_order_items',
-    'بنود المشتريات',
-    'Purchase lines',
-    'inventory.manage'
-  ],
-  [
-    'orders',
-    'الطلبات',
-    'Orders',
-    'orders.manage'
-  ],
-  [
-    'order_items',
-    'بنود الطلبات',
-    'Order lines',
-    'orders.manage'
-  ],
-  [
-    'coupons',
-    'الكوبونات',
-    'Coupons',
-    'orders.manage'
-  ],
-  [
+[
+  'orders',
+  'إدارة الطلبات',
+  'Order Management',
+  'orders.manage'
+],
+[
+  'promotions',
+  'الكوبونات والعروض',
+  'Coupons & Offers',
+  'orders.manage'
+],
+[
     'customers',
     'العملاء',
     'Customers',
     'customers.read'
   ],
   [
-    'service_bookings',
-    'حجوزات الصيانة',
-    'Bookings',
-    'maintenance.manage'
+      'service_bookings',
+      'إدارة الصيانة',
+      'Maintenance Management',
+      'maintenance.manage'
   ],
   [
     'services',
@@ -12092,12 +13602,6 @@ const ADMIN_SECTIONS = [
     'image_requests',
     'طلبات الصور',
     'Image requests',
-    'maintenance.manage'
-  ],
-  [
-    'maintenance_records',
-    'سجل الصيانة',
-    'Maintenance records',
     'maintenance.manage'
   ],
   [
@@ -12318,20 +13822,15 @@ const A = {
     'status:select:draft|ordered|received|cancelled',
     'notes'
   ],
-  purchase_order_items: [
-    'purchase_order_id:purchase_orders',
-    'product_id:products',
-    'quantity:int',
-    'unit_cost:num'
-  ],
-  services: [
-    'name_ar',
-    'name_en',
-    'description_ar',
-    'duration_minutes:int',
-    'is_active:bool'
-  ],
-  available_slots: [
+services: [
+  'name_ar',
+  'name_en',
+  'description_ar',
+  'duration_minutes:int',
+  'price:num',
+  'is_active:bool'
+],
+ available_slots: [
     'service_id:services',
     'starts_at:datetime',
     'capacity:int',
@@ -12376,16 +13875,6 @@ const A = {
     'bundle_id:bundles',
     'product_id:products',
     'quantity:int'
-  ],
-  coupons: [
-    'code',
-    'kind:select:fixed|percent',
-    'amount:num',
-    'min_order:num',
-    'max_uses:int',
-    'begins_at:datetime',
-    'ends_at:datetime',
-    'is_active:bool'
   ],
   governorates: [
     'name_ar',
@@ -13267,11 +14756,1375 @@ function adminSectionHero(section = 'overview') {
     </section>
   `;
 }
+
+/* Mr Mido Motors — Coupons & Offers Manager */
+
+const midoPromoState = {
+  tab: 'coupon',
+  rows: [],
+  daily: [],
+  loaded: false,
+  loading: false,
+  editing: null,
+  search: '',
+  filter: 'all',
+  busy: false
+};
+
+function midoPromoActive(row) {
+  const now = Date.now();
+
+  const starts = row.starts_at
+    ? new Date(row.starts_at).getTime()
+    : null;
+
+  const ends = row.ends_at
+    ? new Date(row.ends_at).getTime()
+    : null;
+
+  const customers = Number(row.customer_count || 0);
+  const maxCustomers = Number(row.customer_limit || 0);
+
+  const uses = Number(row.actual_uses || 0);
+  const maxUses = Number(row.usage_limit || 0);
+
+  if (!row.is_active) return false;
+
+  if (starts !== null && now < starts) return false;
+  if (ends !== null && now >= ends) return false;
+
+  if (maxCustomers > 0 && customers >= maxCustomers) {
+    return false;
+  }
+
+  if (maxUses > 0 && uses >= maxUses) {
+    return false;
+  }
+
+  return true;
+}
+
+function midoPromoStatus(row) {
+  if (!row.is_active) return 'موقوف يدويًا';
+
+  const now = Date.now();
+
+  if (row.starts_at &&
+      now < new Date(row.starts_at).getTime()) {
+    return 'مجدول';
+  }
+
+  if (row.ends_at &&
+      now >= new Date(row.ends_at).getTime()) {
+    return 'انتهت المدة';
+  }
+
+  if (
+    Number(row.customer_limit || 0) > 0 &&
+    Number(row.customer_count || 0) >=
+    Number(row.customer_limit)
+  ) {
+    return 'اكتمل عدد العملاء';
+  }
+
+  if (
+    Number(row.usage_limit || 0) > 0 &&
+    Number(row.actual_uses || 0) >=
+    Number(row.usage_limit)
+  ) {
+    return 'اكتمل عدد الاستخدامات';
+  }
+
+  return 'نشط';
+}
+function midoPromoDateLocal(value) {
+  if (!value) return '';
+
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return '';
+
+  const parts = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Africa/Cairo',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23'
+  }).formatToParts(date);
+
+  const getPart = name =>
+    parts.find(x => x.type === name)?.value || '00';
+
+  return [
+    getPart('year'),
+    getPart('month'),
+    getPart('day')
+  ].join('-') + 'T' +
+    getPart('hour') + ':' + getPart('minute');
+}
+async function midoPromoLoad() {
+  if (!state.db || midoPromoState.loading) return;
+
+  midoPromoState.loading = true;
+
+  try {
+    const { data, error } = await state.db.rpc(
+      'mido_admin_promotions',
+      { p_action: 'list' }
+    );
+
+    if (error) throw error;
+
+    midoPromoState.rows = Array.isArray(data)
+      ? data
+      : [];
+
+    midoPromoState.loaded = true;
+  } catch (error) {
+    console.error('Promotions:', error);
+    toast(friendlyError(error), true);
+  } finally {
+    midoPromoState.loading = false;
+
+    if (route() === '/admin/promotions') {
+      render();
+    }
+  }
+}
+
+async function midoPromoLoad() {
+  if (!state.db || midoPromoState.loading) return;
+
+  midoPromoState.loading = true;
+
+  try {
+    const { data, error } = await state.db.rpc(
+      'mido_promo_dashboard'
+    );
+
+    if (error) throw error;
+
+    midoPromoState.rows = Array.isArray(data?.campaigns)
+      ? data.campaigns
+      : [];
+
+    midoPromoState.daily = Array.isArray(data?.daily)
+      ? data.daily
+      : [];
+
+    midoPromoState.loaded = true;
+
+  } catch (error) {
+    console.error('Promotions dashboard:', error);
+    toast(friendlyError(error), true);
+
+    // منع تكرار طلب فاشل بلا توقف
+    midoPromoState.loaded = true;
+
+  } finally {
+    midoPromoState.loading = false;
+
+    if (route() === '/admin/promotions') {
+      render();
+    }
+  }
+}
+let midoPromoSelected = [];
+let midoPromoPickerDraft = [];
+let midoPromoPickerKind = 'product';
+
+function midoPromoTab(tab) {
+  midoPromoState.tab =
+    tab === 'automatic' ? 'automatic' : 'coupon';
+
+  midoPromoState.editing = null;
+  midoPromoState.search = '';
+  midoPromoState.filter = 'all';
+  midoPromoSelected = [];
+
+  render();
+}
+
+function midoPromoEdit(id) {
+  const row = midoPromoState.rows.find(
+    x => String(x.id) === String(id)
+  );
+
+  if (row) {
+    midoPromoState.tab = row.mode;
+  }
+
+  midoPromoSelected = row
+    ? (row.target_ids || []).map(String)
+    : [];
+
+  midoPromoState.editing = id || 'new';
+
+  render();
+}
+
+function midoPromoCancel() {
+  midoPromoState.editing = null;
+  midoPromoSelected = [];
+
+  render();
+}
+
+function midoPromoFilter() {
+  const search = document.getElementById('mido-promo-search');
+  const filter = document.getElementById('mido-promo-filter');
+
+  midoPromoState.search = search?.value || '';
+  midoPromoState.filter = filter?.value || 'all';
+
+  document.querySelectorAll(
+    '#mido-promo-list [data-search]'
+  ).forEach(card => {
+    const textMatch =
+      !midoPromoState.search.trim() ||
+      (card.dataset.search || '').includes(
+        midoPromoState.search.trim().toLowerCase()
+      );
+
+    const active = card.dataset.active === 'true';
+
+    const statusMatch =
+      midoPromoState.filter === 'all' ||
+      (midoPromoState.filter === 'active' && active) ||
+      (midoPromoState.filter === 'inactive' && !active);
+
+    card.hidden = !(textMatch && statusMatch);
+  });
+}
+
+function midoPromoTargetLabel(row) {
+  if (row.scope === 'all') {
+    return txt('جميع المنتجات', 'All products');
+  }
+
+  const table = row.scope === 'service'
+    ? 'services'
+    : 'products';
+
+  return (row.target_ids || []).map(id => {
+    const item = by(table, id);
+
+    return item?.name_ar ||
+      item?.name_en ||
+      String(id);
+  }).join('، ') || '—';
+}
+
+/* New simplified promotion editor */
+
+function midoPromoItemRows(row) {
+  const scope = row.scope || 'all';
+
+  const items = scope === 'service'
+    ? get('services')
+    : get('products');
+
+  const selected = scope === 'all'
+    ? items
+    : items.filter(x =>
+        (row.target_ids || []).some(
+          id => String(id) === String(x.id)
+        )
+      );
+
+  return selected;
+}
+
+function midoPromoPricePreview(item, percent) {
+  const original = Number(item.price);
+
+  if (!Number.isFinite(original) || original < 0 ||
+      item.price === null || item.price === undefined) {
+    return '<span class="muted">السعر غير محدد</span>';
+  }
+
+  const finalPrice = Math.round(
+    original * (1 - percent / 100) * 100
+  ) / 100;
+
+  return `
+    <div class="mido-promo-price">
+      <span class="mido-promo-old">${fmt(original)}</span>
+      <strong>${fmt(finalPrice)}</strong>
+    </div>
+  `;
+}
+
+
+/* Professional promotion product / service picker */
+
+function midoPromoTargetChange() {
+  const scope = document.getElementById('mido-promo-scope')?.value;
+
+  if (scope === 'all') {
+    midoPromoSelected = [];
+    midoPromoPreviewSelection();
+    return;
+  }
+
+  midoPromoSelected = [];
+  midoPromoPreviewSelection();
+  midoPromoPickerOpen();
+}
+
+function midoPromoProductTypeChange() {
+  const type = document.getElementById(
+    'mido-promo-product-type'
+  )?.value;
+
+  const scope = document.getElementById('mido-promo-scope');
+
+  if (!scope) return;
+
+  midoPromoSelected = [];
+
+  if (type === 'service') {
+    scope.innerHTML = `
+      <option value="service">خدمة واحدة محددة</option>
+    `;
+    midoPromoPreviewSelection();
+    midoPromoPickerOpen();
+  } else {
+    scope.innerHTML = `
+      <option value="all">جميع المنتجات</option>
+      <option value="product">منتجات محددة</option>
+    `;
+    midoPromoPreviewSelection();
+  }
+}
+
+function midoPromoPickerOpen() {
+  const scope = document.getElementById(
+    'mido-promo-scope'
+  )?.value;
+
+  if (scope === 'all' || !scope) return;
+
+  midoPromoPickerKind = scope === 'service'
+    ? 'service'
+    : 'product';
+
+  midoPromoPickerDraft = [...midoPromoSelected];
+
+  document.getElementById('mido-promo-picker-overlay')?.remove();
+
+  const overlay = document.createElement('div');
+  overlay.id = 'mido-promo-picker-overlay';
+  overlay.className = 'mido-picker-overlay';
+
+  overlay.innerHTML = `
+    <div class="mido-picker-dialog"
+      role="dialog"
+      aria-modal="true"
+      aria-label="اختيار عناصر الخصم">
+
+      <div class="mido-picker-header">
+        <div>
+          <h3>
+            ${midoPromoPickerKind === 'service'
+              ? 'اختيار خدمة الخصم'
+              : 'اختيار المنتجات المشمولة بالخصم'}
+          </h3>
+          <p>
+            ${midoPromoPickerKind === 'service'
+              ? 'اختر خدمة واحدة فقط'
+              : 'اختر المنتجات التي تريد تطبيق الخصم عليها'}
+          </p>
+        </div>
+
+        <button type="button"
+          class="mido-picker-close"
+          onclick="midoPromoPickerClose(false)">
+          ×
+        </button>
+      </div>
+
+      <div class="mido-picker-search">
+        <input
+          id="mido-picker-search"
+          type="search"
+          placeholder="ابحث باسم المنتج أو الكود..."
+          oninput="midoPromoPickerRender()">
+      </div>
+
+      <div class="mido-picker-counter">
+        <span id="mido-picker-count">0 عنصر محدد</span>
+        <button type="button"
+          onclick="midoPromoPickerClear()">
+          إلغاء التحديد
+        </button>
+      </div>
+
+      <div id="mido-picker-items"
+        class="mido-picker-items">
+      </div>
+
+      <div class="mido-picker-footer">
+        <button type="button"
+          class="mido-picker-cancel"
+          onclick="midoPromoPickerClose(false)">
+          إلغاء
+        </button>
+
+        <button type="button"
+          class="mido-picker-save"
+          onclick="midoPromoPickerClose(true)">
+          حفظ الاختيار
+        </button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(overlay);
+  midoPromoPickerRender();
+
+  overlay.querySelector('#mido-picker-search')?.focus();
+}
+
+function midoPromoPickerRender() {
+  const list = document.getElementById('mido-picker-items');
+  const search = document.getElementById('mido-picker-search');
+  const counter = document.getElementById('mido-picker-count');
+
+  if (!list) return;
+
+  const query = (search?.value || '')
+    .trim()
+    .toLocaleLowerCase();
+
+  const table = midoPromoPickerKind === 'service'
+    ? 'services'
+    : 'products';
+
+  const items = get(table)
+    .filter(x => x.is_active !== false)
+    .filter(x => {
+      const text = [
+        x.name_ar,
+        x.name_en,
+        x.sku,
+        x.id
+      ].join(' ').toLocaleLowerCase();
+
+      return text.includes(query);
+    });
+
+  if (counter) {
+    counter.textContent =
+      `${midoPromoPickerDraft.length} ${
+        midoPromoPickerKind === 'service'
+          ? 'خدمة محددة'
+          : 'منتج محدد'
+      }`;
+  }
+
+  list.innerHTML = items.length
+    ? items.map(item => {
+        const id = String(item.id);
+        const checked = midoPromoPickerDraft.includes(id);
+        const price = item.price == null
+          ? 'السعر غير محدد'
+          : fmt(Number(item.price));
+
+        return `
+          <label class="mido-picker-item ${
+            checked ? 'is-selected' : ''
+          }">
+
+            <input
+              type="${midoPromoPickerKind === 'service'
+                ? 'radio'
+                : 'checkbox'}"
+              name="mido-picker-choice"
+              value="${E(id)}"
+              ${checked ? 'checked' : ''}
+              onchange="midoPromoPickerToggle('${E(id)}')">
+
+            <span class="mido-picker-item-main">
+              <strong>
+                ${E(item.name_ar || item.name_en || 'منتج')}
+              </strong>
+
+              <small>${E(item.sku || '')}</small>
+            </span>
+
+            <span class="mido-picker-price">
+              ${price}
+            </span>
+          </label>
+        `;
+      }).join('')
+    : `
+      <div class="mido-picker-empty">
+        لا توجد عناصر تطابق البحث.
+      </div>
+    `;
+}
+
+function midoPromoPickerToggle(id) {
+  const index = midoPromoPickerDraft.indexOf(id);
+
+  if (midoPromoPickerKind === 'service') {
+    midoPromoPickerDraft = [id];
+  } else if (index !== -1) {
+    midoPromoPickerDraft.splice(index, 1);
+  } else {
+    if (midoPromoPickerDraft.length >= 200) {
+      toast('الحد الأقصى 200 منتج في الحملة', true);
+      midoPromoPickerRender();
+      return;
+    }
+
+    midoPromoPickerDraft.push(id);
+  }
+
+  midoPromoPickerRender();
+}
+
+function midoPromoPickerClear() {
+  midoPromoPickerDraft = [];
+  midoPromoPickerRender();
+}
+
+function midoPromoPickerClose(save = false) {
+  if (save) {
+    const scope = document.getElementById(
+      'mido-promo-scope'
+    )?.value;
+
+    if (scope !== 'all' &&
+        midoPromoPickerDraft.length === 0) {
+      toast('اختار عنصر واحد على الأقل', true);
+      return;
+    }
+
+    if (scope === 'service' &&
+        midoPromoPickerDraft.length !== 1) {
+      toast('لازم تختار خدمة واحدة فقط', true);
+      return;
+    }
+
+    midoPromoSelected = [...midoPromoPickerDraft];
+  }
+
+  document.getElementById(
+    'mido-promo-picker-overlay'
+  )?.remove();
+
+  if (save) midoPromoPreviewSelection();
+}
+
+function midoPromoPreviewSelection() {
+  const form = document.getElementById(
+    'mido-promo-edit-form'
+  );
+
+  const result = document.getElementById(
+    'mido-promo-preview'
+  );
+
+  const summary = document.getElementById(
+    'mido-promo-selection-summary'
+  );
+
+  const button = document.getElementById(
+    'mido-promo-choose-btn'
+  );
+
+  if (!form || !result) return;
+
+  const f = new FormData(form);
+  const scope = String(f.get('scope') || 'all');
+  const percent = Math.max(
+    0,
+    Math.min(100, Number(f.get('amount') || 0))
+  );
+
+  const table = scope === 'service'
+    ? 'services'
+    : 'products';
+
+  const all = get(table).filter(
+    x => x.is_active !== false
+  );
+
+  const selected = scope === 'all'
+    ? all
+    : all.filter(x =>
+        midoPromoSelected.includes(String(x.id))
+      );
+
+  if (button) {
+    button.style.display =
+      scope === 'all' ? 'none' : '';
+
+    button.textContent = scope === 'service'
+      ? 'اختيار الخدمة'
+      : 'اختيار المنتجات';
+  }
+
+  if (summary) {
+    summary.textContent = scope === 'all'
+      ? `الخصم يشمل جميع المنتجات (${selected.length})`
+      : `تم اختيار ${selected.length} ${
+          scope === 'service' ? 'خدمة' : 'منتج'
+        }`;
+  }
+
+  result.innerHTML = selected.length
+    ? selected.map(item => `
+        <div class="mido-promo-preview-row">
+          <span>
+            ${E(item.name_ar || item.name_en || '')}
+          </span>
+          ${midoPromoPricePreview(item, percent)}
+        </div>
+      `).join('')
+    : `
+      <div class="mido-picker-empty">
+        لم يتم اختيار أي عناصر بعد.
+      </div>
+    `;
+}
+
+function midoPromoEditor() {
+  const s = midoPromoState;
+
+  const row = s.editing === 'new'
+    ? {}
+    : s.rows.find(
+        x => String(x.id) === String(s.editing)
+      );
+
+  if (!row) return '';
+
+  const coupon = s.tab === 'coupon';
+  const service = row.scope === 'service';
+  const scope = row.scope || 'all';
+
+  const selected = midoPromoSelected;
+
+  const previewItems = get(
+    service ? 'services' : 'products'
+  ).filter(x =>
+    x.is_active !== false &&
+    (
+      scope === 'all' ||
+      selected.includes(String(x.id))
+    )
+  );
+
+  return `
+    <div class="mido-promo-form">
+
+      <div class="mido-promo-flex">
+        <h3>
+          ${s.editing === 'new'
+            ? (coupon ? 'إنشاء كوبون جديد' : 'إنشاء عرض جديد')
+            : 'تعديل الحملة'}
+        </h3>
+
+        <button type="button"
+          class="mido-promo-btn"
+          onclick="midoPromoCancel()">
+          رجوع
+        </button>
+      </div>
+
+      <form id="mido-promo-edit-form"
+        class="mido-promo-fields"
+        onsubmit="event.preventDefault();midoPromoSave(this)"
+        oninput="midoPromoPreviewSelection()">
+
+        <input type="hidden" name="id"
+          value="${E(row.id || '')}">
+
+        <input type="hidden" name="mode"
+          value="${s.tab}">
+
+        <div class="wide">
+          <label>${coupon ? 'اسم الكوبون' : 'اسم العرض'}</label>
+          <input name="title" required minlength="2"
+            maxlength="120"
+            value="${E(row.title || '')}">
+        </div>
+
+        ${coupon ? `
+          <div>
+            <label>كود الكوبون للعميل</label>
+            <input name="code" required
+              pattern="[A-Za-z0-9_-]{3,32}"
+              maxlength="32"
+              placeholder="MIDO20"
+              value="${E(row.code || '')}">
+          </div>
+
+          <div>
+            <label>نوع الخصم</label>
+            <select id="mido-promo-product-type"
+              onchange="midoPromoProductTypeChange()">
+              <option value="product"
+                ${!service ? 'selected' : ''}>
+                خصم على منتج
+              </option>
+              <option value="service"
+                ${service ? 'selected' : ''}>
+                خصم على خدمة
+              </option>
+            </select>
+          </div>
+        ` : ''}
+
+        <div>
+          <label>نسبة الخصم (%)</label>
+          <input name="amount" type="number"
+            required min="0.01" max="100" step="0.01"
+            value="${E(row.amount ?? 10)}">
+        </div>
+
+        <div>
+          <label>تطبيق الخصم على</label>
+          <select name="scope"
+            id="mido-promo-scope"
+            onchange="midoPromoTargetChange()">
+
+            ${service ? `
+              <option value="service">
+                خدمة واحدة محددة
+              </option>
+            ` : `
+              <option value="all"
+                ${scope === 'all' ? 'selected' : ''}>
+                جميع المنتجات
+              </option>
+
+              <option value="product"
+                ${scope === 'product' ? 'selected' : ''}>
+                منتجات محددة
+              </option>
+            `}
+          </select>
+        </div>
+
+        <div class="wide mido-promo-choose-panel">
+          <div class="mido-promo-flex">
+            <div>
+              <label>العناصر المشمولة بالخصم</label>
+              <p id="mido-promo-selection-summary">
+                ${scope === 'all'
+                  ? 'جميع المنتجات'
+                  : `تم اختيار ${selected.length} عنصر`}
+              </p>
+            </div>
+
+            <button type="button"
+              id="mido-promo-choose-btn"
+              class="mido-promo-btn"
+              style="${scope === 'all'
+                ? 'display:none'
+                : ''}"
+              onclick="midoPromoPickerOpen()">
+              ${service
+                ? 'اختيار الخدمة'
+                : 'اختيار المنتجات'}
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <label>بداية الحملة — توقيت القاهرة</label>
+          <input type="datetime-local"
+            name="starts_at" required
+            value="${midoPromoDateLocal(row.starts_at)}">
+        </div>
+
+        <div>
+          <label>نهاية الحملة — توقيت القاهرة</label>
+          <input type="datetime-local"
+            name="ends_at" required
+            value="${midoPromoDateLocal(row.ends_at)}">
+        </div>
+
+        <div>
+          <label>عدد مرات الاستخدام لكل عميل</label>
+          <input name="per_customer_limit"
+            type="number" min="1" step="1" required
+            value="${E(row.per_customer_limit || 1)}">
+        </div>
+
+        <div>
+          <label>أقصى عدد عملاء — صفر = مفتوح</label>
+          <input name="customer_limit"
+            type="number" min="0" step="1" required
+            value="${E(row.customer_limit ?? 0)}">
+        </div>
+
+        <label class="mido-promo-check wide">
+          <input type="checkbox" name="is_active"
+            ${row.is_active !== false ? 'checked' : ''}>
+          تفعيل الحملة
+        </label>
+
+        <div class="wide">
+          <h3>الأسعار قبل وبعد الخصم</h3>
+
+          <div id="mido-promo-preview"
+            class="mido-promo-preview">
+
+            ${previewItems.map(item => `
+              <div class="mido-promo-preview-row">
+                <span>
+                  ${E(item.name_ar || item.name_en || '')}
+                </span>
+                ${midoPromoPricePreview(
+                  item,
+                  Number(row.amount ?? 10)
+                )}
+              </div>
+            `).join('') || `
+              <div class="mido-picker-empty">
+                اختر المنتجات أولًا.
+              </div>
+            `}
+          </div>
+        </div>
+
+        <div class="wide">
+          <button type="submit"
+            class="mido-promo-btn primary"
+            ${s.busy ? 'disabled' : ''}>
+            حفظ ${coupon ? 'الكوبون' : 'العرض'}
+          </button>
+        </div>
+      </form>
+    </div>
+  `;
+}
+
+
+async function midoPromoSave(form) {
+  if (midoPromoState.busy) return;
+
+  const f = new FormData(form);
+  const scope = String(f.get('scope') || 'all');
+  const mode = String(f.get('mode') || 'coupon');
+  const amount = Number(f.get('amount'));
+  const customerLimit = Number(f.get('customer_limit'));
+  const perCustomer = Number(f.get('per_customer_limit'));
+
+  if (!Number.isFinite(amount) || amount <= 0 || amount > 100) {
+    toast('نسبة الخصم لازم تكون من 0.01 إلى 100%', true);
+    return;
+  }
+
+  if (!Number.isInteger(customerLimit) || customerLimit < 0 ||
+      !Number.isInteger(perCustomer) || perCustomer < 1) {
+    toast('راجع عدد العملاء ومرات الاستخدام', true);
+    return;
+  }
+
+  if (mode === 'automatic' && scope === 'service') {
+    toast('العروض المباشرة مخصصة للمنتجات فقط', true);
+    return;
+  }
+
+  const targetIds = scope === 'all'
+    ? []
+    : [...new Set(midoPromoSelected)];
+
+  if (scope !== 'all' && targetIds.length === 0) {
+    toast('لازم تختار المنتجات أو الخدمة أولًا', true);
+    return;
+  }
+
+  if (scope === 'service' && targetIds.length !== 1) {
+    toast('كوبون الخدمة لازم يكون لخدمة واحدة فقط', true);
+    return;
+  }
+
+  if (targetIds.length > 200) {
+    toast('الحد الأقصى 200 منتج في الحملة', true);
+    return;
+  }
+
+  const starts = String(f.get('starts_at') || '');
+  const ends = String(f.get('ends_at') || '');
+
+  if (!starts || !ends || ends <= starts) {
+    toast('حدد تاريخ بداية ونهاية صحيحين', true);
+    return;
+  }
+
+  const payload = {
+    id: f.get('id') || null,
+    mode,
+    title: String(f.get('title') || '').trim(),
+    code: mode === 'coupon'
+      ? String(f.get('code') || '').trim().toUpperCase()
+      : null,
+
+    discount_type: 'percent',
+    amount,
+
+    minimum_order: 0,
+    max_discount: 0,
+    usage_limit: 0,
+
+    customer_limit: customerLimit,
+    per_customer_limit: perCustomer,
+
+    scope,
+    target_ids: targetIds,
+
+    starts_at: starts,
+    ends_at: ends,
+
+    is_active: f.has('is_active'),
+    stackable: false
+  };
+
+  midoPromoState.busy = true;
+
+  const saveButton = form.querySelector('button[type="submit"]');
+  if (saveButton) saveButton.disabled = true;
+
+  try {
+    const { error } = await state.db.rpc(
+      'mido_admin_promotions',
+      {
+        p_action: 'save',
+        p_payload: payload
+      }
+    );
+
+    if (error) throw error;
+
+    midoPromoState.editing = null;
+    midoPromoSelected = [];
+    midoPromoState.loaded = false;
+
+    await midoPromoLoad();
+
+    toast('تم حفظ الحملة بنجاح');
+  } catch (error) {
+    console.error('Promotion save:', error);
+    toast(friendlyError(error), true);
+  } finally {
+    midoPromoState.busy = false;
+    if (saveButton) saveButton.disabled = false;
+  }
+}
+
+
+async function midoPromoToggle(id) {
+  if (midoPromoState.busy) return;
+
+  midoPromoState.busy = true;
+
+  try {
+    const { error } = await state.db.rpc(
+      'mido_admin_promotions',
+      {
+        p_action: 'toggle',
+        p_payload: { id }
+      }
+    );
+
+    if (error) throw error;
+
+    midoPromoState.loaded = false;
+    await midoPromoLoad();
+
+    toast(txt('تم تحديث الحالة', 'Status updated'));
+  } catch (error) {
+    toast(friendlyError(error), true);
+  } finally {
+    midoPromoState.busy = false;
+  }
+}
+let midoPromoChartInstance = null;
+
+function midoPromoInitChart() {
+  const canvas = document.getElementById('midoPromoChart');
+
+  if (!canvas || typeof Chart === 'undefined') return;
+
+  if (midoPromoChartInstance) {
+    midoPromoChartInstance.destroy();
+    midoPromoChartInstance = null;
+  }
+
+  const daily = midoPromoState.daily || [];
+
+  midoPromoChartInstance = new Chart(canvas, {
+    type: 'line',
+
+    data: {
+      labels: daily.map(x => {
+        const parts = String(x.day || '')
+          .slice(0, 10)
+          .split('-');
+
+        return parts.length === 3
+          ? `${parts[2]}/${parts[1]}`
+          : String(x.day || '');
+      }),
+
+      datasets: [
+        {
+          label: 'الكوبونات',
+          data: daily.map(x => Number(x.coupons || 0)),
+          borderColor: '#E8BA49',
+          backgroundColor: 'rgba(232,186,73,.10)',
+          fill: true,
+          tension: 0.35,
+          borderWidth: 3,
+          yAxisID: 'uses'
+        },
+        {
+          label: 'العروض المباشرة',
+          data: daily.map(x => Number(x.offers || 0)),
+          borderColor: '#54C5AF',
+          backgroundColor: 'rgba(84,197,175,.08)',
+          fill: true,
+          tension: 0.35,
+          borderWidth: 3,
+          yAxisID: 'uses'
+        },
+        {
+          label: 'قيمة الخصومات بالجنيه',
+          data: daily.map(x => Number(x.discount || 0)),
+          borderColor: '#A3ADFA',
+          borderWidth: 2,
+          borderDash: [5, 5],
+          tension: 0.35,
+          yAxisID: 'money'
+        }
+      ]
+    },
+
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+
+      interaction: {
+        mode: 'index',
+        intersect: false
+      },
+
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            color: '#CFD8DA',
+            usePointStyle: true
+          }
+        }
+      },
+
+      scales: {
+        x: {
+          ticks: { color: '#ACB8BA' },
+          grid: { display: false }
+        },
+
+        uses: {
+          type: 'linear',
+          position: 'right',
+          beginAtZero: true,
+          ticks: {
+            color: '#ACB8BA',
+            precision: 0
+          },
+          grid: {
+            color: 'rgba(255,255,255,.07)'
+          }
+        },
+
+        money: {
+          type: 'linear',
+          position: 'left',
+          beginAtZero: true,
+          ticks: { color: '#A3ADFA' },
+          grid: { drawOnChartArea: false }
+        }
+      }
+    }
+  });
+}
+function midoPromoSavedPrices(row) {
+  const table = row.scope === 'service'
+    ? 'services'
+    : 'products';
+
+  const ids = (row.target_ids || []).map(String);
+
+  const items = get(table).filter(item =>
+    row.scope === 'all' ||
+    ids.includes(String(item.id))
+  );
+
+  const visible = row.scope === 'all'
+    ? items.slice(0, 30)
+    : items;
+
+  const percent = Number(row.amount || 0);
+
+  return `
+    <div class="mido-promo-saved-prices">
+      ${visible.map(item => `
+        <div class="mido-promo-preview-row">
+          <span>${E(item.name_ar || item.name_en || '')}</span>
+          ${midoPromoPricePreview(item, percent)}
+        </div>
+      `).join('') || `
+        <p>لا توجد منتجات متاحة للعرض.</p>
+      `}
+
+      ${row.scope === 'all' && items.length > 30
+        ? `<p class="mido-promo-meta">
+             المعروض أول 30 منتج من أصل ${items.length}.
+           </p>`
+        : ''}
+    </div>
+  `;
+}
+function midoPromoPage() {
+  const s = midoPromoState;
+  const active = s.rows.filter(midoPromoActive);
+  const rows = s.rows.filter(row => row.mode === s.tab);
+
+  return `
+    <div class="mido-promo">
+
+      <div class="mido-promo-head">
+        <div>
+          <h2>${txt('الكوبونات والعروض', 'Coupons & Offers')}</h2>
+          <p>${txt('الخصومات والحملات الترويجية', 'Promotions')}</p>
+        </div>
+
+        <button class="mido-promo-btn primary"
+          onclick="midoPromoEdit('new')">
+          + ${s.tab === 'coupon'
+            ? txt('كوبون جديد', 'New coupon')
+            : txt('عرض جديد', 'New offer')}
+        </button>
+      </div>
+
+      <div class="mido-promo-stats">
+        <div class="mido-promo-stat">
+          <span>${txt('كوبونات نشطة', 'Active coupons')}</span>
+          <strong>${active.filter(x => x.mode === 'coupon').length}</strong>
+        </div>
+
+        <div class="mido-promo-stat">
+          <span>${txt('عروض نشطة', 'Active offers')}</span>
+          <strong>${active.filter(x => x.mode === 'automatic').length}</strong>
+        </div>
+
+        <div class="mido-promo-stat">
+          <span>${txt('استخدامات الكوبونات', 'Coupon uses')}</span>
+          <strong>${s.rows
+            .filter(x => x.mode === 'coupon')
+            .reduce((sum, x) => sum + Number(x.actual_uses || 0), 0)}
+          </strong>
+        </div>
+
+        <div class="mido-promo-stat">
+          <span>${txt('إجمالي الحملات', 'Total campaigns')}</span>
+          <strong>${s.rows.length}</strong>
+        </div>
+      </div>
+<div class="mido-promo-analytics">
+  <div class="mido-promo-flex">
+    <div>
+      <h3>تحليل أداء الكوبونات والعروض</h3>
+      <p>الاستخدامات والخصومات خلال آخر 14 يوم</p>
+    </div>
+
+    <button class="mido-promo-btn"
+      onclick="midoPromoLoad()">
+      تحديث
+    </button>
+  </div>
+
+  <div class="mido-promo-chart-box">
+    <canvas id="midoPromoChart"></canvas>
+  </div>
+
+  <div class="mido-promo-analytics-footer">
+    <div>
+      <small>إجمالي الخصومات خلال 14 يوم</small>
+      <strong>
+        ${fmt(s.daily.reduce(
+          (total, x) => total + Number(x.discount || 0),
+          0
+        ))}
+      </strong>
+    </div>
+
+    <div>
+      <small>عمليات استخدام الخصومات</small>
+      <strong>
+        ${s.daily.reduce(
+          (total, x) =>
+            total +
+            Number(x.coupons || 0) +
+            Number(x.offers || 0),
+          0
+        )}
+      </strong>
+    </div>
+  </div>
+</div>
+      <div class="mido-promo-tabs">
+        <button class="${s.tab === 'coupon' ? 'active' : ''}"
+          onclick="midoPromoTab('coupon')">
+          ${txt('الكوبونات', 'Coupons')}
+        </button>
+
+        <button class="${s.tab === 'automatic' ? 'active' : ''}"
+          onclick="midoPromoTab('automatic')">
+          ${txt('العروض المباشرة', 'Direct offers')}
+        </button>
+      </div>
+
+      ${s.editing ? midoPromoEditor() : `
+
+        <div class="mido-promo-filters">
+          <input id="mido-promo-search"
+            value="${E(s.search)}"
+            placeholder="${txt('بحث بالاسم أو الكود', 'Search')}"
+            oninput="midoPromoFilter()">
+
+          <select id="mido-promo-filter"
+            onchange="midoPromoFilter()">
+
+            <option value="all"
+              ${s.filter === 'all' ? 'selected' : ''}>
+              ${txt('الكل', 'All')}
+            </option>
+
+            <option value="active"
+              ${s.filter === 'active' ? 'selected' : ''}>
+              ${txt('نشطة', 'Active')}
+            </option>
+
+            <option value="inactive"
+              ${s.filter === 'inactive' ? 'selected' : ''}>
+              ${txt('غير نشطة', 'Inactive')}
+            </option>
+          </select>
+        </div>
+
+        <div id="mido-promo-list" class="mido-promo-list">
+
+          ${!s.loaded
+            ? txt('جاري تحميل الحملات…', 'Loading campaigns…')
+            : rows.map(row => {
+
+                const enabled = midoPromoActive(row);
+
+                const value = row.discount_type === 'percent'
+                  ? `${Number(row.amount)}%`
+                  : fmt(Number(row.amount));
+
+                const search = E(
+                  `${row.title} ${row.code || ''}`.toLowerCase()
+                );
+
+                return `
+                  <article class="mido-promo-entry"
+                    data-search="${search}"
+                    data-active="${enabled}">
+
+                    <div class="mido-promo-flex">
+                      <div>
+                        <h3>${E(row.code || row.title)}</h3>
+                        <div class="mido-promo-meta">
+                          ${E(row.title)}
+                          • ${E(midoPromoTargetLabel(row))}
+                        </div>
+                      </div>
+
+                      <strong class="${
+                        enabled ? 'mido-promo-good' : 'mido-promo-bad'
+                      }">
+                        ${E(midoPromoStatus(row))}
+                      </strong>
+                    </div>
+
+                    <div class="mido-promo-flex"
+                      style="margin-top:12px">
+
+                      <div>
+                        <strong>${value}</strong>
+                        <div class="mido-promo-meta">
+                          ${row.starts_at ? humanDate(row.starts_at) : '—'}
+                          —
+                          ${row.ends_at ? humanDate(row.ends_at) : '—'}
+                          • ${txt('استخدام', 'Uses')}:
+                          ${Number(row.actual_uses || 0)}
+                        </div>
+                      </div>
+
+                      <div class="mido-promo-flex">
+                        <button class="mido-promo-btn"
+                          onclick="midoPromoEdit('${E(row.id)}')">
+                          ${txt('تعديل', 'Edit')}
+                        </button>
+
+                        <button class="mido-promo-btn"
+                          onclick="midoPromoToggle('${E(row.id)}')">
+                          ${row.is_active
+                            ? txt('إيقاف', 'Disable')
+                            : txt('تفعيل', 'Enable')}
+                        </button>
+                      </div>
+
+                    </div>
+                    ${midoPromoSavedPrices(row)}                    
+                  </article>
+                `;
+              }).join('') || txt('لا توجد حملات', 'No campaigns')
+          }
+        </div>
+      `}
+
+      <div class="mido-promo-note">
+        ${txt(
+          'الحملات محفوظة في Supabase. تطبيق الخصومات عند الدفع يحتاج ربط محرك التسعير على السيرفر.',
+          'Campaigns are stored in Supabase. Checkout pricing requires server integration.'
+        )}
+      </div>
+
+    </div>
+  `;
+}
+
 /* RESTORE ADMIN PAGE AND DASHBOARD */
 
 function adminPage(section = 'overview') {
   if (!state.user) return authGate('admin');
-
+  if (section === 'maintenance_records') {
+    location.hash = '#/admin/service_bookings';
+    return '';
+  }
+  if ([
+  'coupons',
+  'purchase_order_items',
+  'purchase_orders'
+].includes(section)) {
+  location.hash = '#/admin/overview';
+  return '';
+}
+  
   if (!state.staff) {
     return pageHead(txt('غير مصرح', 'Access denied')) +
       `<div class="container section">
@@ -13361,11 +16214,20 @@ if (
     case 'orders':
       content = adminOrders();
       break;
+      case 'orders':
+    content = adminOrders();
+    break;
+
+case 'promotions':
+  content = midoPromoPage();
+  break;
+
+
+case 'promotions':
+  content = midoPromoPage();
+  break;
     case 'service_bookings':
       content = adminBookings();
-      break;
-    case 'purchase_orders':
-      content = adminPurchases();
       break;
     default:
       content = adminTable(section);
@@ -16623,10 +19485,402 @@ function initAdminOverviewPage(tries = 0) {
         : '';
   }
 }
-function adminCustomers() {
-  const rows = get('profiles');
-  return `<div class="table-wrap"><table class="data-table"><thead><tr><th>${txt('الاسم', 'Name')}</th><th>${txt('الهاتف', 'Phone')}</th><th>${txt('الطلبات', 'Orders')}</th><th>${txt('الحجوزات', 'Bookings')}</th></tr></thead><tbody>${rows.map(p => `<tr><td>${E(p.full_name)}</td><td>${E(p.phone)}</td><td>${get('orders').filter(o => o.user_id === p.id).length}</td><td>${get('service_bookings').filter(b => b.user_id === p.id).length}</td></tr>`).join('')}</tbody></table></div>`
+
+/* Unified Customer Management */
+
+const midoCustomersUI = {
+    selected: null,
+    tab: 'profile',
+    search: '',
+    filter: 'all'
+};
+
+function midoCustomerKey(phone) {
+    return String(phone || '').replace(/\D/g, '');
 }
+
+function midoCustomerRecords() {
+    const profiles = get('profiles');
+    const orders = get('orders');
+    const bookings = get('service_bookings');
+
+    const registered = profiles.map(p => ({
+        key: 'user:' + p.id,
+        id: p.id,
+        profile: p,
+        guest: false,
+        name: p.full_name || 'عميل مسجل',
+        phone: p.phone || '',
+        email: p.email || '',
+        orders: orders.filter(x => x.user_id === p.id),
+        bookings: bookings.filter(x => x.user_id === p.id)
+    }));
+
+    const guests = new Map();
+
+    orders.filter(x => !x.user_id).forEach(order => {
+        const phone = midoCustomerKey(order.phone);
+        const key = phone || String(order.id);
+
+        if (!guests.has(key)) {
+            guests.set(key, {
+                key: 'guest:' + key,
+                id: null,
+                profile: null,
+                guest: true,
+                name: order.customer_name || 'عميل زائر',
+                phone: order.phone || '',
+                email: '',
+                orders: [],
+                bookings: []
+            });
+        }
+
+        guests.get(key).orders.push(order);
+    });
+
+    // Guest orders are grouped separately from registered accounts.
+    return [...registered, ...guests.values()];
+}
+
+function midoCustomerOpen(encodedKey) {
+    midoCustomersUI.selected = decodeURIComponent(encodedKey);
+    midoCustomersUI.tab = 'profile';
+    render();
+}
+
+function midoCustomerBack() {
+    midoCustomersUI.selected = null;
+    render();
+}
+
+function midoCustomerTab(tab) {
+    midoCustomersUI.tab = tab;
+    render();
+}
+
+function midoCustomerFilter() {
+    const search = document.getElementById('mido-customer-search');
+    const filter = document.getElementById('mido-customer-filter');
+
+    midoCustomersUI.search = search?.value || '';
+    midoCustomersUI.filter = filter?.value || 'all';
+
+    const query = midoCustomersUI.search.trim().toLowerCase();
+
+    document.querySelectorAll(
+        '#mido-customer-list [data-customer-search]'
+    ).forEach(row => {
+        const text = row.dataset.customerSearch || '';
+        const type = row.dataset.customerType || '';
+        const hasOrders = row.dataset.hasOrders === 'true';
+
+        const matchesText = !query || text.includes(query);
+
+        const matchesFilter =
+            midoCustomersUI.filter === 'all' ||
+            (midoCustomersUI.filter === 'registered' && type === 'registered') ||
+            (midoCustomersUI.filter === 'guest' && type === 'guest') ||
+            (midoCustomersUI.filter === 'buyers' && hasOrders);
+
+        row.hidden = !(matchesText && matchesFilter);
+    });
+}
+
+function midoCustomerEmpty(message) {
+    return `<div class="mido-customer-empty">${E(message)}</div>`;
+}
+
+function midoCustomerDetail(customer) {
+    const s = midoCustomersUI;
+    const userId = customer.id;
+
+    const bikes = userId
+        ? get('customer_motorcycles').filter(x => x.user_id === userId)
+        : [];
+
+    const favorites = userId
+        ? get('wishlists').filter(x => x.user_id === userId)
+        : [];
+
+    const bookingIds = new Set(customer.bookings.map(x => String(x.id)));
+
+    const maintenance = userId
+        ? get('maintenance_records').filter(x =>
+            x.user_id === userId ||
+            (
+                x.booking_id &&
+                bookingIds.has(String(x.booking_id))
+            )
+        )
+        : [];
+
+    const ordersTotal = customer.orders.reduce(
+        (sum, x) => sum + Number(x.total || 0),
+        0
+    );
+
+    const tabs = [
+        ['profile', 'البيانات'],
+        ['orders', 'الطلبات'],
+        ['maintenance', 'الصيانة'],
+        ['garage', 'الجراج'],
+        ['favorites', 'المفضلة']
+    ];
+
+    let content = '';
+
+    if (s.tab === 'profile') {
+        const p = customer.profile || {};
+        const addresses = customer.orders
+            .map(o => ({
+                text: [
+                    by('governorates', o.governorate_id)?.name_ar,
+                    by('cities', o.city_id)?.name_ar,
+                    o.district,
+                    o.street,
+                    o.building,
+                    o.apartment,
+                    o.landmark
+                ].filter(Boolean).join(' — '),
+                order: o.order_number
+            }))
+            .filter(x => x.text);
+
+        const uniqueAddresses = [
+            ...new Map(addresses.map(x => [x.text, x])).values()
+        ];
+
+        content = `
+            <div class="mido-customer-section">
+                <h3>بيانات التواصل</h3>
+                <div class="mido-customer-info">
+                    <div><small>الاسم</small><strong>${E(customer.name)}</strong></div>
+                    <div><small>الهاتف</small><strong>${E(customer.phone || '—')}</strong></div>
+                    <div><small>البريد</small><strong>${E(customer.email || '—')}</strong></div>
+                    <div><small>نوع الحساب</small><strong>${customer.guest ? 'زائر' : 'مسجل'}</strong></div>
+                    <div><small>تاريخ التسجيل</small><strong>${p.created_at ? E(humanDate(p.created_at)) : '—'}</strong></div>
+                </div>
+            </div>
+
+            <div class="mido-customer-section">
+                <h3>عناوين الطلبات السابقة</h3>
+                ${uniqueAddresses.map(x => `
+                    <div class="mido-customer-record">
+                        <strong>${E(x.text)}</strong>
+                        <small>من الطلب ${E(x.order || '—')}</small>
+                    </div>
+                `).join('') || midoCustomerEmpty('لا توجد عناوين في الطلبات المحمّلة.')}
+                <p class="mido-customer-note">
+                    دي عناوين محفوظة وقت الطلب، مش دفتر العناوين الحالي للعميل.
+                </p>
+            </div>
+        `;
+    }
+
+    if (s.tab === 'orders') {
+        content = `
+            <div class="mido-customer-section">
+                <h3>طلبات الشراء</h3>
+                ${customer.orders.map(o => `
+                    <div class="mido-customer-record">
+                        <div>
+                            <strong>${E(o.order_number || '—')}</strong>
+                            <small>${E(humanDate(o.created_at))}</small>
+                        </div>
+                        <div>
+                            <strong>${fmt(o.total || 0)}</strong>
+                            <small>${E(o.status || '—')}</small>
+                        </div>
+                    </div>
+                `).join('') || midoCustomerEmpty('لا توجد طلبات مسجلة في البيانات المحمّلة.')}
+            </div>
+        `;
+    }
+
+    if (s.tab === 'maintenance') {
+        content = `
+            <div class="mido-customer-section">
+                <h3>حجوزات الصيانة</h3>
+                ${customer.bookings.map(b => `
+                    <div class="mido-customer-record">
+                        <div>
+                            <strong>${E(by('services', b.service_id)?.name_ar || 'حجز صيانة')}</strong>
+                            <small>${E(b.booking_number || '')}</small>
+                        </div>
+                        <div>
+                            <strong>${E(b.status || '—')}</strong>
+                            <small>${E(humanDate(b.created_at))}</small>
+                        </div>
+                    </div>
+                `).join('') || midoCustomerEmpty('لا توجد حجوزات مرتبطة بالحساب.')}
+
+                <h3 style="margin-top:22px">سجل الصيانة</h3>
+                ${maintenance.map(r => `
+                    <div class="mido-customer-record">
+                        <strong>${E(r.description || r.notes || 'عملية صيانة')}</strong>
+                        <small>${r.created_at ? E(humanDate(r.created_at)) : '—'}</small>
+                    </div>
+                `).join('') || midoCustomerEmpty('لا توجد سجلات صيانة مرتبطة بالحجوزات المحمّلة.')}
+            </div>
+        `;
+    }
+
+    if (s.tab === 'garage') {
+        content = `
+            <div class="mido-customer-section">
+                <h3>موتوسيكلات الجراج</h3>
+                ${bikes.map(b => `
+                    <div class="mido-customer-record">
+                        <div>
+                            <strong>${E(b.nickname || by('motorcycle_models', b.model_id)?.name || 'موتوسيكل')}</strong>
+                            <small>${E(String(b.model_year || ''))}</small>
+                        </div>
+                        <small>${E(b.plate_number || '')}</small>
+                    </div>
+                `).join('') || midoCustomerEmpty('لا توجد موتوسيكلات مسجلة في الجراج.')}
+            </div>
+        `;
+    }
+
+    if (s.tab === 'favorites') {
+        content = `
+            <div class="mido-customer-section">
+                <h3>المنتجات المحفوظة</h3>
+                ${favorites.map(f => {
+                    const product = by('products', f.product_id);
+
+                    return `
+                        <div class="mido-customer-record">
+                            <strong>${E(product?.name_ar || 'منتج غير متاح')}</strong>
+                            <small>${product ? fmt(product.price) : '—'}</small>
+                        </div>
+                    `;
+                }).join('') || midoCustomerEmpty('لا توجد منتجات محفوظة.')}
+            </div>
+        `;
+    }
+
+    return `
+        <div class="mido-customers">
+            <button type="button" class="mido-customer-back"
+                onclick="midoCustomerBack()">رجوع إلى العملاء</button>
+
+            <div class="mido-customer-head">
+                <div>
+                    <h2>${E(customer.name)}</h2>
+                   <p>
+                        ${E(customer.phone || '')} —
+                        ${customer.guest
+                            ? 'طلبات زوار مجمعة حسب رقم التواصل'
+                            : 'حساب مسجل'}
+                    </p>
+                </div>
+            </div>
+
+            <div class="mido-customer-stats">
+                <div><small>الطلبات</small><strong>${customer.orders.length}</strong></div>
+                <div><small>الحجوزات</small><strong>${customer.bookings.length}</strong></div>
+                <div><small>المشتريات</small><strong>${fmt(ordersTotal)}</strong></div>
+                <div><small>الجراج</small><strong>${bikes.length}</strong></div>
+            </div>
+
+            <div class="mido-customer-tabs">
+                ${tabs.map(([key, label]) => `
+                    <button type="button"
+                        class="${s.tab === key ? 'active' : ''}"
+                        onclick="midoCustomerTab('${key}')">
+                        ${label}
+                    </button>
+                `).join('')}
+            </div>
+
+            ${content}
+
+            <div class="mido-customer-note">
+                البيانات معروضة للقراءة فقط. تعديل الحسابات والملاحظات وتعطيلها
+                يحتاج إجراءات إدارية آمنة في Supabase.
+            </div>
+        </div>
+    `;
+}
+
+function adminCustomers() {
+    const customers = midoCustomerRecords();
+    const registered = customers.filter(x => !x.guest);
+    const buyers = customers.filter(x => x.orders.length > 0);
+
+    const selected = customers.find(
+        x => x.key === midoCustomersUI.selected
+    );
+
+    if (selected) return midoCustomerDetail(selected);
+
+    return `
+        <div class="mido-customers">
+            <div class="mido-customer-head">
+                <div>
+                    <h2>إدارة العملاء</h2>
+                    <p>الحسابات والطلبات والحجوزات والجراج</p>
+                </div>
+            </div>
+
+            <div class="mido-customer-stats">
+                <div><small>الحسابات المسجلة</small><strong>${registered.length}</strong></div>
+                <div><small>مجموعات طلبات الزوار</small><strong>${customers.length - registered.length}</strong></div>
+                <div><small>لديهم طلبات</small><strong>${buyers.length}</strong></div>
+                <div><small>إجمالي السجلات المعروضة</small><strong>${customers.length}</strong></div>
+            </div>
+
+            <div class="mido-customer-filters">
+                <input type="search" id="mido-customer-search"
+                    placeholder="ابحث بالاسم أو الهاتف أو البريد..."
+                    value="${E(midoCustomersUI.search)}"
+                    oninput="midoCustomerFilter()">
+
+                <select id="mido-customer-filter"
+                    onchange="midoCustomerFilter()">
+                    <option value="all">كل العملاء</option>
+                    <option value="registered" ${midoCustomersUI.filter === 'registered' ? 'selected' : ''}>الحسابات المسجلة</option>
+                    <option value="guest" ${midoCustomersUI.filter === 'guest' ? 'selected' : ''}>طلبات الزوار</option>
+                    <option value="buyers" ${midoCustomersUI.filter === 'buyers' ? 'selected' : ''}>لديهم طلبات</option>
+                </select>
+            </div>
+
+            <div class="mido-customer-list" id="mido-customer-list">
+                ${customers.map(c => `
+                    <div class="mido-customer-list-row"
+                        data-customer-search="${E([
+                            c.name, c.phone, c.email
+                        ].join(' ').toLowerCase())}"
+                        data-customer-type="${c.guest ? 'guest' : 'registered'}"
+                        data-has-orders="${c.orders.length > 0}">
+
+                        <div>
+                            <strong>${E(c.name)}</strong>
+                            <small>${E(c.phone || c.email || '—')}</small>
+                        </div>
+
+                        <span>${c.guest ? 'زائر' : 'مسجل'}</span>
+                        <span>${c.orders.length} طلب</span>
+                        <span>${c.bookings.length} حجز</span>
+
+                        <button class="mido-customer-open"
+                            onclick="midoCustomerOpen('${encodeURIComponent(c.key)}')">
+                            عرض
+                        </button>
+                    </div>
+                `).join('') || midoCustomerEmpty('لا يوجد عملاء في البيانات المحمّلة.')}
+            </div>
+
+            <p class="mido-customer-note">
+                الإحصائيات تخص البيانات المحمّلة في الصفحة، وليست إجمالي
+                قاعدة البيانات بالكامل.
+            </p>
+        </div>
+    `;
+}
+
 function adminInventory() {
   const quantity = Number(data.get('quantity'));
 
@@ -17867,75 +21121,1519 @@ function assistantSend(raw) {
   say(txt('مش متأكد إني فهمت طلبك. تقدر تقول "احجز صيانة" أو "وريني المنتجات" أو "تتبع طلبي"، أو تتواصل معانا على واتساب.', 'I can help with booking, products, tracking, and navigation. Try another request or contact us on WhatsApp.'));
 }
 /* Focused administrative workflows layered over the generic CRUD editor. */
-function adminOrders() {
-  const os = get('orders');
-  return `<div class="table-wrap"><table class="data-table"><thead><tr><th>رقم الطلب</th><th>العميل والهاتف</th><th>الإجمالي</th><th>الشحن</th><th>الحالة</th><th>الإجراءات</th></tr></thead><tbody>${os.map(o => `<tr><td>${E(o.order_number)}<div class="muted small">${humanDate(o.created_at)}</div></td><td>${E(o.customer_name)}<div>${E(o.phone)}</div></td><td>${fmt(o.total)}</td><td>${fmt(o.shipping_fee)}</td><td><span class="tag status-${E(o.status)}">${E(o.status)}</span></td><td><button class="btn sm" onclick="openOrderAdmin('${o.id}')">تفاصيل / تغيير الحالة</button></td></tr>`).join('')}</tbody></table></div>`
-}
-function openOrderAdmin(id) {
 
-  const o = by('orders', id);
-  if (!o) return;
-  const items = get('order_items').filter(x => x.order_id === id);
-  openModal(`<h2>${E(o.order_number)}</h2><p>${E(o.customer_name)} — <a href="tel:${E(o.phone)}">${E(o.phone)}</a></p>
- <p>${E(by('governorates', o.governorate_id)?.name_ar || '')} • ${E(by('cities', o.city_id)?.name_ar || '')} • ${E(o.district)} • ${E(o.street)} • ${E(o.building)} • ${E(o.apartment || '')}</p>
- ${items.map(x => `<div class="spread" style="padding:9px 0;border-bottom:1px solid var(--line)"><span>${E(x.item_name)} × ${x.quantity}</span><strong>${fmt(x.line_total)}</strong></div>`).join('')}
- <div class="sum-row"><span>المنتجات</span><strong>${fmt(o.subtotal)}</strong></div><div class="sum-row"><span>الخصم</span><strong>${fmt(o.discount)}</strong></div>
- <div class="sum-row"><span>الشحن</span><strong>${fmt(o.shipping_fee)}</strong></div><div class="sum-row total"><span>الإجمالي</span><span>${fmt(o.total)}</span></div>
- <form onsubmit="event.preventDefault();updateOrderStatus('${id}',this)"><div class="field"><label>حالة الطلب</label><select name="status">${[
-      'received',
-      'confirmed',
-      'preparing',
-      'shipped',
-      'out_for_delivery',
-      'delivered',
-      'cancelled'
-    ].map(s => `<option ${o.status === s ? 'selected' : ''}>${s}</option>`).join('')}</select></div><button class="btn primary">حفظ الحالة</button></form>`)
+/* MIDO ORDERS MANAGEMENT */
+
+const MIDO_ORDER_STATUSES = [
+  ['received', 'تم الاستلام', 'Received'],
+  ['confirmed', 'تم التأكيد', 'Confirmed'],
+  ['preparing', 'قيد التجهيز', 'Preparing'],
+  ['shipped', 'تم الشحن', 'Shipped'],
+  ['out_for_delivery', 'خرج للتوصيل', 'Out for delivery'],
+  ['delivered', 'تم التسليم', 'Delivered'],
+  ['cancelled', 'ملغي', 'Cancelled']
+];
+
+function midoOrderStatusLabel(status) {
+  const item = MIDO_ORDER_STATUSES.find(x => x[0] === status);
+  return item ? txt(item[1], item[2]) : (status || '—');
 }
-async function updateOrderStatus(id, form) {
+
+function midoOrderNextStatuses(status) {
+  const next = {
+    received: ['confirmed', 'cancelled'],
+    confirmed: ['preparing', 'cancelled'],
+    preparing: ['shipped', 'cancelled'],
+    shipped: ['out_for_delivery'],
+    out_for_delivery: ['delivered'],
+    delivered: [],
+    cancelled: []
+  };
+
+  return [status, ...(next[status] || [])];
+}
+
+
+/* MIDO ORDERS — SERVER PAGINATION */
+
+const midoOrdersState = {
+  page: 1,
+  pageSize: 25,
+  search: '',
+  status: 'all',
+  from: '',
+  to: '',
+  total: 0,
+  stats: {
+    all: 0,
+    new: 0,
+    processing: 0,
+    revenue: 0
+  },
+  orders: [],
+  loaded: false,
+  loading: false
+};
+
+let midoOrdersFilterTimer = null;
+let midoOrdersRequestId = 0;
+
+async function midoLoadOrdersPage() {
+  if (!state.staff || !perm('orders.manage')) return;
+
+  const requestId = ++midoOrdersRequestId;
+  midoOrdersState.loading = true;
+
   try {
-    if (!confirm('تأكيد تحديث حالة الطلب؟')) return;
-    await dbUpdate('orders', id, {
-      status: new FormData(form).get('status')
-    });
-    closeModal();
-    await loadAdminData();
-    render();
-    toast('تم تحديث حالة الطلب')
-  } catch (e) {
-    toast(friendlyError(e), true)
+    const { data, error } = await state.db.rpc(
+      'mido_admin_orders_page',
+      {
+        p_page: midoOrdersState.page,
+        p_page_size: midoOrdersState.pageSize,
+        p_search: midoOrdersState.search,
+        p_status: midoOrdersState.status,
+        p_from: midoOrdersState.from || null,
+        p_to: midoOrdersState.to || null
+      }
+    );
+
+    if (requestId !== midoOrdersRequestId) return;
+    if (error) throw error;
+    if (!data || !Array.isArray(data.orders)) {
+      throw Error('INVALID_ORDERS_RESPONSE');
+    }
+
+    midoOrdersState.orders = data.orders;
+    midoOrdersState.total = Number(data.total || 0);
+    midoOrdersState.stats = {
+      all: Number(data.stats?.all || 0),
+      new: Number(data.stats?.new || 0),
+      processing: Number(data.stats?.processing || 0),
+      revenue: Number(data.stats?.revenue || 0)
+    };
+midoOrdersState.loaded = true;
+midoOrdersState.loading = false;
+
+if (route() === '/admin/orders') {
+   const focused = document.activeElement;
+      const focusId = focused?.id || '';
+      let cursor = null;
+
+      if (
+        focusId === 'mido-order-search' &&
+        typeof focused.selectionStart === 'number'
+      ) {
+        cursor = focused.selectionStart;
+      }
+
+      render();
+
+      if (focusId) {
+        const next = document.getElementById(focusId);
+
+        if (next) {
+          next.focus({ preventScroll: true });
+
+          if (cursor !== null) {
+            next.setSelectionRange(cursor, cursor);
+          }
+        }
+      }
+    }
+
+  } catch (error) {
+    if (requestId === midoOrdersRequestId) {
+      console.error('Orders pagination:', error);
+      toast(friendlyError(error), true);
+    }
+  } finally {
+    if (requestId === midoOrdersRequestId) {
+      midoOrdersState.loading = false;
+    }
   }
 }
-function adminBookings() {
-  const bs = get('service_bookings');
-  return `<div class="table-wrap"><table class="data-table"><thead><tr><th>رقم الحجز</th><th>العميل</th><th>الخدمة</th><th>الموعد</th><th>الحالة</th><th>إدارة</th></tr></thead><tbody>${bs.map(b => `<tr><td>${E(b.booking_number)}</td><td>${E(b.customer_name)}<br>${E(b.phone)}</td><td>${E(by('services', b.service_id)?.name_ar || '')}</td><td>${E(humanDate(by('available_slots', b.slot_id)?.starts_at || b.created_at))}</td><td>${E(b.status)}</td><td><button class="btn sm" onclick="editAdminRecord('service_bookings','${b.id}')">تعديل</button> <button class="btn sm outline" onclick="rescheduleModal('${b.id}')">الموعد</button></td></tr>`).join('')}</tbody></table></div>`
+
+function midoEnsureOrdersLoaded() {
+  if (!midoOrdersState.loaded && !midoOrdersState.loading) {
+    midoLoadOrdersPage();
+  }
 }
+
+function adminOrders() {
+  if (!state.staff || !perm('orders.manage')) {
+    return `<div class="notice">
+      ${txt('غير مصرح', 'Access denied')}
+    </div>`;
+  }
+
+  const s = midoOrdersState;
+  const orders = s.orders;
+  const totalPages = Math.max(
+    1,
+    Math.ceil(s.total / s.pageSize)
+  );
+
+  const start = s.total
+    ? (s.page - 1) * s.pageSize + 1
+    : 0;
+
+  const end = Math.min(
+    s.total,
+    s.page * s.pageSize
+  );
+
+  return `
+    <section class="mido-orders-page">
+
+      <div class="mido-orders-top">
+        <div>
+          <h2>${txt('إدارة الطلبات', 'Order Management')}</h2>
+          <p>${txt(
+            'استلام وتجهيز وشحن وتسليم الطلبات من مكان واحد.',
+            'Manage fulfillment, delivery and collection.'
+          )}</p>
+        </div>
+
+        <button type="button"
+                class="btn outline sm"
+                onclick="midoRefreshOrders()">
+          ${txt('تحديث البيانات', 'Refresh data')}
+        </button>
+      </div>
+
+      <div class="mido-orders-stats">
+        ${[
+          [txt('كل الطلبات', 'Total orders'), s.stats.all],
+          [txt('طلبات جديدة', 'New orders'), s.stats.new],
+          [txt('قيد التنفيذ', 'In progress'), s.stats.processing],
+          [
+            txt('مبيعات تم تسليمها', 'Delivered revenue'),
+            fmt(s.stats.revenue)
+          ]
+        ].map(([label, value]) => `
+          <div class="mido-order-stat">
+            <span>${label}</span>
+            <strong>${value}</strong>
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="mido-orders-panel">
+        <div class="mido-orders-panel-head">
+          <div>
+            <h3>${txt('قائمة الطلبات', 'Orders list')}</h3>
+            <small>${txt(
+              'البحث بيشمل كل الطلبات في قاعدة البيانات.',
+              'Search covers all orders in the database.'
+            )}</small>
+          </div>
+
+          <small>
+            ${s.loading
+              ? txt('جاري التحديث...', 'Loading...')
+              : txt('البيانات محدثة', 'Data loaded')}
+          </small>
+        </div>
+
+        <div class="mido-orders-filters">
+          <input
+            type="search"
+            id="mido-order-search"
+            value="${E(s.search)}"
+            placeholder="${txt(
+              'اسم العميل أو الهاتف أو رقم الطلب',
+              'Customer, phone or order number'
+            )}"
+            oninput="midoFilterOrders()"
+          >
+
+          <select id="mido-order-status-filter"
+                  onchange="midoFilterOrders()">
+            <option value="all">
+              ${txt('كل الحالات', 'All statuses')}
+            </option>
+
+            ${MIDO_ORDER_STATUSES.map(status => `
+              <option value="${status[0]}"
+                ${s.status === status[0] ? 'selected' : ''}>
+                ${txt(status[1], status[2])}
+              </option>
+            `).join('')}
+          </select>
+
+          <input
+            type="date"
+            id="mido-order-from"
+            value="${E(s.from)}"
+            aria-label="${txt('من تاريخ', 'From date')}"
+            onchange="midoFilterOrders()"
+          >
+
+          <input
+            type="date"
+            id="mido-order-to"
+            value="${E(s.to)}"
+            aria-label="${txt('إلى تاريخ', 'To date')}"
+            onchange="midoFilterOrders()"
+          >
+        </div>
+
+        <div class="table-wrap">
+          <table class="data-table mido-orders-table">
+            <thead>
+              <tr>
+                <th>${txt('الطلب', 'Order')}</th>
+                <th>${txt('العميل', 'Customer')}</th>
+                <th>${txt('البنود', 'Items')}</th>
+                <th>${txt('الإجمالي', 'Total')}</th>
+                <th>${txt('الحالة', 'Status')}</th>
+                <th>${txt('الإجراءات', 'Actions')}</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              ${orders.map(o => `
+                <tr class="mido-order-row">
+                  <td>
+                    <strong>${E(o.order_number || '')}</strong>
+                    <small>${E(humanDate(o.created_at))}</small>
+                  </td>
+
+                  <td>
+                    <strong>${E(o.customer_name || '')}</strong>
+                    <small dir="ltr">${E(o.phone || '')}</small>
+                  </td>
+
+                  <td>
+                    <strong>${Number(o.item_count || 0)}</strong>
+                  </td>
+
+                  <td>
+                    <strong>${fmt(o.total || 0)}</strong>
+                  </td>
+
+                  <td>
+                    <span class="mido-order-status ${E(o.status)}">
+                      ${midoOrderStatusLabel(o.status)}
+                    </span>
+                  </td>
+
+                  <td>
+                    <button type="button"
+                            class="mido-order-open-btn"
+                            onclick="openOrderAdmin('${E(o.id)}')">
+                      ${txt('عرض التفاصيل', 'View details')}
+                    </button>
+                  </td>
+                </tr>
+              `).join('') || `
+                <tr>
+                  <td colspan="6" style="text-align:center;padding:25px">
+                    ${s.loaded
+                      ? txt('لا توجد طلبات مطابقة', 'No matching orders')
+                      : txt('جاري تحميل الطلبات...', 'Loading orders...')}
+                  </td>
+                </tr>
+              `}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="mido-orders-pagination">
+          <span>
+            ${txt('عرض', 'Showing')}
+            ${start}–${end}
+            ${txt('من', 'of')}
+            ${s.total}
+            ${txt('طلب', 'orders')}
+          </span>
+
+          <div>
+            <button type="button"
+              onclick="midoOrdersGoPage(${s.page - 1})"
+              ${s.page <= 1 || s.loading ? 'disabled' : ''}>
+              ${txt('السابق', 'Previous')}
+            </button>
+
+            <strong>${s.page} / ${totalPages}</strong>
+
+            <button type="button"
+              onclick="midoOrdersGoPage(${s.page + 1})"
+              ${s.page >= totalPages || s.loading ? 'disabled' : ''}>
+              ${txt('التالي', 'Next')}
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  `;
+}
+
+function midoFilterOrders() {
+  const s = midoOrdersState;
+
+  s.search = document.getElementById(
+    'mido-order-search'
+  )?.value || '';
+
+  s.status = document.getElementById(
+    'mido-order-status-filter'
+  )?.value || 'all';
+
+  s.from = document.getElementById(
+    'mido-order-from'
+  )?.value || '';
+
+  s.to = document.getElementById(
+    'mido-order-to'
+  )?.value || '';
+
+  s.page = 1;
+
+  clearTimeout(midoOrdersFilterTimer);
+
+  midoOrdersFilterTimer = setTimeout(() => {
+    midoLoadOrdersPage();
+  }, 350);
+}
+
+function midoOrdersGoPage(page) {
+  const totalPages = Math.max(
+    1,
+    Math.ceil(
+      midoOrdersState.total / midoOrdersState.pageSize
+    )
+  );
+
+  if (
+    !Number.isSafeInteger(page) ||
+    page < 1 ||
+    page > totalPages
+  ) return;
+
+  midoOrdersState.page = page;
+  midoLoadOrdersPage();
+}
+
+async function midoRefreshOrders() {
+  clearTimeout(midoOrdersFilterTimer);
+  await midoLoadOrdersPage();
+}
+let midoOrderPrintCache = null;
+async function openOrderAdmin(id) {
+  if (!state.staff || !perm('orders.manage')) {
+    return toast(txt('غير مصرح', 'Access denied'), true);
+  }
+
+  try {
+    const [orderResult, itemsResult, opsResult,
+      historyResult, eventsResult] = await Promise.all([
+      state.db.from('orders').select('*')
+        .eq('id', id).single(),
+
+      state.db.from('order_items').select('*')
+        .eq('order_id', id),
+
+      state.db.from('mido_order_operations').select('*')
+        .eq('order_id', id).maybeSingle(),
+
+      state.db.from('order_status_history').select('*')
+        .eq('order_id', id)
+        .order('created_at', { ascending: false })
+        .limit(100),
+
+      state.db.from('mido_order_operation_events').select('*')
+        .eq('order_id', id)
+        .order('created_at', { ascending: false })
+        .limit(100)
+    ]);
+
+    for (const result of [
+      orderResult, itemsResult, opsResult,
+      historyResult, eventsResult
+    ]) {
+      if (result.error) throw result.error;
+    }
+
+    const o = orderResult.data;
+    const items = itemsResult.data || [];
+    const ops = opsResult.data || {};
+    const history = historyResult.data || [];
+    const events = eventsResult.data || [];
+    midoOrderPrintCache = {
+  order: o,
+  items
+};
+
+    if (!o) throw Error('ORDER_NOT_FOUND');
+
+    const finalStatus =
+      ['delivered','cancelled'].includes(o.status);
+
+    const amountCollected =
+      Number(ops.cod_collected_amount || 0);
+
+    const due = Math.max(
+      0, Number(o.total || 0) - amountCollected
+    );
+
+    const address = [
+      by('governorates', o.governorate_id)?.name_ar,
+      by('cities', o.city_id)?.name_ar,
+      o.district, o.street, o.building,
+      o.apartment, o.landmark
+    ].filter(Boolean).join(' — ');
+
+    openModal(`
+      <div class="mido-order-details">
+
+        <div class="mido-order-detail-head">
+          <div>
+            <span>${txt('تفاصيل الطلب', 'Order details')}</span>
+            <h2 dir="ltr">${E(o.order_number)}</h2>
+            <p>${E(humanDate(o.created_at))}</p>
+          </div>
+          <span class="mido-order-status ${E(o.status)}">
+            ${midoOrderStatusLabel(o.status)}
+          </span>
+        </div>
+
+        <div class="mido-order-detail-grid">
+          <section class="mido-order-detail-card">
+            <h3>${txt('بيانات العميل', 'Customer')}</h3>
+            <strong>${E(o.customer_name)}</strong>
+            <p><a href="tel:${E(o.phone)}" dir="ltr">${E(o.phone)}</a></p>
+            ${o.alt_phone ? `
+              <p><a href="tel:${E(o.alt_phone)}" dir="ltr">
+                ${E(o.alt_phone)}</a></p>
+            ` : ''}
+            <p>${E(address)}</p>
+            ${o.notes ? `<p>${E(o.notes)}</p>` : ''}
+          </section>
+
+          <section class="mido-order-detail-card">
+            <h3>${txt('ملخص الحساب', 'Order totals')}</h3>
+            <div class="sum-row">
+              <span>${txt('المنتجات', 'Subtotal')}</span>
+              <strong>${fmt(o.subtotal)}</strong>
+            </div>
+            <div class="sum-row">
+              <span>${txt('الخصم', 'Discount')}</span>
+              <strong>${fmt(o.discount)}</strong>
+            </div>
+            <div class="sum-row">
+              <span>${txt('الشحن', 'Shipping')}</span>
+              <strong>${fmt(o.shipping_fee)}</strong>
+            </div>
+            <div class="sum-row total">
+              <span>${txt('الإجمالي', 'Total')}</span>
+              <strong>${fmt(o.total)}</strong>
+            </div>
+          </section>
+        </div>
+
+        <section class="mido-order-detail-card">
+          <h3>${txt('بنود الطلب', 'Order items')}</h3>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>${txt('المنتج', 'Product')}</th>
+                  <th>SKU</th>
+                  <th>${txt('الكمية', 'Qty')}</th>
+                  <th>${txt('سعر الوحدة', 'Unit price')}</th>
+                  <th>${txt('الإجمالي', 'Line total')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${items.map(i => {
+                  const product = i.product_id
+                    ? by('products', i.product_id) : null;
+
+                  const image = product
+                    ? safeUrl(pimg(product.id) || '') : '';
+
+                  return `
+                    <tr>
+                      <td>
+                        <div class="mido-order-product">
+                          ${image
+                            ? `<img src="${E(image)}" alt="" loading="lazy">`
+                            : ''}
+                          <strong>${E(i.item_name)}</strong>
+                        </div>
+                      </td>
+                      <td>${E(i.sku || '—')}</td>
+                      <td>${Number(i.quantity)}</td>
+                      <td>${fmt(i.unit_price)}</td>
+                      <td><strong>${fmt(i.line_total)}</strong></td>
+                    </tr>
+                  `;
+                }).join('')}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <form id="mido-order-save-form"
+      data-current-status="${E(o.status)}"
+      data-total="${Number(o.total)}"
+              onsubmit="event.preventDefault();midoSaveOrder('${E(o.id)}',this)">
+
+          <section class="mido-order-detail-card">
+            <h3>${txt('حالة الطلب', 'Order status')}</h3>
+
+            <div class="field">
+              <label>${txt('مرحلة التنفيذ', 'Fulfillment stage')}</label>
+              <select name="status"
+                      ${finalStatus ? 'disabled' : ''}>
+                ${midoOrderNextStatuses(o.status).map(s => `
+                  <option value="${E(s)}"
+                    ${o.status === s ? 'selected' : ''}>
+                    ${midoOrderStatusLabel(s)}
+                  </option>
+                `).join('')}
+              </select>
+            </div>
+
+            <div class="field">
+              <label>
+                ${txt('سبب الإلغاء (لو هتلغي الطلب)', 'Cancellation reason')}
+              </label>
+              <textarea name="cancel_reason"
+                        rows="2" maxlength="1000"
+                        placeholder="${txt(
+                          'سبب واضح لإلغاء الطلب',
+                          'Reason for cancellation'
+                        )}"></textarea>
+            </div>
+          </section>
+
+          <section class="mido-order-detail-card">
+            <h3>${txt('إدارة الشحن', 'Shipping')}</h3>
+
+            <div class="form-grid">
+              <div class="field">
+                <label>${txt('شركة الشحن', 'Courier')}</label>
+                <input name="shipping_company"
+                       maxlength="120"
+                       value="${E(ops.shipping_company || '')}"
+                       placeholder="${txt('اسم شركة التوصيل', 'Courier name')}">
+              </div>
+
+              <div class="field">
+                <label>${txt('رقم الشحنة', 'Tracking number')}</label>
+                <input name="tracking_number"
+                       maxlength="120" dir="ltr"
+                       value="${E(ops.tracking_number || '')}">
+              </div>
+            </div>
+          </section>
+
+          <section class="mido-order-detail-card">
+            <h3>${txt('الدفع عند الاستلام', 'Cash on delivery')}</h3>
+
+            <div class="mido-order-cod-summary">
+              <div>
+                <span>${txt('المطلوب تحصيله', 'Total due')}</span>
+                <strong>${fmt(o.total)}</strong>
+              </div>
+              <div>
+                <span>${txt('تم تحصيله', 'Collected')}</span>
+                <strong>${fmt(amountCollected)}</strong>
+              </div>
+              <div>
+                <span>${txt('المتبقي', 'Remaining')}</span>
+                <strong>${fmt(due)}</strong>
+              </div>
+            </div>
+
+            <div class="field">
+              <label>${txt('إجمالي المبلغ المحصّل فعليًا', 'Amount collected')}</label>
+              <input type="number" name="cod_amount"
+                     min="0" max="${Number(o.total)}"
+                     step="0.01"
+                     value="${amountCollected}">
+            </div>
+
+            <p class="muted small">
+              ${txt(
+                'سجّل المبلغ الذي تم استلامه بالفعل، ولا تعتبر الطلب مدفوعًا لمجرد تسليمه.',
+                'Record actual money received, independently of delivery status.'
+              )}
+            </p>
+          </section>
+
+          <section class="mido-order-detail-card">
+            <h3>${txt('ملاحظات الإدارة', 'Internal notes')}</h3>
+            <textarea name="internal_notes"
+                      class="input" rows="3"
+                      maxlength="4000"
+                      placeholder="${txt(
+                        'ملاحظات للموظفين فقط...',
+                        'Staff-only notes...'
+                      )}">${E(ops.internal_notes || '')}</textarea>
+          </section>
+
+          <div class="mido-order-save-actions">
+            <button type="submit" class="btn primary">
+              ${txt('حفظ التعديلات', 'Save changes')}
+            </button>
+
+            <button type="button" class="btn outline"
+                    onclick="midoPrintOrder('${E(o.id)}','invoice')">
+              ${txt('طباعة الطلب', 'Print order')}
+            </button>
+
+            <button type="button" class="btn outline"
+                    onclick="midoPrintOrder('${E(o.id)}','packing')">
+              ${txt('إيصال التجهيز', 'Packing slip')}
+            </button>
+          </div>
+        </form>
+
+        <section class="mido-order-detail-card">
+          <h3>${txt('سجل حالة الطلب', 'Order status history')}</h3>
+          <div class="mido-order-timeline">
+            ${history.map(h => `
+              <div class="mido-order-history-row">
+                <strong>${midoOrderStatusLabel(h.status)}</strong>
+                <small>${E(humanDate(h.created_at))}</small>
+                ${h.notes ? `<p>${E(h.notes)}</p>` : ''}
+              </div>
+            `).join('') || `
+              <p class="muted">${txt('لا يوجد سجل', 'No history')}</p>
+            `}
+          </div>
+
+          <h3 style="margin-top:18px">
+            ${txt('آخر إجراءات الموظفين', 'Staff activity')}
+          </h3>
+          <div class="mido-order-timeline">
+            ${events.map(e => {
+              const actor = get('profiles').find(
+                p => String(p.id) === String(e.actor_id)
+              );
+
+              return `
+                <div class="mido-order-history-row">
+                  <strong>
+                    ${e.event_type === 'status_changed'
+                      ? txt('تغيير حالة الطلب', 'Status change')
+                      : txt('تعديل بيانات التنفيذ', 'Details updated')}
+                  </strong>
+                  <small>
+                    ${E(actor?.full_name || txt('موظف', 'Staff'))}
+                    · ${E(humanDate(e.created_at))}
+                  </small>
+                </div>
+              `;
+            }).join('') || '—'}
+          </div>
+        </section>
+      </div>
+    `);
+
+  } catch (e) {
+    toast(friendlyError(e), true);
+  }
+}
+
+let midoOrderSaving = false;
+
+async function midoSaveOrder(id, form) {
+  if (!state.staff || !perm('orders.manage')) {
+    return toast(txt('غير مصرح', 'Access denied'), true);
+  }
+
+  if (midoOrderSaving) return;
+
+  const f = new FormData(form);
+  const currentStatus = form.dataset.currentStatus;
+const orderTotal = Number(form.dataset.total);
+
+  // Terminal orders have a disabled status selector.
+  const status = String(
+    f.get('status') || currentStatus || ''
+  );
+
+  const codAmount = Number(f.get('cod_amount'));
+  const reason = String(f.get('cancel_reason') || '').trim();
+
+  if (!Number.isFinite(codAmount) ||
+      codAmount < 0 ||
+      codAmount > orderTotal) {
+    return toast(
+      txt('قيمة التحصيل غير صحيحة', 'Invalid collected amount'),
+      true
+    );
+  }
+
+  if (status === 'cancelled' &&
+      currentStatus !== 'cancelled' &&
+      reason.length < 8) {
+    return toast(
+      txt('اكتب سبب الإلغاء', 'Cancellation reason required'),
+      true
+    );
+  }
+
+  if (status !== currentStatus && !confirm(txt(
+    'تأكيد تغيير حالة الطلب؟',
+    'Confirm order status change?'
+  ))) return;
+
+  const button = form.querySelector('button[type="submit"]');
+  midoOrderSaving = true;
+  if (button) button.disabled = true;
+
+  try {
+    const { error } = await state.db.rpc('mido_manage_order', {
+      p_order: id,
+      p_status: status,
+      p_shipping_company: String(f.get('shipping_company') || ''),
+      p_tracking_number: String(f.get('tracking_number') || ''),
+      p_cod_amount: codAmount,
+      p_internal_notes: String(f.get('internal_notes') || ''),
+      p_cancel_reason: reason
+    });
+
+    if (error) throw error;
+
+closeModal();
+
+await loadAdminData();
+
+if (route() === '/admin/orders') {
+  await midoLoadOrdersPage();
+} else {
+  render();
+}
+
+toast(
+  txt(
+    'تم حفظ الطلب وتحديث البيانات.',
+    'Order saved and data refreshed.'
+  )
+);
+  } catch (e) {
+    toast(friendlyError(e), true);
+  } finally {
+    midoOrderSaving = false;
+    if (button?.isConnected) button.disabled = false;
+  }
+}
+
+
+/* Print immutable order details */
+
+function midoPrintOrder(id, type = 'invoice') {
+  if (!state.staff || !perm('orders.manage')) {
+    toast(txt('غير مصرح', 'Access denied'), true);
+    return;
+  }
+
+  const cached =
+    String(midoOrderPrintCache?.order?.id) === String(id)
+      ? midoOrderPrintCache
+      : null;
+
+  const order = cached?.order || by('orders', id);
+
+  if (!order) {
+    toast(
+      txt(
+        'الطلب غير موجود. حدّث البيانات وحاول مجددًا.',
+        'Order not found. Refresh and try again.'
+      ),
+      true
+    );
+    return;
+  }
+
+  if (!cached) {
+    toast(
+      txt(
+        'افتح تفاصيل الطلب أولًا للحصول على جميع البنود.',
+        'Open order details first to load all items.'
+      ),
+      true
+    );
+    return;
+  }
+
+  const items = cached.items || [];
+
+  const address = [
+    by('governorates', order.governorate_id)?.name_ar,
+    by('cities', order.city_id)?.name_ar,
+    order.district,
+    order.street,
+    order.building,
+    order.apartment,
+    order.landmark
+  ].filter(Boolean).join(' — ');
+
+  const packing = type === 'packing';
+
+  const rows = items.map(item => `
+    <tr>
+      <td>${E(item.item_name || '—')}</td>
+      <td>${E(item.sku || '—')}</td>
+      <td>${Number(item.quantity || 0)}</td>
+      ${packing ? '' : `
+        <td>${fmt(item.unit_price || 0)}</td>
+        <td>${fmt(item.line_total || 0)}</td>
+      `}
+    </tr>
+  `).join('');
+
+  const printable = `
+    <!doctype html>
+    <html lang="ar" dir="rtl">
+    <head>
+      <meta charset="utf-8">
+      <title>${E(order.order_number || '')}</title>
+
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        body {
+          margin: 30px;
+          direction: rtl;
+          font: 13px/1.8 Arial, sans-serif;
+          color: #18282b;
+          background: #fff;
+        }
+
+        header {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 20px;
+          padding-bottom: 15px;
+          margin-bottom: 20px;
+          border-bottom: 3px solid #ffcc38;
+        }
+
+        h1 {
+          font-size: 24px;
+          margin: 0;
+        }
+
+        h2 {
+          font-size: 17px;
+          margin: 24px 0 12px;
+        }
+
+        p {
+          margin: 7px 0;
+        }
+
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 20px 0;
+        }
+
+        th, td {
+          border: 1px solid #dce3e5;
+          padding: 10px;
+          text-align: right;
+        }
+
+        th {
+          background: #f4f6f6;
+        }
+
+        .total {
+          font-size: 20px;
+          font-weight: bold;
+          margin-top: 20px;
+        }
+
+        .signatures {
+          display: flex;
+          gap: 35px;
+          margin-top: 60px;
+        }
+
+        .signatures span {
+          flex: 1;
+          padding-top: 10px;
+          border-top: 1px solid #89979a;
+        }
+
+        @media print {
+          body {
+            margin: 12mm;
+          }
+
+          header {
+            break-after: avoid;
+          }
+
+          tr {
+            break-inside: avoid;
+          }
+        }
+        
+      </style>
+    </head>
+
+    <body>
+      <header>
+        <div>
+          <h1>Mr Mido Motors</h1>
+          <p>مستر ميدو موتورز</p>
+        </div>
+
+        <strong>
+          ${packing ? 'إيصال تجهيز' : 'ملخص الطلب'}
+        </strong>
+      </header>
+
+      <p>
+        <strong>رقم الطلب:</strong>
+        ${E(order.order_number || '')}
+      </p>
+
+      <p>
+        <strong>التاريخ:</strong>
+        ${E(humanDate(order.created_at))}
+      </p>
+
+      <p>
+        <strong>العميل:</strong>
+        ${E(order.customer_name || '—')}
+      </p>
+
+      <p>
+        <strong>الهاتف:</strong>
+        ${E(order.phone || '—')}
+      </p>
+
+      <p>
+        <strong>العنوان:</strong>
+        ${E(address || '—')}
+      </p>
+
+      <h2>بنود الطلب</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>المنتج</th>
+            <th>SKU</th>
+            <th>الكمية</th>
+
+            ${packing ? '' : `
+              <th>سعر الوحدة</th>
+              <th>الإجمالي</th>
+            `}
+          </tr>
+        </thead>
+
+        <tbody>
+          ${rows || `
+            <tr>
+              <td colspan="${packing ? 3 : 5}">
+                لا توجد بنود للعرض
+              </td>
+            </tr>
+          `}
+        </tbody>
+      </table>
+
+      ${packing ? '' : `
+        <p>إجمالي المنتجات: ${fmt(order.subtotal || 0)}</p>
+        <p>الخصم: ${fmt(order.discount || 0)}</p>
+        <p>الشحن: ${fmt(order.shipping_fee || 0)}</p>
+
+        <p class="total">
+          المبلغ النهائي: ${fmt(order.total || 0)}
+        </p>
+      `}
+
+      <div class="signatures">
+        <span>مسؤول التجهيز / التوقيع</span>
+        <span>المراجعة / التوقيع</span>
+      </div>
+    <\/body>
+    <\/html>
+  `;
+  const printWindow = window.open(
+    '',
+    '_blank',
+    'width=900,height=750'
+  );
+
+  if (!printWindow) {
+    toast(
+      txt(
+        'اسمح بالنوافذ المنبثقة لاستخدام الطباعة.',
+        'Allow popups to print.'
+      ),
+      true
+    );
+    return;
+  }
+
+  printWindow.document.open();
+  printWindow.document.write(printable);
+
+  printWindow.addEventListener(
+    'load',
+    () => {
+      printWindow.focus();
+      printWindow.print();
+    },
+    { once: true }
+  );
+
+  printWindow.document.close();
+}
+
+/* Unified Maintenance Management */
+
+const midoMaintenanceUI = {
+    tab: 'bookings',
+    selected: null,
+    detailTab: 'booking',
+    search: '',
+    filter: 'all'
+};
+
+const midoMaintenanceStatusLabels = {
+    pending: 'جديد',
+    confirmed: 'مؤكد',
+    in_progress: 'قيد التنفيذ',
+    completed: 'مكتمل',
+    cancelled: 'ملغي',
+    rejected: 'مرفوض'
+};
+
+function midoMaintenanceStatus(status) {
+    return midoMaintenanceStatusLabels[status] || status || '—';
+}
+
+function midoMaintenanceBookings() {
+    return [...get('service_bookings')].sort(
+        (a, b) =>
+            new Date(b.created_at || 0) -
+            new Date(a.created_at || 0)
+    );
+}
+
+function midoMaintenanceOpen(id) {
+    midoMaintenanceUI.selected = id;
+    midoMaintenanceUI.detailTab = 'booking';
+    render();
+}
+
+function midoMaintenanceBack() {
+    midoMaintenanceUI.selected = null;
+    render();
+}
+
+function midoMaintenanceTab(tab) {
+    midoMaintenanceUI.tab = tab;
+    midoMaintenanceUI.selected = null;
+    render();
+}
+
+function midoMaintenanceDetailTab(tab) {
+    midoMaintenanceUI.detailTab = tab;
+    render();
+}
+
+function midoMaintenanceFilter() {
+    const search = document.getElementById('mido-maint-search');
+    const status = document.getElementById('mido-maint-filter');
+
+    midoMaintenanceUI.search = search?.value || '';
+    midoMaintenanceUI.filter = status?.value || 'all';
+
+    const q = midoMaintenanceUI.search.trim().toLowerCase();
+
+    document.querySelectorAll('[data-maint-search]').forEach(item => {
+        const matchesSearch =
+            !q || (item.dataset.maintSearch || '').includes(q);
+
+        const matchesStatus =
+            midoMaintenanceUI.filter === 'all' ||
+            item.dataset.maintStatus === midoMaintenanceUI.filter;
+
+        item.hidden = !(matchesSearch && matchesStatus);
+    });
+}
+
+function midoMaintenanceBookingDate(b) {
+    const slot = by('available_slots', b.slot_id);
+    return slot?.starts_at || b.created_at;
+}
+
+function midoMaintenanceBookingCard(b) {
+    const records = get('maintenance_records').filter(
+        r => String(r.booking_id) === String(b.id)
+    );
+
+    const search = [
+        b.booking_number,
+        b.customer_name,
+        b.phone,
+        b.status,
+        by('services', b.service_id)?.name_ar
+    ].join(' ').toLowerCase();
+
+    return `
+        <article class="mido-maint-card"
+            data-maint-search="${E(search)}"
+            data-maint-status="${E(b.status || '')}">
+
+            <div class="mido-maint-card-head">
+                <div>
+                    <h3>
+                        ${E(b.customer_name || 'عميل')}
+                        — ${E(b.booking_number || '')}
+                    </h3>
+
+                    <p>
+                        ${E(by('services', b.service_id)?.name_ar || 'خدمة صيانة')}
+                    </p>
+
+                    <p>
+                        ${E(humanDate(midoMaintenanceBookingDate(b)))}
+                    </p>
+                </div>
+
+                <span class="mido-maint-status">
+                    ${E(midoMaintenanceStatus(b.status))}
+                </span>
+            </div>
+
+            <div class="mido-maint-card-foot">
+                <span>
+                    ${records.length}
+                    ${records.length === 1 ? 'تقرير مرتبط' : 'تقارير مرتبطة'}
+                </span>
+
+                <button class="mido-maint-btn"
+                    onclick="midoMaintenanceOpen('${E(b.id)}')">
+                    عرض الحجز
+                </button>
+            </div>
+        </article>
+    `;
+}
+
+function midoMaintenanceDetail(b) {
+    const ui = midoMaintenanceUI;
+
+    const service = by('services', b.service_id);
+    const slot = by('available_slots', b.slot_id);
+
+    const bike = b.customer_motorcycle_id
+        ? by('customer_motorcycles', b.customer_motorcycle_id)
+        : null;
+
+    const records = get('maintenance_records').filter(
+        r => String(r.booking_id) === String(b.id)
+    );
+
+    let content = '';
+
+    if (ui.detailTab === 'booking') {
+        content = `
+            <div class="mido-maint-section">
+                <h3>بيانات العميل والحجز</h3>
+
+                <div class="mido-maint-info">
+                    <div>
+                        <small>العميل</small>
+                        <strong>${E(b.customer_name || '—')}</strong>
+                    </div>
+
+                    <div>
+                        <small>رقم الهاتف</small>
+                        <strong>${E(b.phone || '—')}</strong>
+                    </div>
+
+                    <div>
+                        <small>الخدمة</small>
+                        <strong>${E(service?.name_ar || '—')}</strong>
+                    </div>
+
+                    <div>
+                        <small>موعد الحجز</small>
+                        <strong>
+                            ${E(humanDate(slot?.starts_at || b.created_at))}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <small>الحالة</small>
+                        <strong>${E(midoMaintenanceStatus(b.status))}</strong>
+                    </div>
+
+                    <div>
+                        <small>موتوسيكل مرتبط بالجراج</small>
+                        <strong>${bike ? 'نعم' : 'غير محدد'}</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mido-maint-section">
+                <h3>إدارة الحجز</h3>
+
+                <div class="mido-maint-actions">
+                    <button class="mido-maint-btn"
+                        onclick="rescheduleModal('${E(b.id)}')">
+                        تغيير الموعد
+                    </button>
+
+                    <button class="mido-maint-btn"
+                        onclick="editAdminRecord('service_bookings','${E(b.id)}')">
+                        إدارة الحالة والملاحظات
+                    </button>
+                </div>
+
+                <p class="mido-maint-help">
+                    تغيير الموعد يتم عبر دالة Supabase الحالية.
+                    لا تعتمد تغيير الحالة إلى مكتمل كاعتماد نهائي
+                    لتقرير الصيانة أو خصم قطع الغيار.
+                </p>
+            </div>
+        `;
+    }
+
+    if (ui.detailTab === 'report') {
+        content = `
+            <div class="mido-maint-section">
+                <h3>تقارير الصيانة المرتبطة بالحجز</h3>
+
+                ${records.map(r => `
+                    <div class="mido-maint-record">
+                        <strong>
+                            ${E(r.description || 'تقرير صيانة')}
+                        </strong>
+
+                        <p>
+                            ${E(humanDate(r.serviced_at || r.created_at))}
+                        </p>
+
+                        <p>التكلفة المسجلة: ${fmt(r.cost || 0)}</p>
+                    </div>
+                `).join('') || `
+                    <div class="mido-maint-empty">
+                        مفيش تقرير صيانة مرتبط بالحجز ده حتى الآن.
+                    </div>
+                `}
+
+                <p class="mido-maint-help">
+                    تسجيل القطع والأعمال واعتماد التقرير النهائي
+                    يحتاجان دالة آمنة على السيرفر.
+                </p>
+            </div>
+        `;
+    }
+
+    if (ui.detailTab === 'customer') {
+        content = `
+            <div class="mido-maint-section">
+                <h3>بيانات العميل والموتوسيكل</h3>
+
+                <div class="mido-maint-info">
+                    <div>
+                        <small>الاسم</small>
+                        <strong>${E(b.customer_name || '—')}</strong>
+                    </div>
+
+                    <div>
+                        <small>التواصل</small>
+                        <strong>${E(b.phone || '—')}</strong>
+                    </div>
+
+                    <div>
+                        <small>الخدمة المطلوبة</small>
+                        <strong>${E(service?.name_ar || '—')}</strong>
+                    </div>
+
+                    <div>
+                        <small>حساب العميل</small>
+                        <strong>${b.user_id ? 'مسجل' : 'زائر'}</strong>
+                    </div>
+                </div>
+
+                ${bike ? `
+                    <div class="mido-maint-record">
+                        <h3>موتوسيكل الجراج</h3>
+                        <p>${E(bike.nickname || 'موتوسيكل مسجل')}</p>
+                        <p>${E(String(bike.model_year || ''))}</p>
+                    </div>
+                ` : ''}
+
+                <div class="mido-maint-record">
+                    <strong>ملاحظات الإدارة</strong>
+                    <p>${E(b.internal_notes || 'لا توجد ملاحظات')}</p>
+                </div>
+            </div>
+        `;
+    }
+
+    return `
+        <div class="mido-maint">
+
+            <div class="mido-maint-top">
+                <div>
+                    <h2>تفاصيل الحجز ${E(b.booking_number || '')}</h2>
+                    <p>${E(midoMaintenanceStatus(b.status))}</p>
+                </div>
+
+                <button class="mido-maint-btn"
+                    onclick="midoMaintenanceBack()">
+                    رجوع
+                </button>
+            </div>
+
+            <div class="mido-maint-tabs">
+                <button
+                    class="${ui.detailTab === 'booking' ? 'active' : ''}"
+                    onclick="midoMaintenanceDetailTab('booking')">
+                    إدارة الموعد
+                </button>
+
+                <button
+                    class="${ui.detailTab === 'report' ? 'active' : ''}"
+                    onclick="midoMaintenanceDetailTab('report')">
+                    تقرير الصيانة
+                </button>
+
+                <button
+                    class="${ui.detailTab === 'customer' ? 'active' : ''}"
+                    onclick="midoMaintenanceDetailTab('customer')">
+                    بيانات الحجز
+                </button>
+            </div>
+
+            ${content}
+        </div>
+    `;
+}
+
+function adminBookings() {
+    const ui = midoMaintenanceUI;
+    const bookings = midoMaintenanceBookings();
+
+    if (ui.selected) {
+        const booking = bookings.find(
+            b => String(b.id) === String(ui.selected)
+        );
+
+        if (booking) return midoMaintenanceDetail(booking);
+
+        ui.selected = null;
+    }
+
+    const stats = {
+        pending: bookings.filter(b => b.status === 'pending').length,
+        confirmed: bookings.filter(b => b.status === 'confirmed').length,
+        progress: bookings.filter(b => b.status === 'in_progress').length,
+        completed: bookings.filter(b => b.status === 'completed').length
+    };
+
+    const filtered = ui.tab === 'active'
+        ? bookings.filter(b => b.status === 'in_progress')
+        : ui.tab === 'history'
+            ? bookings.filter(b => b.status === 'completed')
+            : bookings;
+
+    return `
+        <div class="mido-maint">
+
+            <div class="mido-maint-top">
+                <div>
+                    <h2>إدارة الصيانة</h2>
+                    <p>الحجوزات ومتابعة الأعمال وسجل الصيانة</p>
+                </div>
+            </div>
+
+            <div class="mido-maint-stats">
+                <div>
+                    <small>حجوزات جديدة</small>
+                    <strong>${stats.pending}</strong>
+                </div>
+
+                <div>
+                    <small>حجوزات مؤكدة</small>
+                    <strong>${stats.confirmed}</strong>
+                </div>
+
+                <div>
+                    <small>جاري العمل عليها</small>
+                    <strong>${stats.progress}</strong>
+                </div>
+
+                <div>
+                    <small>حجوزات مكتملة</small>
+                    <strong>${stats.completed}</strong>
+                </div>
+            </div>
+
+            <div class="mido-maint-tabs">
+                <button class="${ui.tab === 'bookings' ? 'active' : ''}"
+                    onclick="midoMaintenanceTab('bookings')">
+                    الحجوزات
+                </button>
+
+                <button class="${ui.tab === 'active' ? 'active' : ''}"
+                    onclick="midoMaintenanceTab('active')">
+                    الصيانة الجارية
+                </button>
+
+                <button class="${ui.tab === 'history' ? 'active' : ''}"
+                    onclick="midoMaintenanceTab('history')">
+                    سجل الصيانة
+                </button>
+            </div>
+
+            <div class="mido-maint-filters">
+                <input id="mido-maint-search"
+                    type="search"
+                    value="${E(ui.search)}"
+                    oninput="midoMaintenanceFilter()"
+                    placeholder="ابحث برقم الحجز أو العميل أو الهاتف...">
+
+                <select id="mido-maint-filter"
+                    onchange="midoMaintenanceFilter()">
+
+                    <option value="all">كل الحالات</option>
+
+                    ${Object.entries(midoMaintenanceStatusLabels)
+                        .map(([value, label]) => `
+                            <option value="${E(value)}"
+                                ${ui.filter === value ? 'selected' : ''}>
+                                ${E(label)}
+                            </option>
+                        `).join('')}
+                </select>
+            </div>
+
+            <div class="mido-maint-list">
+                ${filtered.map(midoMaintenanceBookingCard).join('') ||
+                    '<div class="mido-maint-empty">لا توجد حجوزات في هذا القسم.</div>'}
+            </div>
+        </div>
+    `;
+}
+
 function adminPhotoRequests() {
 
   return `<div class="grid grid-2">${get('image_requests').map(r => `<div class="surface"><div class="spread"><h3>${E(r.part_name || 'طلب قطعة')}</h3><span class="tag status-${E(r.status)}">${E(r.status)}</span></div><p>${E(r.name)} • ${E(r.phone)}</p><p class="muted">${E(r.description || '')}</p><div class="upload-previews">${get('image_request_images').filter(i => i.image_request_id === r.id).map(i => `<a href="${E(safeUrl(i.url))}" target="_blank" rel="noopener">${img(i.url, 'Part photo')}</a>`).join('')}</div>
  <button class="btn sm primary" onclick="editAdminRecord('image_requests','${r.id}')">الرد والحالة وربط المنتج</button></div>`).join('') || noProducts()}</div>`
-}
-function adminPurchases() {
-
-  const purchase = get('purchase_orders');
-  return adminTable('purchase_orders') +
-    `<div class="surface" style="margin-top:16px"><h3>استلام أمر شراء وإضافة الكميات للمخزون</h3><p class="muted small">تأكد من حالة Ordered ومن إدخال بنود الشراء أولًا.</p><select class="input" id="receive-po"><option value="">اختر أمر الشراء</option>${purchase.filter(x => x.status === 'ordered').map(x => `<option value="${x.id}">${E(x.id.slice(0, 8))} — ${E(x.notes || '')}</option>`).join('')}</select><button class="btn primary" style="margin-top:10px" onclick="receivePurchase()">استلام وتحديث المخزون</button></div>`
-}
-async function receivePurchase() {
-
-  const id = $('receive-po').value;
-  if (!id) return toast('اختر أمر الشراء', true);
-  if (!confirm('هل تم استلام جميع الكميات فعلاً؟')) return;
-  try {
-    const { error } = await state.db.rpc('receive_purchase_order', {
-      p_id: id
-    });
-    if (error) throw error;
-    await loadAdminData();
-    render();
-    toast('تم تسجيل الاستلام والمخزون')
-  } catch (e) {
-    toast(friendlyError(e), true)
-  }
 }
 function adminStaffRoles() {
 
@@ -18771,12 +23469,11 @@ const STAFF_TABLES = [
   'role_permissions',
   'suppliers',
   'purchase_orders',
-  'purchase_order_items',
   'inventory_movements',
   'stock_adjustments',
-  'coupons',
-  'coupon_usage',
   'order_status_history',
+  'mido_order_operations',
+  'mido_order_operation_events',
   'image_request_images',
   'motorcycle_inquiries',
   'builder_requests',
@@ -18787,7 +23484,7 @@ const STAFF_TABLES = [
   'mido_restock_rules',
   'mido_restock_jobs'
 ];
-async function fetchTable(table, limit = 500) {
+async function fetchTable(table, limit = 999) {
 
   if (!state.db) return [
   ];
@@ -19567,10 +24264,27 @@ function render() {
   else if (key === 'faq') html = faqPage(); else if (key === 'contact' || key === 'about') html = contentPage(key); else if (key === 'page') html = contentPage(seg[1]);
   else if (key === 'admin') html = adminPage(seg[1] || 'overview'); else html = notFound();
 $('app').innerHTML = html;
+if (
+  path === '/admin/promotions' &&
+  midoPromoState.loaded
+) {
+  requestAnimationFrame(midoPromoInitChart);
+}
+if (
+  path === '/admin/promotions' &&
+  !midoPromoState.loaded &&
+  !midoPromoState.loading
+) {
+  midoPromoLoad();
+}
 if (key === 'admin' && state.staff) {
   midoStartAdminClock();
   midoStartAdminStockSync();
   midoStartEngagementSync();
+
+  if ((seg[1] || 'overview') === 'orders') {
+    midoEnsureOrdersLoaded();
+  }
 }
 injectAdminOverviewEnhancements();
 
