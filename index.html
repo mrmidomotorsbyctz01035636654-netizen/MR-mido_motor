@@ -5867,6 +5867,1424 @@ body.mido-loading {
     width: 100% !important;
     height: 100% !important;
 }
+
+/* ==========================================
+   MR MIDO — ADAPTIVE EXPERIENCE V2
+   Premium phone and tablet layouts
+   ========================================== */
+
+/* قاعدة عامة لجميع الأجهزة */
+
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+img,
+video,
+svg {
+    max-width: 100%;
+}
+
+.container,
+.section,
+.surface,
+.card,
+.admin-panel {
+    min-width: 0;
+}
+
+button,
+input,
+select,
+textarea {
+    max-width: 100%;
+}
+
+:where(.grid, .flex, .spread) > * {
+    min-width: 0;
+}
+
+/* ==========================================
+   PHONE EXPERIENCE
+   ========================================== */
+
+html.mido-device-phone {
+    --mido-space: clamp(12px, 3.8vw, 22px);
+    --mido-card-gap: clamp(10px, 2.8vw, 16px);
+    --mido-touch-size: 44px;
+}
+
+/* نفس هوية الكمبيوتر لكن بمقاسات مريحة */
+
+html.mido-device-phone body {
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+html.mido-device-phone .container {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: var(--mido-space);
+}
+
+html.mido-device-phone .section {
+    padding-block: clamp(18px, 4vw, 30px);
+}
+
+html.mido-device-phone h1 {
+    font-size: clamp(25px, 7vw, 36px);
+    line-height: 1.35;
+}
+
+html.mido-device-phone h2 {
+    font-size: clamp(19px, 5.5vw, 27px);
+}
+
+html.mido-device-phone h3 {
+    font-size: clamp(15px, 4.1vw, 20px);
+}
+
+html.mido-device-phone .section-head {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 9px;
+    margin-bottom: 15px;
+}
+
+html.mido-device-phone .card,
+html.mido-device-phone .surface {
+    border-radius: clamp(12px, 3.5vw, 19px);
+}
+
+/* ==========================================
+   HEADER
+   ========================================== */
+
+html.mido-device-phone .topbar .inside {
+    width: 100%;
+    height: auto !important;
+    min-height: 68px;
+    padding: 9px var(--mido-space);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    column-gap: 8px;
+    row-gap: 10px;
+}
+
+html.mido-device-phone .brand-lockup {
+    flex: 0 0 auto;
+    width: clamp(76px, 21vw, 100px);
+    height: clamp(54px, 14vw, 67px);
+}
+
+html.mido-device-phone .quick-icons {
+    flex: 0 1 auto;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: clamp(2px, 1vw, 8px);
+}
+
+html.mido-device-phone .quick-icon {
+    min-width: 37px;
+    padding: 4px 2px;
+    font-size: 9px;
+}
+
+html.mido-device-phone .quick-icon .icon-badge {
+    width: 32px;
+    height: 32px;
+}
+
+html.mido-device-phone .topbar .searchbar {
+    display: flex !important;
+    order: 3;
+    flex: 1 0 100%;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    min-width: 0;
+    min-height: 44px;
+    border-radius: 14px;
+}
+
+html.mido-device-phone .searchbar input {
+    min-width: 0;
+    font-size: 13px;
+}
+
+html.mido-device-phone .navband .inside {
+    padding-inline: var(--mido-space);
+    min-height: 46px;
+}
+
+html.mido-device-phone .navband .hamburger {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ==========================================
+   HERO / MAIN PAGE
+   ========================================== */
+
+html.mido-device-phone .hero,
+html.mido-device-phone .hero-inner {
+    min-height: clamp(360px, 62svh, 580px);
+}
+
+html.mido-device-phone .hero-inner {
+    padding:
+        clamp(30px, 7vw, 55px)
+        var(--mido-space);
+
+    justify-content: center;
+    align-items: flex-start;
+}
+
+html.mido-device-phone .hero h1 {
+    max-width: 100%;
+    font-size: clamp(28px, 8vw, 43px);
+    line-height: 1.3;
+}
+
+html.mido-device-phone .hero p {
+    max-width: 95%;
+    font-size: clamp(12px, 3.4vw, 15px);
+    line-height: 1.9;
+}
+
+html.mido-device-phone .hero-actions {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+html.mido-device-phone .hero-actions .btn {
+    flex: 1 1 auto;
+    min-height: 44px;
+    padding: 10px 14px;
+    font-size: 12px;
+}
+
+/* ==========================================
+   SEARCH / MOTORCYCLE FINDER
+   ========================================== */
+
+html.mido-device-phone .finder {
+    position: relative;
+    z-index: 4;
+    width: auto;
+    max-width: none;
+    margin:
+        -18px
+        var(--mido-space)
+        16px;
+
+    padding: clamp(13px, 3.4vw, 20px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    border-radius: 18px;
+}
+
+html.mido-device-phone .finder > *,
+html.mido-device-phone .finder .field {
+    min-width: 0;
+    grid-column: 1 / -1;
+}
+
+html.mido-device-phone .finder select,
+html.mido-device-phone .finder input,
+html.mido-device-phone .finder .btn {
+    width: 100%;
+    min-height: 46px;
+}
+
+/* ==========================================
+   PRODUCT CATEGORIES
+   ========================================== */
+
+html.mido-device-phone .categories {
+    display: grid;
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    column-gap: clamp(7px, 2vw, 13px);
+    row-gap: 16px;
+}
+
+html.mido-device-phone .cat-item {
+    min-width: 0;
+    gap: 8px;
+    font-size: clamp(9px, 2.5vw, 12px);
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+html.mido-device-phone .cat-circle {
+    width: 100%;
+    max-width: none;
+    aspect-ratio: 1;
+    border-width: 2px;
+}
+
+/* ==========================================
+   PRODUCT CARDS
+   ========================================== */
+
+html.mido-device-phone .product-list,
+html.mido-device-phone .grid-4,
+html.mido-device-phone .grid-3 {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: var(--mido-card-gap);
+}
+
+html.mido-device-phone .product-card {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+html.mido-device-phone .product-card .photo,
+html.mido-device-phone .product-list .photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+}
+
+html.mido-device-phone .product-card .photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+html.mido-device-phone .product-card .details {
+    padding: clamp(9px, 2.5vw, 14px);
+}
+
+html.mido-device-phone .product-card h3 {
+    font-size: clamp(11px, 3vw, 14px);
+    line-height: 1.6;
+    min-height: 3.2em;
+    overflow-wrap: anywhere;
+}
+
+html.mido-device-phone .product-card .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+html.mido-device-phone .product-card .actions .btn {
+    flex: 1 1 100%;
+    min-width: 0;
+    min-height: 42px;
+    padding: 8px;
+    font-size: 11px;
+    white-space: normal;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/* ==========================================
+   SERVICES AND PROMOTIONS
+   ========================================== */
+
+html.mido-device-phone .services-grid,
+html.mido-device-phone .split-promo {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 13px;
+}
+
+html.mido-device-phone .service-tile {
+    min-height: 145px;
+    padding: 18px;
+}
+
+html.mido-device-phone .promo-banner {
+    min-height: 195px;
+    padding: 22px;
+    border-radius: 16px;
+}
+
+html.mido-device-phone .promo-banner h2 {
+    font-size: clamp(19px, 5vw, 26px);
+}
+
+/* ==========================================
+   PRODUCT DETAILS / CART / CHECKOUT
+   ========================================== */
+
+html.mido-device-phone .detail-layout,
+html.mido-device-phone .cart-layout,
+html.mido-device-phone .checkout-layout,
+html.mido-device-phone .shop-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+}
+
+html.mido-device-phone .detail-cover {
+    min-height: 0;
+    max-height: none;
+    aspect-ratio: 1;
+    padding: 15px;
+}
+
+html.mido-device-phone .detail-cover img {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    object-fit: contain;
+}
+
+html.mido-device-phone .detail-info {
+    min-width: 0;
+}
+
+html.mido-device-phone .detail-info h1 {
+    font-size: clamp(23px, 6vw, 32px);
+}
+
+html.mido-device-phone .gallery-thumbs {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding-bottom: 6px;
+}
+
+html.mido-device-phone .gallery-thumbs img {
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
+}
+
+html.mido-device-phone .cart-line {
+    grid-template-columns:
+        64px
+        minmax(0, 1fr)
+        auto;
+
+    gap: 9px;
+}
+
+html.mido-device-phone .cart-line img {
+    width: 64px;
+    height: 64px;
+}
+
+html.mido-device-phone .sticky-summary {
+    position: static;
+}
+
+/* ==========================================
+   FORMS
+   ========================================== */
+
+html.mido-device-phone .form-grid,
+html.mido-device-phone .settings-grid,
+html.mido-device-phone .record-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 11px;
+}
+
+html.mido-device-phone .field input,
+html.mido-device-phone .field select,
+html.mido-device-phone .field textarea {
+    font-size: 16px;
+}
+
+html.mido-device-phone .btn {
+    min-height: 42px;
+}
+
+/* ==========================================
+   REVIEWS
+   ========================================== */
+
+html.mido-device-phone .mido-rv-section {
+    padding: clamp(13px, 3.6vw, 20px);
+    margin-block: 24px;
+}
+
+html.mido-device-phone .mido-rv-overview {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+html.mido-device-phone .mido-rv-list {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+html.mido-device-phone .mido-rv-controls {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+html.mido-device-phone .mido-rv-controls select {
+    flex: 1 1 140px;
+    min-width: 0;
+}
+
+html.mido-device-phone .mido-rv-comment {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+}
+
+/* ==========================================
+   MIDO AI
+   ========================================== */
+
+html.mido-device-phone .mido-v6-window {
+    position: fixed;
+    inset-inline: var(--mido-space);
+    top: auto;
+    bottom:
+        calc(8px + env(safe-area-inset-bottom, 0px));
+
+    width: auto;
+    max-width: none;
+
+    height: min(
+        680px,
+        calc(100dvh - 24px - env(safe-area-inset-top, 0px))
+    );
+
+    max-height: calc(100dvh - 24px);
+    border-radius: 20px;
+}
+
+html.mido-device-phone .mido-v6-messages {
+    min-height: 0;
+    overflow-y: auto;
+}
+
+html.mido-device-phone .assistant-form input {
+    min-width: 0;
+    font-size: 16px;
+}
+
+/* ==========================================
+   ADMIN DASHBOARD
+   ========================================== */
+
+html.mido-device-phone .admin-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+}
+
+html.mido-device-phone .admin-panel {
+    min-width: 0;
+    max-width: 100%;
+}
+
+html.mido-device-phone .mido-admin-hero {
+    grid-template-columns:
+        minmax(0, 1fr) !important;
+
+    grid-template-rows: auto !important;
+    padding: 18px !important;
+    gap: 13px !important;
+}
+
+html.mido-device-phone .mido-admin-hero > * {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+    min-width: 0;
+}
+
+html.mido-device-phone .mido-admin-hero h1 {
+    font-size: clamp(25px, 7vw, 34px);
+}
+
+html.mido-device-phone .mido-admin-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+html.mido-device-phone .mido-admin-live-clock {
+    max-width: 100%;
+}
+
+html.mido-device-phone .table-wrap {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+html.mido-device-phone .data-table {
+    width: max-content;
+    min-width: 100%;
+}
+
+html.mido-device-phone .admin-side {
+    position: static;
+    max-height: none;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+
+html.mido-device-phone .footer-grid {
+    display: grid;
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+html.mido-device-phone .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* ==========================================
+   TABLET EXPERIENCE
+   ========================================== */
+
+html.mido-device-tablet .container {
+    width: 100%;
+    max-width: 100%;
+    padding-inline: clamp(18px, 3vw, 35px);
+}
+
+html.mido-device-tablet .product-list,
+html.mido-device-tablet .grid-4,
+html.mido-device-tablet .grid-3 {
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(min(100%, 210px), 1fr)
+        );
+}
+
+html.mido-device-tablet .detail-layout {
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(min(100%, 340px), 1fr)
+        );
+}
+
+html.mido-device-tablet .admin-layout {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+/* ==========================================
+   COMMON ADAPTIVE SAFETY
+   ========================================== */
+
+html.mido-adaptive-layout .grid > *,
+html.mido-adaptive-layout .admin-layout > *,
+html.mido-adaptive-layout .detail-layout > *,
+html.mido-adaptive-layout .cart-layout > *,
+html.mido-adaptive-layout .checkout-layout > * {
+    min-width: 0;
+}
+
+html.mido-adaptive-layout .dialog {
+    width: min(100%, 650px);
+    max-height: calc(100dvh - 30px);
+    overflow: auto;
+}
+
+/* ==========================================
+   MR MIDO — PHONE CINEMA COMPOSITION
+   ========================================== */
+
+html.mido-device-phone #mido-cinema {
+    --W: min(66vw, 34dvh, 320px);
+    --floor: 45%;
+
+    width: 100% !important;
+    height: 100dvh !important;
+}
+
+/* الشعار في الثلث العلوي من المشهد */
+
+html.mido-device-phone #mido-cinema #loader .stage {
+    position: absolute;
+    top: var(--floor) !important;
+    left: 50% !important;
+
+    width: var(--W) !important;
+    max-width: none !important;
+
+    transform: translate(-50%, -100%);
+}
+
+/* الحفاظ على شكل العداد حول الشعار */
+
+html.mido-device-phone #mido-cinema #loader svg.ring {
+    width: 132%;
+    max-width: none;
+    aspect-ratio: 1;
+}
+
+/* تقليل الانعكاس بسبب مساحة الهاتف */
+
+html.mido-device-phone #mido-cinema #loader .reflect {
+    max-width: none;
+    filter: blur(2px);
+    animation: midoPhoneReflection 2s ease 4.6s forwards;
+}
+
+@keyframes midoPhoneReflection {
+    to {
+        opacity: .16;
+    }
+}
+
+/* العبارات أسفل الشعار، جنب بعض */
+
+html.mido-device-phone #mido-cinema #loader .sides {
+    position: absolute;
+
+    top: 62%;
+    left: 50%;
+
+    width: 100%;
+    max-width: 100%;
+
+    padding-inline: clamp(12px, 4vw, 24px);
+
+    transform: translateX(-50%);
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: clamp(9px, 3vw, 18px);
+
+    z-index: 3;
+}
+
+html.mido-device-phone #mido-cinema #loader .side {
+    width: 100%;
+    max-width: none;
+
+    min-width: 0;
+    text-align: center;
+}
+
+html.mido-device-phone #mido-cinema #loader .side h2 {
+    font-size: clamp(11px, 3.1vw, 16px);
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+html.mido-device-phone #mido-cinema #loader .side p {
+    display: block;
+    margin-top: 5px;
+
+    font-size: clamp(9px, 2.5vw, 12px);
+    line-height: 1.7;
+    text-align: center;
+}
+
+html.mido-device-phone #mido-cinema #loader .side p::before {
+    display: none;
+}
+
+/* العبارة الرئيسية */
+
+html.mido-device-phone #mido-cinema #loader .tag {
+    top: 79% !important;
+    left: 0 !important;
+    right: 0 !important;
+
+    width: 100% !important;
+    padding-inline: 14px !important;
+}
+
+html.mido-device-phone #mido-cinema #loader .tag h3 {
+    max-width: 100%;
+    font-size: clamp(12px, 3vw, 17px);
+    line-height: 1.9;
+}
+
+/* نسبة التحميل */
+
+html.mido-device-phone #mido-cinema #loader .status {
+    left: 0;
+    right: 0;
+    bottom:
+        calc(7% + env(safe-area-inset-bottom, 0px));
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 7px;
+    padding-inline: 12px;
+
+    font-size: 11px;
+}
+
+/* إخفاء توقيع التصميم داخل الشاشة الضيقة فقط
+   مع إمكانية إبقائه في تذييل الموقع */
+
+html.mido-device-phone #mido-cinema #loader .credit {
+    display: none;
+}
+
+/* تقليل ارتفاع الستائر السينمائية على الهاتف */
+
+html.mido-device-phone #mido-cinema #loader .cb {
+    height: 5dvh;
+}
+
+/* ==========================================
+   PHONE LANDSCAPE CINEMA
+   ========================================== */
+
+html.mido-device-phone.mido-landscape #mido-cinema {
+    --W: min(32vw, 59dvh, 330px);
+    --floor: 66%;
+}
+
+html.mido-device-phone.mido-landscape
+#mido-cinema #loader .sides {
+    top: 44%;
+    width: 100%;
+    padding-inline: 3%;
+    grid-template-columns: 1fr 1fr;
+    gap: min(36vw, 320px);
+}
+
+html.mido-device-phone.mido-landscape
+#mido-cinema #loader .tag {
+    top: 78% !important;
+}
+
+html.mido-device-phone.mido-landscape
+#mido-cinema #loader .status {
+    bottom: 5%;
+}
+
+/* ==========================================
+   SHORT PHONE VIEWPORT
+   ========================================== */
+
+@media (max-height: 650px) {
+    html.mido-device-phone.mido-portrait
+    #mido-cinema {
+        --W: min(57vw, 29dvh, 230px);
+        --floor: 43%;
+    }
+
+    html.mido-device-phone.mido-portrait
+    #mido-cinema #loader .sides {
+        top: 58%;
+    }
+
+    html.mido-device-phone.mido-portrait
+    #mido-cinema #loader .tag {
+        top: 76% !important;
+    }
+
+    html.mido-device-phone.mido-portrait
+    #mido-cinema #loader .status {
+        bottom: 5%;
+    }
+}/* ==========================================
+   MR MIDO — TABLET & FLEXIBLE GRIDS
+   ========================================== */
+
+html.mido-adaptive-layout .grid-2 {
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(min(100%, 280px), 1fr)
+        );
+}
+
+html.mido-adaptive-layout .record-grid {
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(min(100%, 260px), 1fr)
+        );
+}
+
+html.mido-adaptive-layout .settings-grid {
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(min(100%, 280px), 1fr)
+        );
+}
+
+html.mido-adaptive-layout .table-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+html.mido-adaptive-layout .mido-rv-photos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+html.mido-adaptive-layout .mido-rv-photos img {
+    width: clamp(65px, 17vw, 95px);
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+/* ==========================================
+   MR MIDO — CINEMA PHONE BALANCE V3
+   ========================================== */
+
+@media (max-width: 600px) and (orientation: portrait) {
+
+    #mido-cinema {
+        --W: min(51vw, 27dvh, 235px) !important;
+        --floor: 41% !important;
+    }
+
+    /* شعار أصغر قليلًا ومساحة تنفس للعداد */
+    #mido-cinema #loader .stage {
+        position: absolute !important;
+        left: 50% !important;
+        top: var(--floor) !important;
+        width: var(--W) !important;
+        max-width: none !important;
+        transform: translate(-50%, -100%) !important;
+    }
+
+    #mido-cinema #loader .ring {
+        width: 132% !important;
+        max-width: none !important;
+    }
+
+    /* توازن الإضاءة */
+    #mido-cinema #loader .beam {
+        width: min(125vw, 560px);
+    }
+
+    /* توزيع الجملتين تحت اللوجو */
+    #mido-cinema #loader .sides {
+        position: absolute !important;
+        top: 57% !important;
+        left: 0 !important;
+        right: 0 !important;
+
+        width: 100% !important;
+        max-width: none !important;
+
+        padding-inline: 15px !important;
+
+        transform: none !important;
+
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        align-items: start;
+    }
+
+    #mido-cinema #loader .side {
+        width: 100%;
+        max-width: none !important;
+        min-width: 0;
+        text-align: center !important;
+    }
+
+    #mido-cinema #loader .side h2 {
+        font-size: clamp(11px, 3.1vw, 15px) !important;
+        line-height: 1.7 !important;
+        overflow-wrap: anywhere;
+    }
+
+    #mido-cinema #loader .side p {
+        font-size: clamp(9px, 2.5vw, 11px) !important;
+        line-height: 1.6 !important;
+        display: block;
+        text-align: center !important;
+    }
+
+    /* الجملة الدعائية */
+    #mido-cinema #loader .tag {
+        top: 78% !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        padding-inline: 18px !important;
+    }
+
+    #mido-cinema #loader .tag h3 {
+        font-size: clamp(11px, 2.8vw, 14px) !important;
+        line-height: 1.8 !important;
+    }
+
+    /* التحميل */
+    #mido-cinema #loader .status {
+        bottom: calc(
+            6% + env(safe-area-inset-bottom, 0px)
+        ) !important;
+
+        gap: 9px;
+    }
+
+    /* الانعكاس يفضل خافتًا */
+    #mido-cinema #loader .reflect {
+        filter: blur(2px);
+        max-width: none !important;
+    }
+}
+
+/* ==========================================
+   MR MIDO — RESPONSIVE HERO FINAL V5
+   Exact Banner Studio selectors
+   ========================================== */
+
+/* Desktop */
+.mbs-banner.mbs-image-only.mbs-rotator.mbs-main-hero {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: clamp(280px, 28vw, 420px) !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+    background: #102326 !important;
+}
+
+/* Keep slider picture layers intact */
+.mbs-banner.mbs-image-only.mbs-rotator.mbs-main-hero
+> picture.mbs-banner-image {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    overflow: hidden !important;
+}
+
+/* Important:
+   The extra mbs-rotator selector overrides
+   the original slider's object-fit: cover.
+*/
+.mbs-banner.mbs-image-only.mbs-rotator.mbs-main-hero
+> picture.mbs-banner-image > img {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+
+    object-fit: contain !important;
+    object-position: center center !important;
+}
+
+/* Tablet */
+@media (min-width: 761px) and (max-width: 1100px) {
+
+    .mbs-banner.mbs-image-only.mbs-rotator.mbs-main-hero {
+        height: clamp(260px, 34vw, 370px) !important;
+        min-height: 0 !important;
+    }
+}
+
+/* Phone */
+@media (max-width: 760px) {
+
+    .mbs-banner.mbs-image-only.mbs-rotator.mbs-main-hero {
+        width: 100% !important;
+        height: clamp(210px, 66vw, 280px) !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
+        background: #102326 !important;
+    }
+
+    .mbs-banner.mbs-image-only.mbs-rotator.mbs-main-hero
+    > picture.mbs-banner-image > img {
+        object-fit: contain !important;
+        object-position: center !important;
+    }
+
+    /* Stop motorcycle finder covering the banner */
+    html.mido-device-phone .finder,
+    html.mido-adaptive-layout .finder {
+        position: relative !important;
+        width: auto !important;
+        max-width: none !important;
+
+        margin:
+            12px
+            var(--mido-space, 14px)
+            20px !important;
+
+        z-index: 4;
+    }
+
+    /* Avoid oversized hero space */
+    #hero-wrap {
+        min-height: 0 !important;
+    }
+
+    #hero-wrap .hero {
+        min-height: 0 !important;
+    }
+}
+
+/* ==========================================
+   MR MIDO — MOBILE CONTROLS V4
+   Compact floating actions
+   ========================================== */
+
+@media (max-width: 760px) {
+
+    /* زر مساعد Mr Mido */
+    .assistant-btn {
+        position: fixed !important;
+
+        right: 12px !important;
+        left: auto !important;
+
+        bottom: calc(
+            12px + env(safe-area-inset-bottom, 0px)
+        ) !important;
+
+        width: 46px !important;
+        height: 46px !important;
+
+        min-width: 46px !important;
+        min-height: 46px !important;
+
+        padding: 0 !important;
+        z-index: 95 !important;
+    }
+
+    .assistant-btn .icon-svg {
+        width: 21px !important;
+        height: 21px !important;
+    }
+
+    /* زر الجولة التعليمية يتحول لأيقونة صغيرة */
+    .mido-tour-launcher {
+        position: fixed !important;
+
+        left: 12px !important;
+        right: auto !important;
+
+        bottom: calc(
+            12px + env(safe-area-inset-bottom, 0px)
+        ) !important;
+
+        width: 44px !important;
+        height: 44px !important;
+
+        min-width: 44px !important;
+        min-height: 44px !important;
+
+        padding: 0 !important;
+        gap: 0 !important;
+
+        border-radius: 50% !important;
+        z-index: 94 !important;
+    }
+
+    .mido-tour-launcher span {
+        display: none !important;
+    }
+
+    .mido-tour-launcher .mido-account-svg,
+    .mido-tour-launcher .icon-svg {
+        width: 19px !important;
+        height: 19px !important;
+    }
+
+    /* مساحة إضافية بعد آخر قسم */
+    #app {
+        padding-bottom: calc(
+            90px + env(safe-area-inset-bottom, 0px)
+        ) !important;
+    }
+}
+
+/* ==========================================
+   MR MIDO — FROSTED GLASS HEADER LOGO V1
+   Mobile only — White Glass / Red / Gold
+   ========================================== */
+
+@media (max-width: 760px) {
+
+    /* الصف الأول للهيدر والصف الثاني للبحث */
+    html .topbar .container.inside {
+        position: relative !important;
+        display: grid !important;
+
+        grid-template-columns:
+            100px minmax(0, 1fr) !important;
+
+        grid-template-rows:
+            70px 44px !important;
+
+        height: auto !important;
+        min-height: 0 !important;
+
+        column-gap: 8px !important;
+        row-gap: 8px !important;
+
+        padding:
+            4px 12px 10px !important;
+
+        background: #fff !important;
+        isolation: isolate !important;
+    }
+
+    /*
+       الخلفية وراء اللوجو:
+       أحمر + أبيض مبلور + دهبي
+    */
+html[dir="rtl"] .topbar .inside::before {
+    content: "" !important;
+    display: block !important;
+
+    position: absolute !important;
+
+    top: 0 !important;
+    bottom: auto !important;
+
+    right: -12px !important;
+    left: auto !important;
+
+    width: 137px !important;
+    height: 75px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, .96) 0%,
+            rgba(248, 250, 252, .92) 45%,
+            rgba(240, 244, 247, .88) 100%
+        ) !important;
+
+    backdrop-filter:
+        blur(12px) saturate(125%) !important;
+
+    -webkit-backdrop-filter:
+        blur(12px) saturate(125%) !important;
+
+    clip-path: polygon(
+        17% 0,
+        100% 0,
+        100% 100%,
+        0 100%
+    ) !important;
+
+    border: 0 !important;
+
+    box-shadow:
+        inset 0 -1px 0 rgba(255,255,255,.6)
+        !important;
+
+    z-index: 0 !important;
+    pointer-events: none !important;
+}
+   html[dir="ltr"] .topbar .inside::before {
+    content: "" !important;
+    display: block !important;
+
+    position: absolute !important;
+
+    top: 0 !important;
+    bottom: auto !important;
+
+    left: -12px !important;
+    right: auto !important;
+
+    width: 137px !important;
+    height: 75px !important;
+
+    background:
+        linear-gradient(
+            45deg,
+            rgba(255, 255, 255, .96) 0%,
+            rgba(248, 250, 252, .92) 45%,
+            rgba(240, 244, 247, .88) 100%
+        ) !important;
+
+    backdrop-filter:
+        blur(12px) saturate(125%) !important;
+
+    -webkit-backdrop-filter:
+        blur(12px) saturate(125%) !important;
+
+    clip-path: polygon(
+        0 0,
+        83% 0,
+        100% 100%,
+        0 100%
+    ) !important;
+
+    z-index: 0 !important;
+    pointer-events: none !important;
+}
+    /* مكان اللوجو بدون بطاقة سوداء */
+    html .topbar .topbar-brand {
+        grid-column: 1 !important;
+        grid-row: 1 !important;
+
+        position: relative !important;
+        z-index: 2 !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        width: 96px !important;
+        height: 65px !important;
+        min-width: 0 !important;
+
+        margin: 0 !important;
+        padding: 3px !important;
+
+        background: transparent !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+    }
+
+    /* إلغاء أي خلفية بطاقة قديمة */
+    html .topbar .topbar-brand::before,
+    html .topbar .topbar-brand::after {
+        content: none !important;
+        display: none !important;
+    }
+
+    /* حاوية الشعار */
+    html .topbar .topbar-brand .brand-lockup {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        width: 100% !important;
+        height: 100% !important;
+
+        max-width: none !important;
+        max-height: none !important;
+
+        padding: 0 !important;
+        margin: 0 !important;
+
+        background: transparent !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+    }
+
+    /* اللوجو الأصلي */
+    html .topbar .topbar-brand .brand-logo {
+        display: block !important;
+
+        width: 100% !important;
+        height: 100% !important;
+
+        max-width: 100% !important;
+        max-height: 100% !important;
+
+        padding: 0 !important;
+        margin: 0 !important;
+
+        object-fit: contain !important;
+        object-position: center !important;
+
+        background: transparent !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+
+        filter:
+            drop-shadow(0 1px 2px rgba(0,0,0,.65))
+            !important;
+    }
+
+    /* أيقونات الحساب والمفضلة والسلة */
+    html .topbar .quick-icons {
+        grid-column: 2 !important;
+        grid-row: 1 !important;
+
+        position: relative !important;
+        z-index: 2 !important;
+
+        width: 100% !important;
+        min-width: 0 !important;
+
+        justify-self: stretch !important;
+        justify-content: flex-end !important;
+
+        gap: 3px !important;
+    }
+
+    /* البحث */
+    html .topbar .searchbar {
+        grid-column: 1 / -1 !important;
+        grid-row: 2 !important;
+
+        position: relative !important;
+        z-index: 2 !important;
+
+        width: 100% !important;
+        max-width: none !important;
+        min-width: 0 !important;
+
+        margin: 0 !important;
+    }
+}
+
+/* ==========================================
+   SMALL PHONES
+   ========================================== */
+
+@media (max-width: 380px) {
+
+    html .topbar .container.inside {
+        grid-template-columns:
+            86px minmax(0, 1fr) !important;
+
+        padding-inline: 9px !important;
+        column-gap: 5px !important;
+    }
+
+    html .topbar .topbar-brand {
+        width: 84px !important;
+        height: 60px !important;
+    }
+
+    html[dir="rtl"] .topbar .inside::before,
+    html[dir="ltr"] .topbar .inside::before {
+        width: 120px !important;
+        height: 72px !important;
+    }
+
+    html .topbar .quick-icons {
+        gap: 1px !important;
+    }
+}
+
 </style>
 </head>
 
@@ -55879,47 +57297,158 @@ async function boot() {
     }
 }
 
+
+/* ==========================================
+   MR MIDO — ADAPTIVE DEVICE EXPERIENCE V2
+   Phone / Tablet / Desktop Detection
+   ========================================== */
+
 function updateMobileNavigationMode() {
-  const ua = navigator.userAgent || '';
 
-  const mobileByBrowser =
-    navigator.userAgentData?.mobile === true ||
-    /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
+    const root = document.documentElement;
 
-  const touchTablet =
-    window.matchMedia('(pointer: coarse)').matches &&
-    window.matchMedia('(max-width: 1200px)').matches;
+    const ua = navigator.userAgent || '';
 
-  const compactDesktop =
+    // هل المتصفح بيبلغ إن الجهاز موبايل؟
+    const browserReportsMobile =
+        navigator.userAgentData?.mobile === true;
+
+    // اكتشاف أجهزة الهاتف
+    const phoneUA =
+        /iPhone|iPod|Android.*Mobile|Windows Phone/i.test(ua);
+
+    // اكتشاف أجهزة التابلت
+    const tabletUA =
+        /iPad|Android(?!.*Mobile)|Tablet/i.test(ua);
+
+    // بعض أجهزة iPad بتظهر على إنها Mac
+    const ipadOS =
+        navigator.platform === 'MacIntel' &&
+        navigator.maxTouchPoints > 1;
+
+const hasTouch =
+    window.matchMedia('(pointer: coarse)').matches;
+
+const compactViewport =
     window.matchMedia('(max-width: 760px)').matches;
 
-  const useMobileMenu =
-    mobileByBrowser || touchTablet || compactDesktop;
+const actualPhone =
+    browserReportsMobile || phoneUA;
 
-  document.documentElement.classList.toggle(
-    'mido-mobile-navigation',
-    useMobileMenu
-  );
+const isTablet =
+    !actualPhone && (tabletUA || ipadOS);
 
-  if (!useMobileMenu) {
-    toggleMobile(false);
-  }
+/*
+   تفعيل تصميم الهاتف أيضًا عند المعاينة الضيقة،
+   حتى لو User Agent الخاص بالكمبيوتر لم يتغير.
+*/
+const isPhone =
+    actualPhone ||
+    (!isTablet && compactViewport);
+    // اختيار القائمة المناسبة
+    const useMobileMenu =
+        isPhone ||
+        isTablet ||
+        compactViewport ||
+        (
+            hasTouch &&
+            window.matchMedia('(max-width: 1000px)').matches
+        );
+
+    // تحديد نوع الجهاز
+    root.classList.toggle(
+        'mido-device-phone',
+        isPhone
+    );
+
+    root.classList.toggle(
+        'mido-device-tablet',
+        isTablet
+    );
+
+    root.classList.toggle(
+        'mido-device-desktop',
+        !isPhone && !isTablet
+    );
+
+    // تفعيل نظام التصميم المتكيف
+    const adaptiveLayout =
+        isPhone ||
+        isTablet ||
+        compactViewport;
+
+    root.classList.toggle(
+        'mido-adaptive-layout',
+        adaptiveLayout
+    );
+
+    // تفعيل قائمة التنقل المناسبة
+    root.classList.toggle(
+        'mido-mobile-navigation',
+        useMobileMenu
+    );
+
+    // اتجاه الشاشة
+    const landscape =
+        window.innerWidth > window.innerHeight;
+
+    root.classList.toggle(
+        'mido-landscape',
+        landscape
+    );
+
+    root.classList.toggle(
+        'mido-portrait',
+        !landscape
+    );
+
+    // إغلاق القائمة عند الرجوع لوضع الكمبيوتر
+    if (!useMobileMenu) {
+        toggleMobile(false);
+    }
 }
 
+/* ==========================================
+   DEVICE EVENT LISTENERS
+   ========================================== */
+
+// تطبيق وضع الجهاز بعد جاهزية الصفحة
 document.addEventListener(
-  'DOMContentLoaded',
-  updateMobileNavigationMode
+    'DOMContentLoaded',
+    updateMobileNavigationMode
 );
+
+// تطبيقه فورًا لو السكربت اتنفذ بعد تحميل DOM
+if (document.readyState !== 'loading') {
+    updateMobileNavigationMode();
+}
+
+// تحديث التوزيع عند تغيير أبعاد الشاشة
+let midoDeviceResizeFrame = 0;
 
 window.addEventListener(
-  'resize',
-  updateMobileNavigationMode
+    'resize',
+    () => {
+
+        if (midoDeviceResizeFrame) {
+            cancelAnimationFrame(midoDeviceResizeFrame);
+        }
+
+        midoDeviceResizeFrame = requestAnimationFrame(() => {
+            midoDeviceResizeFrame = 0;
+            updateMobileNavigationMode();
+        });
+    },
+    { passive: true }
 );
 
+// إغلاق قائمة الموبايل بزر Escape
 document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') {
-    toggleMobile(false);
-  }
+
+    if (event.key === 'Escape') {
+        toggleMobile(false);
+    }
+
 });
 
 /* ==========================================
@@ -55928,15 +57457,16 @@ document.addEventListener('keydown', event => {
 
 function midoHideLoader() {
 
+    // إبلاغ المحرك السينمائي إن الموقع خلص تهيئة
     if (
-        typeof window.__midoCinemaReady ===
-        'function'
+        typeof window.__midoCinemaReady === 'function'
     ) {
+
         window.__midoCinemaReady();
         return;
     }
 
-    // حماية لو سكربت اللودر لم يعمل
+    // مسار احتياطي لو محرك اللودينج لم يبدأ
     document.body.classList.remove(
         'mido-loading'
     );
@@ -55950,12 +57480,13 @@ function midoHideLoader() {
     )?.remove();
 }
 
-
 /* ==========================================
    Scroll Progress Bar
    ========================================== */
 
 (function midoInitScrollProgress() {
+
+    // منع إنشاء شريط التقدم مرتين
     if (document.getElementById('mido-scroll')) {
         return;
     }
@@ -55969,6 +57500,7 @@ function midoHideLoader() {
     let scheduled = false;
 
     function updateScrollProgress() {
+
         const root = document.documentElement;
 
         const available = Math.max(
@@ -55993,6 +57525,7 @@ function midoHideLoader() {
     window.addEventListener(
         'scroll',
         () => {
+
             if (scheduled) return;
 
             scheduled = true;
@@ -56011,8 +57544,8 @@ function midoHideLoader() {
     );
 
     updateScrollProgress();
-})();
 
+})();
 
 /* ==========================================
    Product Cards — 3D Tilt Effect
