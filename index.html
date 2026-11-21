@@ -1,9 +1,6 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
 <head>
-
-<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-messaging-compat.js"></script>
 <meta name="google-site-verification" content="cgbUfsBcMW1NdsiHd-7pX2yRURTVeLS_PzrvzNLha-Q" />
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
@@ -5396,9 +5393,24 @@ img {
     cursor: pointer;
 }
 
+
 .mido-store-tabs button.active {
-    background: var(--ink);
-    color: var(--card);
+    background: #172326 !important;
+    color: #ffffff !important;
+    border-color: #172326 !important;
+    opacity: 1 !important;
+    font-weight: 800 !important;
+}
+
+.mido-store-tabs button:not(.active) {
+    background: #f5f7f8;
+    color: #172326;
+    border-color: #e2e8ea;
+}
+
+.mido-store-tabs button:hover:not(.active) {
+    background: #fff8df;
+    border-color: #e6ba35;
 }
 
 .mido-store-panel {
@@ -7321,6 +7333,201 @@ html[dir="rtl"] .topbar .inside::before {
 }
 
 </style>
+
+<style>
+/* MR MIDO — MATCH ORIGINAL CINEMA LOADER */
+/* Desktop only — mobile untouched */
+
+@media (min-width: 821px) {
+
+  #mido-cinema {
+    --W: min(54vw, 330px) !important;
+    --floor: 60% !important;
+  }
+
+  #mido-cinema #loader .stage {
+    position: absolute !important;
+    left: 50% !important;
+    top: var(--floor) !important;
+    width: var(--W) !important;
+    max-width: none !important;
+    transform: translate(-50%, -100%) !important;
+  }
+
+  #mido-cinema #loader .logoWrap {
+    position: relative !important;
+    width: 100% !important;
+  }
+
+  #mido-cinema #loader svg.logo {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    overflow: visible !important;
+  }
+
+  #mido-cinema #loader svg.ring {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    width: 132% !important;
+    height: auto !important;
+    max-width: none !important;
+    aspect-ratio: 1 !important;
+    transform: translate(-50%, -50%) !important;
+    overflow: visible !important;
+  }
+
+  #mido-cinema #loader .reflect {
+    left: 0 !important;
+    top: calc(100% + 2px) !important;
+    width: 100% !important;
+  }
+}
+</style>
+
+<style>
+/* MR MIDO — PAGE TRANSITIONS & ACTION LOADING */
+
+/* انتقال الصفحات */
+#app {
+  will-change: opacity, transform;
+}
+
+#app.mido-page-leaving {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity .13s ease,
+    transform .13s ease;
+}
+
+#app.mido-page-entering {
+  animation: midoPageEnter .38s
+    cubic-bezier(.2,.75,.25,1) both;
+}
+
+@keyframes midoPageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* شاشة انتظار تنفيذ العمليات */
+#mido-action-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 99990;
+  display: grid;
+  place-items: center;
+  background: rgba(7, 13, 16, .58);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  animation: midoLoadingFade .2s ease both;
+}
+
+.mido-loading-card {
+  width: min(310px, calc(100vw - 40px));
+  padding: 35px 25px;
+  border-radius: 22px;
+  background: #101a1e;
+  color: #fff;
+  border: 1px solid rgba(255, 209, 59, .28);
+  box-shadow: 0 20px 70px rgba(0,0,0,.35);
+  text-align: center;
+}
+
+.mido-loading-spinner {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 209, 59, .13);
+  border-top-color: #ffd13b;
+  border-right-color: #e3292f;
+  animation: midoSpinner 1s linear infinite;
+}
+
+.mido-loading-card h3 {
+  color: #ffd13b;
+  font-size: 19px;
+  font-weight: 900;
+  margin-bottom: 7px;
+}
+
+.mido-loading-card p {
+  color: #b9c5c9;
+  font-size: 12px;
+}
+
+.mido-loading-dots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  margin-top: 20px;
+}
+
+.mido-loading-dots span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffd13b;
+  animation: midoDot 1s ease-in-out infinite;
+}
+
+.mido-loading-dots span:nth-child(2) {
+  animation-delay: .15s;
+}
+
+.mido-loading-dots span:nth-child(3) {
+  animation-delay: .3s;
+}
+
+@keyframes midoSpinner {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes midoDot {
+  0%, 70%, 100% {
+    opacity: .3;
+    transform: scale(.75);
+  }
+  35% {
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+@keyframes midoLoadingFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* احترام إعداد تقليل الحركة */
+@media (prefers-reduced-motion: reduce) {
+  #app.mido-page-leaving,
+  #app.mido-page-entering {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .mido-loading-spinner,
+  .mido-loading-dots span {
+    animation: none !important;
+  }
+}
+</style>
+
 </head>
 
 
@@ -18707,44 +18914,6 @@ html {
     }
 }
 
-/* عجلة ديكورية للهيرو القديم فقط */
-
-#hero-wrap {
-    position: relative;
-}
-
-#hero-wrap:has(> .hero:not(.mbs-hero-loading))::after {
-    content: "";
-    position: absolute;
-    z-index: 3;
-    pointer-events: none;
-    left: 6%;
-    bottom: 12%;
-    width: clamp(150px, 20vw, 290px);
-    aspect-ratio: 1;
-
-    background:
-        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='92' fill='none' stroke='%23161a1c' stroke-width='16'/%3E%3Ccircle cx='100' cy='100' r='76' fill='none' stroke='%23ffcc38' stroke-width='5'/%3E%3Cpath d='M100 26V174M26 100H174M47.7 47.7L152.3 152.3M152.3 47.7L47.7 152.3' stroke='%23d9dde0' stroke-width='3'/%3E%3Ccircle cx='100' cy='100' r='30' fill='%230b1718' stroke='%23ffcc38' stroke-width='3'/%3E%3Ccircle cx='100' cy='100' r='9' fill='%23ffcc38'/%3E%3C/svg%3E")
-        center / contain no-repeat;
-
-    filter: drop-shadow(0 30px 30px #0009);
-    animation: heroWheel 20s linear infinite;
-}
-
-@keyframes heroWheel {
-    from {
-        transform:
-            perspective(900px)
-            rotateY(-30deg)
-            rotateZ(0);
-    }
-    to {
-        transform:
-            perspective(900px)
-            rotateY(-30deg)
-            rotateZ(360deg);
-    }
-}
 
 /* شريط اختيار الموتوسيكل */
 
@@ -30694,7 +30863,148 @@ html[data-mido-theme="dark"] .mido-user-bell-count {
     transition: none;
   }
 }
+/* ===== PRODUCT COLOR EDITOR ===== */
 
+.mido-color-admin-box{
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  margin:14px 0;
+  background:var(--card, #fff);
+}
+
+.mido-color-admin-top{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.mido-color-selected-list{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-top:12px;
+}
+
+.mido-color-chip{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:7px 10px 7px 7px;
+  background:#fff;
+}
+
+.mido-color-chip-name{
+  font-size:13px;
+  font-weight:700;
+}
+
+.mido-color-chip-remove{
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  font-size:18px;
+  line-height:1;
+  color:#c53030;
+}
+
+.mido-color-swatch{
+  width:24px;
+  height:24px;
+  border-radius:50%;
+  border:2px solid rgba(0,0,0,.12);
+  box-shadow:0 1px 4px rgba(0,0,0,.08);
+  flex:0 0 24px;
+}
+
+.mido-color-picker-row{
+  margin-top:14px;
+}
+
+.mido-color-picker-title{
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:8px;
+  color:var(--muted);
+}
+
+.mido-color-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+
+.mido-color-card{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:2px solid rgba(0,0,0,.12);
+  cursor:pointer;
+  position:relative;
+  transition:.18s ease;
+  box-shadow:0 2px 6px rgba(0,0,0,.08);
+}
+
+.mido-color-card:hover{
+  transform:scale(1.08);
+}
+
+.mido-color-card.active{
+  outline:3px solid #f4c533;
+  outline-offset:2px;
+}
+
+.mido-color-card::after{
+  content:attr(data-name);
+  position:absolute;
+  bottom:-28px;
+  right:50%;
+  transform:translateX(50%);
+  background:#111827;
+  color:#fff;
+  font-size:11px;
+  padding:4px 8px;
+  border-radius:999px;
+  white-space:nowrap;
+  opacity:0;
+  pointer-events:none;
+  transition:.15s ease;
+  z-index:2;
+}
+
+.mido-color-card:hover::after{
+  opacity:1;
+}
+
+.mido-color-more-panel{
+  margin-top:12px;
+  padding:12px;
+  border:1px dashed var(--line);
+  border-radius:12px;
+  background:#fafafa;
+}
+
+.mido-color-custom-row{
+  display:grid;
+  grid-template-columns:1fr 170px auto;
+  gap:10px;
+  margin-top:14px;
+}
+
+.mido-color-empty{
+  color:var(--muted);
+  font-size:13px;
+  padding:10px 0;
+}
+
+@media (max-width: 700px){
+  .mido-color-custom-row{
+    grid-template-columns:1fr;
+  }
+}
 </style>
 
 <div id="header"></div>
@@ -31304,14 +31614,15 @@ function header() {
   const c = state.cart.reduce((s, x) => s + x.quantity, 0);
   const favoriteCount = midoFavoriteCount();
   const brand = brandMarkup('header');
-  const links = [
-    ['/about', 'من نحن', 'About Us'],
-    ['/shop', 'المتجر', 'Store'],
-    ['/contact', 'تواصل معنا', 'Contact Us'],
-    ['/maintenance', 'احجز صيانة', 'Book Service'],
-    ['/builder', 'جهز موتوسيكلَك', 'Build Your Ride'],
-    ['/bundles', 'الباقات', 'Bundles']
-  ];
+const links = [
+  ['/about', 'من نحن', 'About Us'],
+  ['/shop', 'المتجر', 'Store'],
+  ['/bikes', 'الموتوسيكلات', 'Motorcycles for Sale'],
+  ['/contact', 'تواصل معنا', 'Contact Us'],
+  ['/maintenance', 'احجز صيانة', 'Book Service'],
+  ['/builder', 'جهز موتوسيكلَك', 'Build Your Ride'],
+  ['/bundles', 'الباقات', 'Bundles']
+];
 
   const extra = [];
 
@@ -33319,6 +33630,40 @@ return `
                 </div>
             ` : ''}
 
+${Array.isArray(p.color_options) &&
+  p.color_options.length ? `
+
+  <div class="field mido-product-color-field"
+       style="margin:15px 0">
+
+    <label for="mido-product-selected-color">
+      ${txt('اختار اللون', 'Choose a color')} *
+    </label>
+
+    <select
+      id="mido-product-selected-color"
+      class="input"
+      required>
+
+      <option value="">
+        ${txt(
+          'اختار اللون قبل الإضافة للسلة',
+          'Select a color first'
+        )}
+      </option>
+
+      ${p.color_options.map(c => `
+        <option value="${E(c)}">
+          ${E(c)}
+        </option>
+      `).join('')}
+
+    </select>
+
+  </div>
+
+` : ''}
+
             <!-- QUANTITY -->
 
             <div class="flex" style="margin:18px 0">
@@ -33351,8 +33696,9 @@ return `
         '${id}',
         Number($('prod-qty').value),
         'product',
-        true,
-        this
+true,
+this,
+$('mido-product-selected-color')?.value || null
     )">
     ${txt('أضف للسلة', 'Add to cart')}
 </button>
@@ -37653,7 +37999,9 @@ async function syncRemoteCart() {
             quantity: Math.min(
                 99,
                 Math.max(1, Number(x.quantity) || 1)
-            )
+            ),
+              selected_color:
+                x.kind === 'product' ? (x.color || null) : null
         }));
 
         const { data: cart, error: cartError } =
@@ -37843,28 +38191,54 @@ function addCart(
   amount = 1,
   kind = 'product',
   show = true,
-  source = null
+  source = null,
+chosenColor = null
 ) {
   const obj = kind === 'bundle'
     ? by('bundles', id)
     : by('products', id);
 
-  if (!obj || !obj.is_active) {
-    return toast(
-      txt('العنصر غير متاح', 'Item unavailable'),
-      true
-    );
-  }
+
+const availableColors =
+  kind === 'product' && Array.isArray(obj.color_options)
+    ? obj.color_options
+    : [];
+
+const color =
+  kind === 'product'
+    ? String(chosenColor || '').trim()
+    : '';
+
+if (
+  availableColors.length &&
+  !availableColors.includes(color)
+) {
+  toast(
+    'اختار اللون من صفحة المنتج أولاً',
+    true
+  );
+  nav('/product/' + id);
+  return;
+}
+
+if (!availableColors.length && color) {
+  return toast(
+    'اللون غير متاح لهذا المنتج',
+    true
+  );
+}
 
   amount = Math.min(
     99,
     Math.max(1, Number(amount) || 1)
   );
 
-  const line = state.cart.find(
-    x => x.id === id && x.kind === kind
-  );
-
+const line = state.cart.find(
+  x =>
+    x.id === id &&
+    x.kind === kind &&
+    String(x.color || '') === color
+);
   const requestedQuantity =
     Number(line?.quantity || 0) + amount;
 
@@ -37889,7 +38263,13 @@ function addCart(
 
   if (
     kind === 'product' &&
-    qty(id) < requestedQuantity
+   qty(id) <
+state.cart
+  .filter(x => x.kind === 'product' && x.id === id)
+  .reduce(
+    (sum, x) => sum + Number(x.quantity || 0),
+    amount
+  )
   ) {
     return toast(
       txt('الكمية غير متوفرة', 'Quantity unavailable'),
@@ -37900,13 +38280,13 @@ function addCart(
   if (line) {
     line.quantity = requestedQuantity;
   } else {
-    state.cart.push({
-      id,
-      kind,
-      quantity: amount
-    });
+state.cart.push({
+  id,
+  kind,
+  quantity: amount,
+  color: color || null
+});
   }
-
   // Preserve the existing cart storage and syncing
   cartStore();
 
@@ -37919,9 +38299,16 @@ function addCart(
   }
 }
 
-function changeCart(id, kind, delta) {
+
+function changeCart(id, kind, delta, chosenColor = '') {
+  chosenColor = decodeURIComponent(chosenColor);
+
   const item = state.cart.find(
-    x => x.id === id && x.kind === kind
+    x =>
+      x.id === id &&
+      x.kind === kind &&
+      String(x.color || '') ===
+      String(chosenColor || '')
   );
 
   if (!item) return;
@@ -37938,7 +38325,16 @@ function changeCart(id, kind, delta) {
   }
 
   if (next > 0) {
-    if (kind === 'product' && next > qty(id)) {
+    if (
+kind === 'product' &&
+state.cart
+  .filter(x => x.id === id && x.kind === 'product')
+  .reduce(
+    (sum, x) =>
+      sum + (x === item ? next : Number(x.quantity || 0)),
+    0
+  ) > qty(id)
+) {
       return toast(
         txt('الكمية غير متوفرة في المخزون', 'Insufficient stock'),
         true
@@ -37964,11 +38360,21 @@ function changeCart(id, kind, delta) {
   cartStore();
   render();
 }
-function clearCartItem(id, kind) {
-  state.cart = state.cart.filter(x => x.id !== id || x.kind !== kind);
+
+function clearCartItem(id, kind, chosenColor = '') {
+  const color = String(chosenColor || '');
+
+  state.cart = state.cart.filter(x =>
+    !(
+      x.id === id &&
+      x.kind === kind &&
+      String(x.color || '') === color
+    )
+  );
+
   cartStore();
   render();
-  header()
+  header();
 }
 const cartLines = () => state.cart.map(x => ({
   item: x,
@@ -38033,7 +38439,16 @@ function cartPage() {
 
     const available = item.kind === 'bundle'
       ? midoBundleCanSell(ref, item.quantity)
-      : qty(item.id) >= item.quantity;
+      
+: qty(item.id) >= state.cart
+    .filter(x =>
+      x.kind === 'product' &&
+      x.id === item.id
+    )
+    .reduce(
+      (sum, x) => sum + Number(x.quantity || 0),
+      0
+    );
 
     return `
       <article class="mido-cart-item">
@@ -38050,6 +38465,11 @@ function cartPage() {
           </span>
 
           <h3>${E(name)}</h3>
+          ${item.color ? `
+  <p class="small">
+    ${txt('اللون', 'Color')}: ${E(item.color)}
+  </p>
+` : ''}
 
           <strong class="mido-cart-unit-price">
             ${fmt(price)}
@@ -38069,7 +38489,7 @@ function cartPage() {
             <div class="mido-cart-quantity">
               <button type="button"
                 aria-label="${txt('تقليل الكمية', 'Decrease quantity')}"
-                onclick="changeCart('${item.id}','${item.kind}',-1)">
+                onclick="changeCart('${item.id}','${item.kind}',-1,'${encodeURIComponent(item.color || '')}')"
                 −
               </button>
 
@@ -38077,7 +38497,7 @@ function cartPage() {
 
               <button type="button"
                 aria-label="${txt('زيادة الكمية', 'Increase quantity')}"
-                onclick="changeCart('${item.id}','${item.kind}',1)">
+                onclick="changeCart('${item.id}','${item.kind}',1,'${encodeURIComponent(item.color || '')}')"
                 +
               </button>
             </div>
@@ -38088,7 +38508,7 @@ function cartPage() {
 
             <button type="button"
               class="mido-cart-remove"
-              onclick="clearCartItem('${item.id}','${item.kind}')">
+              onclick="clearCartItem('${item.id}','${item.kind}','${E(item.color || '')}')"
               ${icon('trash')}
               <span>${txt('حذف', 'Remove')}</span>
             </button>
@@ -38664,7 +39084,17 @@ async function submitCheckout(form) {
     return (
       item.quantity < 1 ||
       item.quantity > 99 ||
-      item.quantity > qty(item.id)
+      
+state.cart
+  .filter(x =>
+    x.kind === 'product' &&
+    x.id === item.id
+  )
+  .reduce(
+    (sum, x) => sum + Number(x.quantity || 0),
+    0
+  ) > qty(item.id)
+
     );
   });
 
@@ -38685,11 +39115,15 @@ async function submitCheckout(form) {
   for (const [key, value] of f.entries()) address[key] = String(value);
   if (!getShipping(address.governorate_id, address.city_id || null)) return toast(txt('التوصيل غير متاح للعنوان ده', 'Delivery unavailable for that location'), true);
   const body = {
-    items: state.cart.map(x => ({
-      id: x.id,
-      kind: x.kind,
-      quantity: x.quantity
-    })),
+
+items: state.cart.map(x => ({
+  id: x.id,
+  kind: x.kind,
+  quantity: x.quantity,
+  color: x.kind === 'product'
+    ? (x.color || null)
+    : null
+})),
 address,
 builder: state.checkoutBuilder || null
 };
@@ -43803,20 +44237,104 @@ function friendlyError(e) {
   const found = Object.keys(pairs).find(x => s.includes(x));
   return found ? pairs[found] : s.slice(0, 190)
 }
-async function actionBusy(form, fn) {
 
-  const b = form.querySelector('button[type=submit],button:not([type])');
+/* MR MIDO — BEAUTIFUL ACTION LOADING */
+
+let midoActiveOperations = 0;
+let midoLoadingTimer = null;
+
+function midoShowActionLoading() {
+  midoActiveOperations++;
+
+  clearTimeout(midoLoadingTimer);
+
+  // نتجنب ظهور شاشة خاطفة للعمليات السريعة
+  midoLoadingTimer = setTimeout(() => {
+    if (!midoActiveOperations) return;
+
+    if (document.getElementById('mido-action-loading')) {
+      return;
+    }
+
+    const overlay = document.createElement('div');
+    overlay.id = 'mido-action-loading';
+    overlay.setAttribute('role', 'status');
+    overlay.setAttribute('aria-live', 'polite');
+
+    overlay.innerHTML = `
+      <div class="mido-loading-card">
+        <div class="mido-loading-spinner"></div>
+
+        <h3>
+          ${txt('جاري تنفيذ طلبك', 'Processing your request')}
+        </h3>
+
+        <p>
+          ${txt(
+            'بنجهز كل حاجة ليك...',
+            'Preparing everything for you...'
+          )}
+        </p>
+
+        <div class="mido-loading-dots"
+             aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+  }, 220);
+}
+
+function midoHideActionLoading() {
+  midoActiveOperations = Math.max(
+    0,
+    midoActiveOperations - 1
+  );
+
+  if (midoActiveOperations > 0) return;
+
+  clearTimeout(midoLoadingTimer);
+
+  document
+    .getElementById('mido-action-loading')
+    ?.remove();
+}
+
+async function actionBusy(form, fn) {
+  if (form.dataset.midoBusy === '1') return;
+
+  form.dataset.midoBusy = '1';
+
+  const b = form.querySelector(
+    'button[type=submit],button:not([type])'
+  );
+
+  const oldText = b?.textContent || '';
+
   if (b) {
     b.disabled = true;
-    b.dataset.old = b.textContent;
-    b.textContent = txt('جاري التنفيذ...', 'Working...')
+    b.textContent = txt(
+      'جاري التنفيذ...',
+      'Working...'
+    );
   }
+
+  midoShowActionLoading();
+
   try {
-    return await fn()
+    return await fn();
   } finally {
+    midoHideActionLoading();
+
+    delete form.dataset.midoBusy;
+
     if (b) {
       b.disabled = false;
-      b.textContent = b.dataset.old || b.textContent
+      b.textContent = oldText;
     }
   }
 }
@@ -58293,7 +58811,17 @@ function adminDashBuildData() {
   const movements = (get('inventory_movements') || []);
 
   const filteredOrders = orders.filter(x => adminDashInRange(x, range, 'created_at'));
-  const filteredProfiles = profiles.filter(x => adminDashInRange(x, range, 'created_at'));
+  
+const staffIds = new Set(
+  (get('user_roles') || [])
+    .map(x => String(x.user_id))
+);
+
+const filteredProfiles = profiles.filter(x =>
+  !staffIds.has(String(x.id)) &&
+  adminDashInRange(x, range, 'created_at')
+);
+
   const filteredBookings = bookings.filter(x => adminDashInRange(x, range, 'created_at'));
   const filteredMovements = movements.filter(x => adminDashInRange(x, range, 'created_at'));
 
@@ -58324,12 +58852,14 @@ function adminDashBuildData() {
 
   const totalUnits = inventory.reduce((sum, row) => sum + adminDashNum(row.quantity), 0);
 
-  const avgOrder = filteredOrders.length
-    ? filteredOrders.reduce((sum, x) => sum + adminDashNum(x.total), 0) / filteredOrders.length
-    : 0;
 
-  const rangeOrderIds = new Set(filteredOrders.map(x => x.id));
+const avgOrder = deliveredOrders.length
+  ? revenue / deliveredOrders.length
+  : 0;
 
+const rangeOrderIds = new Set(
+  deliveredOrders.map(x => x.id)
+);
   const topMap = {};
 
   orderItems.forEach(item => {
@@ -61334,10 +61864,15 @@ ${s.tab === 'reset' && state.roles.includes('owner') ? `
     disabled>
     تنفيذ إعادة الضبط النهائي
 </button>
-            <small>
-                زر التنفيذ غير مفعّل حاليًا.
-                هذه المرحلة للفحص الآمن فقط.
-            </small>
+
+<small>
+    يتم تفعيل الزر بعد فحص البيانات
+    ومراجعة الصور الخارجية
+    وكتابة تأكيد الحذف النهائي.
+
+    سيتم تفريغ البيانات فقط،
+    مع الاحتفاظ بالجداول وبنية الباك إند.
+</small>
 
         </div>
 
@@ -61367,8 +61902,10 @@ ${s.tab !== 'reset' ? `
    Phase 1: read-only inventory
    ========================================== */
 
+
 let midoResetScanPassed = false;
 let midoResetIsRunning = false;
+let midoResetPreview = null;
 
 function midoResetConfirmChanged() {
     const field = document.getElementById(
@@ -61379,21 +61916,41 @@ function midoResetConfirmChanged() {
         'mido-reset-execute'
     );
 
+    const externalOK = document.getElementById(
+        'mido-reset-external-confirm'
+    );
+
     if (!field || !button) return;
 
     button.disabled = !(
         midoResetScanPassed &&
         !midoResetIsRunning &&
         field.value === 'RESET MY STORE' &&
+        (
+            !midoResetPreview?.external_image_cleanup_required ||
+            externalOK?.checked
+        ) &&
         state.user &&
         state.roles.includes('owner')
     );
 }
+
+function midoResetSafeExternalLink(raw) {
+    try {
+        const url = new URL(String(raw || ''));
+
+        return (
+            url.protocol === 'https:' &&
+            url.hostname === 'ibb.co'
+        ) ? url.href : '';
+
+    } catch (_) {
+        return '';
+    }
+}
+
 async function midoResetScan() {
-    if (
-        !state.user ||
-        !state.roles.includes('owner')
-    ) {
+    if (!state.user || !state.roles.includes('owner')) {
         toast('هذه العملية للمالك فقط', true);
         return;
     }
@@ -61403,67 +61960,185 @@ async function midoResetScan() {
     );
 
     if (!target) return;
+
     midoResetScanPassed = false;
+    midoResetPreview = null;
+
     midoResetConfirmChanged();
 
     target.innerHTML = `
         <p class="muted small">
-            جاري فحص جداول قاعدة البيانات...
+            جاري فحص البيانات والحسابات والصور...
         </p>
     `;
 
     try {
-        const { data, error } = await state.db.rpc(
-            'mido_factory_reset_inventory'
-        );
+        const { data, error } =
+            await state.db.functions.invoke(
+                'mido-factory-reset',
+                {
+                    body: {
+                        action: 'preview'
+                    }
+                }
+            );
 
         if (error) throw error;
-        midoResetScanPassed = true;
-        midoResetConfirmChanged();
 
-        const tables = Array.isArray(data?.tables)
+        if (!data?.success || data.mode !== 'preview_only') {
+            throw new Error(
+                data?.error || 'فشل فحص البيانات'
+            );
+        }
+
+        const tables = Array.isArray(data.tables)
             ? data.tables
             : [];
 
-        const total = tables.reduce(
-            (sum, item) =>
-                sum + Number(item.rows || 0),
+        const total = Number(
+            data.records_to_remove || 0
+        );
+
+        const external = data.external_media || {};
+
+        const images = Array.isArray(
+            data.external_image_cleanup_list
+        )
+            ? data.external_image_cleanup_list
+            : [];
+
+        const storageCount = Object.values(
+            data.storage_objects_by_bucket || {}
+        ).reduce(
+            (sum, count) => sum + Number(count || 0),
             0
         );
 
-        const rowsHTML = tables.map(item => `
+        const tableRows = tables.map(item => `
             <tr>
                 <td>${E(item.table)}</td>
-
-                <td>
-                    ${Number(item.rows || 0)
-                        .toLocaleString('en-US')}
-                </td>
+                <td>${Number(item.rows || 0)}</td>
             </tr>
         `).join('');
+
+        const imageRows = images.map((item, i) => {
+            const deleteLink =
+                midoResetSafeExternalLink(item.delete_url);
+
+            return `
+                <tr>
+                    <td>${i + 1}</td>
+                    <td>${E(String(item.url || ''))}</td>
+                    <td>
+                        ${
+                            deleteLink
+                                ? `<a
+                                    href="${E(deleteLink)}"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    فتح رابط الحذف
+                                   </a>`
+                                : 'رابط حذف غير متوفر'
+                        }
+                    </td>
+                </tr>
+            `;
+        }).join('');
+
+        midoResetPreview = data;
 
         target.innerHTML = `
             <div class="mido-reset-stats">
                 <div>
-                    <small>عدد الجداول المفحوصة</small>
+                    <small>الجداول المستهدفة لتفريغ البيانات</small>
                     <strong>${tables.length}</strong>
                 </div>
 
                 <div>
-                    <small>إجمالي السجلات</small>
-                    <strong>
-                        ${total.toLocaleString('en-US')}
-                    </strong>
+                    <small>السجلات المستهدفة</small>
+                    <strong>${total}</strong>
+                </div>
+
+                <div>
+                    <small>الأعضاء المستهدفون للحذف</small>
+                    <strong>${Number(
+                        data.auth_users_to_remove || 0
+                    )}</strong>
+                </div>
+
+                <div>
+                    <small>ملفات Supabase Storage</small>
+                    <strong>${storageCount}</strong>
                 </div>
             </div>
 
+            <div class="notice" style="margin:15px 0">
+                <strong>
+                    صور ImgBB الخارجية:
+                    ${Number(external.imgbb_images || 0)}
+                </strong>
+
+                <p>
+                    صور لها رابط حذف:
+                    ${Number(external.deletion_links_available || 0)}
+                </p>
+
+                <p>
+                    صور بدون رابط حذف:
+                    ${Number(external.missing_deletion_links || 0)}
+                </p>
+
+                ${
+                    images.length
+                        ? `
+                            <div class="table-wrap"
+                                 style="max-height:280px;overflow:auto;margin-top:12px">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>الصورة</th>
+                                            <th>الحذف</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>${imageRows}</tbody>
+                                </table>
+                            </div>
+                          `
+                        : ''
+                }
+
+                ${
+                    data.external_image_cleanup_required
+                        ? `
+                            <label style="display:flex;gap:10px;margin-top:14px">
+                                <input
+                                    type="checkbox"
+                                    id="mido-reset-external-confirm"
+                                    onchange="midoResetConfirmChanged()"
+                                    style="width:auto;min-height:0">
+
+                                <span>
+                                    راجعت الصور الخارجية وأفهم أن
+                                    بعض صور ImgBB قد تظل مستضافة
+                                    بعد الريست، وأوافق على حذف
+                                    سجلاتها من الموقع.
+                                </span>
+                            </label>
+                          `
+                        : ''
+                }
+            </div>
+
             <p class="muted small">
-                التقرير للمعاينة فقط.
-                ليست كل الجداول المدرجة
-                بالضرورة ضمن نطاق الحذف النهائي.
+                سيتم حذف الصفوف فقط.
+                الجداول والعلاقات وصلاحيات الباك إند
+                ستظل موجودة.
             </p>
 
-            <div class="table-wrap">
+            <div class="table-wrap"
+                 style="max-height:360px;overflow:auto">
+
                 <table class="data-table">
                     <thead>
                         <tr>
@@ -61473,38 +62148,36 @@ async function midoResetScan() {
                     </thead>
 
                     <tbody>
-                        ${rowsHTML || `
-                            <tr>
-                                <td colspan="2">
-                                    لم تظهر جداول في التقرير.
-                                </td>
-                            </tr>
-                        `}
+                        ${tableRows}
                     </tbody>
                 </table>
             </div>
         `;
 
+        midoResetScanPassed = true;
+        midoResetConfirmChanged();
+
     } catch (error) {
-        console.error(
-            'Factory reset inventory:',
-            error
-        );
+        console.error('Reset preview:', error);
+
+        midoResetScanPassed = false;
+        midoResetPreview = null;
 
         target.innerHTML = `
             <div class="notice">
-                تعذر فحص بيانات المتجر.
-                راجع Console وإعداد دالة SQL.
+                تعذر فحص البيانات.
+                لن يتم تفعيل زر الحذف.
             </div>
         `;
 
         toast(friendlyError(error), true);
+        midoResetConfirmChanged();
     }
 }
-
 /* ==========================================
    MR MIDO — FACTORY RESET EXECUTION
    ========================================== */
+
 
 async function midoResetExecute() {
     const field = document.getElementById(
@@ -61515,32 +62188,42 @@ async function midoResetExecute() {
         'mido-reset-execute'
     );
 
+    const externalOK = document.getElementById(
+        'mido-reset-external-confirm'
+    );
+
     if (
         !state.user ||
         !state.roles.includes('owner') ||
         !midoResetScanPassed ||
         midoResetIsRunning ||
-        field?.value !== 'RESET MY STORE'
+        field?.value !== 'RESET MY STORE' ||
+        (
+            midoResetPreview?.external_image_cleanup_required &&
+            !externalOK?.checked
+        )
     ) {
         toast(
-            'يجب فحص البيانات وكتابة التأكيد أولًا',
+            'يجب إكمال الفحص والتأكيد أولًا',
             true
         );
         return;
     }
 
-    const firstConfirmation = window.confirm(
-        'تحذير: سيتم حذف محتوى المتجر المحدد نهائيًا. ' +
-        'لا توجد نسخة احتياطية. هل تريد الاستمرار؟'
+    const confirmed = window.confirm(
+        'تحذير: سيتم حذف بيانات المتجر والأعضاء ' +
+        'غير الأونر وملفات Supabase نهائيًا. ' +
+        'الجداول نفسها ستظل موجودة. ' +
+        'لا توجد نسخة احتياطية. هل تستمر؟'
     );
 
-    if (!firstConfirmation) return;
+    if (!confirmed) return;
 
-    const secondConfirmation = window.prompt(
-        'للتأكيد النهائي، اكتب DELETE FOREVER'
+    const finalText = window.prompt(
+        'للتأكيد النهائي اكتب DELETE FOREVER'
     );
 
-    if (secondConfirmation !== 'DELETE FOREVER') {
+    if (finalText !== 'DELETE FOREVER') {
         toast('تم إلغاء إعادة الضبط');
         return;
     }
@@ -61554,30 +62237,52 @@ async function midoResetExecute() {
     }
 
     try {
-        const { data, error } = await state.db.rpc(
-            'mido_factory_reset_execute',
-            {
-                p_confirmation: 'RESET MY STORE'
-            }
-        );
+        const { data, error } =
+            await state.db.functions.invoke(
+                'mido-factory-reset',
+                {
+                    body: {
+                        action: 'execute',
+
+                        confirmation:
+                            'RESET MY STORE',
+
+                        final_confirmation:
+                            'DELETE FOREVER',
+
+                        external_images_handled:
+                            !midoResetPreview
+                                ?.external_image_cleanup_required ||
+                            !!externalOK?.checked
+                    }
+                }
+            );
 
         if (error) throw error;
 
-        if (!data?.success) {
+        if (
+            !data?.success ||
+            data.partial ||
+            data.issues?.length
+        ) {
             throw new Error(
-                'لم يتم تأكيد نجاح عملية الريست'
+                data?.issues?.join(' | ') ||
+                data?.error ||
+                'لم تكتمل عملية الريست'
             );
         }
 
         toast(
-            'تمت إعادة ضبط ' +
-            data.tables_reset +
-            ' جدول بنجاح'
+            'تم تفريغ بيانات ' +
+            Number(data.database?.tables_reset || 0) +
+            ' جدول، وحذف ' +
+            Number(data.auth_users_deleted || 0) +
+            ' عضو. قد تبقى بعض صور ImgBB الخارجية.'
         );
 
         midoResetScanPassed = false;
+        midoResetPreview = null;
 
-        // إعادة تحميل بيانات الموقع من القاعدة
         window.location.reload();
 
     } catch (error) {
@@ -61586,10 +62291,7 @@ async function midoResetExecute() {
             error
         );
 
-        toast(
-            friendlyError(error),
-            true
-        );
+        toast(friendlyError(error), true);
 
     } finally {
         midoResetIsRunning = false;
@@ -64474,7 +65176,304 @@ function midoFitToggleUniversal() {
   }
 }
 
+/* ===== MIDO PRODUCT COLORS ===== */
 
+const MIDO_BASIC_PRODUCT_COLORS = [
+  { name: 'أسود', hex: '#111111' },
+  { name: 'أبيض', hex: '#F8F8F8' },
+  { name: 'أحمر', hex: '#E53935' },
+  { name: 'أزرق', hex: '#1E88E5' },
+  { name: 'أصفر', hex: '#F4C533' },
+  { name: 'أخضر', hex: '#43A047' },
+  { name: 'رمادي', hex: '#757575' },
+  { name: 'برتقالي', hex: '#FB8C00' }
+];
+
+const MIDO_FULL_PRODUCT_COLOR_LIBRARY = [
+  { name: 'أسود', hex: '#111111' },
+  { name: 'فحمي', hex: '#2D2D2D' },
+  { name: 'رصاصي', hex: '#4B5563' },
+  { name: 'رمادي', hex: '#757575' },
+  { name: 'رمادي فاتح', hex: '#D1D5DB' },
+  { name: 'أبيض', hex: '#F8F8F8' },
+  { name: 'أحمر', hex: '#E53935' },
+  { name: 'أحمر غامق', hex: '#B71C1C' },
+  { name: 'أحمر ناري', hex: '#FF3B30' },
+  { name: 'أزرق', hex: '#1E88E5' },
+  { name: 'أزرق سماوي', hex: '#4FC3F7' },
+  { name: 'أزرق ملكي', hex: '#283593' },
+  { name: 'كحلي', hex: '#1A237E' },
+  { name: 'أصفر', hex: '#F4C533' },
+  { name: 'أصفر ليموني', hex: '#FFEB3B' },
+  { name: 'برتقالي', hex: '#FB8C00' },
+  { name: 'برتقالي محروق', hex: '#EF6C00' },
+  { name: 'أخضر', hex: '#43A047' },
+  { name: 'أخضر فاتح', hex: '#66BB6A' },
+  { name: 'أخضر زيتوني', hex: '#6B8E23' },
+  { name: 'فيروزي', hex: '#26A69A' },
+  { name: 'تركواز', hex: '#00ACC1' },
+  { name: 'بنفسجي', hex: '#8E24AA' },
+  { name: 'موف', hex: '#AB47BC' },
+  { name: 'وردي', hex: '#EC407A' },
+  { name: 'ذهبي', hex: '#D4AF37' },
+  { name: 'فضي', hex: '#C0C0C0' },
+  { name: 'نحاسي', hex: '#B87333' },
+  { name: 'بيج', hex: '#D6C6A8' },
+  { name: 'بني', hex: '#6D4C41' },
+  { name: 'بني غامق', hex: '#4E342E' }
+];
+
+window.midoProductColorState = {
+  selected: [],
+  panelOpen: false
+};
+
+function midoNormalizeHex(hex) {
+  let value = String(hex || '').trim().toUpperCase();
+  if (!value) return '';
+
+  if (!value.startsWith('#')) value = '#' + value;
+
+  if (/^#[0-9A-F]{3}$/i.test(value)) {
+    value = '#' + value.slice(1).split('').map(x => x + x).join('');
+  }
+
+  return /^#[0-9A-F]{6}$/i.test(value) ? value : '';
+}
+
+function midoFindColorByHex(hex) {
+  const normalized = midoNormalizeHex(hex);
+  return MIDO_FULL_PRODUCT_COLOR_LIBRARY.find(
+    x => midoNormalizeHex(x.hex) === normalized
+  ) || null;
+}
+
+function midoFindColorByName(name) {
+  const n = String(name || '').trim();
+  return MIDO_FULL_PRODUCT_COLOR_LIBRARY.find(
+    x => x.name === n
+  ) || null;
+}
+
+function midoParseColorOption(value) {
+  if (!value) return null;
+
+  if (typeof value === 'object') {
+    const name = String(value.name || '').trim();
+    const hex = midoNormalizeHex(value.hex || '');
+    if (!name || !hex) return null;
+    return { name, hex };
+  }
+
+  const raw = String(value).trim();
+  if (!raw) return null;
+
+  if (raw.includes('||')) {
+    const parts = raw.split('||');
+    const name = String(parts[0] || '').trim();
+    const hex = midoNormalizeHex(parts[1] || '');
+    if (!name || !hex) return null;
+    return { name, hex };
+  }
+
+  const byName = midoFindColorByName(raw);
+  if (byName) return { ...byName };
+
+  const byHex = midoFindColorByHex(raw);
+  if (byHex) return { ...byHex };
+
+  return null;
+}
+
+function midoSerializeColorOption(color) {
+  const parsed = midoParseColorOption(color);
+  return parsed ? `${parsed.name}||${parsed.hex}` : '';
+}
+
+function midoUniqueProductColors(list) {
+  const map = new Map();
+
+  (Array.isArray(list) ? list : []).forEach(item => {
+    const parsed = midoParseColorOption(item);
+    if (!parsed) return;
+    map.set(parsed.hex, parsed);
+  });
+
+  return [...map.values()];
+}
+
+function midoProductColorExists(hex) {
+  const normalized = midoNormalizeHex(hex);
+  return window.midoProductColorState.selected.some(
+    x => midoNormalizeHex(x.hex) === normalized
+  );
+}
+
+function midoToggleProductColorsEditor() {
+  const enabled = document.getElementById('mido-colors-enabled')?.checked;
+  const editor = document.getElementById('mido-colors-editor');
+  if (editor) editor.hidden = !enabled;
+}
+
+function midoToggleProductColor(name, hex) {
+  const normalized = midoNormalizeHex(hex);
+  if (!normalized) return;
+
+  const selected = window.midoProductColorState.selected || [];
+  const exists = selected.some(x => midoNormalizeHex(x.hex) === normalized);
+
+  if (exists) {
+    window.midoProductColorState.selected = selected.filter(
+      x => midoNormalizeHex(x.hex) !== normalized
+    );
+  } else {
+    window.midoProductColorState.selected = [
+      ...selected,
+      { name: String(name || '').trim() || normalized, hex: normalized }
+    ];
+  }
+
+  midoRenderProductColorsAdmin();
+}
+
+function midoRemoveSelectedProductColor(hex) {
+  const normalized = midoNormalizeHex(hex);
+  window.midoProductColorState.selected =
+    (window.midoProductColorState.selected || []).filter(
+      x => midoNormalizeHex(x.hex) !== normalized
+    );
+
+  midoRenderProductColorsAdmin();
+}
+
+function midoToggleMoreColorsPanel() {
+  window.midoProductColorState.panelOpen =
+    !window.midoProductColorState.panelOpen;
+
+  midoRenderProductColorsAdmin();
+}
+
+function midoAddCustomProductColor() {
+  const nameInput = document.getElementById('mido-custom-color-name');
+  const hexInput = document.getElementById('mido-custom-color-hex');
+
+  const name = String(nameInput?.value || '').trim();
+  const hex = midoNormalizeHex(hexInput?.value || '');
+
+  if (!name) {
+    return toast('اكتب اسم اللون', true);
+  }
+
+  if (!hex) {
+    return toast('اكتب كود لون صحيح مثل #FF0000', true);
+  }
+
+  if (midoProductColorExists(hex)) {
+    return toast('اللون ده موجود بالفعل', true);
+  }
+
+  window.midoProductColorState.selected.push({ name, hex });
+
+  if (nameInput) nameInput.value = '';
+  if (hexInput) hexInput.value = '';
+
+  midoRenderProductColorsAdmin();
+}
+
+function midoRenderColorCircle(color, active, clickFn) {
+  return `
+    <button
+      type="button"
+      class="mido-color-card ${active ? 'active' : ''}"
+      data-name="${E(color.name)}"
+      title="${E(color.name)} — ${E(color.hex)}"
+      onclick="${clickFn}"
+      style="background:${E(color.hex)}">
+    </button>
+  `;
+}
+
+function midoRenderProductColorsAdmin() {
+  const selectedWrap = document.getElementById('mido-selected-product-colors');
+  const basicWrap = document.getElementById('mido-basic-product-colors');
+  const moreWrap = document.getElementById('mido-more-product-colors');
+  const hiddenInput = document.getElementById('mido-color-options');
+  const morePanel = document.getElementById('mido-more-colors-panel');
+  const toggleBtn = document.getElementById('mido-more-colors-toggle');
+
+  const selected = midoUniqueProductColors(
+    window.midoProductColorState.selected
+  );
+
+  window.midoProductColorState.selected = selected;
+
+  if (hiddenInput) {
+    hiddenInput.value = JSON.stringify(selected);
+  }
+
+  if (selectedWrap) {
+    selectedWrap.innerHTML = selected.length
+      ? selected.map(color => `
+          <div class="mido-color-chip">
+            <span
+              class="mido-color-swatch"
+              style="background:${E(color.hex)}"></span>
+
+            <span class="mido-color-chip-name">
+              ${E(color.name)}
+            </span>
+
+            <button
+              type="button"
+              class="mido-color-chip-remove"
+              title="حذف"
+              onclick="midoRemoveSelectedProductColor('${E(color.hex)}')">
+              ×
+            </button>
+          </div>
+        `).join('')
+      : `<div class="mido-color-empty">لم يتم اختيار ألوان بعد</div>`;
+  }
+
+  if (basicWrap) {
+    basicWrap.innerHTML = MIDO_BASIC_PRODUCT_COLORS.map(color =>
+      midoRenderColorCircle(
+        color,
+        midoProductColorExists(color.hex),
+        `midoToggleProductColor('${E(color.name)}','${E(color.hex)}')`
+      )
+    ).join('');
+  }
+
+  if (moreWrap) {
+    moreWrap.innerHTML = MIDO_FULL_PRODUCT_COLOR_LIBRARY.map(color =>
+      midoRenderColorCircle(
+        color,
+        midoProductColorExists(color.hex),
+        `midoToggleProductColor('${E(color.name)}','${E(color.hex)}')`
+      )
+    ).join('');
+  }
+
+  if (morePanel) {
+    morePanel.hidden = !window.midoProductColorState.panelOpen;
+  }
+
+  if (toggleBtn) {
+    toggleBtn.textContent = window.midoProductColorState.panelOpen
+      ? 'إغلاق قائمة الألوان'
+      : 'إضافة لون';
+  }
+}
+
+function midoInitProductColorsAdmin(initialOptions = []) {
+  window.midoProductColorState = {
+    selected: midoUniqueProductColors(initialOptions),
+    panelOpen: false
+  };
+
+  midoRenderProductColorsAdmin();
+}
 function editSimpleProduct(id) {
   const p = id ? by('products', id) : null;
 
@@ -64689,6 +65688,107 @@ const wholesalePrice = p?.wholesale_price ?? '';
     'Enter the selling price for customers and the wholesale price for internal use.'
   )}
 </p>
+
+<div class="mido-color-admin-box">
+
+  <label class="mido-color-admin-top" style="cursor:pointer">
+    <input
+      type="checkbox"
+      name="has_colors"
+      id="mido-colors-enabled"
+      ${Array.isArray(p?.color_options) && p.color_options.length ? 'checked' : ''}
+      onchange="midoToggleProductColorsEditor()"
+      style="width:auto;min-height:0"
+    >
+
+    <span>
+      ${txt(
+        'المنتج متوفر بألوان يختار منها العميل',
+        'Customer can choose product color'
+      )}
+    </span>
+  </label>
+
+  <div
+    id="mido-colors-editor"
+    ${Array.isArray(p?.color_options) && p.color_options.length ? '' : 'hidden'}
+    style="margin-top:12px">
+
+    <div class="mido-color-picker-row">
+      <div class="mido-color-picker-title">
+        الألوان المختارة
+      </div>
+
+      <div id="mido-selected-product-colors" class="mido-color-selected-list"></div>
+    </div>
+
+    <div class="mido-color-picker-row">
+      <div class="mido-color-picker-title">
+        الألوان الأساسية
+      </div>
+
+      <div id="mido-basic-product-colors" class="mido-color-grid"></div>
+    </div>
+
+    <div class="mido-color-picker-row">
+      <button
+        type="button"
+        class="btn outline"
+        id="mido-more-colors-toggle"
+        onclick="midoToggleMoreColorsPanel()">
+        إضافة لون
+      </button>
+    </div>
+
+    <div id="mido-more-colors-panel" class="mido-color-more-panel" hidden>
+      <div class="mido-color-picker-title">
+        اختار من كل الدرجات
+      </div>
+
+      <div id="mido-more-product-colors" class="mido-color-grid"></div>
+
+      <div class="mido-color-custom-row">
+        <input
+          type="text"
+          id="mido-custom-color-name"
+          class="input"
+          placeholder="اسم اللون - مثال: نبيتي"
+        >
+
+        <input
+          type="text"
+          id="mido-custom-color-hex"
+          class="input"
+          placeholder="#8B0000"
+        >
+
+        <button
+          type="button"
+          class="btn primary"
+          onclick="midoAddCustomProductColor()">
+          إضافة بالكود
+        </button>
+      </div>
+    </div>
+
+    <input
+      type="hidden"
+      name="color_options"
+      id="mido-color-options"
+      value="${E(JSON.stringify(
+        (Array.isArray(p?.color_options) ? p.color_options : [])
+          .map(midoParseColorOption)
+          .filter(Boolean)
+      ))}"
+    >
+
+    <small class="muted" style="display:block;margin-top:10px">
+      اللون هيبقى اختيار إجباري للعميل عند التفعيل.
+      المخزون يفضل مشترك بين كل الألوان.
+    </small>
+  </div>
+</div>
+
 ${midoProductCompatibilityEditor(p)}
       <button type="submit" class="btn primary full">
         ${txt('حفظ ونشر المنتج', 'Save & Publish Product')}
@@ -64696,6 +65796,16 @@ ${midoProductCompatibilityEditor(p)}
 
     </form>
   `);
+
+  // تشغيل دوائر الألوان بعد فتح نافذة المنتج
+  setTimeout(() => {
+    midoInitProductColorsAdmin(
+      Array.isArray(p?.color_options)
+        ? p.color_options
+        : []
+    );
+  }, 0);
+
 }
 
 function midoReadProductCompatibility(form) {
@@ -64897,6 +66007,47 @@ const imageUrl = String(
   form.querySelector('#mido-product-image-url')?.value || ''
 ).trim();
 const oldProduct = id ? by('products', id) : null;
+
+const colorsEnabled =
+  form.querySelector('#mido-colors-enabled')?.checked === true;
+
+let parsedColorOptions = [];
+
+if (colorsEnabled) {
+  try {
+    parsedColorOptions = JSON.parse(
+      String(data.get('color_options') || '[]')
+    );
+  } catch (e) {
+    parsedColorOptions = [];
+  }
+}
+
+parsedColorOptions = midoUniqueProductColors(parsedColorOptions);
+
+if (
+  colorsEnabled &&
+  (
+    !parsedColorOptions.length ||
+    parsedColorOptions.length > 24 ||
+    parsedColorOptions.some(x =>
+      !x.name ||
+      !x.hex ||
+      x.name.length > 50
+    )
+  )
+) {
+  return toast(
+    'اختار من 1 إلى 24 لون، واسم اللون لا يزيد عن 50 حرف',
+    true
+  );
+}
+
+const colorOptions = colorsEnabled
+  ? parsedColorOptions
+      .map(midoSerializeColorOption)
+      .filter(Boolean)
+  : [];
   if (!name || !categoryId) {
     return toast(
       txt('اكتب الاسم واختار التصنيف',
@@ -64945,6 +66096,7 @@ const productData = {
   price: sellingPrice,
   wholesale_price: wholesalePrice,
   compare_at_price: null,
+  color_options: colorOptions,
 universal_fit: compatibility.universal
 };
     let productId = id;
@@ -69387,7 +70539,16 @@ async function openOrderAdmin(id) {
                           ${image
                             ? `<img src="${E(image)}" alt="" loading="lazy">`
                             : ''}
-                          <strong>${E(i.item_name)}</strong>
+                          
+<strong>${E(i.item_name)}</strong>
+
+${i.selected_color ? `
+  <div class="small muted">
+    ${txt('اللون', 'Color')}:
+    ${E(i.selected_color)}
+  </div>
+` : ''}
+
                         </div>
                       </td>
                       <td>${E(i.sku || '—')}</td>
@@ -69710,7 +70871,18 @@ function midoPrintOrder(id, type = 'invoice') {
 
   const rows = items.map(item => `
     <tr>
-      <td>${E(item.item_name || '—')}</td>
+      
+<td>
+  ${E(item.item_name || '—')}
+
+  ${item.selected_color ? `
+    <div class="small">
+      ${txt('اللون', 'Color')}:
+      ${E(item.selected_color)}
+    </div>
+  ` : ''}
+</td>
+
       <td>${E(item.sku || '—')}</td>
       <td>${Number(item.quantity || 0)}</td>
       ${packing ? '' : `
@@ -72000,20 +73172,21 @@ const STAFF_TABLES = [
   'mido_restock_rules',
   'mido_restock_jobs'
 ];
-async function fetchTable(table, limit = 999) {
+async function fetchTable(table, limit = 999, options = {}) {
 
   if (!state.db) return [
   ];
   let accumulated = [
   ];
   let start = 0;
-  const page = 200;
+  const page = 1000;
   while (start < limit) {
 
-    let q = state.db.from(table).select(table === 'products' ? 'id,sku,barcode,name_ar,name_en,slug,description_ar,description_en,category_id,brand_id,price,compare_at_price,is_active,featured,universal_fit,keywords,created_at,updated_at' : '*').range(start, Math.min(start + page - 1, limit - 1));
+    let q = state.db.from(table).select(table === 'products' ? 'id,sku,barcode,name_ar,name_en,slug,description_ar,description_en,category_id,brand_id,price,compare_at_price,is_active,featured,universal_fit,color_options,keywords,created_at,updated_at' : '*').range(start, Math.min(start + page - 1, limit - 1));
     const { data, error } = await q;
     if (error) {
       console.warn('Read denied/unavailable:', table, error.message);
+      if (options.strict) throw error;
       break
     }
     accumulated.push(...(data || [
@@ -72096,7 +73269,8 @@ state.data.garage_installed_products = myGarageInstalls;
       state.cart = get('cart_items').filter(x => x.cart_id === myCart.id).map(x => ({
         id: x.product_id || x.bundle_id,
         kind: x.product_id ? 'product' : 'bundle',
-        quantity: x.quantity
+        quantity: x.quantity,
+color: x.selected_color || null
       }));
       localStorage.setItem('midoCart', JSON.stringify(state.cart))
     }
@@ -72711,6 +73885,206 @@ function midoStartEngagementSync() {
   }, 15000);
 }
 
+/* MR MIDO — LIVE DATA SYNC */
+
+let midoLiveChannel = null;
+let midoLiveInterval = null;
+let midoLiveTimer = null;
+let midoLiveBusy = false;
+let midoLivePending = false;
+
+const MIDO_LIVE_TABLES = [
+  'products',
+  'product_images',
+  'inventory',
+  'orders',
+  'order_items',
+  'service_bookings',
+  'image_requests',
+  'builder_requests',
+  'used_motorcycles',
+  'banners',
+  'banner_slides',
+  'product_reviews',
+  'product_questions',
+  'notifications',
+  'profiles',
+'inventory_movements',
+'services',
+'bundles',
+'bundle_items',
+'categories',
+'available_slots',
+'motorcycle_inquiries'
+];
+
+function midoLiveCanRender() {
+  const el = document.activeElement;
+
+  if (document.querySelector('.overlay')) return false;
+
+  if (
+    el &&
+    el.matches(
+      'input, textarea, select, [contenteditable="true"]'
+    )
+  ) {
+    return false;
+  }
+
+  return true;
+}
+
+async function midoRefreshBackground() {
+  if (!state.db || document.hidden || state.loading) return;
+
+  if (midoLiveBusy) {
+    midoLivePending = true;
+    return;
+  }
+
+  midoLiveBusy = true;
+
+  try {
+    const permitted = new Set([
+      ...PUBLIC_TABLES,
+      ...(state.user ? USER_TABLES : []),
+      ...(state.staff ? STAFF_TABLES : [])
+    ]);
+
+    const tables = MIDO_LIVE_TABLES.filter(
+      name => permitted.has(name)
+    );
+
+    let changed = false;
+
+    for (const table of tables) {
+      const rows = await fetchTable(
+        table,
+        999,
+        { strict: true }
+      );
+
+      const previous = state.data[table] || [];
+
+      if (
+        JSON.stringify(previous) !==
+        JSON.stringify(rows)
+      ) {
+        // الاحتفاظ بأسعار التكلفة المحملة للأونر فقط
+        if (table === 'products' && state.staff) {
+          const oldProducts = new Map(
+            previous.map(p => [p.id, p])
+          );
+
+          for (const product of rows) {
+            const old = oldProducts.get(product.id);
+
+            if (old?.cost_price !== undefined) {
+              product.cost_price = old.cost_price;
+            }
+
+            if (old?.wholesale_price !== undefined) {
+              product.wholesale_price = old.wholesale_price;
+            }
+          }
+        }
+
+        state.data[table] = rows;
+        changed = true;
+      }
+    }
+
+    if (changed) {
+      midoLivePending = true;
+    }
+
+    if (midoLivePending && midoLiveCanRender()) {
+      midoLivePending = false;
+
+      const scrollY = window.scrollY;
+
+      render();
+
+      window.scrollTo(0, scrollY);
+    }
+
+  } catch (error) {
+    console.warn(
+      'Live sync failed:',
+      error?.message || error
+    );
+
+  } finally {
+    midoLiveBusy = false;
+  }
+}
+
+function midoQueueLiveRefresh() {
+  clearTimeout(midoLiveTimer);
+
+  midoLiveTimer = setTimeout(
+    midoRefreshBackground,
+    500
+  );
+}
+
+function midoStartLiveSync() {
+  if (!state.db) return;
+
+  if (midoLiveChannel) {
+    state.db.removeChannel(midoLiveChannel);
+    midoLiveChannel = null;
+  }
+
+  const permitted = new Set([
+    ...PUBLIC_TABLES,
+    ...(state.user ? USER_TABLES : []),
+    ...(state.staff ? STAFF_TABLES : [])
+  ]);
+
+  midoLiveChannel = state.db.channel(
+    'mido-commerce-' + (state.user?.id || 'guest')
+  );
+
+  for (const table of MIDO_LIVE_TABLES) {
+    if (!permitted.has(table)) continue;
+
+    midoLiveChannel.on(
+      'postgres_changes',
+      {
+        event: '*',
+        schema: 'public',
+        table
+      },
+      midoQueueLiveRefresh
+    );
+  }
+
+  midoLiveChannel.subscribe();
+
+  if (!midoLiveInterval) {
+    midoLiveInterval = setInterval(
+      midoRefreshBackground,
+      12000
+    );
+
+    document.addEventListener(
+      'visibilitychange',
+      () => {
+        if (!document.hidden) {
+          midoQueueLiveRefresh();
+        }
+      }
+    );
+
+    document.addEventListener(
+      'focus',
+      midoQueueLiveRefresh
+    );
+  }
+}
+
 function render() {
 
   
@@ -72811,13 +74185,16 @@ else if (key === 'notifications') {
   else if (key === 'reminders') {
       html = garagePage();
   }
-  else if (
-      key === 'articles' ||
-      key === 'article' ||
-      key === 'faq'
-  ) {
-      html = notFound();
-  }
+
+else if (key === 'articles') {
+  html = articlesPage();
+}
+else if (key === 'article') {
+  html = articlePage(seg[1]);
+}
+else if (key === 'faq') {
+  html = faqPage();
+}
 
 else if (key === 'about') {
   html = aboutPage();
@@ -73472,182 +74849,100 @@ document.addEventListener('click', event => {
 
 /* ===== FIX WEBSITE NAVIGATION ===== */
 
+/* MR MIDO — SMOOTH PAGE NAVIGATION */
+
+let midoPageTransitionTimer = null;
+
 window.addEventListener('hashchange', () => {
   closeModal();
 
-  // Re-render page when URL changes
-  render();
+  clearTimeout(midoPageTransitionTimer);
 
-  // Scroll to top
-  window.scrollTo({
-    top: 0,
-    behavior: 'instant'
-  });
-});
+  const app = document.getElementById('app');
 
-/* =====================================
-   MR MIDO MOTORS — WEB PUSH REGISTRATION
-   ===================================== */
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAOceRCZUqctxZy0PqORMZKI0-Vj38hMpg",
-  authDomain: "mr-mido-motors-96867.firebaseapp.com",
-  projectId: "mr-mido-motors-96867",
-  storageBucket: "mr-mido-motors-96867.firebasestorage.app",
-  messagingSenderId: "571234651086",
-  appId: "1:571234651086:web:2741523e5730f85dcef99f",
-  measurementId: "G-RR7VNCNJWX"
-};
-const MIDO_FIREBASE_VAPID_KEY =
-  'YOUR_PUBLIC_VAPID_KEY';
-
-let midoMessaging = null;
-
-function midoPushSupported() {
-  return (
-    window.isSecureContext &&
-    'serviceWorker' in navigator &&
-    'Notification' in window &&
-    'PushManager' in window &&
-    !!window.firebase?.messaging
-  );
-}
-
-function midoFirebaseMessaging() {
-  if (!midoMessaging) {
-    if (!firebase.apps.length) {
-      firebase.initializeApp(MIDO_FIREBASE_CONFIG);
-    }
-
-    midoMessaging = firebase.messaging();
-  }
-
-  return midoMessaging;
-}
-
-async function midoEnablePush() {
-  const userId = state.user?.id;
-
-  if (!userId || !state.db) {
-    toast('سجل دخول لحسابك أولًا', true);
+  if (!app) {
+    render();
     return;
   }
 
-  if (!midoPushSupported()) {
-    toast('إشعارات الموبايل غير مدعومة في طريقة فتح الموقع الحالية', true);
-    return;
-  }
+  const reducedMotion = window.matchMedia(
+    '(prefers-reduced-motion: reduce)'
+  ).matches;
 
-  if (
-    MIDO_FIREBASE_CONFIG.apiKey.startsWith('YOUR_') ||
-    MIDO_FIREBASE_VAPID_KEY.startsWith('YOUR_')
-  ) {
-    toast('لازم تضيف إعدادات Firebase الأول', true);
-    return;
-  }
-
-  try {
-    const permission = await Notification.requestPermission();
-
-    if (permission !== 'granted') {
-      toast('لازم تسمح للموقع بإرسال الإشعارات', true);
-      return;
-    }
-
-    const registration = await navigator.serviceWorker.register(
-      '/firebase-messaging-sw.js',
-      { scope: '/' }
+  const finishNavigation = () => {
+    app.classList.remove(
+      'mido-page-leaving',
+      'mido-page-entering'
     );
 
-    const messaging = midoFirebaseMessaging();
+    render();
 
-    const token = await messaging.getToken({
-      vapidKey: MIDO_FIREBASE_VAPID_KEY,
-      serviceWorkerRegistration: registration
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant'
     });
 
-    if (!token) {
-      throw new Error('لم يتم الحصول على رمز الجهاز');
+    if (!reducedMotion) {
+      void app.offsetWidth;
+      app.classList.add('mido-page-entering');
     }
+  };
 
-    if (state.user?.id !== userId) {
-      throw new Error('تم تغيير الحساب أثناء التسجيل');
-    }
-
-    const { error } = await state.db
-      .from('mido_push_devices')
-      .upsert(
-        {
-          user_id: userId,
-          token,
-          updated_at: new Date().toISOString()
-        },
-        { onConflict: 'token' }
-      );
-
-    if (error) throw error;
-
-    // Device registration is separate from notification preferences.
-    toast('تم تفعيل تسجيل إشعارات الجهاز بنجاح');
-
-  } catch (error) {
-    console.error('Mido Push Error:', error);
-
-    toast(
-      'تعذر تسجيل إشعارات الجهاز، راجع إعدادات Firebase',
-      true
-    );
+  if (reducedMotion) {
+    finishNavigation();
+    return;
   }
-}
+
+  app.classList.remove('mido-page-entering');
+  app.classList.add('mido-page-leaving');
+
+  midoPageTransitionTimer = setTimeout(
+    finishNavigation,
+    130
+  );
+});
+
+
+/* =====================================
+   MR MIDO MOTORS — IN-WEBSITE NOTIFICATIONS
+   ===================================== */
 
 async function midoNotificationSettings() {
   if (!state.user || !state.db) return;
 
-  const {data,error} = await state.db
+  const { data, error } = await state.db
     .from('notification_preferences')
-    .select('*')
-    .eq('user_id',state.user.id)
+    .select('store_updates')
+    .eq('user_id', state.user.id)
     .maybeSingle();
 
   if (error) {
-    toast(friendlyError(error),true);
+    toast(friendlyError(error), true);
     return;
   }
 
   openModal(`
     <div class="mido-notif-settings">
       <h2>إعدادات الإشعارات</h2>
+
       <p class="muted small">
-        اختار التنبيهات اللي تحب تستقبلها.
+        اختار التنبيهات اللي تحب تشوفها داخل الموقع.
       </p>
 
       <form onsubmit="event.preventDefault();midoSaveNotificationSettings(this)">
-
         <label class="mido-notif-setting">
           <span>
             <strong>تحديثات المنتجات والخدمات</strong>
-            <small>منتجات وباقات وخدمات جديدة وتغييرات الأسعار</small>
+            <small>
+              منتجات وباقات وخدمات جديدة وتغييرات الأسعار
+            </small>
           </span>
-          <input type="checkbox" name="store_updates"
-            ${data?.store_updates !== false ? 'checked' : ''}>
-        </label>
 
-        <label class="mido-notif-setting">
-          <span>
-            <strong>Push لتحديثات المتجر</strong>
-            <small>إشعارات تسويقية على الموبايل</small>
-          </span>
-          <input type="checkbox" name="push_store_updates"
-            ${data?.push_store_updates ? 'checked' : ''}>
-        </label>
-
-        <label class="mido-notif-setting">
-          <span>
-            <strong>Push للطلبات والحساب</strong>
-            <small>حالة الطلبات والحجوزات وردود الإدارة</small>
-          </span>
-          <input type="checkbox" name="push_account_updates"
-            ${data?.push_account_updates ? 'checked' : ''}>
+          <input
+            type="checkbox"
+            name="store_updates"
+            ${data?.store_updates !== false ? 'checked' : ''}
+          >
         </label>
 
         <button class="btn primary full" type="submit">
@@ -73655,19 +74950,8 @@ async function midoNotificationSettings() {
         </button>
       </form>
 
-<div style="margin-top:16px">
-  <button
-    type="button"
-    class="btn primary full"
-    onclick="midoEnablePush()">
-    ${icon('bell')}
-    ${txt('تفعيل إشعارات الموبايل', 'Enable Mobile Notifications')}
-  </button>
-</div>
-
       <p class="muted small" style="margin-top:12px">
-        حفظ التفضيلات لا يمنح إذن الإشعارات للنظام تلقائيًا.
-        يجب تفعيل إشعارات الجهاز بشكل منفصل.
+        الإشعارات هتظهر داخل الموقع فقط، في جرس الإشعارات.
       </p>
     </div>
   `);
@@ -73678,18 +74962,18 @@ async function midoSaveNotificationSettings(form) {
 
   const f = new FormData(form);
 
-  const {error} = await state.db
+  const { error } = await state.db
     .from('notification_preferences')
     .upsert({
       user_id: state.user.id,
       store_updates: f.has('store_updates'),
-      push_store_updates: f.has('push_store_updates'),
-      push_account_updates: f.has('push_account_updates'),
       updated_at: new Date().toISOString()
-    },{onConflict:'user_id'});
+    }, {
+      onConflict: 'user_id'
+    });
 
   if (error) {
-    toast(friendlyError(error),true);
+    toast(friendlyError(error), true);
     return;
   }
 
@@ -73701,9 +74985,11 @@ async function boot() {
     render();
 
     if (!window.supabase) {
-        state.loading = false;
 
-        render();
+state.loading = false;
+
+render();
+midoStartLiveSync();
 
         toast(
             txt(
@@ -73784,6 +75070,7 @@ if (state.user) {
 }
 
                     render();
+                    midoStartLiveSync();
 
                 }, 0);
             }
