@@ -31005,6 +31005,14 @@ html[data-mido-theme="dark"] .mido-user-bell-count {
     grid-template-columns:1fr;
   }
 }
+.promo-banner img {
+    opacity: 0.65;
+}
+
+.promo-banner > div {
+    position: relative;
+    z-index: 2;
+}
 </style>
 
 <div id="header"></div>
@@ -31026,7 +31034,7 @@ CONFIG.heroFallback = 'data:image/webp;base64,UklGRsqpAABXRUJQVlA4IL6pAABQGgWdAS
 const MEDIA = {
 
   hero: 'https://images.unsplash.com/photo-1558981285-6f0c94958bb6?auto=format&fit=crop&w=2400&q=92',
-  garage: 'https://images.unsplash.com/photo-1558980394-0c14f965b8d9?auto=format&fit=crop&w=700&q=80',
+  garage: 'https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1200&q=85',
   helmet: 'https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&w=600&q=80',
   oil: 'https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=600&q=80',
   wheel: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=600&q=80',
@@ -51557,7 +51565,7 @@ function mbsBuiltinDefinitions(page) {
                 'صور ومواصفات وحالة الموتوسيكل في صفحة واحدة.',
             button: 'تصفح الموتوسيكلات',
             target: '/bikes',
-            image: ''
+            image: MEDIA.hero
         },
         {
             code: 'builtin:home-diagnosis',
@@ -51569,7 +51577,7 @@ function mbsBuiltinDefinitions(page) {
                 'جاوب على أسئلة بسيطة وخد إرشاد للصيانة المناسبة.',
             button: 'ابدأ الفحص',
             target: '/problem',
-            image: ''
+            image: MEDIA.hero
         }
     ];
 
@@ -51658,63 +51666,82 @@ function mbsBuiltinFallback(code) {
         `;
     }
 
-    if (code === 'builtin:home-bikes') {
-        return `
-            <div class="promo-banner">
-                <div>
-                    <h2>
-                        ${txt(
-                            'موتوسيكلات للبيع',
-                            'Motorcycles for sale'
-                        )}
-                    </h2>
-                    <p>
-                        ${txt(
-                            'صور ومواصفات وحالة الموتوسيكل في صفحة واحدة.',
-                            'Browse motorcycle listings.'
-                        )}
-                    </p>
-                    <a href="#/bikes"
-                        class="btn primary sm">
-                        ${txt(
-                            'تصفح الموتوسيكلات',
-                            'Browse bikes'
-                        )}
-                    </a>
-                </div>
-            </div>
-        `;
-    }
 
-    if (code === 'builtin:home-diagnosis') {
-        return `
-            <div class="promo-banner">
-                <div>
-                    <h2>
-                        ${txt(
-                            'موتوسيكلَك فيه مشكلة؟',
-                            'Bike not running right?'
-                        )}
-                    </h2>
-                    <p>
-                        ${txt(
-                            'جاوب على أسئلة بسيطة وخد إرشاد للصيانة المناسبة.',
-                            'Get a guided service recommendation.'
-                        )}
-                    </p>
-                    <a href="#/problem"
-                        class="btn primary sm">
-                        ${txt(
-                            'ابدأ الفحص',
-                            'Start guide'
-                        )}
-                    </a>
-                </div>
-            </div>
-        `;
-    }
+if (code === 'builtin:home-bikes') {
+    return `
+        <div class="promo-banner">
+            <img
+                src="${E(MEDIA.hero)}"
+                loading="lazy"
+                alt="موتوسيكلات للبيع"
+            >
 
-    return '';
+            <div>
+                <h2>
+                    ${txt(
+                        'موتوسيكلات للبيع',
+                        'Motorcycles for sale'
+                    )}
+                </h2>
+
+                <p>
+                    ${txt(
+                        'صور ومواصفات وحالة الموتوسيكل في صفحة واحدة.',
+                        'Browse motorcycle listings.'
+                    )}
+                </p>
+
+                <a href="#/bikes"
+                   class="btn primary sm">
+                    ${txt(
+                        'تصفح الموتوسيكلات',
+                        'Browse bikes'
+                    )}
+                </a>
+            </div>
+        </div>
+    `;
+}
+
+if (code === 'builtin:home-diagnosis') {
+    return `
+        <div class="promo-banner">
+
+<img
+    src="${E(MEDIA.garage)}"
+    loading="lazy"
+    alt="فحص وصيانة الموتوسيكلات"
+    onerror="this.onerror=null;this.src='${E(MEDIA.hero)}';"
+>
+
+            <div>
+                <h2>
+                    ${txt(
+                        'موتوسيكلَك فيه مشكلة؟',
+                        'Bike not running right?'
+                    )}
+                </h2>
+
+                <p>
+                    ${txt(
+                        'جاوب على أسئلة بسيطة وخد إرشاد للصيانة المناسبة.',
+                        'Get a guided service recommendation.'
+                    )}
+                </p>
+
+                <a href="#/problem"
+                   class="btn primary sm">
+                    ${txt(
+                        'ابدأ الفحص',
+                        'Start guide'
+                    )}
+                </a>
+            </div>
+        </div>
+    `;
+}
+
+return '';
 }
 
 
